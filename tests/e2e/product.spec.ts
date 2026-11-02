@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 async function nav(page: Page, name: string) {
   await expect(
-    page.getByRole("button", { name: "True Beauty home" }),
+    page.getByRole("button", { name: /True Beauty.*home/i }),
   ).toBeVisible();
   const menu = page.getByRole("button", {
     name: "Open navigation",
@@ -54,7 +54,7 @@ test("no-login mirror applies shades, presets and comparison without image reque
     await page.locator("#mobile-look-preset").selectOption("berry");
   } else {
     await page
-      .locator(".preset-item")
+      .locator(".look-object")
       .filter({ hasText: "After hours" })
       .click();
   }

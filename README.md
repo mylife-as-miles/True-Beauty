@@ -62,3 +62,9 @@ Actual source-derived algorithms and shaders from OpenMakeupSDK, Virtual Makeup,
 ## Continue engineering
 
 Read `AGENTS.md`, `cook/BRIEF.md`, the latest two entries in `cook/ROUNDS.md`, `cook/SCORECARD.md` and `docs/REMAINING_WORK.md`. Preserve tested work and reproduce the weakest unresolved gate before changing it. Do not replace genuine provider failure with a mock result or promote planned capabilities to complete.
+
+## Immersive editing
+
+The Living Mirror now has six rendered look studies, undo/redo, selected-face context lenses, full-portrait/fill framing and creative studio lighting. “Enhance detail” selects actual WebGL materials; Balanced mode uses approximate reflections on software graphics. These are cosmetic previews, not calibrated physical shade matches. Skin Lab continues to sample the original image.
+
+Use the Focus mirror button, or F while an editor control has focus; Escape leaves focus after closing any open dialog. Ctrl/Command Z undoes parameter edits. The visual canvas supports pointer/touch panning, keyboard movement, fit/reset and contextual palettes/products that modify or reopen the same scene. Reference study and current verification are in [DESIGN_RESEARCH](docs/DESIGN_RESEARCH.md), [CANVAS_UX_ROUND05](docs/CANVAS_UX_ROUND05.md) and [QUALITY_REPORT](docs/QUALITY_REPORT.md).

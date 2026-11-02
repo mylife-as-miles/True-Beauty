@@ -13,7 +13,9 @@ test("agent changes real mirror controls and saves a persistent editable look", 
   page,
 }, testInfo) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Your beauty companion" }).click();
+  await page
+    .getByRole("button", { name: "Your beauty companion", exact: true })
+    .click();
   const dialog = page.getByRole("dialog", { name: "Your beauty agent" });
   await expect(
     dialog.getByText("Local assistant", { exact: true }),
@@ -25,7 +27,9 @@ test("agent changes real mirror controls and saves a persistent editable look", 
   ).toBeVisible();
   await dialog.getByRole("button", { name: "Close dialog" }).click();
   await expect(page.getByLabel("Custom makeup colour")).toHaveValue("#792c48");
-  await page.getByRole("button", { name: "Your beauty companion" }).click();
+  await page
+    .getByRole("button", { name: "Your beauty companion", exact: true })
+    .click();
   await dialog
     .getByLabel("Your beauty request")
     .fill("Save this look as Berry memory");
@@ -58,7 +62,9 @@ test("wedding plan allocates one combined NGN budget with source-labelled releva
   page,
 }, testInfo) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Your beauty companion" }).click();
+  await page
+    .getByRole("button", { name: "Your beauty companion", exact: true })
+    .click();
   const agent = page.getByRole("dialog", { name: "Your beauty agent" });
   await agent
     .getByRole("button", { name: "Soft glam for a wedding, dry skin, ₦20,000" })
@@ -117,7 +123,9 @@ test("consented BeautyGraph preference can be corrected, used, and completely fo
     path: `cook/stills/r01/beautygraph-${testInfo.project.name === "mobile" ? "mobile" : "desktop"}.png`,
   });
   await settings.getByRole("button", { name: "Close dialog" }).click();
-  await page.getByRole("button", { name: "Your beauty companion" }).click();
+  await page
+    .getByRole("button", { name: "Your beauty companion", exact: true })
+    .click();
   const agent = page.getByRole("dialog", { name: "Your beauty agent" });
   await agent.getByLabel("Your beauty request").fill("Apply soft glam");
   await agent.getByRole("button", { name: "Send request" }).click();

@@ -9,6 +9,12 @@ import {
   ScanFace,
   ShieldCheck,
   Trash2,
+  Minus,
+  Plus,
+  RotateCcw,
+  Droplets,
+  Eye,
+  Scissors,
 } from "lucide-react";
 import {
   createVision,
@@ -23,6 +29,7 @@ import {
   compareSkinResults,
   type ImageQuality,
   type SkinAnalysisResult,
+  type AppearanceSample,
 } from "../../../../packages/skin-engine/src";
 import {
   buildRoutine,
@@ -79,6 +86,17 @@ const concernLabel = (s: string) =>
     "dark spots": "Dark spots",
     "fine lines": "Fine lines",
   })[s] ?? s;
+type ColourRegion = "skin" | "hair" | "eye";
+const regionLabels: Record<ColourRegion, string> = {
+  skin: "Skin",
+  hair: "Hair",
+  eye: "Eyes",
+};
+const regionExplanation: Record<ColourRegion, string> = {
+  skin: "A blend of small cheek and forehead samples. Makeup, light and your camera all change this colour.",
+  hair: "A colour sampled inside the detected hair area. Fine strands, reflections and mixed lighting can change the reading.",
+  eye: "A small sample around the iris, away from the pupil. Eyes occupy very few pixels; your own correction matters.",
+};
 export default function SkinLab() {
   const notify = useApp((s) => s.notify),
     setSpace = useApp((s) => s.setSpace),
@@ -116,6 +134,13 @@ export default function SkinLab() {
     [corrected, setCorrected] = useState(false),
     [showMap, setShowMap] = useState(false),
     [vision, setVision] = useState<VisionSnapshot | null>(null);
+  const [focusedRegion, setFocusedRegion] = useState<ColourRegion | null>(null);
+  const [portraitZoom, setPortraitZoom] = useState(1);
+  const [sampleMeta, setSampleMeta] = useState<AppearanceSample | null>(null);
+  const [swatchOrigins, setSwatchOrigins] = useState<
+    Record<ColourRegion, "example" | "photo" | "manual">
+  >({ skin: "example", hair: "example", eye: "example" });
+  const [frameSize, setFrameSize] = useState({ width: 1, height: 1 });
   const [skinType, setSkinType] = useState("Not specified"),
     [concerns, setConcerns] = useState<string[]>([]),
     [budget, setBudget] = useState(20000),
@@ -138,6 +163,7 @@ export default function SkinLab() {
     [comparison, setComparison] = useState<string[]>([]);
   const imageRef = useRef<HTMLImageElement | null>(null),
     canvasRef = useRef<HTMLCanvasElement>(null),
+    portraitFrameRef = useRef<HTMLDivElement>(null),
     fileRef = useRef<HTMLInputElement>(null),
     pipelineRef = useRef<VisionEngine | null>(null),
     videoRef = useRef<HTMLVideoElement>(null),
@@ -145,9 +171,137 @@ export default function SkinLab() {
     sourceEpochRef = useRef(0),
     inspectionIdRef = useRef(0);
   const appearance = useMemo(
-    () => (sampled ? analyzeAppearance(swatches) : null),
-    [sampled, swatches],
+    () =>
+      sampled
+        ? analyzeAppearance({
+            skin: swatches.skin,
+            ...(swatchOrigins.hair !== "example"
+              ? { hair: swatches.hair }
+              : {}),
+            ...(swatchOrigins.eye !== "example" ? { eye: swatches.eye } : {}),
+          })
+        : null,
+    [sampled, swatches, swatchOrigins],
   );
+  useEffect(() => {
+    const frame = portraitFrameRef.current;
+    if (!frame) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setFrameSize({
+        width: entry.contentRect.width,
+        height: entry.contentRect.height,
+      });
+    });
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
+  const portraitLayout = useMemo(() => {
+    const width = canvasRef.current?.width || 1,
+      height = canvasRef.current?.height || 1;
+    const scale = Math.max(frameSize.width / width, frameSize.height / height);
+    return {
+      width: width * scale,
+      height: height * scale,
+      left: (frameSize.width - width * scale) / 2,
+      top: (frameSize.height - height * scale) / 2,
+    };
+  }, [frameSize, quality]);
+  const regionPoints = useMemo(() => {
+    const points: Partial<Record<ColourRegion, { x: number; y: number }>> = {};
+    if (!vision?.landmarks.length) return points;
+    const skin = vision.landmarks[50];
+    if (skin) points.skin = skin;
+    const left = vision.landmarks[468],
+      right = vision.landmarks[473];
+    if (left && right) points.eye = { x: left.x, y: left.y };
+    const mask = vision.hairMask;
+    if (mask && sampleMeta?.hair) {
+      let xTotal = 0,
+        yTotal = 0,
+        n = 0;
+      for (let y = 0; y < mask.height; y += 3)
+        for (let x = 0; x < mask.width; x += 3) {
+          if (mask.data[y * mask.width + x] > 0.8) {
+            xTotal += x;
+            yTotal += y;
+            n++;
+          }
+        }
+      if (n)
+        points.hair = {
+          x: xTotal / n / mask.width,
+          y: yTotal / n / mask.height,
+        };
+    }
+    return Object.fromEntries(
+      Object.entries(points).map(([key, p]) => [
+        key,
+        {
+          x:
+            (p.x * portraitLayout.width + portraitLayout.left) /
+            frameSize.width,
+          y:
+            (p.y * portraitLayout.height + portraitLayout.top) /
+            frameSize.height,
+        },
+      ]),
+    ) as Partial<Record<ColourRegion, { x: number; y: number }>>;
+  }, [vision, sampleMeta, portraitLayout, frameSize]);
+  const currentFocus = focusedRegion ? regionPoints[focusedRegion] : undefined;
+  const panX = currentFocus
+    ? Math.max(
+        (-frameSize.width * (portraitZoom - 1)) / 2,
+        Math.min(
+          (frameSize.width * (portraitZoom - 1)) / 2,
+          (0.5 - currentFocus.x) * frameSize.width * portraitZoom,
+        ),
+      )
+    : 0;
+  const panY = currentFocus
+    ? Math.max(
+        (-frameSize.height * (portraitZoom - 1)) / 2,
+        Math.min(
+          (frameSize.height * (portraitZoom - 1)) / 2,
+          (0.5 - currentFocus.y) * frameSize.height * portraitZoom,
+        ),
+      )
+    : 0;
+  const focusRegion = (region: ColourRegion) => {
+    if (!regionPoints[region]) return;
+    setFocusedRegion(region);
+    setShowMap(true);
+    setPortraitZoom(region === "eye" ? 2.4 : region === "hair" ? 1.6 : 1.8);
+    const epoch = sourceEpochRef.current;
+    // Wait for the selected pose and its contextual content to commit. Scrolling
+    // the whole portrait before commit can leave the actual feature above the
+    // viewport when the control rail sits below a tall or sticky portrait.
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        if (!aliveRef.current || epoch !== sourceEpochRef.current) return;
+        const marker = portraitFrameRef.current?.querySelector<HTMLElement>(
+          `[data-colour-region="${region}"] .skin-lens-ring`,
+        );
+        if (!marker) return;
+        const rect = marker.getBoundingClientRect();
+        const viewport = window.visualViewport;
+        const top = (viewport?.offsetTop ?? 0) + 48;
+        const bottom =
+          (viewport?.offsetTop ?? 0) +
+          (viewport?.height ?? window.innerHeight) -
+          48;
+        // Keep context stable when the selected feature is already visible.
+        if (rect.top >= top && rect.bottom <= bottom) return;
+        marker.scrollIntoView({
+          block: "center",
+          inline: "nearest",
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "auto"
+            : "smooth",
+        });
+      }),
+    );
+  };
   useEffect(() => {
     if (profile) {
       setSkinType(profile.skinType);
@@ -179,6 +333,10 @@ export default function SkinLab() {
     inspectionIdRef.current++;
     setBusy(false);
     setShowMap(false);
+    setPortraitZoom(1);
+    setFocusedRegion(null);
+    setSampleMeta(null);
+    setSwatchOrigins({ skin: "example", hair: "example", eye: "example" });
     setSwatches({ skin: "#bc9279", hair: "#342721", eye: "#604435" });
     const oldCanvas = canvasRef.current;
     oldCanvas
@@ -249,28 +407,6 @@ export default function SkinLab() {
       active = false;
     };
   }, [sourceUrl]);
-  useEffect(() => {
-    const c = canvasRef.current,
-      img = imageRef.current;
-    if (!c || !img) return;
-    const ctx = c.getContext("2d");
-    if (!ctx) return;
-    ctx.drawImage(img, 0, 0, c.width, c.height);
-    if (showMap && vision?.landmarks.length) {
-      ctx.save();
-      ctx.strokeStyle = "#fff5e8";
-      ctx.lineWidth = 1.5;
-      ctx.fillStyle = "rgba(126,151,125,.16)";
-      for (const i of [50, 280, 151]) {
-        const p = vision.landmarks[i];
-        ctx.beginPath();
-        ctx.arc(p.x * c.width, p.y * c.height, c.width * 0.035, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-  }, [showMap, vision]);
   const inspectLocal = async () => {
     const img = imageRef.current;
     if (!img || !pipelineRef.current) return;
@@ -318,6 +454,13 @@ export default function SkinLab() {
         throw new Error(
           "No clear face region was found. Use a close, front-facing portrait or choose your swatches manually.",
         );
+      setSampleMeta(sample);
+      setSwatchOrigins({
+        skin: "photo",
+        hair: sample.hair ? "photo" : "example",
+        eye: sample.eye ? "photo" : "example",
+      });
+      setFocusedRegion("skin");
       setSwatches({
         skin: sample.skin,
         hair: sample.hair ?? swatches.hair,
@@ -606,12 +749,56 @@ export default function SkinLab() {
       </SectionTitle>
       <div className="skin-layout">
         <section className="skin-portrait-pane" aria-label="Skin portrait">
-          <div className="skin-portrait">
-            <canvas
-              ref={canvasRef}
-              data-portrait-source={sourceUrl}
-              aria-label="Your portrait; local sampling regions can be shown"
-            />
+          <div
+            className="skin-portrait"
+            ref={portraitFrameRef}
+            data-focused-region={focusedRegion ?? "full"}
+            data-zoom={portraitZoom.toFixed(1)}
+          >
+            <div
+              className="skin-portrait-view"
+              style={{
+                transform: `translate(${panX}px, ${panY}px) scale(${portraitZoom})`,
+              }}
+            >
+              <canvas
+                ref={canvasRef}
+                data-portrait-source={sourceUrl}
+                aria-label="Your portrait; local sampling regions can be shown"
+                style={{
+                  width: portraitLayout.width,
+                  height: portraitLayout.height,
+                  left: portraitLayout.left,
+                  top: portraitLayout.top,
+                }}
+              />
+              {showMap &&
+                (["skin", "hair", "eye"] as const).map((region) => {
+                  const point = regionPoints[region];
+                  if (!point) return null;
+                  return (
+                    <button
+                      key={region}
+                      data-colour-region={region}
+                      className={`skin-region-lens ${focusedRegion === region ? "selected" : ""}`}
+                      style={{
+                        left: `${point.x * 100}%`,
+                        top: `${point.y * 100}%`,
+                        transform: `translate(-50%, -50%) scale(${1 / portraitZoom})`,
+                      }}
+                      aria-label={`Focus ${regionLabels[region].toLowerCase()} region`}
+                      aria-pressed={focusedRegion === region}
+                      onClick={() => focusRegion(region)}
+                    >
+                      <span className="skin-lens-ring" />
+                      <span>
+                        {regionLabels[region]}
+                        <Plus size={11} />
+                      </span>
+                    </button>
+                  );
+                })}
+            </div>
             {camera && (
               <div className="skin-camera">
                 <video ref={videoRef} playsInline muted autoPlay />
@@ -643,6 +830,94 @@ export default function SkinLab() {
               {showMap ? "Hide regions" : "Show regions"}
             </button>
           </div>
+          <div
+            className="skin-zoom-controls"
+            aria-label="Portrait zoom controls"
+          >
+            <button
+              aria-label="Zoom out of portrait"
+              disabled={portraitZoom <= 1}
+              onClick={() => setPortraitZoom((z) => Math.max(1, z - 0.2))}
+            >
+              <Minus size={15} />
+            </button>
+            <output aria-label="Portrait zoom">
+              {Math.round(portraitZoom * 100)}%
+            </output>
+            <button
+              aria-label="Zoom into portrait"
+              disabled={portraitZoom >= 3}
+              onClick={() => setPortraitZoom((z) => Math.min(3, z + 0.2))}
+            >
+              <Plus size={15} />
+            </button>
+            <button
+              className="skin-reset"
+              onClick={() => {
+                setPortraitZoom(1);
+                setFocusedRegion(null);
+              }}
+            >
+              <RotateCcw size={13} />
+              Reset view
+            </button>
+          </div>
+          <div
+            className="skin-region-rail"
+            role="group"
+            aria-label="Explore portrait regions"
+          >
+            <span>Look closer</span>
+            {(["skin", "hair", "eye"] as const).map((region) => (
+              <button
+                key={region}
+                aria-label={`Explore ${regionLabels[region].toLowerCase()} colour`}
+                aria-pressed={focusedRegion === region}
+                disabled={!regionPoints[region]}
+                onClick={() => focusRegion(region)}
+              >
+                {region === "skin" ? (
+                  <Droplets size={14} />
+                ) : region === "hair" ? (
+                  <Scissors size={14} />
+                ) : (
+                  <Eye size={14} />
+                )}{" "}
+                {regionLabels[region]}
+              </button>
+            ))}
+          </div>
+          {focusedRegion && regionPoints[focusedRegion] && (
+            <div className="skin-region-reading" aria-live="polite">
+              <span
+                className="skin-reading-swatch"
+                style={{ backgroundColor: swatches[focusedRegion] }}
+              />
+              <div>
+                <div>
+                  <strong>{regionLabels[focusedRegion]} colour</strong>
+                  <span>
+                    {swatchOrigins[focusedRegion] === "manual"
+                      ? "Your correction"
+                      : swatchOrigins[focusedRegion] === "photo"
+                        ? "From your portrait"
+                        : "Choose your swatch"}
+                  </span>
+                </div>
+                <p>{regionExplanation[focusedRegion]}</p>
+                <button
+                  className="text-action"
+                  onClick={() =>
+                    document
+                      .getElementById(`skin-swatch-${focusedRegion}`)
+                      ?.click()
+                  }
+                >
+                  Correct this colour <ArrowUpRight size={12} />
+                </button>
+              </div>
+            </div>
+          )}
           <div className="skin-source">
             <button onClick={() => void openCamera()} disabled={cameraOpening}>
               <Camera size={16} />
@@ -719,8 +994,9 @@ export default function SkinLab() {
                   like you.
                 </h2>
                 <p>
-                  Explore the colours in your portrait. Your light, your camera,
-                  your preferences all matter.
+                  Your skin, hair and eyes tell a colour story. Read your
+                  portrait, explore each detail, then take a shade into your
+                  mirror.
                 </p>
               </div>
               <button
@@ -738,16 +1014,30 @@ export default function SkinLab() {
               <p role="status" className="skin-status">
                 {status}
               </p>
+              {vision?.landmarks.length ? (
+                <button
+                  className="text-action skin-explore-link"
+                  onClick={() => focusRegion(focusedRegion ?? "skin")}
+                >
+                  <ScanFace size={14} />
+                  Explore the colour regions <ArrowUpRight size={13} />
+                </button>
+              ) : null}
               <div className="skin-swatch-inputs">
                 {(["skin", "hair", "eye"] as const).map((type) => (
                   <label key={type}>
                     <input
                       type="color"
+                      id={`skin-swatch-${type}`}
                       aria-label={`Correct ${type} colour`}
                       value={swatches[type]}
                       onChange={(e) => {
                         inspectionIdRef.current++;
                         setBusy(false);
+                        setSwatchOrigins((previous) => ({
+                          ...previous,
+                          [type]: "manual",
+                        }));
                         setSwatches({ ...swatches, [type]: e.target.value });
                         setSampled(true);
                         setCorrected(true);
@@ -782,25 +1072,37 @@ export default function SkinLab() {
                       never a rule.
                     </p>
                   </div>
+                  <p className="skin-palette-invitation">
+                    Choose a shade to try it on your lips in the mirror{" "}
+                    <ArrowUpRight size={14} />
+                  </p>
                   <div className="skin-palette-colours">
                     {appearance.palette.map((c) => (
                       <button
                         key={c.hex}
-                        style={{ backgroundColor: c.hex }}
                         aria-label={`Try ${c.name} in your mirror`}
                         title={c.name}
                         onClick={() => {
-                          useApp
-                            .getState()
-                            .patchLayer("lipstick", {
-                              color: c.hex,
-                              enabled: true,
-                            });
+                          useApp.getState().patchLayer("lipstick", {
+                            color: c.hex,
+                            enabled: true,
+                          });
+                          useApp.getState().setFocusLayer("lipstick");
+                          useApp.getState().setStudioMode("makeup");
                           notify(
-                            `${c.name} applied to the mirror. Preview colours are an artistic interpretation.`,
+                            `${c.name} on your lips. Adjust the finish and intensity to make it yours.`,
                           );
                         }}
-                      />
+                      >
+                        <span
+                          className="skin-palette-chip"
+                          style={{ backgroundColor: c.hex }}
+                        />
+                        <span className="skin-shade-name">
+                          {c.name}
+                          <ArrowUpRight size={11} />
+                        </span>
+                      </button>
                     ))}
                   </div>
                   <div className="skin-confidence">
@@ -813,9 +1115,11 @@ export default function SkinLab() {
                     </strong>
                   </div>
                   <p className="skin-note">
-                    This is a rule-based styling heuristic adapted from MIROIR.
-                    Confidence is not a validated probability. No clinical skin
-                    type or phototype is inferred.
+                    A styling suggestion for this photograph. Lighting and
+                    makeup affect the reading; your preferences come first.
+                    Confidence is a rough styling guide, not a validated
+                    accuracy score. No clinical skin type or phototype is
+                    inferred.
                   </p>
                   <details>
                     <summary>What informed this palette?</summary>

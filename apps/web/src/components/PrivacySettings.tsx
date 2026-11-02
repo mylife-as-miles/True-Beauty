@@ -720,6 +720,14 @@ export function PrivacySettings() {
                                 createDefaultLook(),
                                 "Your signature look",
                               );
+                            useApp.getState().clearEditHistory();
+                            useApp.getState().setMirrorView({
+                              mirrorFocused: false,
+                              mirrorFraming: "cover",
+                              mirrorZoom: 1,
+                              mirrorCompare: false,
+                              mirrorSplit: 0.5,
+                            });
                             useApp.getState().setAgentOpen(false);
                             useApp.getState().setSpace("studio");
                             await initializeDatabase();

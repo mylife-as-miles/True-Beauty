@@ -80,7 +80,7 @@ export default function LookComparison({ looks }: { looks: SavedLook[] }) {
       <p className="fine-print">
         The colour comparison uses one photographic subject and identical
         framing. Cosmetics, lighting, displays and skin texture affect how a
-        look appears. Reflective finishes require hardware WebGL2.
+        look appears. Reflective finishes are approximated; detail varies by preview mode.
       </p>
     </>
   );

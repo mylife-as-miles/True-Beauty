@@ -19,7 +19,7 @@ export type Space =
   | "journal"
   | "intelligence"
   | "canvas";
-export type StudioMode = "makeup" | "hair" | "style";
+export type StudioMode = "makeup" | "hair" | "style" | "light";
 export type SourceMode = "demo" | "camera" | "upload";
 export interface ToastMessage {
   id: string;

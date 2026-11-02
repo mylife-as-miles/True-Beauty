@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 async function goSkin(page: Page) {
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   if (
     await page
@@ -187,7 +187,10 @@ test("a camera permission result arriving after leaving Skin Lab stops its live 
     // Retain the IDL wrapper while model allocation runs. A weakly-held WebKit
     // media wrapper can otherwise lose a per-instance fixture override.
     const mediaDevices = navigator.mediaDevices;
-    Object.assign(window, { __skinCameraTest: state, __skinCameraDevices: mediaDevices });
+    Object.assign(window, {
+      __skinCameraTest: state,
+      __skinCameraDevices: mediaDevices,
+    });
     Object.defineProperty(mediaDevices, "getUserMedia", {
       configurable: true,
       writable: true,
@@ -244,13 +247,12 @@ test("a camera permission result arriving after leaving Skin Lab stops its live 
   ).toBeVisible();
 });
 
-
 test("Skin Lab preserves a USD profile and never relabels its budget as NGN", async ({
   page,
 }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   const settings = async () => {
     const profile = page.getByRole("button", {
@@ -424,11 +426,9 @@ test("portrait selection continues from mirror to Skin Lab and a Skin upload ret
 }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
-  await page
-    .getByRole("button", { name: "Choose a demo portrait", exact: true })
-    .click();
+  await page.getByRole("button", { name: /Choose a demo portrait/ }).click();
   await page
     .getByRole("button", { name: "Soft portrait", exact: true })
     .click();

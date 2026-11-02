@@ -79,3 +79,14 @@ Read-only page fetches returned HTTP 200 for all six inspiration sources on 2026
 ## Evidence still needed
 
 No source application was browser-run in this research pass. Reference screenshot/recording study remains unverified. True Beauty visuals require real screenshot review at desktop/tablet/phone and material/AR alignment inspection. Camera/gesture realism, complexion coverage and low-light behavior require actual camera/fixture and device evidence; source reading alone proves none of these.
+
+## Round05 — explicit renewed reference study
+
+Re-read Proofline's `src/components/reader/Lens.tsx` selection anchoring, coarse-pointer docking and contextual actions, plus Common Table's `src/components/ImmersiveMap.tsx` pointer capture/coordinate navigation and `src/components/MenuBook.tsx` tactile/reduced-motion controls at the same pinned commits. No reference code or assets were copied. Independently authored beauty adaptations:
+
+- The Living Mirror's selected facial region opens a bounded lens with its real pigment, current finish/strength and an action into that exact editor layer. Named region controls remain the non-precision equivalent.
+- Skin Lab anchors explorable colour regions to actual sampling geometry. The displayed lens zoom changes presentation while the analysis canvas remains original; iris marker alignment is tested against returned landmarks.
+- Look previews share the existing portrait geometry instead of becoming six independent inference loops. Editor state, framing, comparison and zoom persist while moving among beauty spaces.
+- The visual canvas adds spatial navigation and contextual object actions. Palette→mirror and product→discovery handoffs carry structured actual scene data, rather than navigation alone.
+
+True Beauty browser evidence is in `cook/stills/r05*`; source-app runtime/screenshot comparison is still not claimed. Exact source/license boundaries above remain unchanged. See `docs/UX_ROUND05.md`, `docs/SKIN_UX_ROUND05.md`, `docs/IMMERSIVE_RENDERING.md` and the canvas report for executed implementation evidence.

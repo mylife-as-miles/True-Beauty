@@ -2,6 +2,16 @@ import { FRAGMENT_SHADER, VERTEX_SHADER } from "../../shader-library/src";
 import { createDefaultLook, type MakeupLook } from "../../makeup-engine/src";
 import { FaceMaskAtlas, MASK_ORDER } from "./masks";
 import {
+  normalizeLighting,
+  lightingGrade,
+  lightingVector,
+  type LightingSettings,
+} from "./lighting";
+import { makeFaceSurface, type FaceSurface } from "./surface";
+import { drawCanvasFinish } from "./finishes";
+import { applyPigments } from "./pigment";
+export * from "./lighting";
+import {
   faceMetrics,
   hexRgb,
   maskBounds,
@@ -24,6 +34,7 @@ export interface RenderFrame {
   compare?: number | null;
   beforeAfter?: number | null;
   time?: number;
+  lighting?: LightingSettings;
   hands?: ReadonlyArray<{
     landmarks: readonly Landmark[];
     confidence?: number;
@@ -39,9 +50,8 @@ const sourceSize = (source: CanvasImageSource): [number, number] => {
 };
 /** Source-space shared makeup renderer. No model inference or image transmission occurs here. */
 export class BeautyRenderer {
-  readonly mode: "webgl2" | "canvas2d";
   fallbackReason?: string;
-  readonly gpuRenderer?: string;
+  gpuRenderer?: string;
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   private gpu: HTMLCanvasElement;
@@ -63,10 +73,6 @@ export class BeautyRenderer {
   private lastHands: RenderFrame["hands"];
   private maskRequestVersion = 0;
   private maskRevision = 0;
-  private fallbackCache = new Map<
-    string,
-    { key: string; canvas: HTMLCanvasElement }
-  >();
   private fallbackHair: {
     mask: HairMask | null;
     key: string;
@@ -75,6 +81,24 @@ export class BeautyRenderer {
   private texturesDirty = true;
   private contextLost = false;
   private disposed = false;
+  private qualityMode: "adaptive" | "high" = "adaptive";
+  private requestedMaxSide = 960;
+  private pigmentCanvas = document.createElement("canvas");
+  private pigmentSource: CanvasImageSource | null = null;
+  private pigmentSourceMedia: unknown = null;
+  private pigmentKey = "";
+  private pigmentVideoTime = -1;
+  private rasterMasks = new Map<number, { key: string; data: ImageData }>();
+  private rasterCanvas = document.createElement("canvas");
+  private finishCache = new Map<
+    string,
+    { key: string; canvas: HTMLCanvasElement }
+  >();
+  private gradedCanvas = document.createElement("canvas");
+  private gradedSource: CanvasImageSource | null = null;
+  private gradedKey = "";
+  private gradedTime = -1;
+  private gradedMediaSource: unknown = null;
   constructor(
     canvas: HTMLCanvasElement,
     private readonly options: {
@@ -102,6 +126,12 @@ export class BeautyRenderer {
     this.occlusionCanvas.height = 1;
     this.gpu.addEventListener("webglcontextlost", this.onLost);
     this.gpu.addEventListener("webglcontextrestored", this.onRestored);
+    this.requestedMaxSide = this.options.maxSide ?? 960;
+    this.configureGraphics(this.options.forceWebGL === true);
+  }
+  private configureGraphics(forceWebGL: boolean) {
+    this.contextLost = false;
+    this.fallbackReason = undefined;
     try {
       this.gl = this.options.forceCanvas
         ? null
@@ -117,11 +147,11 @@ export class BeautyRenderer {
           ? String(this.gl.getParameter(info.UNMASKED_RENDERER_WEBGL))
           : String(this.gl.getParameter(this.gl.RENDERER));
         if (
-          !this.options.forceWebGL &&
+          !forceWebGL &&
           /swiftshader|llvmpipe|software/i.test(this.gpuRenderer)
         ) {
           this.fallbackReason =
-            "Software GPU detected; using responsive Canvas2D preview. Gloss and glitter require hardware WebGL2.";
+            "Light approximation: Canvas previews use geometric sheen and stable pigment flecks. Choose Shader studio for per-pixel materials.";
           this.gl.getExtension("WEBGL_lose_context")?.loseContext();
           this.gl = null;
         } else this.initialize();
@@ -131,8 +161,66 @@ export class BeautyRenderer {
         error instanceof Error ? error.message : "WebGL initialization failed";
       this.gl = null;
     }
-    this.mode = this.gl ? "webgl2" : "canvas2d";
   }
+  private releaseGraphics() {
+    this.gpu.removeEventListener("webglcontextlost", this.onLost);
+    this.gpu.removeEventListener("webglcontextrestored", this.onRestored);
+    if (this.gl) {
+      this.textures.forEach((t) => this.gl!.deleteTexture(t));
+      if (this.program) this.gl.deleteProgram(this.program);
+      if (this.buffer) this.gl.deleteBuffer(this.buffer);
+      this.gl.getExtension("WEBGL_lose_context")?.loseContext();
+    }
+    this.gl = null;
+    this.program = null;
+    this.buffer = null;
+    this.textures = [];
+    this.uniforms.clear();
+    this.gpu.width = 1;
+    this.gpu.height = 1;
+  }
+  /** Explicit high mode can use software WebGL at a bounded preview resolution. */
+  setQuality(quality: "adaptive" | "high") {
+    if (this.disposed) throw new Error("Mirror renderer has been disposed.");
+    if (quality !== "adaptive" && quality !== "high")
+      throw new Error("Unknown renderer quality.");
+    if (quality === this.qualityMode && !this.contextLost)
+      return this.activeMode;
+    this.qualityMode = quality;
+    this.releaseGraphics();
+    this.gpu = document.createElement("canvas");
+    this.gpu.addEventListener("webglcontextlost", this.onLost);
+    this.gpu.addEventListener("webglcontextrestored", this.onRestored);
+    this.configureGraphics(
+      quality === "high" || this.options.forceWebGL === true,
+    );
+    return this.activeMode;
+  }
+  setResolution(maxSide: number) {
+    if (!Number.isFinite(maxSide))
+      throw new Error("Preview resolution must be finite.");
+    this.requestedMaxSide = Math.round(Math.max(320, Math.min(1920, maxSide)));
+  }
+  get quality() {
+    return this.qualityMode;
+  }
+  get mode() {
+    return this.activeMode;
+  }
+  get renderResolution() {
+    return {
+      width: this.canvas.width,
+      height: this.canvas.height,
+      maxSide: this.effectiveMaxSide,
+    };
+  }
+  private get effectiveMaxSide() {
+    return this.qualityMode === "high" &&
+      /swiftshader|llvmpipe|software/i.test(this.gpuRenderer ?? "")
+      ? Math.min(640, this.requestedMaxSide)
+      : this.requestedMaxSide;
+  }
+
   private onLost = (event: Event) => {
     event.preventDefault();
     this.contextLost = true;
@@ -208,6 +296,111 @@ export class BeautyRenderer {
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       gl.uniform1i(this.uniform(name), i);
     });
+  }
+  private setMaterialUniforms(
+    surface: FaceSurface | null,
+    lighting: LightingSettings,
+  ) {
+    const gl = this.gl!,
+      vector = lightingVector(lighting),
+      rotation = surface?.rotation ?? 0,
+      c = Math.cos(rotation),
+      s = Math.sin(rotation),
+      grade = lightingGrade(lighting);
+    gl.uniformMatrix2fv(
+      this.uniform("uFaceBasis"),
+      false,
+      surface?.basis ?? [1, 0, 0, 1],
+    );
+    gl.uniform4fv(
+      this.uniform("uLipData"),
+      surface?.lip ?? [0, 0.5, 0.2, 0.06],
+    );
+    gl.uniform4fv(
+      this.uniform("uLipBands"),
+      surface?.lipBands ?? [0.47, 0.53, 0.025, 0.025],
+    );
+    gl.uniform4fv(
+      this.uniform("uEyeData"),
+      surface?.eyes ?? [-0.25, 0, 0.25, 0],
+    );
+    gl.uniform2fv(this.uniform("uHeadTilt"), surface?.headTilt ?? [0, 0]);
+    gl.uniform3f(
+      this.uniform("uLightDirection"),
+      vector[0] * c + vector[1] * s,
+      -vector[0] * s + vector[1] * c,
+      vector[2],
+    );
+    gl.uniform2f(
+      this.uniform("uImageLightDirection"),
+      lighting.direction.x,
+      lighting.direction.y,
+    );
+    gl.uniform3fv(this.uniform("uGradeTint"), grade.tint);
+    gl.uniform1f(this.uniform("uGradeAmount"), grade.amount);
+    gl.uniform1f(
+      this.uniform("uLightStrength"),
+      0.35 + 0.65 * lighting.intensity,
+    );
+    gl.uniform3fv(
+      this.uniform("uSpecularColor"),
+      lighting.preset === "golden-hour"
+        ? [1, 0.9, 0.75]
+        : lighting.preset === "moonlight"
+          ? [0.82, 0.89, 1]
+          : [1, 0.98, 0.94],
+    );
+  }
+  private getGradedSource(
+    source: CanvasImageSource,
+    width: number,
+    height: number,
+    lighting: LightingSettings,
+  ): CanvasImageSource {
+    const grade = lightingGrade(lighting);
+    if (grade.amount === 0) return source;
+    const mediaSource =
+      source instanceof HTMLImageElement
+        ? source.currentSrc || source.src
+        : "srcObject" in source
+          ? source.srcObject
+          : null;
+    const key = JSON.stringify(lighting) + `:${width}x${height}`,
+      videoTime = "currentTime" in source ? Number(source.currentTime) : -1;
+    const immutable =
+      source instanceof HTMLImageElement ||
+      (typeof ImageBitmap !== "undefined" && source instanceof ImageBitmap);
+    if (
+      this.gradedSource === source &&
+      this.gradedMediaSource === mediaSource &&
+      this.gradedKey === key &&
+      (immutable || (videoTime >= 0 && this.gradedTime === videoTime))
+    )
+      return this.gradedCanvas;
+    const canvas = this.gradedCanvas;
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+    ctx.drawImage(source, 0, 0, width, height);
+    const image = ctx.getImageData(0, 0, width, height),
+      data = image.data;
+    const rgb = grade.tint.map((n) => 1 + (n - 1) * grade.amount),
+      dx = -lighting.direction.x * 0.12 * grade.amount,
+      dy = -lighting.direction.y * 0.12 * grade.amount;
+    for (let y = 0; y < height; y++)
+      for (let x = 0; x < width; x++) {
+        const i = (y * width + x) * 4,
+          gain = 1 + (x / width - 0.5) * dx + (y / height - 0.5) * dy;
+        data[i] *= rgb[0] * gain;
+        data[i + 1] *= rgb[1] * gain;
+        data[i + 2] *= rgb[2] * gain;
+      }
+    ctx.putImageData(image, 0, 0);
+    this.gradedSource = source;
+    this.gradedKey = key;
+    this.gradedTime = videoTime;
+    this.gradedMediaSource = mediaSource;
+    return canvas;
   }
   private upload(index: number, source: TexImageSource) {
     const gl = this.gl!;
@@ -320,7 +513,7 @@ export class BeautyRenderer {
     if (!sourceWidth || !sourceHeight) return;
     const scale = Math.min(
       1,
-      (this.options.maxSide ?? 960) / Math.max(sourceWidth, sourceHeight),
+      this.effectiveMaxSide / Math.max(sourceWidth, sourceHeight),
     );
     const width = Math.round(sourceWidth * scale),
       height = Math.round(sourceHeight * scale);
@@ -338,6 +531,19 @@ export class BeautyRenderer {
     const points = frame.landmarks || [];
     const look = frame.look || createDefaultLook();
     const hasFace = validFace(points);
+    const surface = makeFaceSurface(points, sourceWidth, sourceHeight),
+      lighting = normalizeLighting(frame.lighting);
+    if (
+      this.gradedSource &&
+      (this.gradedSource !== frame.source ||
+        lightingGrade(lighting).amount === 0)
+    ) {
+      this.gradedCanvas.width = 1;
+      this.gradedCanvas.height = 1;
+      this.gradedSource = null;
+      this.gradedMediaSource = null;
+      this.gradedKey = "";
+    }
     const masksChanged = this.atlas.update(
       points,
       sourceWidth,
@@ -404,6 +610,7 @@ export class BeautyRenderer {
           metrics?.height || 0.5,
         );
         gl.uniform1f(this.uniform("uReshape"), hasFace ? look.reshape : 0);
+        this.setMaterialUniforms(surface, lighting);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
         this.ctx.globalCompositeOperation = "source-over";
         this.ctx.drawImage(this.gpu, 0, 0, width, height);
@@ -411,9 +618,9 @@ export class BeautyRenderer {
         this.fallbackReason =
           error instanceof Error ? error.message : "WebGL frame failed";
         this.contextLost = true;
-        this.drawFallback(frame, look, hasFace, compare);
+        this.drawFallback(frame, look, hasFace, compare, surface, lighting);
       }
-    } else this.drawFallback(frame, look, hasFace, compare);
+    } else this.drawFallback(frame, look, hasFace, compare, surface, lighting);
     if (hasFace)
       this.drawAccessories(points, look, width, height, compare, frame.source);
     if (frame.hands?.length) {
@@ -424,16 +631,125 @@ export class BeautyRenderer {
       const d = c.getContext("2d")!;
       d.globalCompositeOperation = "source-over";
       d.drawImage(frame.source, 0, 0, c.width, c.height);
+      if (lightingGrade(lighting).amount > 0) {
+        d.save();
+        if (compare >= 0) {
+          d.beginPath();
+          d.rect(compare * c.width, 0, (1 - compare) * c.width, c.height);
+          d.clip();
+        }
+        d.drawImage(
+          this.getGradedSource(frame.source, width, height, lighting),
+          0,
+          0,
+          c.width,
+          c.height,
+        );
+        d.restore();
+      }
       d.globalCompositeOperation = "destination-in";
       d.drawImage(mask, 0, 0);
       this.ctx.drawImage(c, 0, 0, width, height);
     }
+  }
+  private getPigmentSource(
+    frame: RenderFrame,
+    look: MakeupLook,
+    source: CanvasImageSource,
+    w: number,
+    h: number,
+  ): HTMLCanvasElement {
+    const media =
+      frame.source instanceof HTMLImageElement
+        ? frame.source.currentSrc || frame.source.src
+        : "srcObject" in frame.source
+          ? frame.source.srcObject
+          : null;
+    const time =
+        "currentTime" in frame.source ? Number(frame.source.currentTime) : -1,
+      immutable =
+        frame.source instanceof HTMLImageElement ||
+        (typeof ImageBitmap !== "undefined" &&
+          frame.source instanceof ImageBitmap);
+    const key = `${this.maskRevision}-${w}x${h}-${JSON.stringify(frame.lighting)}-${JSON.stringify(MASK_ORDER.map((name) => look[name]))}`;
+    if (
+      this.pigmentSource === frame.source &&
+      this.pigmentSourceMedia === media &&
+      this.pigmentKey === key &&
+      (immutable || (time >= 0 && this.pigmentVideoTime === time))
+    )
+      return this.pigmentCanvas;
+    const c = this.pigmentCanvas;
+    c.width = w;
+    c.height = h;
+    const ctx = c.getContext("2d", { willReadFrequently: true })!;
+    ctx.drawImage(source, 0, 0, w, h);
+    const points = frame.landmarks!;
+    let minX = 1,
+      minY = 1,
+      maxX = 0,
+      maxY = 0;
+    for (const p of points) {
+      minX = Math.min(minX, p.x);
+      maxX = Math.max(maxX, p.x);
+      minY = Math.min(minY, p.y);
+      maxY = Math.max(maxY, p.y);
+    }
+    const x = Math.max(0, Math.floor((minX - 0.025) * w)),
+      y = Math.max(0, Math.floor((minY - 0.025) * h)),
+      width = Math.max(1, Math.min(w - x, Math.ceil((maxX + 0.025) * w) - x)),
+      height = Math.max(1, Math.min(h - y, Math.ceil((maxY + 0.025) * h) - y));
+    const image = ctx.getImageData(x, y, width, height),
+      data = image.data;
+    const layers = MASK_ORDER.map((name, index) => ({
+      name,
+      index,
+      layer: look[name],
+    }))
+      .filter((l) => l.layer.enabled && l.layer.opacity > 0)
+      .map(({ index, layer }) => {
+        const atlas = Math.floor(index / 3),
+          maskKey = `${this.maskRevision}-${w}x${h}-${x},${y},${width},${height}`;
+        let mask = this.rasterMasks.get(atlas);
+        if (!mask || mask.key !== maskKey) {
+          const c = this.rasterCanvas;
+          c.width = w;
+          c.height = h;
+          const d = c.getContext("2d", { willReadFrequently: true })!;
+          d.drawImage(this.atlas.atlases[atlas], 0, 0, w, h);
+          mask = { key: maskKey, data: d.getImageData(x, y, width, height) };
+          this.rasterMasks.set(atlas, mask);
+        }
+        const rgb = hexRgb(layer.color),
+          p = Math.max(
+            0.12,
+            rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722,
+          );
+        return {
+          index,
+          opacity: layer.opacity,
+          matte: layer.finish === "matte",
+          rgb,
+          pigmentScale: 1 / Math.sqrt(p + 0.08),
+          mask: mask.data.data,
+          channel: index % 3,
+        };
+      });
+    applyPigments(data, layers);
+    ctx.putImageData(image, x, y);
+    this.pigmentSource = frame.source;
+    this.pigmentSourceMedia = media;
+    this.pigmentVideoTime = time;
+    this.pigmentKey = key;
+    return c;
   }
   private drawFallback(
     frame: RenderFrame,
     look: MakeupLook,
     hasFace: boolean,
     compare: number,
+    surface: FaceSurface | null,
+    lighting: LightingSettings,
   ) {
     const ctx = this.ctx,
       w = this.canvas.width,
@@ -446,34 +762,46 @@ export class BeautyRenderer {
       ctx.rect(compare * w, 0, (1 - compare) * w, h);
       ctx.clip();
     }
-
+    const base =
+      lightingGrade(lighting).amount > 0
+        ? this.getGradedSource(frame.source, w, h, lighting)
+        : frame.source;
+    if (hasFace)
+      ctx.drawImage(this.getPigmentSource(frame, look, base, w, h), 0, 0, w, h);
+    else {
+      ctx.drawImage(base, 0, 0, w, h);
+      this.pigmentCanvas.width = 1;
+      this.pigmentCanvas.height = 1;
+      this.pigmentSource = null;
+    }
     MASK_ORDER.forEach((name, i) => {
       const l = look[name];
-      if (!hasFace || !l.enabled || l.opacity <= 0) return;
-      const key = `${this.maskRevision}-${l.color}`;
-      let cached = this.fallbackCache.get(name);
-      if (!cached || cached.key !== key) {
-        const c = cached?.canvas || document.createElement("canvas");
-        c.width = this.atlas.atlases[0].width;
-        c.height = this.atlas.atlases[0].height;
-        const d = c.getContext("2d")!;
-        d.drawImage(this.atlas.layerMasks[i], 0, 0);
-        d.globalCompositeOperation = "source-in";
-        d.fillStyle = l.color;
-        d.fillRect(0, 0, c.width, c.height);
-        cached = { key, canvas: c };
-        this.fallbackCache.set(name, cached);
+      if (
+        !hasFace ||
+        !surface ||
+        !l.enabled ||
+        l.opacity <= 0 ||
+        l.finish === "matte"
+      )
+        return;
+      const key = `${this.maskRevision}-${l.finish}-${JSON.stringify(lighting)}`;
+      let finish = this.finishCache.get(name);
+      if (!finish || finish.key !== key) {
+        const canvas = finish?.canvas || document.createElement("canvas");
+        drawCanvasFinish(
+          canvas,
+          this.atlas.layerMasks[i],
+          l,
+          name,
+          surface,
+          lighting,
+        );
+        finish = { key, canvas };
+        this.finishCache.set(name, finish);
       }
-      ctx.globalCompositeOperation = [
-        "eyeliner",
-        "mascara",
-        "brows",
-        "lipliner",
-      ].includes(name)
-        ? "multiply"
-        : "soft-light";
+      ctx.globalCompositeOperation = "screen";
       ctx.globalAlpha = l.opacity;
-      ctx.drawImage(cached.canvas, 0, 0, w, h);
+      ctx.drawImage(finish.canvas, 0, 0, w, h);
       ctx.globalAlpha = 1;
     });
     if (look.hair.enabled && this.lastHair) {
@@ -900,16 +1228,12 @@ export class BeautyRenderer {
   dispose() {
     if (this.disposed) return;
     this.disposed = true;
-    this.gpu.removeEventListener("webglcontextlost", this.onLost);
-    this.gpu.removeEventListener("webglcontextrestored", this.onRestored);
-    if (this.gl) {
-      this.textures.forEach((t) => this.gl!.deleteTexture(t));
-      if (this.program) this.gl.deleteProgram(this.program);
-      if (this.buffer) this.gl.deleteBuffer(this.buffer);
-      this.gl.getExtension("WEBGL_lose_context")?.loseContext();
-    }
-    this.gpu.width = 1;
-    this.gpu.height = 1;
+    this.releaseGraphics();
+    this.finishCache.clear();
+    this.gradedCanvas.width = 1;
+    this.gradedCanvas.height = 1;
+    this.gradedSource = null;
+    this.gradedMediaSource = null;
     this.hairCanvas.width = 1;
     this.hairCanvas.height = 1;
     for (const c of [
@@ -926,7 +1250,13 @@ export class BeautyRenderer {
       c.width = 1;
       c.height = 1;
     });
-    this.fallbackCache.clear();
+    this.pigmentCanvas.width = 1;
+    this.pigmentCanvas.height = 1;
+    this.pigmentSource = null;
+    this.pigmentSourceMedia = null;
+    this.rasterMasks.clear();
+    this.rasterCanvas.width = 1;
+    this.rasterCanvas.height = 1;
     this.fallbackHair = null;
   }
 }

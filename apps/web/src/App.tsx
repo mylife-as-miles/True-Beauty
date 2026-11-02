@@ -13,6 +13,7 @@ import {
   X,
   Palette,
   WifiOff,
+  UserRound,
 } from "lucide-react";
 import { db, initializeDatabase } from "../../../packages/local-database/src";
 import { useApp } from "./state/store";
@@ -33,6 +34,7 @@ const PrivacySettings = lazy(() =>
   })),
 );
 export default function App() {
+  const mirrorFocused = useApp((s) => s.mirrorFocused);
   const space = useApp((s) => s.space),
     setSpace = useApp((s) => s.setSpace),
     toast = useApp((s) => s.toast),
@@ -74,7 +76,9 @@ export default function App() {
     { id: "discover", label: "The beauty edit", Icon: ShoppingBag },
   ] as const;
   return (
-    <div className="app-shell">
+    <div
+      className={`app-shell ${space === "studio" && mirrorFocused ? "mirror-focused" : ""}`}
+    >
       <a className="skip-link" href="#main">
         Skip to your beauty space
       </a>
@@ -82,11 +86,11 @@ export default function App() {
         <button
           className="wordmark"
           onClick={() => setSpace("studio")}
-          aria-label="True Beauty home"
+          aria-label="True Beauty A little more you. Home"
         >
           <Mark size={28} />
           <span>
-            TRUE BEAUTY<span>A little more you.</span>
+            TRUE BEAUTY <span>A little more you.</span>
           </span>
         </button>
         <nav className="topnav" aria-label="Main navigation">
@@ -115,7 +119,7 @@ export default function App() {
             onClick={() => useApp.getState().setSettingsOpen(true)}
             aria-label="Your profile and privacy"
           >
-            you
+            <UserRound size={18} aria-hidden="true" />
             <span />
           </button>
           <IconButton
@@ -128,7 +132,10 @@ export default function App() {
         </div>
       </header>
       <div className="workspace">
-        <aside className={`nav-rail ${menu ? "open" : ""}`}>
+        <aside
+          className={`nav-rail ${menu ? "open" : ""}`}
+          aria-label="Beauty spaces"
+        >
           <nav aria-label="Beauty spaces">
             {nav.map((n) => (
               <button

@@ -31,3 +31,9 @@ Proofline `0681aeef8f51c3c81b8b548db2d9e58fcb4d5710`: studied highlight→contex
 - Product catalogue is explicitly sample data with illustrative ingredient subsets and prices, official brand links, source/freshness fields; no live stock claims.
 
 Publication/commercial model redistribution remains blocked until outstanding notices/model rights are resolved. Local evaluation is not a claim of legal clearance.
+
+## Round05 functional extensions and evidence
+
+The pinned four inputs above remain unchanged; all original attribution/license gaps still apply. OpenMakeup-derived shader/material work now extends into `ar-renderer/src/{surface,finishes,lighting,pigment}.ts` and updated shader/mask composition. Canonical face/upper-lower-lip coordinates, deterministic gloss/shimmer/glitter, shared Canvas/GLSL pigment behavior, creative grading and explicit quality control are operational. Actual Chromium/Firefox/WebKit material reports, app-level parity captures and unit tests are in `cook/stills/r05-materials`, `surface.test.ts`, `lighting.test.ts`, `pigment.test.ts` and `tests/e2e/immersive-studio.spec.ts`. Device realism/fairness remain unverified.
+
+Virtual Makeup's shared face/hair lifecycle now supplies six real still-look previews through a cloned source-guarded snapshot rather than duplicate tracking engines. MIROIR/Skyn local colour functionality now has actual region-lens/iris-position and original-pixel preservation evidence in `tests/e2e/skin-lenses.spec.ts`; no clinical classifier or live provider success is implied. Further original Proofline/Common Table-inspired interactions are documented in DESIGN_RESEARCH/CANVAS_UX_ROUND05 with restricted reuse boundaries; they are not counted as substitute code integration.

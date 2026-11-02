@@ -12,6 +12,9 @@ import {
   VideoOff,
   SwitchCamera,
   ScanFace,
+  X,
+  Paintbrush,
+  Ratio,
 } from "lucide-react";
 import {
   createVision,
@@ -22,11 +25,12 @@ import {
 import {
   LOOK_PRESETS,
   cloneLook,
-  createDefaultLook,
+  type MakeupLayerName,
 } from "../../../../packages/makeup-engine/src";
 import { BeautyRenderer } from "../../../../packages/ar-renderer/src";
 import { useApp } from "../state/store";
 import { IconButton } from "./ui";
+import { sourceCoordinates, objectPosition } from "../lib/mirror-coordinates";
 const emptySnapshot = (): VisionSnapshot => ({
   landmarks: [],
   blendshapes: {},
@@ -56,8 +60,32 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
   const sourceUrl = useApp((s) => s.portraitUrl),
     setSourceUrl = useApp((s) => s.setPortraitUrl);
   const maskBackend = useApp((s) => s.maskBackend);
+  const rendererBackend = useApp((s) => s.rendererBackend);
+  const lighting = useApp((s) => s.lighting),
+    quality = useApp((s) => s.renderQuality);
+  const framing = useApp((s) => s.mirrorFraming);
+  const framingRef = useRef(framing);
+  const zoom = useApp((s) => s.mirrorZoom),
+    compare = useApp((s) => s.mirrorCompare),
+    split = useApp((s) => s.mirrorSplit);
+  const setZoom = (value: number | ((current: number) => number)) =>
+    useApp.getState().setMirrorView({
+      mirrorZoom:
+        typeof value === "function"
+          ? value(useApp.getState().mirrorZoom)
+          : value,
+    });
+  const setCompare = (value: boolean | ((current: boolean) => boolean)) =>
+    useApp.getState().setMirrorView({
+      mirrorCompare:
+        typeof value === "function"
+          ? value(useApp.getState().mirrorCompare)
+          : value,
+    });
+  const setSplit = (value: number) =>
+    useApp.getState().setMirrorView({ mirrorSplit: value });
+  const lightingRef = useRef(lighting);
   const look = useApp((s) => s.look),
-    studioMode = useApp((s) => s.studioMode),
     notify = useApp((s) => s.notify);
   const mirrorElement = useRef<HTMLDivElement>(null),
     canvasRef = useRef<HTMLCanvasElement>(null),
@@ -75,9 +103,6 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     ),
     [status, setStatus] = useState("Preparing your mirror…"),
     [tracked, setTracked] = useState(false),
-    [compare, setCompare] = useState(false),
-    [split, setSplit] = useState(0.5),
-    [zoom, setZoom] = useState(1),
     [gestures, setGestures] = useState(false),
     [latency, setLatency] = useState(0),
     [error, setError] = useState(""),
@@ -90,8 +115,28 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     compareRef = useRef(false),
     splitRef = useRef(0.5),
     gesturesRef = useRef(false);
+  const [regionLens, setRegionLens] = useState<{
+    layer: MakeupLayerName;
+    x: number;
+    y: number;
+  } | null>(null);
   const lastGesture = useRef(0);
   const lastStatus = useRef(0);
+  useEffect(() => {
+    framingRef.current = framing;
+    lookRef.current = { ...lookRef.current };
+  }, [framing]);
+  useEffect(() => {
+    lightingRef.current = lighting;
+    lookRef.current = { ...lookRef.current };
+  }, [lighting]);
+  useEffect(() => {
+    const renderer = rendererRef.current;
+    if (!renderer) return;
+    renderer.setQuality(quality);
+    useApp.getState().setRenderer(renderer.activeMode, renderer.fallbackReason);
+    lookRef.current = { ...lookRef.current };
+  }, [quality]);
   useEffect(() => {
     lookRef.current = look;
   }, [look]);
@@ -139,6 +184,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
   useEffect(() => {
     const canvas = canvasRef.current!;
     const renderer = new BeautyRenderer(canvas);
+    renderer.setQuality(useApp.getState().renderQuality);
     rendererRef.current = renderer;
     useApp.getState().setRenderer(renderer.activeMode, renderer.fallbackReason);
     const pipeline = createVision();
@@ -242,13 +288,14 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               source: source as HTMLImageElement | HTMLVideoElement,
               landmarks: snapshotRef.current.landmarks,
               look: lookRef.current,
+              lighting: lightingRef.current,
               hairMask: snapshotRef.current.hairMask ?? undefined,
               hands: snapshotRef.current.hands,
               beforeAfter: compareRef.current
                 ? 0.5 +
                   ((splitRef.current - 0.5) *
                     (mirrorElement.current?.clientWidth ?? 1)) /
-                    (Math.max(
+                    ((framingRef.current === "contain" ? Math.min : Math.max)(
                       (mirrorElement.current?.clientWidth ?? 1) / canvas.width,
                       (mirrorElement.current?.clientHeight ?? 1) /
                         canvas.height,
@@ -288,6 +335,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
   useEffect(() => {
     let active = true;
     const epoch = ++sourceEpoch.current;
+    setRegionLens(null);
     snapshotRef.current = emptySnapshot();
     imageRef.current = null;
     setTracked(false);
@@ -309,6 +357,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
         });
         if (active && epoch === sourceEpoch.current && snapshot) {
           snapshotRef.current = snapshot;
+          useApp.getState().setPortraitVision(sourceUrl, snapshot);
           setTracked(snapshot.landmarks.length > 0);
           setLatency(snapshot.latencyMs);
           setStatus(
@@ -319,6 +368,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
         }
       } catch {
         if (active && epoch === sourceEpoch.current) {
+          useApp.getState().setPortraitVision(sourceUrl, emptySnapshot());
           setError(
             "Tracking could not load. You can retry or use another photo.",
           );
@@ -376,8 +426,10 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             active &&
             epoch === sourceEpoch.current &&
             imageRef.current === sourceImage
-          )
+          ) {
             snapshotRef.current = snap;
+            useApp.getState().setPortraitVision(sourceUrl, snap);
+          }
         }
         if (
           active &&
@@ -507,6 +559,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
       <div
         ref={mirrorElement}
         className="mirror-frame"
+        data-renderer={rendererBackend}
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
@@ -522,14 +575,12 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             onClick={(e) => {
               const canvas = e.currentTarget;
               const rect = canvas.getBoundingClientRect();
-              const scale = Math.max(
-                  rect.width / canvas.width,
-                  rect.height / canvas.height,
-                ),
-                w = canvas.width * scale,
-                h = canvas.height * scale;
-              const u = (e.clientX - rect.left - (rect.width - w) * 0.5) / w,
-                v = (e.clientY - rect.top - (rect.height - h) * 0.42) / h;
+              const { x: u, y: v } = sourceCoordinates(
+                { x: e.clientX, y: e.clientY },
+                rect,
+                { width: canvas.width, height: canvas.height },
+                objectPosition(getComputedStyle(canvas).objectPosition),
+              );
               const points = snapshotRef.current.landmarks;
               if (!points.length) return;
               const regions: [string, number][] = [
@@ -549,6 +600,18 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               if (closest.d < 0.17) {
                 useApp.getState().setFocusLayer(closest.layer);
                 useApp.getState().setStudioMode("makeup");
+                const box = mirrorElement.current!.getBoundingClientRect();
+                setRegionLens({
+                  layer: closest.layer as MakeupLayerName,
+                  x: Math.max(
+                    132,
+                    Math.min(box.width - 132, e.clientX - box.left),
+                  ),
+                  y: Math.max(
+                    66,
+                    Math.min(box.height - 130, e.clientY - box.top),
+                  ),
+                });
                 notify(
                   "Editing " +
                     closest.layer +
@@ -557,6 +620,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               }
             }}
             ref={canvasRef}
+            style={{ objectFit: framing }}
             width={960}
             height={1200}
             aria-label="Living Mirror preview with your selected cosmetic effects"
@@ -572,7 +636,8 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
         </div>
         <div className="mirror-top">
           <button
-            aria-label="Choose a demo portrait"
+            aria-label={`${mode === "camera" ? "Live mirror" : mode === "upload" ? "Your photo" : "Studio portrait"}${loading ? " · preparing" : ""}: Choose a demo portrait`}
+            aria-expanded={modelsOpen}
             onClick={() => setModelsOpen((v) => !v)}
             className="mirror-label"
           >
@@ -584,9 +649,28 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
                 : "Studio portrait"}
             {loading ? " · preparing" : ""}
           </button>
-          <IconButton label="Download preview" onClick={download}>
-            <Download size={17} />
-          </IconButton>
+          <div className="mirror-top-actions">
+            <button
+              className="mirror-framing-toggle"
+              aria-label={
+                framing === "cover" ? "Show full portrait" : "Fill mirror"
+              }
+              onClick={() =>
+                useApp.getState().setMirrorView({
+                  mirrorFraming: framing === "cover" ? "contain" : "cover",
+                  mirrorZoom: 1,
+                })
+              }
+            >
+              <Ratio size={15} />
+              <span>
+                {framing === "cover" ? "Full portrait" : "Fill mirror"}
+              </span>
+            </button>
+            <IconButton label="Download preview" onClick={download}>
+              <Download size={17} />
+            </IconButton>
+          </div>
         </div>
         {modelsOpen && (
           <div
@@ -660,6 +744,60 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             <span className="compare-after">After</span>
           </>
         )}
+        {regionLens && !compare && (
+          <div
+            className="mirror-region-lens"
+            role="group"
+            aria-label="Selected facial region"
+            style={{ left: regionLens.x, top: regionLens.y }}
+          >
+            <i style={{ background: look[regionLens.layer].color }} />
+            <div>
+              <strong>
+                {(
+                  {
+                    lipstick: "Lips",
+                    eyeshadow: "Eyes",
+                    blush: "Cheeks",
+                    foundation: "Complexion",
+                  } as Record<string, string>
+                )[regionLens.layer] ?? regionLens.layer}
+              </strong>
+              <span>
+                {look[regionLens.layer].enabled
+                  ? `${Math.round(look[regionLens.layer].opacity * 100)}% · ${look[regionLens.layer].finish}`
+                  : "Colour off"}
+              </span>
+            </div>
+            <button
+              aria-label="Edit selected region"
+              onClick={() => {
+                useApp.getState().setFocusLayer(regionLens.layer);
+                useApp.getState().setStudioMode("makeup");
+                requestAnimationFrame(() => {
+                  const target =
+                    document.querySelector<HTMLElement>("#intensity");
+                  if (target) {
+                    target.scrollIntoView({
+                      block: "nearest",
+                      inline: "nearest",
+                      behavior: "instant",
+                    });
+                    target.focus({ preventScroll: true });
+                  }
+                });
+              }}
+            >
+              <Paintbrush size={16} />
+            </button>
+            <button
+              aria-label="Dismiss region lens"
+              onClick={() => setRegionLens(null)}
+            >
+              <X size={14} />
+            </button>
+          </div>
+        )}
         <div className="mirror-bottom">
           <div className="mirror-state">
             <ScanFace size={15} />
@@ -692,9 +830,10 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             <IconButton
               label="Reset makeup"
               onClick={() => {
-                useApp
-                  .getState()
-                  .setLook(createDefaultLook(), "Your signature look");
+                useApp.getState().clearMakeup();
+                notify(
+                  "Makeup cleared. Hair and accessories kept. Undo to restore.",
+                );
               }}
             >
               <RotateCcw size={17} />
@@ -804,12 +943,6 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             Calibrate pinch
           </button>
         </div>
-      )}
-      {studioMode === "hair" && look.hair.enabled && (
-        <p className="fine-print">
-          Hair recolouring uses a confidence mask. Hairstyle generation needs a
-          connected provider.
-        </p>
       )}
     </div>
   );

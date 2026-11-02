@@ -37,12 +37,26 @@ export default function Discover({
   const [query, setQuery] = useState(""),
     [category, setCategory] = useState(context?.category ?? "all"),
     [currency, setCurrency] = useState<Currency>("NGN"),
-    [selected, setSelected] = useState<Product | null>(null),
+    [selected, setSelected] = useState<Product | null>(() =>
+      !ownedOnly && context?.productId
+        ? (SAMPLE_PRODUCTS.find((p) => p.id === context.productId) ?? null)
+        : null,
+    ),
     [compare, setCompare] = useState<string[]>([]),
     [comparison, setComparison] = useState(false),
     [ingredient, setIngredient] = useState(""),
     [bagOpen, setBagOpen] = useState(false),
-    [variant, setVariant] = useState(0),
+    [variant, setVariant] = useState(() => {
+      const p = context?.productId
+        ? SAMPLE_PRODUCTS.find((p) => p.id === context.productId)
+        : undefined;
+      return Math.max(
+        0,
+        p?.variants.findIndex(
+          (v) => v.hex?.toLowerCase() === context?.color.toLowerCase(),
+        ) ?? 0,
+      );
+    }),
     [view3d, setView3d] = useState(false);
   const notify = useApp((s) => s.notify);
   const owned = useLiveQuery(() => db.ownedProducts.toArray(), []) ?? [],

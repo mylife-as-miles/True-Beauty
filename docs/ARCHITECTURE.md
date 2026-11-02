@@ -26,7 +26,7 @@ flowchart TD
 
 - `apps/web/src`: original design system, spaces, contextual controls, accessibility, interaction state. Shared scene persists across spaces for the current session. Raw source frames remain in memory and are released on unmount.
 - `packages/vision-core`: local official models/WASM, one coordinated inference instance, worker/client transfer lifetime, independent cadence/adaptation, actual camera lifecycle. `face-tracking`, `hair-segmentation`, `hand-tracking` own pure geometry/temporal contracts. Rendering consumes normalized unmirrored source coordinates.
-- `packages/ar-renderer`, `shader-library`, `makeup-engine`: source-space geometry, effect masks/atlases, source-preserving compositing, material parameters, presets, optional warp, source original/after split. OpenCV is explicitly selected and lazy loaded. Hardware WebGL2 uses shaders; software GPU uses faster Canvas and labels reflective-material limitations. No claimed WebGPU implementation.
+- `packages/ar-renderer`, `shader-library`, `makeup-engine`: source-space geometry, effect masks/atlases, source-preserving compositing, material parameters, presets, optional warp, source original/after split. OpenCV is explicitly selected and lazy loaded. Hardware WebGL2 uses shaders; software GPU uses Canvas with explicitly approximate reflective materials, and users can select bounded WebGL detail. No claimed WebGPU implementation.
 - `skin-engine`: sRGB/XYZ/CIELAB and twelve-tone styling heuristics, image suitability checks, actual ROI pixel clustering, dynamic genuine-provider parser. Appearance sampling is not diagnosis, hydration measurement, clinical phototype or a validated classifier.
 - `beauty-intelligence`: known ingredient cosmetic roles/sources, actual feature/cosine matching, unique-product AM/PM routine budgets, owned-first selection and explicit missing data.
 - `hair-engine`, `fashion-engine`: luminance-preserving palette rules, real garment recolouring, ΔE styling ranks, manually placed static-photo composition, outfit/board models. Generative VTO/hairstyle provider contracts exist; successful generation is not claimed.
@@ -54,3 +54,11 @@ Inference uses transferred ImageBitmap frames in a dedicated worker when support
 ## Provider service limitations
 
 The API is a single-process pilot. Durable conservative spending reservation prevents overspend within that process/restarts, but multi-instance deployment requires a transactional shared budget store. In-memory temporary tasks expire15minutes. Provider-side retention cannot be controlled beyond the documented agreement and is disclosed before upload. No live credentials/pricing authorization are configured. Remote features fail closed, with no synthetic results.
+
+## Round05 scene/editor contracts
+
+`RenderFrame.lighting` is validated through `LightingSettings`; neutral is source identity, while creative grading only affects the preview. The original half of comparisons stays original. Canvas and GLSL share numerical pigment behavior; materials differ in fidelity. Runtime quality/resolution controls release prior resources rather than stacking renderers. See IMMERSIVE_RENDERING for actual measurements.
+
+Zustand keeps ephemeral portrait URL/shared cloned vision snapshot, view framing/zoom/split/focus and bounded parameter-only undo/redo. Source identity rejects obsolete snapshots. LookGallery consumes that one shared analysis; it does not run six redundant trackers. Lighting and undo are not written as personal images or biometric records. Dexie remains the persistence authority for deliberate saved recipes/boards.
+
+Spatial canvas state has a validated persistent view plus contextual object selection. Palette actions mutate actual makeup tools; product handoffs include a verified catalogue ID and shade. `StudioMode` includes light so agent/region/palette handoffs cannot leave competing local inspector states. Source views and local exports remain image-consent aware.

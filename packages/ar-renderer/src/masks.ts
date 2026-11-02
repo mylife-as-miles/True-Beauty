@@ -122,6 +122,7 @@ export class FaceMaskAtlas {
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       const soft = Math.max(0.5, metrics.eyeDistance * 0.012);
+      const lipFeather = Math.max(0.65, metrics.eyeDistance * 0.011);
       if (this.cv) {
         let rings: ReadonlyArray<readonly number[]> | null = null,
           holes: ReadonlyArray<readonly number[]> = [],
@@ -129,7 +130,7 @@ export class FaceMaskAtlas {
         if (name === "lipstick" || name === "lipgloss") {
           rings = [REGIONS.lipOuter];
           holes = [REGIONS.lipInner];
-          sigma = soft * 0.45;
+          sigma = lipFeather;
         }
         if (name === "eyeshadow") {
           rings = [REGIONS.leftShadow, REGIONS.rightShadow];
@@ -167,7 +168,7 @@ export class FaceMaskAtlas {
         }
       }
       if (name === "lipstick" || name === "lipgloss") {
-        ctx.filter = `blur(${soft * 0.45}px)`;
+        ctx.filter = `blur(${lipFeather}px)`;
         polygon(REGIONS.lipOuter);
         ctx.filter = "none";
         ctx.globalCompositeOperation = "destination-out";

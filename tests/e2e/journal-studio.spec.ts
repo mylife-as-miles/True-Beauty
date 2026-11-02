@@ -25,7 +25,7 @@ test("saved recipes replay as a real two-look comparison and name typing keeps f
       await page.locator("#mobile-look-preset").selectOption(preset);
     else
       await page
-        .locator(".preset-item")
+        .locator(".look-object")
         .filter({ hasText: preset === "berry" ? "After hours" : "Soft glow" })
         .click();
     await page
@@ -79,7 +79,7 @@ test("3D product study rotates with keyboard and returns to illustration", async
     exact: true,
   });
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   if (await menu.isVisible()) {
     await menu.click();
@@ -173,7 +173,7 @@ test("routine steps and names remain editable after saving and reloading", async
   ).toBeVisible();
   await page.reload();
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   await journal(page);
   await page

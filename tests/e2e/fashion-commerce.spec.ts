@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 const openWardrobe = async (page: import("@playwright/test").Page) => {
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   const buttons = page.getByRole("button", {
     name: "My wardrobe",
@@ -20,7 +20,7 @@ const openWardrobe = async (page: import("@playwright/test").Page) => {
 };
 const openCanvas = async (page: import("@playwright/test").Page) => {
   await expect(
-    page.getByRole("button", { name: "True Beauty home", exact: true }),
+    page.getByRole("button", { name: /True Beauty.*home/i, exact: true }),
   ).toBeVisible();
   const button = page.getByRole("button", {
     name: "Inspiration canvas",
@@ -59,13 +59,11 @@ test("Dressing Room composes an uploaded garment and saves only approved paramet
     canvas.getContext("2d")!.drawImage(image, 0, 0);
     return canvas.toDataURL("image/png").split(",")[1];
   });
-  await page
-    .getByLabel("Upload garment", { exact: true })
-    .setInputFiles({
-      name: "sample-blouse.png",
-      mimeType: "image/png",
-      buffer: Buffer.from(garmentData, "base64"),
-    });
+  await page.getByLabel("Upload garment", { exact: true }).setInputFiles({
+    name: "sample-blouse.png",
+    mimeType: "image/png",
+    buffer: Buffer.from(garmentData, "base64"),
+  });
   await page.getByRole("slider", { name: "Width", exact: true }).fill("0.65");
   await page.getByRole("slider", { name: "Rotation", exact: true }).fill("12");
   await page
