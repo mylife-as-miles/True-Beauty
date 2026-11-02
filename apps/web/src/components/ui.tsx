@@ -109,19 +109,18 @@ export function Modal({
         ref.current?.focus();
         return;
       }
-      const first = elements[0],
-        last = elements.at(-1)!;
-      const outside = !ref.current?.contains(document.activeElement);
-      if (event.shiftKey && (outside || document.activeElement === first)) {
-        event.preventDefault();
-        last.focus();
-      } else if (
-        !event.shiftKey &&
-        (outside || document.activeElement === last)
-      ) {
-        event.preventDefault();
-        first.focus();
-      }
+      // Explicit traversal also handles Safari's default full-keyboard-access
+      // mode, which can otherwise skip buttons and move focus to the page.
+      event.preventDefault();
+      const index = elements.indexOf(document.activeElement as HTMLElement);
+      const next = event.shiftKey
+        ? index <= 0
+          ? elements.length - 1
+          : index - 1
+        : index < 0 || index === elements.length - 1
+          ? 0
+          : index + 1;
+      elements[next].focus();
     };
     const contain = (event: FocusEvent) => {
       if (isTop() && !ref.current?.contains(event.target as Node)) focusFirst();

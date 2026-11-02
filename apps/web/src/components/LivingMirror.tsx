@@ -22,6 +22,7 @@ import {
 import {
   LOOK_PRESETS,
   cloneLook,
+  createDefaultLook,
 } from "../../../../packages/makeup-engine/src";
 import { BeautyRenderer } from "../../../../packages/ar-renderer/src";
 import { useApp } from "../state/store";
@@ -352,7 +353,11 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     const epoch = sourceEpoch.current;
     const sourceImage = imageRef.current;
     setStatus(
-      "Preparing " + (gestures ? "hand tracking" : "hair segmentation") + "…",
+      "Preparing " +
+        (gestures || Object.values(look.accessories).some(Boolean)
+          ? "hand tracking"
+          : "hair segmentation") +
+        "…",
     );
     pipeline
       .load({
@@ -687,11 +692,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             <IconButton
               label="Reset makeup"
               onClick={() => {
-                import("../../../../packages/makeup-engine/src").then((m) =>
-                  useApp
-                    .getState()
-                    .setLook(m.createDefaultLook(), "Your signature look"),
-                );
+                useApp
+                  .getState()
+                  .setLook(createDefaultLook(), "Your signature look");
               }}
             >
               <RotateCcw size={17} />

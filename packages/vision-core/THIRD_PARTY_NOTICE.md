@@ -12,8 +12,8 @@ must resolve the missing full notice with the upstream author.
 
 Adapted implementation paths:
 - apps/web/src/hooks/useCamera.ts -> src/useCamera.ts
-- apps/web/src/hooks/useMediaPipeVision.ts -> src/index.ts
-- apps/web/src/hooks/useMakeupRenderer.ts -> src/index.ts frame scheduler
+- apps/web/src/hooks/useMediaPipeVision.ts -> src/pipeline.ts
+- apps/web/src/hooks/useMakeupRenderer.ts -> src/pipeline.ts frame scheduler
 - apps/web/src/lib/makeup/landmarks.ts -> ../face-tracking/src/index.ts coordinate utility
 - apps/web/src/lib/makeup/hair.ts -> ../hair-segmentation/src/index.ts mask recolouring
 

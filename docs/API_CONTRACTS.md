@@ -64,7 +64,7 @@ References:
 
 ## Local engine contracts
 
-`packages/skin-engine/src/index.ts`: validated swatch conversion, `analyzeSeason({skin,hair?,eye?})`, `analyzeAppearance`, local `assessImageQuality`, `sampleAppearance(image,landmarks,hairMask?)`, `parseProviderSkinResult(unknown)` and `compareSkinResults`. Pixel metrics are descriptive. Rule confidence is not a calibrated clinical probability.
+`packages/skin-engine/src/index.ts`: validated swatch conversion, `analyzeSeason({skin,hair?,eye?})`, local `assessImageQuality`, `sampleAppearance(image,landmarks,hairMask?)`, `parseProviderSkinResult(unknown)` and `compareSkinResults`. Pixel metrics are descriptive. Rule confidence is not a calibrated clinical probability.
 
 `packages/beauty-intelligence/src/index.ts`: `parseINCI`, `inspectIngredients`, `compareIngredients`, `compatibilityNotes`, Skyn-derived `encodeFeatures`/`cosineSimilarity`, `matchProducts(profile,catalog,options)` and MIROIR-derived `buildRoutine`. All recommendations identify catalogue/user inputs. Product ingredient presence is not proof of personal efficacy. Unknown prices do not become zero-cost items in a finite-budget routine.
 

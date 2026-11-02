@@ -104,3 +104,7 @@ Complete the real occasion/routine/owned-products workflow before expanding more
 ## Final bounded test update
 
 At 09:21 UTC independently executed `npm test -- packages/skin-engine packages/beauty-intelligence tests/api.test.ts`: 3 files / 24 tests passed. Together with earlier independent 15 commerce/fashion/hair and 26 database/memory/agent tests this reviewer reran 65 tests. These are domain/fixture results; no live paid API evidence is implied. Feature matrix reconciled conservatively to this review and VISION_REPORT.
+
+## Later bounded follow-up / 2026-11-02 accessibility checkpoint
+
+Round-01 findings remain historical. Later actual browser checks now pass routine name/step editing and reload, one combined NGN 20,000 allocator (19,300 selected, 700 remaining, missing lip/eye slots disclosed), a keyboard-operated generic 3D packaging study, and same-session portrait continuity between Mirror and Skin. Evidence: `cook/metrics/axe-final.json`, `feature-final-recheck.json`, `docs/ACCESSIBILITY_REPORT.md`, `tests/e2e/accessibility.spec.ts`. The final accessibility work found and closed a real disabled-control modal focus escape and its inert-ancestor regression; 6 desktop/mobile regression tests pass. No new whole-product score is assigned from these narrow fixes, and provider/generative/fairness/device/full-scope gates remain incomplete.

@@ -1,3 +1,4 @@
+import { createDefaultLook } from "../../../../packages/makeup-engine/src";
 import {
   useCallback,
   useEffect,
@@ -374,6 +375,32 @@ export function PrivacySettings() {
               role="tab"
               id={`settings-tab-${name}`}
               aria-selected={tab === name}
+              tabIndex={tab === name ? 0 : -1}
+              onKeyDown={(event) => {
+                const sections = [
+                  "privacy",
+                  "profile",
+                  "memory",
+                  "data",
+                ] as const;
+                const index = sections.indexOf(name);
+                const next =
+                  event.key === "ArrowRight"
+                    ? (index + 1) % sections.length
+                    : event.key === "ArrowLeft"
+                      ? (index + sections.length - 1) % sections.length
+                      : event.key === "Home"
+                        ? 0
+                        : event.key === "End"
+                          ? sections.length - 1
+                          : -1;
+                if (next < 0) return;
+                event.preventDefault();
+                setTab(sections[next]);
+                document
+                  .getElementById(`settings-tab-${sections[next]}`)
+                  ?.focus();
+              }}
               aria-controls={`settings-panel-${name}`}
               onClick={() => setTab(name)}
             >
@@ -687,6 +714,14 @@ export function PrivacySettings() {
                             useApp
                               .getState()
                               .setPortraitUrl("/images/portrait-neutral.jpg");
+                            useApp
+                              .getState()
+                              .setLook(
+                                createDefaultLook(),
+                                "Your signature look",
+                              );
+                            useApp.getState().setAgentOpen(false);
+                            useApp.getState().setSpace("studio");
                             await initializeDatabase();
                             setDeleteOpen(false);
                             setDeleteText("");

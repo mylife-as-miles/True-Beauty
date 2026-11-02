@@ -51,6 +51,8 @@ node packages/vision-core/scripts/verify-lifecycle.mjs http://127.0.0.1:5173
 GRAPHICS_TEST_ORIGIN=http://127.0.0.1:5173 node packages/ar-renderer/scripts/smoke.mjs
 ```
 
+Checkpoint verification:97unit/integration tests pass. A complete Chromium/mobile snapshot passed46cases with2production-onlyskips; the actual built-product/offline suite passed8/8. WebKit's final complete run passed24cases with1production-onlyskip. Firefox's earlier complete run passed20cases with1skip, followed by all4current keyboard regressions. Exact command boundaries, fixtures and limits are in QUALITY_REPORT; these are not one synthetic aggregate.
+
 Use a separate test output directory if running independent Playwright processes. Browser recordings/screenshots and independent review findings live in `cook/`. Device/clinical/model accuracy is not established by these synthetic browser tests.
 
 ## Source integration and rights

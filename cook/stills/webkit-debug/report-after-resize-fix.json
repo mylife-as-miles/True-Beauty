@@ -1,0 +1,273 @@
+{
+  "recipes": [
+    {
+      "id": "503c9cee-d216-48a8-95b7-a34ecf29a4bd",
+      "name": "Evening",
+      "look": {
+        "lipstick": {
+          "enabled": true,
+          "color": "#792C48",
+          "opacity": 0.78,
+          "finish": "matte"
+        },
+        "blush": {
+          "enabled": true,
+          "color": "#AE637D",
+          "opacity": 0.32,
+          "finish": "matte"
+        },
+        "eyeshadow": {
+          "enabled": true,
+          "color": "#59415D",
+          "opacity": 0.24,
+          "finish": "shimmer"
+        },
+        "foundation": {
+          "enabled": false,
+          "color": "#C99B7A",
+          "opacity": 0.14,
+          "finish": "matte"
+        },
+        "eyeliner": {
+          "enabled": false,
+          "color": "#2B2020",
+          "opacity": 0.5,
+          "finish": "matte"
+        },
+        "mascara": {
+          "enabled": false,
+          "color": "#211C1C",
+          "opacity": 0.45,
+          "finish": "matte"
+        },
+        "brows": {
+          "enabled": false,
+          "color": "#45312C",
+          "opacity": 0.25,
+          "finish": "matte"
+        },
+        "contour": {
+          "enabled": false,
+          "color": "#815C4C",
+          "opacity": 0.22,
+          "finish": "matte"
+        },
+        "bronzer": {
+          "enabled": false,
+          "color": "#B27C51",
+          "opacity": 0.2,
+          "finish": "matte"
+        },
+        "highlighter": {
+          "enabled": false,
+          "color": "#F6DBBD",
+          "opacity": 0.2,
+          "finish": "shimmer"
+        },
+        "lipliner": {
+          "enabled": false,
+          "color": "#834449",
+          "opacity": 0.4,
+          "finish": "matte"
+        },
+        "lipgloss": {
+          "enabled": false,
+          "color": "#F5D0CB",
+          "opacity": 0.25,
+          "finish": "gloss"
+        },
+        "hair": {
+          "enabled": false,
+          "color": "#783D31",
+          "secondaryColor": "#C99C70",
+          "opacity": 0.5,
+          "mode": "solid"
+        },
+        "accessories": {
+          "glasses": false,
+          "earrings": false,
+          "necklace": false
+        },
+        "reshape": 0
+      },
+      "createdAt": 1793614385268,
+      "updatedAt": 1793614385268
+    },
+    {
+      "id": "e388bb48-b615-4601-9b48-2e5eea60ff26",
+      "name": "Daylight",
+      "look": {
+        "lipstick": {
+          "enabled": true,
+          "color": "#A45356",
+          "opacity": 0.55,
+          "finish": "gloss"
+        },
+        "blush": {
+          "enabled": true,
+          "color": "#C47670",
+          "opacity": 0.32,
+          "finish": "matte"
+        },
+        "eyeshadow": {
+          "enabled": true,
+          "color": "#967564",
+          "opacity": 0.24,
+          "finish": "shimmer"
+        },
+        "foundation": {
+          "enabled": false,
+          "color": "#C99B7A",
+          "opacity": 0.14,
+          "finish": "matte"
+        },
+        "eyeliner": {
+          "enabled": false,
+          "color": "#2B2020",
+          "opacity": 0.5,
+          "finish": "matte"
+        },
+        "mascara": {
+          "enabled": false,
+          "color": "#211C1C",
+          "opacity": 0.45,
+          "finish": "matte"
+        },
+        "brows": {
+          "enabled": false,
+          "color": "#45312C",
+          "opacity": 0.25,
+          "finish": "matte"
+        },
+        "contour": {
+          "enabled": false,
+          "color": "#815C4C",
+          "opacity": 0.22,
+          "finish": "matte"
+        },
+        "bronzer": {
+          "enabled": false,
+          "color": "#B27C51",
+          "opacity": 0.2,
+          "finish": "matte"
+        },
+        "highlighter": {
+          "enabled": false,
+          "color": "#F6DBBD",
+          "opacity": 0.2,
+          "finish": "shimmer"
+        },
+        "lipliner": {
+          "enabled": false,
+          "color": "#834449",
+          "opacity": 0.4,
+          "finish": "matte"
+        },
+        "lipgloss": {
+          "enabled": false,
+          "color": "#F5D0CB",
+          "opacity": 0.25,
+          "finish": "gloss"
+        },
+        "hair": {
+          "enabled": false,
+          "color": "#783D31",
+          "secondaryColor": "#C99C70",
+          "opacity": 0.5,
+          "mode": "solid"
+        },
+        "accessories": {
+          "glasses": false,
+          "earrings": false,
+          "necklace": false
+        },
+        "reshape": 0
+      },
+      "createdAt": 1793614382146,
+      "updatedAt": 1793614382146
+    }
+  ],
+  "appStats": [
+    {
+      "width": 600,
+      "height": 900,
+      "sum": 145811731,
+      "nonBlack": 537931
+    },
+    {
+      "width": 600,
+      "height": 900,
+      "sum": 145954930,
+      "nonBlack": 537932
+    }
+  ],
+  "isolated": [
+    {
+      "forceCanvas": true,
+      "id": "soft-glow",
+      "mode": "canvas2d",
+      "activeMode": "canvas2d",
+      "sum": 145626274,
+      "width": 600,
+      "height": 900,
+      "landmarks": 478,
+      "valid": true,
+      "maskStats": [
+        403097,
+        317077,
+        204650
+      ]
+    },
+    {
+      "forceCanvas": true,
+      "id": "berry",
+      "mode": "canvas2d",
+      "activeMode": "canvas2d",
+      "sum": 145447571,
+      "width": 600,
+      "height": 900,
+      "landmarks": 478,
+      "valid": true,
+      "maskStats": [
+        403097,
+        317077,
+        204650
+      ]
+    },
+    {
+      "forceCanvas": false,
+      "id": "soft-glow",
+      "mode": "webgl2",
+      "activeMode": "webgl2",
+      "gpuRenderer": "Apple GPU",
+      "sum": 145954930,
+      "width": 600,
+      "height": 900,
+      "landmarks": 478,
+      "valid": true,
+      "maskStats": [
+        403097,
+        317077,
+        204650
+      ]
+    },
+    {
+      "forceCanvas": false,
+      "id": "berry",
+      "mode": "webgl2",
+      "activeMode": "webgl2",
+      "gpuRenderer": "Apple GPU",
+      "sum": 145811731,
+      "width": 600,
+      "height": 900,
+      "landmarks": 478,
+      "valid": true,
+      "maskStats": [
+        403097,
+        317077,
+        204650
+      ]
+    }
+  ],
+  "errors": []
+}

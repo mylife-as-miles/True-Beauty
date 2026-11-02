@@ -114,3 +114,27 @@ Playwright's bundled MiniBrowser wrapper replaces `LD_LIBRARY_PATH`, so a local 
 Reproducible model check: `node packages/vision-core/scripts/verify-webkit.mjs http://127.0.0.1:5173` (requires the local wrapper). Playwright WebKit 27.2, WPE headless, Mesa llvmpipe, same CPU as above. Both HTMLCanvas and OffscreenCanvas WebGL2 contexts are usable. Two actual portrait inferences each yielded **478 landmarks, 52 blendshapes, a 16-element transformation, a 171x256 confidence hair mask and one detected hand**. Measured image batches: 449 ms cold, 188 ms subsequent. These samples validate integration, not accuracy, fairness or hardware performance.
 
 Playwright WebKit on Linux is **not physical Safari on macOS or iOS**. Safari hardware/browser/device behavior remains a separate verification requirement.
+
+### Cross-browser defects discovered during application verification
+
+WebKit execution exposed real defects beyond the model pipeline. The shared modal used to mark its own workspace ancestor inert, which blocked keyboard/pointer interaction in dialogs rendered inside product, look and routine views. The application now portals modals to `document.body`, preserving the background's inert behavior without disabling the dialog. Targeted WebKit catalogue, product 3D control and routine-edit workflows passed after that fix.
+
+The saved-look comparison then revealed an independent renderer bug: its visible canvases were pre-sized to 600x900, matching the portrait, so a combined size guard left the separate WebGL render target at its 300x150 default. The graphics engineer separated those resize checks and verified that the two saved looks render differently. WebKit's privacy-reported renderer string was `Apple GPU` even in the Linux software-graphics test environment; **that string does not establish physical GPU hardware**, and these runs must not be described as a hardware performance benchmark.
+
+The delayed-permission test initially lost its per-instance `MediaDevices.getUserMedia` fixture override in WebKit: diagnostics showed the fixture state existed, but the method had reverted to native and the fixture call count was zero. Retaining the actual `MediaDevices` wrapper in the test document made the pending-permission fixture stable. The same assertions then verified that the late track is stopped after navigation; no product code was changed to manufacture that result.
+
+The expanded WebKit application run initially finished **22 passed / 1 failed / 1 skipped**. The sole remaining failure was a newly added keyboard-focus regression: Safari-style native Tab traversal skipped intermediate button controls and could leave the agent dialog while Send was disabled. The shared modal now computes and focuses every next/previous Tab target explicitly inside the top dialog. The focused WebKit accessibility suite then passed **4/4**, including the new arrow-key settings tabs. A final complete run after this global modal change is recorded below once completed.
+
+### Final complete WebKit result
+
+After the modal, renderer-resize and fixture fixes, the final expanded WebKit suite completed cleanly:
+
+```sh
+TB_WEBKIT=1 TB_WEBKIT_EXECUTABLE=/tmp/true-beauty-browser-libs/pw_run_with_local_libs.sh LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe npx playwright test --project=webkit --output=test-results-webkit-final
+```
+
+**24 passed, 1 skipped, 0 failed in 1.9 minutes.** The skipped case is the production-only offline fixture; no WebKit offline pass is claimed. This is a single complete final run, including all four current accessibility cases, actual models, source continuity, delayed camera cleanup, two-look pixel differences, routine persistence, product/ingredient/bag behavior, wardrobe/canvas, agent and BeautyGraph workflows.
+
+Earlier failed runs are preserved in the investigation narrative because they led to real repairs; they do not represent unresolved defects in the final run. Full test artifacts are in `test-results-webkit-final`; successful workflow screenshots are under `cook/stills/` with WebKit-specific names where the test provides them.
+
+The final explicit-Tab revision was also checked in headed Firefox with the current four accessibility cases: **4/4 passed in 40.2 seconds** (`test-results-firefox-accessibility-final`). This is additional targeted verification after the earlier complete Firefox 20-pass/1-skip run, not a claim that a new complete Firefox 25-case suite was executed.

@@ -67,8 +67,16 @@ The final scan and `cook/metrics/feature-final-recheck.json` also establish thes
 - Routine name and first-step edits survive save/reload on desktop and mobile. The earlier immediate `isVisible()` read in a review driver was a synchronization error; repeating after actual save completion passes.
 - A selected demo portrait passes from Mirror to Skin Lab. A new uploaded session Blob remains usable through Skin → Mirror → Skin, retaining the same source. This verifies session continuity, not saved-photo consent or cross-device storage.
 
+## Remaining keyboard pattern observation
+
+A direct Privacy-tab check focused Permissions and pressed ArrowRight. Focus and selection remained on Permissions (`cook/metrics/settings-tabs-keyboard.json`). Tab and Enter can still reach/activate the sections, so this is an ARIA tab-pattern usability gap rather than an axe-detected violation. Roving focus and ArrowLeft/ArrowRight/Home/End behavior should be considered before claiming a complete keyboard interaction audit.
+
 ## Remaining accessibility evidence
 
 No full assistive-technology audit with VoiceOver, NVDA or JAWS was performed. Firefox/WebKit accessibility behavior, physical touch devices, text zoom/reflow through every state, forced colors/high contrast, comprehensive reduced-motion behavior, speech privacy/support, all gesture alternatives and arbitrary user-generated states remain unverified. Canvas/image content cannot be comprehensively assessed by axe. The incomplete contrast occurrences and remaining small-text/overflow observations in the visual reviews require human review at actual reading sizes.
 
 The feature matrix retains these boundaries. Automated success and the resolved keyboard defects improve reliability but do not override missing provider engines, fairness validation or the creator's complete-product quality gates.
+
+## Later checkpoint closure
+
+The tab-pattern gap above was subsequently fixed with roving tabIndex and ArrowLeft/ArrowRight/Home/End focus/selection. Current desktop/mobile accessibility suite passes **8/8**, including an explicit selected-tab/tabpanel regression. WebKit's native Safari-style Tab mode exposed a further intermediate-button escape; the modal now explicitly focuses every next/previous enabled visible control for every Tab press. WebKit's current four accessibility cases pass4/4; Firefox's current four cases also pass4/4. These executed updates close those reproduced keyboard defects without claiming a full assistive-technology audit.

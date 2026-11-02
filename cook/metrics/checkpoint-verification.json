@@ -1,0 +1,53 @@
+{
+  "at": "2026-11-02T10:30:00Z",
+  "checkpoint": "401d254 plus verified follow-up commit",
+  "typecheck": "pass",
+  "lint": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "unitTests": {
+    "files": 15,
+    "passed": 97
+  },
+  "chromiumMobileFullSnapshot": {
+    "passed": 46,
+    "skippedProductionOnly": 2
+  },
+  "latestChromiumMobileKeyboard": {
+    "passed": 8
+  },
+  "productionProductOffline": {
+    "passed": 8
+  },
+  "firefoxFullSnapshot": {
+    "passed": 20,
+    "skippedProductionOnly": 1
+  },
+  "latestFirefoxKeyboard": {
+    "passed": 4
+  },
+  "webkitFinalFull": {
+    "passed": 24,
+    "skippedProductionOnly": 1
+  },
+  "axe": {
+    "scans": 26,
+    "automatedViolations": 0,
+    "incompleteContrastOccurrences": 52
+  },
+  "taste": {
+    "failures": 0,
+    "warnings": 6,
+    "allowances": [
+      "icon-chips: pigment/tool data controls",
+      "covered-text: pinned mobile mirror over independently scrolling inspector"
+    ]
+  },
+  "fullAcceptance": false,
+  "provisionalWeightedScore": 6.58,
+  "liveProvidersVerified": false,
+  "paidRequestsMade": false,
+  "physicalDevicePerformanceVerified": false,
+  "fairnessValidated": false
+}

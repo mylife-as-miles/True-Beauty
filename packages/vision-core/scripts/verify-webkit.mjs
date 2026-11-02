@@ -22,7 +22,7 @@ const result=await page.evaluate(async()=>{
  }catch(error){results.push({error:String(error)})}finally{engine.dispose()}
  return {capabilities,results,userAgent:navigator.userAgent,canvasCaptureStream:typeof document.createElement('canvas').captureStream}
 })
-let provisionedPackages=[];try{provisionedPackages=JSON.parse(await readFile('/tmp/true-beauty-browser-libs/manifest.json','utf8'))}catch{}
+let provisionedPackages=[];try{provisionedPackages=JSON.parse(await readFile('/tmp/true-beauty-browser-libs/manifest.json','utf8'))}catch { /* Optional probe. */ }
 const evidence={recordedAt:new Date().toISOString(),browser:browser.version(),cpu:os.cpus()[0]?.model,platform:os.platform(),mode:'WebKit WPE headless, Mesa llvmpipe software graphics; unprivileged local library wrapper',...result,provisionedPackages,limitations:'Playwright WebKit on Linux is not Safari on real macOS/iOS hardware. No mobile/hardware FPS or fairness gate asserted.'}
 await writeFile(path.join(output,'webkit-integration.json'),JSON.stringify(evidence,null,2));console.log(JSON.stringify(evidence,null,2));await browser.close()
 if(result.results.some(r=>r.points!==478||!r.hair?.[0]))process.exitCode=1

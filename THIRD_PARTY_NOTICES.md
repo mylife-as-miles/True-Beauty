@@ -3,7 +3,7 @@
 True Beauty's original implementation is separate from the following source adaptations. Full retained notices accompany derivative modules:
 
 - OpenMakeupSDK, Ehsan Moradi, MIT: `packages/shader-library/LICENSE.OpenMakeupSDK`.
-- SKIN_AI / MIROIR, MIT: `packages/{skin-engine,beauty-intelligence,fashion-engine,commerce-engine}/LICENSE.MIROIR`, `apps/api/LICENSE.MIROIR`.
+- SKIN_AI / MIROIR, MIT: `packages/{skin-engine,beauty-intelligence}/LICENSE.MIROIR`, `packages/{fashion-engine,commerce-engine}/THIRD_PARTY_LICENSE.txt`, and `apps/api/LICENSE.MIROIR`.
 - Skyn / RANDON, MIT: `packages/{skin-engine,beauty-intelligence}/LICENSE.SKYN`.
 - Virtual Makeup: upstream README explicitly declares MIT and credits otdnnc; linked standalone LICENSE absent at pinned revision. Original declaration and scope retained in `packages/vision-core/THIRD_PARTY_NOTICE.md`; do not assert full distribution clearance. Independently implemented OpenCV API recipes are separately identified.
 - MediaPipe Tasks Vision and OpenCV software use Apache-2.0; runtime dependency notices apply. Downloaded model weights require their own audit in `packages/vision-core/MODELS.md`, not merely the software notice.

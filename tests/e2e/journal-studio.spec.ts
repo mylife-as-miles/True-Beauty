@@ -62,7 +62,10 @@ test("saved recipes replay as a real two-look comparison and name typing keeps f
       canvases.map((c) => (c as HTMLCanvasElement).toDataURL()),
     );
   expect(previews).toHaveLength(2);
-  expect(previews[0] === previews[1], "Saved recipes must render different pixels").toBe(false);
+  expect(
+    previews[0] === previews[1],
+    "Saved recipes must render different pixels",
+  ).toBe(false);
   await page.screenshot({
     path: `cook/stills/r03/look-comparison-${info.project.name}.png`,
   });

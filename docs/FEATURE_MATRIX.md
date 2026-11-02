@@ -165,7 +165,7 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | INT-04 | Explainable matching and recommendation provenance | Implemented but unverified | Actual cosine/profile/owned/budget matching explanations and attributed memory; efficacy/fairness quality not established |
 | INT-05 | Product alternatives and affordable dupes with truthful data | In progress | Sample lower-price/category alternatives with truthful empty state exist; validated equivalent affordable dupes/real pricing unavailable |
 | INT-06 | Routine compatibility/usage notes without unsupported scientific claims | Implemented but unverified | Source-linked cosmetic ingredient/usage cautions and routine notes exist; complete formulation/concentration compatibility knowledge limited |
-| INT-07 | Budget-aware recommendations including NGN | Implemented and verified | Final independent browser checks at1440/390: unique purchase total NGN19,300 + remaining700 within20,000, sample prices and missing slots disclosed; live offers separate |
+| INT-07 | Budget-aware recommendations including NGN | Implemented and verified | Final independent browser checks at 1440 / 390: unique purchase total NGN 19,300 + remaining 700 within 20,000, sample prices and missing slots disclosed; live offers separate |
 | INT-08 | AM/PM routine generation from profile and allowed observations | Implemented and verified | product-r01/12 + supplement:5actual AM/PM routine slots from current profile/catalog; live analysis not available |
 | INT-09 | Routine editing, completion events and history | Implemented and verified | Actual routine name/step edits persist across reload desktop/mobile; final feature recheck + journal-studio.spec.ts, skin routine completion tests |
 | INT-10 | Owned-product prioritization and owned-only recommendations | Implemented but unverified | Owned-only constraints/unit algorithms and real wardrobe UI exist; complete owned-products planning quality across occasions still unvalidated |
@@ -184,7 +184,7 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | COM-07 | Local owned products and beauty inventory | Implemented and verified | product-r01 stable results:added cleanser, owned-only wardrobe showed 1 product; no account |
 | COM-08 | Wishlist and persistent shopping bag | Implemented but unverified | Actual local bag/owned persistence E2E product.spec.ts; wishlist toggle exists but full wishlist browsing workflow not verified |
 | COM-09 | Shoppable complete looks | Planned | Requires implementation and named evidence |
-| COM-10 | Currency support including NGN and budget planning | Implemented and verified | Actual NGN/USD illustrative prices, shared total-budget allocator, USD100profile regression technical-r02; no exchange conversion invented |
+| COM-10 | Currency support including NGN and budget planning | Implemented and verified | Actual NGN/USD illustrative prices, shared total-budget allocator, USD 100 profile regression technical-r02; no exchange conversion invented |
 | COM-11 | Verified external merchant handoff; no invented orders/payment success | Implemented but unverified | Catalog links official brand sites and disclaims stock/payment; final merchant page/availability/checkout not verified |
 
 ## Agent tools
@@ -206,7 +206,7 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | AGT-13 | explainRecommendation tool with actual supporting records | Implemented but unverified | Actual attributed preference/source explanations and local matching rules; full recommendation evidence retrieval cases incomplete |
 | AGT-14 | rememberPreference / reviseMemory / forgetMemory tools | Implemented and verified | Runtime-validated remember/revise/forget tools and UI correction/use/deletion tests; independent revoke/history regressions pass |
 | AGT-15 | Voice interaction where browser supports with text alternative | Implemented but unverified | Browser SpeechRecognition input with explicit external-service disclosure and typed alternative; actual audio/browser support not verified |
-| AGT-16 | Wedding soft-glam/dry-skin/NGN20,000 coordinated journey | In progress | Wedding request applies look/routine and combined sample purchase plan NGN19,300 with700remaining; missing lip/eye slots honestly disclosed; full saved occasion plan not complete |
+| AGT-16 | Wedding soft-glam/dry-skin/NGN20,000 coordinated journey | In progress | Wedding request applies look/routine and combined sample purchase plan NGN 19,300 with 700 remaining; missing lip/eye slots honestly disclosed; full saved occasion plan not complete |
 
 ## BeautyGraph
 
@@ -254,7 +254,7 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | API-01 | Server-only credentials and strict input/schema validation | Implemented but unverified | Fastify validation/CSRF/origin/secret isolation code + API fixtures and technical review; deployment/live credential boundary not exercised |
 | API-02 | Explicit image/history transmission consent enforcement | Implemented but unverified | Actual unconfigured state fails closed; request schema requires explicit upload/processing/retention consent; live provider test unavailable |
 | API-03 | Paid cost approval, hard usage/spending limits and abuse prevention | Implemented but unverified | Durable conservative single-process credit ledger/one-use quotes + authorization fixtures; no multi-instance or actual billing verification |
-| API-04 | Temporary image retention/cleanup and task lifecycle polling | Implemented but unverified | Temporary in-memory tasks expire15minutes and local deletion endpoint; provider retention is disclosed but not independently verified |
+| API-04 | Temporary image retention/cleanup and task lifecycle polling | Implemented but unverified | Temporary in-memory tasks expire after 15 minutes and local deletion endpoint; provider retention is disclosed but not independently verified |
 | API-05 | Provider error reporting, timeout/cancellation/recovery | Implemented but unverified | Timeout/error/unconfigured paths tested through provider fixtures; actual provider failures/cleanup not live verified |
 | API-06 | Actual endpoint/schema verification from current official docs | Implemented and verified | Official Perfect Corp current endpoints/schemas reviewed, corrections and citations recorded SOURCE_INTEGRATION_MATRIX/API_CONTRACTS; live operation separate |
 | API-07 | Unconfigured provider capability state with useful local fallback | Implemented and verified | Actual capabilities accurately unavailable; no fake concern scores; real local mirror/colour/routines/agent function without paid service |
@@ -282,9 +282,9 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | UX-02 | Connected Mirror/Skin/Makeup/Hair/Dressing spaces | Implemented but unverified | All local space surfaces reachable; provider/gen workflow continuity incomplete |
 | UX-03 | Connected Wardrobe/Intelligence/Shop/Journal spaces | Implemented and verified | Product-r01 actual wardrobe/discovery/ingredients/journal routes and local product state tested |
 | UX-04 | Progressive contextual navigation rather than eleven equal tabs | Implemented and verified | Four main destinations + contextual rail/menu; mobile navigation exercised through six spaces |
-| UX-05 | Original premium imagery/type/hierarchy/spacing/material decisions | Implemented but unverified | Original design/imagery/typographic hierarchy inspected by independent visual critics; latest visual score7.7 remains below9 |
-| UX-06 | Mobile/tablet/desktop responsive layouts and ≥44px touch controls | In progress | 390px routes no document overflow;10 sampled menu/mirror/source/atelier controls now44×44+; all-product touch/access scope not fully verified |
-| UX-07 | Accessible names, focus/keyboard flow and screen-reader status | In progress | 26-state axe scan and6 keyboard regression tests planned/final evidence ACCESSIBILITY_REPORT; physical screen-reader and complete access paths unverified |
+| UX-05 | Original premium imagery/type/hierarchy/spacing/material decisions | Implemented but unverified | Original design/imagery/typographic hierarchy inspected by independent visual critics; latest visual score 7.7 remains below 9 |
+| UX-06 | Mobile/tablet/desktop responsive layouts and ≥44px touch controls | In progress | 390px routes no document overflow;10 sampled menu/mirror/source/atelier controls now 44×44+; all-product touch/access scope not fully verified |
+| UX-07 | Accessible names, focus/keyboard flow and screen-reader status | In progress | Final 26-state axe scan: 0 automated violations; 6 desktop/mobile keyboard regression tests pass; 52 incomplete contrast occurrences and physical assistive-tech coverage remain |
 | UX-08 | Reduced motion and continuity-preserving transitions | Implemented but unverified | Reduced-motion CSS and feedback transitions present; comprehensive reduced-motion/continuity interaction tests not run |
 | UX-09 | Loading/empty/error/offline states that truthfully describe operations | Implemented but unverified | Actual loading/empty/camera-denied/provider-unavailable states truthful; complete production offline/error variants not verified |
 
@@ -294,7 +294,7 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 |---|---|---|---|
 | QA-01 | Vitest algorithm/contract/database/migration tests | In progress | 65 domain/database/memory/agent/skin/API tests independently rerun; engine+full suite coverage elsewhere |
 | QA-02 | React Testing Library state and consent tests | Planned | Requires implementation and named evidence |
-| QA-03 | Playwright real browser interaction and E2E suites | Implemented but unverified | Real browser E2E suites + independent modal regression tests; latest whole-suite result principal-owned, not inferred from source |
+| QA-03 | Playwright real browser interaction and E2E suites | Implemented but unverified | Actual local E2E suites and independent 6-test modal focus/save regression pass; latest whole-suite result principal-owned |
 | QA-04 | TypeScript and ESLint checks | Implemented but unverified | Typecheck/lint/build scripts exist and principal reruns checks; exact latest final outputs belong QUALITY_REPORT, not inferred here |
 | QA-05 | Landmark/hair-mask/hand-gesture/scene-sync test evidence | In progress | VISION_REPORT unit/static/worker fixtures; physical stability/hand accuracy/occlusion not validated |
 | QA-06 | Camera denial/device switch/GPU loss/snapshot/mask-alignment evidence | In progress | VISION_REPORT: 8lifecycle checks; missing camera browser recovery verified; physical switches/GPU/snapshot all pending |
@@ -302,10 +302,10 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | QA-08 | Recommendation/user-correction/tool/memory/consent/cost/offline tests | In progress | 26 memory/agent/database +24 skin/API tests passing; complete offline/cost/history browser matrix pending |
 | QA-09 | Product selection/routine/history/shopping/export/deletion tests | In progress | Actual product detail/owned/bag/notes/looks/routine generation exercised; full export/delete/edit elsewhere pending |
 | QA-10 | No secret leak/unauthorized upload/hidden retention/untrusted output tests | In progress | Independent consent/revocation/race/backup privacy regressions closed technical-r02; complete bundle/retention/untrusted-output audit not exhaustive |
-| QA-11 | Desktop/mobile screenshots and interaction recordings | Implemented and verified | Real desktop/mobile screenshots/recordings product-r01,r02,r03 and independent visual/technical captures; paths cited in reviews |
-| QA-12 | Chrome/Firefox/WebKit compatibility where executable | In progress | Actual Chromium/mobile and targeted Firefox-final artifacts pass; WebKit/full browser/device parity not established here |
+| QA-11 | Desktop/mobile screenshots and interaction recordings | Implemented and verified | Real desktop/mobile screenshots/recordings r01/r02/r03, independent visual/technical captures, final 26-state accessibility evidence |
+| QA-12 | Chrome/Firefox/WebKit compatibility where executable | In progress | Chromium/mobile actual access scans/tests pass and targeted Firefox artifacts exist; WebKit/full accessibility parity not independently passed |
 | QA-13 | Real/throttled device performance: FPS/frame percentiles/inference/resolution/hardware | In progress | VISION_REPORT CPU fixture rAF 59.86 explicitly not full-app FPS; real mobile/long-run target unverified |
-| QA-14 | Lazy models, controlled bundles and no persistent frame leaks | In progress | Lazy actual models/OpenCV and dirty rendering implemented; idle viewer draws0report; full-app bundle/multi-hour allocation/leak target still unverified |
+| QA-14 | Lazy models, controlled bundles and no persistent frame leaks | In progress | Lazy actual models/OpenCV and dirty rendering implemented; idle viewer draws 0 in report; full-app bundle/multi-hour allocation/leak target still unverified |
 | QA-15 | Independent visual/technical/product critics; security/fairness review | In progress | Distinct product/technical/visual critic rounds executed; security regression review pass; representative fairness validation remains unverified |
 | QA-16 | Weighted rubric ≥9.0 and mandatory no-high-defect/all-engines gates | In progress | Mandatory live skin/generative/fullscope/device/fairness/license gates unresolved; no fabricated passing weighted score |
 | QA-17 | Cook checkpoint rounds, exact remaining work and resumable next task | In progress | Cook briefs/references/screenshots/critic reports/run evidence maintained; exact final checkpoint/remaining-work principal-owned |
@@ -326,3 +326,15 @@ Initial inventory date: 2026-11-02. Review this table against current code and t
 | J | Offline saved looks/inventory/routines/history | Implemented but unverified | Production service worker path and offline tests exist; latest whole offline suite principal-owned; not inferred from development server |
 
 Total initial capability rows: 219, plus 10 end-to-end journey gates. Row count measures inventory detail, not completion or quality.
+
+## Evidence reconciliation checkpoint
+
+Updated 2026-11-02 after independent product, technical/visual review evidence and final accessibility scans. All **219 original capability rows** and **10 journey gates** remain in this file. Counts describe grouped inventory statuses, not a completion percentage or quality score. A partially implemented grouped requirement stays In progress even when one constituent has a passing test.
+
+- Implemented and verified: 47 capability rows.
+- Implemented but unverified: 74 capability rows.
+- In progress: 75 capability rows.
+- Planned: 11 capability rows.
+- Blocked with evidence: 12 capability rows.
+
+New routine editing, combined sample budget allocation, generic 3D viewer and session portrait continuity have real browser evidence; prior round-01 gaps for those behaviors are historical. Genuine provider skin concerns, generative hair/fashion, broader accessory/body capabilities, representative fairness/device evaluation and unresolved licensing remain separate unfinished gates. The original ≥9.0 full-product threshold is not declared passed.

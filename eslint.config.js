@@ -4,7 +4,7 @@ import globals from "globals";
 export default ts.config(
   {
     ignores: [
-      "dist/**",
+      "dist/**", "test-results*/**", "playwright-report/**", ".runtime/**",
       "node_modules/**",
       "apps/web/public/**",
       ".taste-skill/**",

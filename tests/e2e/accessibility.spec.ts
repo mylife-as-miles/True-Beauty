@@ -98,3 +98,37 @@ test("look composer dialog inside a workspace view remains interactive with back
     page.getByRole("status").filter({ hasText: "Look saved on this device" }),
   ).toBeVisible();
 });
+test("settings sections use roving arrow-key focus and expose the selected panel", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await page
+    .getByRole("button", { name: "Your data, your choice", exact: true })
+    .click();
+  const dialog = page.getByRole("dialog", {
+    name: "Your data, your choice",
+    exact: true,
+  });
+  const permissions = dialog.getByRole("tab", {
+    name: "Permissions",
+    exact: true,
+  });
+  await permissions.focus();
+  await page.keyboard.press("ArrowRight");
+  const profile = dialog.getByRole("tab", {
+    name: "Beauty profile",
+    exact: true,
+  });
+  await expect(profile).toBeFocused();
+  await expect(profile).toHaveAttribute("aria-selected", "true");
+  await expect(
+    dialog.getByRole("tabpanel", { name: "Beauty profile", exact: true }),
+  ).toBeVisible();
+  await page.keyboard.press("End");
+  await expect(
+    dialog.getByRole("tab", { name: "Data & backup", exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press("Home");
+  await expect(permissions).toBeFocused();
+  await expect(permissions).toHaveAttribute("aria-selected", "true");
+});

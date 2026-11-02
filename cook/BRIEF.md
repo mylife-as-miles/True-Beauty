@@ -1,6 +1,6 @@
 # True Beauty autonomous build brief
 
-Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run, not a video export. Status: active build, not shipped.
+Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run, not a video export. Status: resumable engineering checkpoint, not shipped; full acceptance not met.
 
 ## Target and authority
 
@@ -36,4 +36,4 @@ Research → plan → implement → integrate → run real application → captu
 
 No first-build/first-screenshot stopping. The user authorizes autonomous continuation within execution limits. If actual context/tool/session constraints require a checkpoint, preserve exact current run state and next command/task; explicitly say all incomplete/unverified/blocked work remains. Do not manufacture a passing 9/10 score.
 
-Initial research reached source audit/design decisions. Application implementation and browser evidence are in progress. Reference fetches are not evidence that engine behavior or commercial claims are validated.
+The connected local application, source integrations and browser evidence are implemented to the checkpoint documented in QUALITY_REPORT. Many full-product capabilities remain incomplete or externally blocked. Resume the exact next task in REMAINING_WORK; reference fetches do not validate commercial/model claims.
