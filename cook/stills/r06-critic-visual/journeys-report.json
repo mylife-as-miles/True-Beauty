@@ -1,0 +1,418 @@
+{
+  "date": "2026-11-02T14:25:18.330Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "label": "desktop-style-details",
+      "scrollY": 0,
+      "viewport": {
+        "w": 1440,
+        "h": 1000
+      },
+      "active": "<button class=\"mirror-framing-toggle\" aria-label=\"Fill mirror\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-ratio\" aria-hidden=\"true\"><rect width=\"12\" height=\"20\" x=\"6\" y=\"2\" rx=\"2\"></rect><rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\"></rect></svg><span>Fill mirror</span></button>",
+      "items": [
+        {
+          "s": ".mirror-media",
+          "x": 317,
+          "y": 231.640625,
+          "w": 770,
+          "h": 652.609375,
+          "position": "static",
+          "text": ""
+        },
+        {
+          "s": ".atelier-body",
+          "missing": true
+        },
+        {
+          "s": "#accessory-tracking-details",
+          "x": 1112,
+          "y": 460.328125,
+          "w": 279,
+          "h": 209.265625,
+          "position": "static",
+          "text": "Bracelet: hand anchor available. Geometric landmark projection; size and depth are not measured.\n\nWatch: hand anchor available. Geometric landmark projection; size and depth are not measured.\n\nHat: face anchor available. Geometric landmark projection; size and depth are not measured."
+        }
+      ]
+    },
+    {
+      "label": "desktop-dressing-edit",
+      "scrollY": 998,
+      "viewport": {
+        "w": 1440,
+        "h": 1000
+      },
+      "active": "<body><div id=\"root\"><div class=\"app-shell \"><a class=\"skip-link\" href=\"#main\">Skip to your beauty space</a><header class=\"topbar\"><button class=\"wordmark\" aria-label=\"True Beauty A little more you. Home\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg><span>TRUE BEAUTY <span>A little more you.</span></span></button><nav class=\"topnav\" aria-label=\"Main navigation\"><button class=\"\">The studio</button><button class=\"\">Skin &amp; rituals</button><button class=\"active\">My wardrobe</button><button class=\"\">The beauty edit</button></nav><div class=\"header-right\"><button class=\"companion-button\" aria-label=\"Your beauty companion\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sparkles\" aria-hidden=\"true\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle></svg><span>Your beauty companion</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button><button class=\"profile-button\" aria-label=\"Your profile and privacy\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-user-round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"5\"></circle><path d=\"M20 21a8 8 0 0 0-16 0\"></path></svg><span></span></button><button class=\"icon-button mobile-menu\" aria-label=\"Open navigation\" title=\"Open navigation\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-menu\" aria-hidden=\"true\"><path d=\"M4 5h16\"></path><path d=\"M4 12h16\"></path><path d=\"M4 19h16\"></path></svg></button></div></header><div class=\"workspace\"><aside class=\"nav-rail extended-rail \" aria-label=\"Beauty spaces\"><nav aria-label=\"Beauty spaces\"><button class=\"\" aria-label=\"The studio\" title=\"The studio\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-scan-face\" aria-hidden=\"true\"><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 9h.01\"></path></svg><span>The studio</span></button><button class=\"\" aria-label=\"Skin &amp; rituals\" title=\"Skin &amp; rituals\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-flask-conical\" aria-hidden=\"true\"><path d=\"M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2\"></path><path d=\"M6.453 15h11.094\"></path><path d=\"M8.5 2h7\"></path></svg><span>Skin &amp; rituals</span></button><button class=\"active\" aria-label=\"My wardrobe\" title=\"My wardrobe\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shirt\" aria-hidden=\"true\"><path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\"></path></svg><span>My wardrobe</span></button><button class=\"\" aria-label=\"The beauty edit\" title=\"The beauty edit\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-bag\" aria-hidden=\"true\"><path d=\"M16 10a4 4 0 0 1-8 0\"></path><path d=\"M3.103 6.034h17.794\"></path><path d=\"M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z\"></path></svg><span>The beauty edit</span></button><div class=\"rail-divider\"></div><button class=\"\" aria-label=\"Inspiration canvas\" title=\"Inspiration canvas\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-palette\" aria-hidden=\"true\"><path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\"></path><circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"></circle></svg><span>Inspiration canvas</span></button><button class=\"\" aria-label=\"Beauty profile\" title=\"Beauty profile\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-fingerprint\" aria-hidden=\"true\"><path d=\"M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4\"></path><path d=\"M14 13.12c0 2.38 0 6.38-1 8.88\"></path><path d=\"M17.29 21.02c.12-.6.43-2.3.5-3.02\"></path><path d=\"M2 12a10 10 0 0 1 18-6\"></path><path d=\"M2 16h.01\"></path><path d=\"M21.8 16c.2-2 .131-5.354 0-6\"></path><path d=\"M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2\"></path><path d=\"M8.65 22c.21-.66.45-1.32.57-2\"></path><path d=\"M9 6.8a6 6 0 0 1 9 5.2v2\"></path></svg><span>Beauty profile</span></button><button class=\"\" aria-label=\"Look Remix\" title=\"Look Remix\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-wand-sparkles\" aria-hidden=\"true\"><path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72\"></path><path d=\"m14 7 3 3\"></path><path d=\"M5 6v4\"></path><path d=\"M19 14v4\"></path><path d=\"M10 2v2\"></path><path d=\"M7 8H3\"></path><path d=\"M21 16h-4\"></path><path d=\"M11 3H9\"></path></svg><span>Look Remix</span></button><button class=\"\" aria-label=\"Device &amp; fairness lab\" title=\"Device &amp; fairness lab\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-test-tube-diagonal\" aria-hidden=\"true\"><path d=\"M21 7 6.82 21.18a2.83 2.83 0 0 1-3.99-.01a2.83 2.83 0 0 1 0-4L17 3\"></path><path d=\"m16 2 6 6\"></path><path d=\"M12 16H4\"></path></svg><span>Device &amp; fairness lab</span></button><button class=\"\" aria-label=\"Beauty journal\" title=\"Beauty journal\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-notebook-pen\" aria-hidden=\"true\"><path d=\"M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4\"></path><path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><path d=\"M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path></svg><span>Beauty journal</span></button></nav><div class=\"rail-bottom\"><button aria-label=\"Privacy and settings\" title=\"Privacy and settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-settings2 lucide-settings-2\" aria-hidden=\"true\"><path d=\"M14 17H5\"></path><path d=\"M19 7h-9\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><circle cx=\"7\" cy=\"7\" r=\"3\"></circle></svg><span>Privacy &amp; settings</span></button><div class=\"rail-flower\"><svg width=\"23\" height=\"23\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg></div></div></aside><main id=\"main\" class=\"main-sheet \" tabindex=\"-1\"><div class=\"wardrobe-tabs filter-tabs\" style=\"\"><button class=\"\">My products</button><button class=\"active\">Dressing room</button><button>Saved looks (0) <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button></div><section class=\"dressing-room\"><header class=\"dressing-title\"><div><p class=\"dressing-kicker\">Your dressing room</p><h1>Wear the <em>feeling.</em></h1><p>A colour story, a finishing detail, a look that belongs to you.</p></div><span class=\"dressing-mode\">Static photo composition</span></header><button class=\"button secondary\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sparkles\" aria-hidden=\"true\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle></svg>Generate a clothing preview</button><div class=\"dressing-layout\"><div class=\"dressing-stage\"><div class=\"dressing-stage-toolbar\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shirt\" aria-hidden=\"true\"><path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\"></path></svg>Your composition</span><button aria-label=\"Export composition\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-down-to-line\" aria-hidden=\"true\"><path d=\"M12 17V3\"></path><path d=\"m6 11 6 6 6-6\"></path><path d=\"M19 21H5\"></path></svg></button></div><canvas aria-label=\"Your manually placed garment composition\" width=\"720\" height=\"1080\" data-portrait-source=\"/images/portrait-neutral.jpg\" data-active-outfit=\"64f7eef6-eeb8-41da-ba66-c6389a700bc2\" data-face-source=\"none\" data-local-inferences=\"0\" data-face-inferences=\"0\" data-mirror-look=\"true\"></canvas><div class=\"dressing-stage-foot\"><span role=\"status\">Local static-photo composition · manual placement</span><button aria-label=\"Reset garment placement\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-rotate-ccw\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path></svg></button></div><p class=\"dressing-limit\">A playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative.</p></div><aside class=\"dressing-controls\"><h2>Compose your look</h2><label class=\"dressing-check dressing-mirror-choice\"><input aria-label=\"Include current mirror look\" type=\"checkbox\" checked=\"\" style=\"\">Include current mirror look</label><p class=\"dressing-look-status\" role=\"status\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-scan-face\" aria-hidden=\"true\"><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 9h.01\"></path></svg>Aligning your current mirror look…</p><p class=\"dressing-hint\">Your makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.</p><div class=\"dressing-upload-row\"><button><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-image-plus\" aria-hidden=\"true\"><path d=\"M16 5h6\"></path><path d=\"M19 2v6\"></path><path d=\"M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5\"></path><path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\"></path><circle cx=\"9\" cy=\"9\" r=\"2\"></circle></svg><span>Your portrait</span></button><button><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shirt\" aria-hidden=\"true\"><path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\"></path></svg><span>Your garment</span></button></div><input accept=\"image/jpeg,image/png,image/webp\" class=\"dressing-hidden\" aria-label=\"Upload dressing room portrait\" type=\"file\" style=\"\"><input accept=\"image/jpeg,image/png,image/webp\" class=\"dressing-hidden\" aria-label=\"Upload garment\" type=\"file\" style=\"\"><p class=\"dressing-hint\">JPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.</p><div class=\"dressing-colour-heading\"><h3>A colour to start with</h3><input aria-label=\"Garment colour\" type=\"color\" value=\"#293b43\" style=\"\"></div><div class=\"dressing-swatches\"><button aria-label=\"Choose garment colour #98645e\" aria-pressed=\"false\" style=\"background: rgb(152, 100, 94);\"></button><button aria-label=\"Choose garment colour #d2bc9c\" aria-pressed=\"false\" style=\"background: rgb(210, 188, 156);\"></button><button aria-label=\"Choose garment colour #293b43\" aria-pressed=\"true\" style=\"background: rgb(41, 59, 67);\"></button><button aria-label=\"Choose garment colour #7d843e\" aria-pressed=\"false\" style=\"background: rgb(125, 132, 62);\"></button><button aria-label=\"Choose garment colour #7e4c6d\" aria-pressed=\"false\" style=\"background: rgb(126, 76, 109);\"></button><button aria-label=\"Choose garment colour #232323\" aria-pressed=\"false\" style=\"background: rgb(35, 35, 35);\"></button></div><h3 class=\"dressing-placement-title\">Make it sit just right</h3><label class=\"dressing-range\"><span>Horizontal position<output>1%</output></span><input aria-label=\"Horizontal position\" min=\"-0.5\" max=\"1\" step=\"0.01\" type=\"range\" value=\"0.014759254455566362\" style=\"\"></label><label class=\"dressing-range\"><span>Vertical position<output>64%</output></span><input aria-label=\"Vertical position\" min=\"-0.5\" max=\"1\" step=\"0.01\" type=\"range\" value=\"0.6405436587333679\" style=\"\"></label><label class=\"dressing-range\"><span>Width<output>72%</output></span><input aria-label=\"Width\" min=\"0.1\" max=\"1.5\" step=\"0.01\" type=\"range\" value=\"0.72\" style=\"\"></label><label class=\"dressing-range\"><span>Height<output>40%</output></span><input aria-label=\"Height\" min=\"0.1\" max=\"1.5\" step=\"0.01\" type=\"range\" value=\"0.39945634126663204\" style=\"\"></label><label class=\"dressing-range\"><span>Rotation<output>5°</output></span><input aria-label=\"Rotation\" min=\"-40\" max=\"40\" step=\"1\" type=\"range\" value=\"5\" style=\"\"></label><label class=\"dressing-range\"><span>Opacity<output>93%</output></span><input aria-label=\"Opacity\" min=\"0.1\" max=\"1\" step=\"0.01\" type=\"range\" value=\"0.93\" style=\"\"></label><div class=\"dressing-season\"><label for=\"style-season\">Explore a seasonal palette</label><select id=\"style-season\"><option value=\"light-spring\">Light Spring</option><option value=\"true-spring\">True Spring</option><option value=\"bright-spring\">Bright Spring</option><option value=\"light-summer\">Light Summer</option><option value=\"true-summer\">True Summer</option><option value=\"soft-summer\">Soft Summer</option><option value=\"soft-autumn\">Soft Autumn</option><option value=\"true-autumn\">True Autumn</option><option value=\"deep-autumn\">Deep Autumn</option><option value=\"true-winter\">True Winter</option><option value=\"deep-winter\">Deep Winter</option><option value=\"bright-winter\">Bright Winter</option></select><div class=\"dressing-palette-strip\"><span title=\"camel\" style=\"background: rgb(193, 154, 107);\"></span><span title=\"olive\" style=\"background: rgb(138, 143, 90);\"></span><span title=\"terracotta\" style=\"background: rgb(193, 122, 90);\"></span><span title=\"warm taupe\" style=\"background: rgb(163, 147, 122);\"></span><span title=\"clay\" style=\"background: rgb(181, 137, 107);\"></span><span title=\"moss\" style=\"background: rgb(157, 143, 107);\"></span></div><p>Colour 1 is workable, a more contrasting choice (nearest is your warm taupe, ΔE 45). Your preference comes first.</p></div><label class=\"dressing-name\">Name this outfit<input maxlength=\"100\" value=\"Critic midnight study\" style=\"\"></label><label class=\"dressing-check\"><input type=\"checkbox\" style=\"\">Also store my uploaded photos locally</label><p class=\"dressing-hint\">This grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.</p><button class=\"button primary full-width\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bookmark\" aria-hidden=\"true\"><path d=\"m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z\"></path></svg>Save this outfit</button><p class=\"dressing-provider\">Generative virtual try-on is not configured. No images are uploaded and no paid requests are made here.</p></aside></div><div class=\"dressing-saved\"><h2>Your outfit studies</h2><div class=\"dressing-outfit-list\"><article><span class=\"dressing-outfit-swatch\" style=\"background: rgb(41, 59, 67);\"></span><div><button class=\"dressing-restore\">Critic midnight study</button><p>Original sample blouse · 11/2/2026</p></div><button aria-label=\"Delete outfit Critic midnight study\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-trash2 lucide-trash-2\" aria-hidden=\"true\"><path d=\"M10 11v6\"></path><path d=\"M14 11v6\"></path><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"></path><path d=\"M3 6h18\"></path><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"></path></svg></button></article></div></div></section></main></div><div class=\"toast\" role=\"status\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg><span>Outfit colours and placement saved. Uploaded images have not been stored.</span><button aria-label=\"Dismiss notification\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button></div><footer class=\"app-footer\"><span>TRUE BEAUTY</span><p>Made for self-expression. Kept personal.</p><button>Your data, your choice <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button></footer></div></div><script type=\"module\" src=\"/apps/web/src/main.tsx?t=1793629445301\"></script>\n</body>",
+      "items": [
+        {
+          "s": ".dressing-stage",
+          "x": 119,
+          "y": -565.53125,
+          "w": 916,
+          "h": 894.28125,
+          "position": "static",
+          "text": "Your composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative."
+        },
+        {
+          "s": "input[aria-label=\"Width\"]",
+          "x": 1067,
+          "y": 4.484375,
+          "w": 320,
+          "h": 3,
+          "position": "static",
+          "text": "",
+          "value": "0.72"
+        },
+        {
+          "s": ".dressing-controls",
+          "x": 1067,
+          "y": -565.53125,
+          "w": 320,
+          "h": 1228.859375,
+          "position": "static",
+          "text": "Compose your look\nInclude current mirror look\n\nAligning your current mirror look…\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n72%\nHeight\n40%\nRotation\n5°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 is workable, a more contrasting choice (nearest is your warm taupe, ΔE 45). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here."
+        }
+      ]
+    },
+    {
+      "label": "desktop-profile-archive",
+      "scrollY": 2519,
+      "viewport": {
+        "w": 1440,
+        "h": 1000
+      },
+      "active": "<body><div id=\"root\"><div class=\"app-shell \"><a class=\"skip-link\" href=\"#main\">Skip to your beauty space</a><header class=\"topbar\"><button class=\"wordmark\" aria-label=\"True Beauty A little more you. Home\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg><span>TRUE BEAUTY <span>A little more you.</span></span></button><nav class=\"topnav\" aria-label=\"Main navigation\"><button class=\"\">The studio</button><button class=\"\">Skin &amp; rituals</button><button class=\"\">My wardrobe</button><button class=\"\">The beauty edit</button></nav><div class=\"header-right\"><button class=\"companion-button\" aria-label=\"Your beauty companion\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sparkles\" aria-hidden=\"true\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle></svg><span>Your beauty companion</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button><button class=\"profile-button\" aria-label=\"Your profile and privacy\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-user-round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"5\"></circle><path d=\"M20 21a8 8 0 0 0-16 0\"></path></svg><span></span></button><button class=\"icon-button mobile-menu\" aria-label=\"Open navigation\" title=\"Open navigation\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-menu\" aria-hidden=\"true\"><path d=\"M4 5h16\"></path><path d=\"M4 12h16\"></path><path d=\"M4 19h16\"></path></svg></button></div></header><div class=\"workspace\"><aside class=\"nav-rail extended-rail \" aria-label=\"Beauty spaces\"><nav aria-label=\"Beauty spaces\"><button class=\"\" aria-label=\"The studio\" title=\"The studio\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-scan-face\" aria-hidden=\"true\"><path d=\"M3 7V5a2 2 0 0 1 2-2h2\"></path><path d=\"M17 3h2a2 2 0 0 1 2 2v2\"></path><path d=\"M21 17v2a2 2 0 0 1-2 2h-2\"></path><path d=\"M7 21H5a2 2 0 0 1-2-2v-2\"></path><path d=\"M8 14s1.5 2 4 2 4-2 4-2\"></path><path d=\"M9 9h.01\"></path><path d=\"M15 9h.01\"></path></svg><span>The studio</span></button><button class=\"\" aria-label=\"Skin &amp; rituals\" title=\"Skin &amp; rituals\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-flask-conical\" aria-hidden=\"true\"><path d=\"M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2\"></path><path d=\"M6.453 15h11.094\"></path><path d=\"M8.5 2h7\"></path></svg><span>Skin &amp; rituals</span></button><button class=\"\" aria-label=\"My wardrobe\" title=\"My wardrobe\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shirt\" aria-hidden=\"true\"><path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\"></path></svg><span>My wardrobe</span></button><button class=\"\" aria-label=\"The beauty edit\" title=\"The beauty edit\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-bag\" aria-hidden=\"true\"><path d=\"M16 10a4 4 0 0 1-8 0\"></path><path d=\"M3.103 6.034h17.794\"></path><path d=\"M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z\"></path></svg><span>The beauty edit</span></button><div class=\"rail-divider\"></div><button class=\"\" aria-label=\"Inspiration canvas\" title=\"Inspiration canvas\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-palette\" aria-hidden=\"true\"><path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\"></path><circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\"></circle><circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"></circle></svg><span>Inspiration canvas</span></button><button class=\"active\" aria-label=\"Beauty profile\" title=\"Beauty profile\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-fingerprint\" aria-hidden=\"true\"><path d=\"M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4\"></path><path d=\"M14 13.12c0 2.38 0 6.38-1 8.88\"></path><path d=\"M17.29 21.02c.12-.6.43-2.3.5-3.02\"></path><path d=\"M2 12a10 10 0 0 1 18-6\"></path><path d=\"M2 16h.01\"></path><path d=\"M21.8 16c.2-2 .131-5.354 0-6\"></path><path d=\"M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2\"></path><path d=\"M8.65 22c.21-.66.45-1.32.57-2\"></path><path d=\"M9 6.8a6 6 0 0 1 9 5.2v2\"></path></svg><span>Beauty profile</span></button><button class=\"\" aria-label=\"Look Remix\" title=\"Look Remix\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-wand-sparkles\" aria-hidden=\"true\"><path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72\"></path><path d=\"m14 7 3 3\"></path><path d=\"M5 6v4\"></path><path d=\"M19 14v4\"></path><path d=\"M10 2v2\"></path><path d=\"M7 8H3\"></path><path d=\"M21 16h-4\"></path><path d=\"M11 3H9\"></path></svg><span>Look Remix</span></button><button class=\"\" aria-label=\"Device &amp; fairness lab\" title=\"Device &amp; fairness lab\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-test-tube-diagonal\" aria-hidden=\"true\"><path d=\"M21 7 6.82 21.18a2.83 2.83 0 0 1-3.99-.01a2.83 2.83 0 0 1 0-4L17 3\"></path><path d=\"m16 2 6 6\"></path><path d=\"M12 16H4\"></path></svg><span>Device &amp; fairness lab</span></button><button class=\"\" aria-label=\"Beauty journal\" title=\"Beauty journal\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"21\" height=\"21\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-notebook-pen\" aria-hidden=\"true\"><path d=\"M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4\"></path><path d=\"M2 6h4\"></path><path d=\"M2 10h4\"></path><path d=\"M2 14h4\"></path><path d=\"M2 18h4\"></path><path d=\"M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\"></path></svg><span>Beauty journal</span></button></nav><div class=\"rail-bottom\"><button aria-label=\"Privacy and settings\" title=\"Privacy and settings\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-settings2 lucide-settings-2\" aria-hidden=\"true\"><path d=\"M14 17H5\"></path><path d=\"M19 7h-9\"></path><circle cx=\"17\" cy=\"17\" r=\"3\"></circle><circle cx=\"7\" cy=\"7\" r=\"3\"></circle></svg><span>Privacy &amp; settings</span></button><div class=\"rail-flower\"><svg width=\"23\" height=\"23\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg></div></div></aside><main id=\"main\" class=\"main-sheet \" tabindex=\"-1\"><section class=\"digital-twin\" aria-labelledby=\"_r_2_\"><header class=\"twin-heading\"><div><span class=\"eyebrow\">Your beauty profile</span><h1 id=\"_r_2_\">A little more <em>you.</em></h1><p>The colours, rituals and possibilities you choose to make your own.</p></div><button class=\"twin-text-action\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-down-to-line\" aria-hidden=\"true\"><path d=\"M12 17V3\"></path><path d=\"m6 11 6 6 6-6\"></path><path d=\"M19 21H5\"></path></svg> Export profile</button></header><div class=\"twin-introduction\"><figure class=\"twin-portrait\"><div class=\"twin-portrait-media\"><img alt=\"Current session portrait, used for display only\" src=\"/images/portrait-neutral.jpg\"><button class=\"twin-portrait-action\">Back to the mirror <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button></div><figcaption><span>Your current portrait</span><small>Session only. Not stored with this profile.</small></figcaption></figure><div class=\"twin-profile-intro\"><span class=\"eyebrow\">In your own words</span><h2>Beauty has a<br><em>personal language.</em></h2><p>This is an editable record of your cosmetic preferences and styling choices. It is not a biometric model or a medically complete digital twin.</p><p>You describe yourself. You choose what stays. Everything here is local to this browser, without an account.</p><div class=\"twin-anchor-links\"><a href=\"#_r_3_\">Your preferences <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-right\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></a><a href=\"#twin-composer\">Create a complete look <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-right\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></a><a href=\"#twin-archive\">Return to a saved look <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-right\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></a></div><span class=\"twin-profile-source\">Your saved preferences · revision 1<br>No appearance or medical traits inferred from the portrait.</span></div></div><form id=\"_r_3_\" class=\"twin-profile-form\"><div class=\"twin-section-heading\"><span>01 / Your starting point</span><h2>Tell us what feels like you.</h2><p>Self-reported details help you plan. Leave anything unspecified.</p></div><div class=\"twin-profile-fields\"><label>What should we call you?<input maxlength=\"80\" autocomplete=\"nickname\" placeholder=\"A name, if you like\" value=\"Visual review\" style=\"\"></label><label>Skin type, as you describe it<select aria-label=\"Skin type, as you describe it\"><option>Not specified</option><option>Dry</option><option>Oily</option><option>Combination</option><option>Balanced</option></select></label><label>Your beauty budget<input min=\"0\" max=\"100000000\" step=\"1\" type=\"number\" value=\"20000\" style=\"\"></label><label>Currency<select aria-label=\"Currency\"><option value=\"NGN\">NGN · Nigerian naira</option><option value=\"USD\">USD · US dollar</option><option value=\"GBP\">GBP · British pound</option><option value=\"EUR\">EUR · Euro</option></select></label><label class=\"twin-field-wide\">Cosmetic concerns you want to track<input maxlength=\"1200\" placeholder=\"For example: visible dryness, uneven-looking tone\" value=\"\" style=\"\"><small>Separate with commas. These are your observations, not diagnoses.</small></label><label class=\"twin-field-wide\">What matters to you in your products?<input maxlength=\"1200\" placeholder=\"For example: lightweight textures, fragrance-free choices\" value=\"\" style=\"\"><small>Your own preferences, separated by commas.</small></label></div><div class=\"twin-detail-columns\"><fieldset><legend>Hair, on your terms.</legend><label>Hair texture<input maxlength=\"80\" placeholder=\"Describe your texture\" value=\"Coily\" style=\"\"></label><label>Hair length<input maxlength=\"80\" placeholder=\"Describe your length\" value=\"Not specified\" style=\"\"></label><label>Hair goals<textarea rows=\"3\" maxlength=\"1400\" placeholder=\"One goal per line\" style=\"\"></textarea><small>Up to 12 goals. Your descriptions, not a hair diagnosis.</small></label></fieldset><fieldset><legend>Your style vocabulary.</legend><label>Style goals<textarea rows=\"3\" maxlength=\"1900\" placeholder=\"One goal or occasion per line\" style=\"\"></textarea><small>Up to 12 goals, such as everyday soft glam or expressive colour.</small></label><label>Preferred makeup finish<select aria-label=\"Preferred makeup finish\"><option value=\"unspecified\">No preference yet</option><option value=\"matte\">Matte</option><option value=\"gloss\">Gloss</option><option value=\"shimmer\">Shimmer</option><option value=\"glitter\">Glitter</option></select></label><label>Ingredients you prefer to avoid<textarea rows=\"2\" maxlength=\"4700\" placeholder=\"Separate ingredient names with commas\" style=\"\"></textarea><small>A preference list, not an allergy or product-safety check.</small></label></fieldset></div><fieldset class=\"twin-colors\"><legend>A colour story you come back to.</legend><div class=\"twin-color-editor\"><div class=\"twin-favorite-colors\"><span>No favourites saved yet.</span></div><label>Add a favourite<input aria-label=\"New favorite colour\" type=\"color\" value=\"#a45356\" style=\"\"></label><button type=\"button\" class=\"twin-add-color\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-plus\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"M12 5v14\"></path></svg> Add colour</button></div><p>Up to twelve colours. Remove a swatch to revise your palette.</p></fieldset><div class=\"twin-save-profile\"><div><label class=\"twin-memory-choice\"><input disabled=\"\" type=\"checkbox\" style=\"\"> Let the beauty agent remember these preferences</label><small>Preference memory is off. Enable it in Privacy and settings first; saving your profile does not grant permission.</small></div><button class=\"button primary\" type=\"submit\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-check\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"></path></svg>Save my local profile</button><span class=\"twin-draft-state\">Only saved changes become your profile.</span></div></form><section id=\"twin-composer\" class=\"twin-composer\" aria-labelledby=\"_r_2_-compose\"><div class=\"twin-section-heading\"><span>02 / Everything, together</span><h2 id=\"_r_2_-compose\">Give the whole look a name.</h2><p>Your current mirror recipe, an outfit you saved, and the products you own. One place to return to.</p></div><div class=\"twin-composer-layout\"><div class=\"twin-current-recipe\"><div class=\"twin-recipe-heading\"><span>From your mirror, now</span><button class=\"twin-text-action\">Edit in mirror <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button></div><div class=\"twin-recipe-pigments\"><span title=\"Lip colour #943356\" role=\"img\" aria-label=\"Lip colour #943356\" style=\"background-color: rgb(148, 51, 86);\"></span><span title=\"Blush #C47670\" role=\"img\" aria-label=\"Blush #C47670\" style=\"background-color: rgb(196, 118, 112);\"></span><span title=\"Eyeshadow #967564\" role=\"img\" aria-label=\"Eyeshadow #967564\" style=\"background-color: rgb(150, 117, 100);\"></span></div><ul class=\"twin-recipe-details\"><li><span>Lip colour</span><span>#943356 · gloss · 55%</span></li><li><span>Blush</span><span>#C47670 · matte · 32%</span></li><li><span>Eyeshadow</span><span>#967564 · shimmer · 24%</span></li><li><span>Hair</span><span>Original colour</span></li><li><span>Accessories</span><span>bracelet, watch, hat</span></li><li><span>Scene light</span><span>Golden hour</span></li></ul><p>Saved as editable parameters. No portrait, camera frame or facial geometry is included.</p></div><form class=\"twin-composition-form\"><label>Complete look name<input required=\"\" maxlength=\"100\" placeholder=\"For a moment worth remembering\" value=\"\" style=\"\"></label><label>Occasion or note<input maxlength=\"160\" placeholder=\"An evening out, a little everyday confidence…\" value=\"\" style=\"\"></label><label>Pair with a saved outfit<select aria-label=\"Pair with a saved outfit\"><option value=\"\">No outfit attached</option><option value=\"64f7eef6-eeb8-41da-ba66-c6389a700bc2\">Critic midnight study</option></select></label><button type=\"button\" class=\"twin-outfit-action\">Inspect Critic midnight study <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button><fieldset class=\"twin-owned-selection\"><legend>Build from what you own.</legend><p>Your wardrobe is empty. Add owned products in My wardrobe, then attach them here.</p></fieldset><div class=\"twin-compose-memory\"><label class=\"twin-memory-choice\"><input disabled=\"\" type=\"checkbox\" style=\"\"> Add this look to agent history</label><small>History memory is off. The saved look still works without it.</small></div><button class=\"button primary\" type=\"submit\" disabled=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sparkles\" aria-hidden=\"true\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle></svg>Save my complete look</button><p class=\"twin-feedback\" role=\"status\">Your coordinated look is saved. Its recipe and references are stored, without a photograph.</p></form></div></section><section id=\"twin-archive\" class=\"twin-archive\" aria-labelledby=\"_r_2_-archive\"><div class=\"twin-section-heading\"><span>03 / A thread to return to</span><h2 id=\"_r_2_-archive\">Your complete looks.</h2><p>Reopen the recipe in your mirror. Outfit and product references stay connected.</p></div><div class=\"twin-look-list\"><article class=\"twin-saved-look\"><div class=\"twin-saved-palette\" aria-hidden=\"true\"><span style=\"background-color: rgb(148, 51, 86);\"></span><span style=\"background-color: rgb(196, 118, 112);\"></span><span style=\"background-color: rgb(150, 117, 100);\"></span></div><div class=\"twin-saved-caption\"><h3>Critic evening recipe</h3><p>A look in your own language.</p><small>Nov 2, 2026 · 0 owned-product references · Golden hour</small></div><div class=\"twin-saved-actions\"><button class=\"twin-reopen-look\">Reopen in mirror <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button><button class=\"twin-text-action\">Open outfit <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button><button class=\"twin-delete-look\" aria-label=\"Delete complete look Critic evening recipe\" title=\"Delete complete look\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-trash2 lucide-trash-2\" aria-hidden=\"true\"><path d=\"M10 11v6\"></path><path d=\"M14 11v6\"></path><path d=\"M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6\"></path><path d=\"M3 6h18\"></path><path d=\"M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2\"></path></svg></button></div></article></div></section><footer class=\"twin-footer\"><span>Beauty Digital Twin · a cosmetic preference profile</span><p>Stored in this browser. Not encrypted by default. Use Privacy and settings to inspect consent, export broader local data or clear it. Your session portrait is excluded.</p></footer></section></main></div><div class=\"toast\" role=\"status\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 40 40\" aria-hidden=\"true\"><path d=\"M20 1C20 13 13 20 1 20c12 0 19 7 19 19 0-12 7-19 19-19C27 20 20 13 20 1Z\" fill=\"currentColor\"></path><path d=\"M20 9v22M9 20h22\" stroke=\"var(--ground)\" stroke-width=\".7\"></path></svg><span>Outfit colours and placement saved. Uploaded images have not been stored.</span><button aria-label=\"Dismiss notification\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-x\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"></path><path d=\"m6 6 12 12\"></path></svg></button></div><footer class=\"app-footer\"><span>TRUE BEAUTY</span><p>Made for self-expression. Kept personal.</p><button>Your data, your choice <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button></footer></div></div><script type=\"module\" src=\"/apps/web/src/main.tsx?t=1793629445301\"></script>\n</body>",
+      "items": [
+        {
+          "s": ".digital-twin",
+          "x": 119,
+          "y": -2394,
+          "w": 1268,
+          "h": 3363.03125,
+          "position": "static",
+          "text": "Your beauty profile\nA little more you.\n\nThe colours, rituals and possibilities you choose to make your own.\n\nExport profile\nBack to the mirror\nYour current portrait\nSession only. Not stored with this profile.\nIn your own words\nBeauty has a\npersonal language.\n\nThis is an editable record of your cosmetic preferences and styling choices. It is not a biometric model or a medically complete digital twin.\n\nYou describe yourself. You choose what stays. Everything here is local to this browser, without an account.\n\nYour preferences\nCreate a complete look\nReturn to a saved look\nYour saved preferences · revision 1\nNo appearance or medical traits inferred from the portrait.\n01 / YOUR STARTING POINT\nTell us what feels like you.\n\nSelf-reported details help you plan. Leave anything unspecified.\n\nWhat should we call you?\nSkin type, as you describe it\nNot specified\nDry\nOily\nCombination\nBalanced\nYour beauty budget\nCurrency\nNGN · Nigerian naira\nUSD · US dollar\nGBP · British pound\nEUR · Euro\nCosmetic concerns you want to track\nSeparate with commas. These are your observations, not diagnoses.\nWhat matters to you in your products?\nYour own preferences, separated by commas.\nHair, on your terms.\nHair texture\nHair length\nHair goals\nUp to 12 goals. Your descriptions, not a hair diagnosis.\nYour style vocabulary.\nStyle goals\nUp to 12 goals, such as everyday soft glam or expressive colour.\nPreferred makeup finish\nNo preference yet\nMatte\nGloss\nShimmer\nGlitter\nIngredients you prefer to avoid\nA preference list, not an allergy or product-safety check.\nA colour story you come back to.\nNo favourites saved yet.\nAdd a favourite\nAdd colour\n\nUp to twelve colours. Remove a swatch to revise your palette.\n\nLet the beauty agent remember these preferences\nPreference memory is off. Enable it in Privacy and settings first; saving your profile does not grant permission.\nSave my local profile\nOnly saved changes become your profile.\n02 / EVERYTHING, TOGETHER\nGive the whole look a name.\n\nYour current mirror recipe, an outfit you saved, and the products you own. One place to return to.\n\nFROM YOUR MIRROR, NOW\nEdit in mirror\nLip colour\n#943356 · gloss · 55%\nBlush\n#C47670 · matte · 32%\nEyeshadow\n#967564 · shimmer · 24%\nHair\nOriginal colour\nAccessories\nbracelet, watch, hat\nScene light\nGolden hour\n\nSaved as editable parameters. No portrait, camera frame or facial geometry is included.\n\nComplete look name\nOccasion or note\nPair with a saved outfit\nNo outfit attached\nCritic midnight study\nInspect Critic midnight study\nBuild from what you own.\n\nYour wardrobe is empty. Add owned products in My wardrobe, then attach them here.\n\nAdd this look to agent history\nHistory memory is off. The saved look still works without it.\nSave my complete look\n\nYour coordinated look is saved. Its recipe and references are stored, without a photograph.\n\n03 / A THREAD TO RETURN TO\nYour complete looks.\n\nReopen the recipe in your mirror. Outfit and product references stay connected.\n\nCritic evening recipe\n\nA look in your own language.\n\nNov 2, 2026 · 0 owned-product references · Golden hour\nReopen in mirror\nOpen outfit\nBeauty Digital Twin · a cosmetic preference profile\n\nStored in this browser. Not encrypted by default. Use Privacy and settings to inspect consent, export broader local data or clear it. Your session portrait is excluded."
+        },
+        {
+          "s": ".twin-archive",
+          "x": 188.734375,
+          "y": 529.046875,
+          "w": 1128.53125,
+          "h": 313.390625,
+          "position": "static",
+          "text": "03 / A THREAD TO RETURN TO\nYour complete looks.\n\nReopen the recipe in your mirror. Outfit and product references stay connected.\n\nCritic evening recipe\n\nA look in your own language.\n\nNov 2, 2026 · 0 owned-product references · Golden hour\nReopen in mirror\nOpen outfit"
+        }
+      ]
+    },
+    {
+      "label": "desktop-actual-outfit-restored",
+      "name": "Critic midnight study",
+      "color": "#293b43",
+      "width": "0.72",
+      "rotation": "5",
+      "canvas": {
+        "portraitSource": "/images/portrait-neutral.jpg",
+        "activeOutfit": "64f7eef6-eeb8-41da-ba66-c6389a700bc2",
+        "faceSource": "none",
+        "localInferences": "0",
+        "faceInferences": "0",
+        "mirrorLook": "true"
+      }
+    },
+    {
+      "label": "desktop-complete-look-restored",
+      "color": "#943356"
+    },
+    {
+      "label": "desktop-light-restored",
+      "text": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nYour beauty companion\nYour personal beauty space / The Living Mirror\nA little more you.\n\nYour reflection. An open canvas.\n\nFocus mirror\nSave this look\nFind your feeling.\nApply\nSoft glow\nApply\nRose hour\nApply\nGolden muse\nApply\nAfter hours\nApply\nBarely there\nApply\nStudio violet\n\nColour studies on your portrait. Explore the finish in your mirror.\n\nCreate with your\nbeauty companion\nStudio portrait\n· preparing\nFill mirror\n100%\nMapping facial contours…\nDemo portrait\nOpen camera\nUpload photo\nProcessed on your device. Always your reflection.\nLocal vision\nMakeup\nHair\nStyle\nLight\nSet the light.\n\nA different mood. The same you.\n\nOriginal\nDaylight\nGolden\nMoonlight\nLight strength\n65%\n\nDrag the light or use arrow keys.\n\nCreative preview only. Skin Lab reads your original photo.\n\nPreview quality\nBalanced\nYour face. Your palette. Your possibilities.\nGet to know your skin\nOutfit study restored on your current mirror portrait.\nTRUE BEAUTY\n\nMade for self-expression. Kept personal.\n\nYour data, your choice"
+    },
+    {
+      "label": "desktop-remix-correction-viewport",
+      "scrollY": 853,
+      "viewport": {
+        "w": 1440,
+        "h": 1000
+      },
+      "active": "<input aria-label=\"Hair presence\" min=\"0\" max=\"100\" type=\"range\" value=\"70\" style=\"\">",
+      "items": [
+        {
+          "s": ".remix-source-stage",
+          "x": 188.734375,
+          "y": -471.03125,
+          "w": 527.265625,
+          "h": 570,
+          "position": "relative",
+          "text": "Hair"
+        },
+        {
+          "s": ".remix-target-stage",
+          "x": 790,
+          "y": -471.03125,
+          "w": 527.265625,
+          "h": 570,
+          "position": "relative",
+          "text": ""
+        },
+        {
+          "s": "canvas",
+          "x": 863.625,
+          "y": -471.03125,
+          "w": 380,
+          "h": 570,
+          "position": "absolute",
+          "text": ""
+        },
+        {
+          "s": ".remix-inspector",
+          "x": 188.734375,
+          "y": 505.359375,
+          "w": 1128.53125,
+          "h": 172.375,
+          "position": "static",
+          "text": "Hair, reimagined.\n\nYour choice · measured #3D2E20\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude hair\nPresence\n70%\nSegmented hair pixels; lighting and highlights affect the shade. Preview does not change hair shape."
+        }
+      ]
+    },
+    {
+      "label": "desktop-motion",
+      "animated": [
+        {
+          "tag": "SECTION",
+          "cls": "look-remix",
+          "name": "remix-enter",
+          "duration": "0.5s"
+        }
+      ]
+    },
+    {
+      "label": "mobile-style-details",
+      "scrollY": 0,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "active": {
+        "tag": "BUTTON",
+        "name": "Fill mirror"
+      },
+      "items": [
+        {
+          "s": ".mirror-media",
+          "x": 22,
+          "y": 244,
+          "w": 346,
+          "h": 256.203125,
+          "position": "static",
+          "text": ""
+        },
+        {
+          "s": ".atelier-body",
+          "missing": true
+        },
+        {
+          "s": "#accessory-tracking-details",
+          "x": 36,
+          "y": 473.3125,
+          "w": 318,
+          "h": 204.375,
+          "position": "static",
+          "text": "Bracelet: hand anchor available. Geometric landmark projection; size and depth are not measured.\n\nWatch: hand anchor available. Geometric landmark projection; size and depth are not measured.\n\nHat: face anchor available. Geometric landmark projection; size and depth are not measured."
+        }
+      ]
+    },
+    {
+      "label": "mobile-dressing-edit",
+      "scrollY": 1679,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "active": {
+        "tag": "BODY",
+        "name": null
+      },
+      "items": [
+        {
+          "s": ".dressing-stage",
+          "x": 25,
+          "y": -1248,
+          "w": 340,
+          "h": 635.421875,
+          "position": "static",
+          "text": "Your composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative."
+        },
+        {
+          "s": "input[aria-label=\"Width\"]",
+          "x": 25,
+          "y": -43.0625,
+          "w": 158,
+          "h": 3,
+          "position": "static",
+          "text": "",
+          "value": "0.72"
+        },
+        {
+          "s": ".dressing-controls",
+          "x": 25,
+          "y": -594.578125,
+          "w": 340,
+          "h": 1141.359375,
+          "position": "static",
+          "text": "Compose your look\nInclude current mirror look\n\nAligning your current mirror look…\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n72%\nHeight\n40%\nRotation\n5°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 is workable, a more contrasting choice (nearest is your warm taupe, ΔE 45). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here."
+        }
+      ]
+    },
+    {
+      "label": "mobile-profile-archive",
+      "scrollY": 4827,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "active": {
+        "tag": "BODY",
+        "name": null
+      },
+      "items": [
+        {
+          "s": ".digital-twin",
+          "x": 25,
+          "y": -4736,
+          "w": 340,
+          "h": 5506.96875,
+          "position": "static",
+          "text": "Your beauty profile\nA little more you.\n\nThe colours, rituals and possibilities you choose to make your own.\n\nExport profile\nBack to the mirror\nYour current portrait\nSession only. Not stored with this profile.\nIn your own words\nBeauty has a\npersonal language.\n\nThis is an editable record of your cosmetic preferences and styling choices. It is not a biometric model or a medically complete digital twin.\n\nYou describe yourself. You choose what stays. Everything here is local to this browser, without an account.\n\nYour preferences\nCreate a complete look\nReturn to a saved look\nYour saved preferences · revision 1\nNo appearance or medical traits inferred from the portrait.\n01 / YOUR STARTING POINT\nTell us what feels like you.\n\nSelf-reported details help you plan. Leave anything unspecified.\n\nWhat should we call you?\nSkin type, as you describe it\nNot specified\nDry\nOily\nCombination\nBalanced\nYour beauty budget\nCurrency\nNGN · Nigerian naira\nUSD · US dollar\nGBP · British pound\nEUR · Euro\nCosmetic concerns you want to track\nSeparate with commas. These are your observations, not diagnoses.\nWhat matters to you in your products?\nYour own preferences, separated by commas.\nHair, on your terms.\nHair texture\nHair length\nHair goals\nUp to 12 goals. Your descriptions, not a hair diagnosis.\nYour style vocabulary.\nStyle goals\nUp to 12 goals, such as everyday soft glam or expressive colour.\nPreferred makeup finish\nNo preference yet\nMatte\nGloss\nShimmer\nGlitter\nIngredients you prefer to avoid\nA preference list, not an allergy or product-safety check.\nA colour story you come back to.\nNo favourites saved yet.\nAdd a favourite\nAdd colour\n\nUp to twelve colours. Remove a swatch to revise your palette.\n\nLet the beauty agent remember these preferences\nPreference memory is off. Enable it in Privacy and settings first; saving your profile does not grant permission.\nSave my local profile\nOnly saved changes become your profile.\n02 / EVERYTHING, TOGETHER\nGive the whole look a name.\n\nYour current mirror recipe, an outfit you saved, and the products you own. One place to return to.\n\nFROM YOUR MIRROR, NOW\nEdit in mirror\nLip colour\n#943356 · gloss · 55%\nBlush\n#C47670 · matte · 32%\nEyeshadow\n#967564 · shimmer · 24%\nHair\nOriginal colour\nAccessories\nbracelet, watch, hat\nScene light\nGolden hour\n\nSaved as editable parameters. No portrait, camera frame or facial geometry is included.\n\nComplete look name\nOccasion or note\nPair with a saved outfit\nNo outfit attached\nCritic midnight study\nInspect Critic midnight study\nBuild from what you own.\n\nYour wardrobe is empty. Add owned products in My wardrobe, then attach them here.\n\nAdd this look to agent history\nHistory memory is off. The saved look still works without it.\nSave my complete look\n\nYour coordinated look is saved. Its recipe and references are stored, without a photograph.\n\n03 / A THREAD TO RETURN TO\nYour complete looks.\n\nReopen the recipe in your mirror. Outfit and product references stay connected.\n\nCritic evening recipe\n\nA look in your own language.\n\nNov 2, 2026 · 0 owned-product references · Golden hour\nReopen in mirror\nOpen outfit\nBeauty Digital Twin · a cosmetic preference profile\n\nStored in this browser. Not encrypted by default. Use Privacy and settings to inspect consent, export broader local data or clear it. Your session portrait is excluded."
+        },
+        {
+          "s": ".twin-archive",
+          "x": 47,
+          "y": 198.296875,
+          "w": 296,
+          "h": 416.453125,
+          "position": "static",
+          "text": "03 / A THREAD TO RETURN TO\nYour complete looks.\n\nReopen the recipe in your mirror. Outfit and product references stay connected.\n\nCritic evening recipe\n\nA look in your own language.\n\nNov 2, 2026 · 0 owned-product references · Golden hour\nReopen in mirror\nOpen outfit"
+        }
+      ]
+    },
+    {
+      "label": "mobile-outfit-route-position",
+      "scrollY": 1713,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "active": {
+        "tag": "BODY",
+        "name": null
+      },
+      "items": [
+        {
+          "s": ".dressing-title",
+          "x": 25,
+          "y": -1543.5,
+          "w": 340,
+          "h": 167.5,
+          "position": "static",
+          "text": "Your dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition"
+        },
+        {
+          "s": ".dressing-stage",
+          "x": 25,
+          "y": -1282,
+          "w": 340,
+          "h": 635.421875,
+          "position": "static",
+          "text": "Your composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative."
+        },
+        {
+          "s": "canvas",
+          "x": 34,
+          "y": -1239,
+          "w": 322,
+          "h": 483,
+          "position": "static",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "label": "mobile-actual-outfit-restored",
+      "name": "Critic midnight study",
+      "color": "#293b43",
+      "width": "0.72",
+      "rotation": "5",
+      "canvas": {
+        "portraitSource": "/images/portrait-neutral.jpg",
+        "activeOutfit": "366c91a2-f37a-48c5-80a2-fc9a6872eeb4",
+        "faceSource": "shared",
+        "localInferences": "0",
+        "faceInferences": "0",
+        "mirrorLook": "true"
+      }
+    },
+    {
+      "label": "mobile-complete-look-restored",
+      "color": "#943356"
+    },
+    {
+      "label": "mobile-light-restored",
+      "text": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nA little more you.\nFocus mirror\nSave this look\nThe look edit\nChoose a look\nCritic evening recipe\nSoft glow\nRose hour\nGolden muse\nAfter hours\nBarely there\nStudio violet\nStudio portrait\n· preparing\nFill mirror\n100%\nMapping facial contours…\nDemo portrait\nOpen camera\nUpload photo\nMakeup\nHair\nStyle\nLight\nSet the light.\n\nA different mood. The same you.\n\nOriginal\nDaylight\nGolden\nMoonlight\nLight strength\n65%\n\nDrag the light or use arrow keys.\n\nCreative preview only. Skin Lab reads your original photo.\n\nPreview quality\nBalanced\nMore controls below\nGet to know your skin\nOutfit study restored on your current mirror portrait.\nTRUE BEAUTY\nYour data, your choice"
+    },
+    {
+      "label": "mobile-remix-correction-viewport",
+      "scrollY": 976,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "active": {
+        "tag": "INPUT",
+        "name": "Hair presence"
+      },
+      "items": [
+        {
+          "s": ".remix-source-stage",
+          "x": 45,
+          "y": -560.53125,
+          "w": 143.5,
+          "h": 265,
+          "position": "relative",
+          "text": "Hair"
+        },
+        {
+          "s": ".remix-target-stage",
+          "x": 201.5,
+          "y": -544.03125,
+          "w": 143.5,
+          "h": 265,
+          "position": "relative",
+          "text": ""
+        },
+        {
+          "s": "canvas",
+          "x": 201.5,
+          "y": -519.15625,
+          "w": 143.5,
+          "h": 215.25,
+          "position": "absolute",
+          "text": ""
+        },
+        {
+          "s": ".remix-inspector",
+          "x": 45,
+          "y": 269.125,
+          "w": 300,
+          "h": 315.25,
+          "position": "static",
+          "text": "Hair, reimagined.\n\nYour choice · measured #3D2E20\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude hair\nPresence\n70%\nSegmented hair pixels; lighting and highlights affect the shade. Preview does not change hair shape."
+        }
+      ]
+    },
+    {
+      "label": "mobile-motion",
+      "animated": []
+    }
+  ],
+  "errors": [],
+  "posts": []
+}

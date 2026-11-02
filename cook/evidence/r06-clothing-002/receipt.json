@@ -1,0 +1,52 @@
+{
+  "format": "true-beauty-live-provider-receipt",
+  "version": 1,
+  "mode": "clothing-only",
+  "startedAt": "2026-11-02T14:22:54.862Z",
+  "fixtureDeclaration": "Operator-declared original synthetic fixtures; not patient data or a clinical validation dataset.",
+  "sourceFiles": {
+    "person": {
+      "name": "person.png",
+      "sha256": "a64ba3ea11481a5d53690d8c4c71bb1ac4aa1e459bbd0a64cd36012b152bce34"
+    },
+    "garment": {
+      "name": "garment.png",
+      "sha256": "3b21837f76602871511582ef2d8bfbfbc9d36003d3815bb1dce73a70b756e555"
+    }
+  },
+  "spendAuthorizationCeiling": 2,
+  "quotedTotal": 2,
+  "actualBilledCredits": null,
+  "billingVerified": false,
+  "providerRetentionDays": 30,
+  "retentionSource": "https://docs.perfectcorp.com/develop/file_retention_period.md",
+  "operations": [
+    {
+      "feature": "clothing",
+      "status": "success",
+      "quoteId": "0aa58a27-c487-4600-bb1d-e99a126e60ad",
+      "quotedCredits": 2,
+      "taskId": "573a41f9-aa96-41ed-8b28-c47b1a885bf7",
+      "outputFile": "generated-clothing.jpg",
+      "result": {
+        "kind": "ai-generated-image",
+        "provider": "perfect-corp",
+        "feature": "clothing",
+        "receivedAt": "2026-11-02T14:23:16.991Z",
+        "notice": "AI-generated clothing preview, not live AR or a fit measurement. Actual fit and appearance may vary.",
+        "bytes": 199313,
+        "sha256": "0eb72ad1a45afc91734631198ab06eb5c95fe70abbc03d39b10f344e5622502c"
+      }
+    }
+  ],
+  "requestedSpecs": {
+    "clothing": {
+      "feature": "clothing",
+      "garmentCategory": "upper_body",
+      "changeShoes": false,
+      "filterMultiPerson": "strict"
+    }
+  },
+  "finishedAt": "2026-11-02T14:23:17.434Z",
+  "allProviderTasksVerified": true
+}

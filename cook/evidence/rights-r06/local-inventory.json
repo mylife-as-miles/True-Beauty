@@ -1,0 +1,312 @@
+{
+  "generatedAt": "2026-11-02T14:45:14.169Z",
+  "kind": "technical-rights-inventory-not-legal-clearance",
+  "distributionClearance": "blocked-with-evidence",
+  "models": [
+    {
+      "name": "face_landmarker.task",
+      "url": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+      "present": true,
+      "expectedSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "actualSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "hashMatches": true,
+      "officialSource": true,
+      "modelCardLicense": "Apache-2.0-documented",
+      "cards": [
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20(Short%20Range).pdf",
+          "sha256": "cd335c06fc0de7807cd815a0777a697932598bcdb28fa98adaaabf847485f758",
+          "quote": "LICENSED UNDER Apache License, Version 2.0"
+        },
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf",
+          "sha256": "c6add060f4ebfb37b2690136b6c711c7e5fcb7038baa2649ae3338b83979565a",
+          "quote": "LICENSED UNDER Apache License, Version 2.0"
+        },
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf",
+          "sha256": "c8e9cf60a39998f4b341740623917590e050d1c97004e2de4568d84e026445ae",
+          "quote": "LICENSED UNDER Apache License, Version 2.0"
+        }
+      ],
+      "status": "documented-license-and-source"
+    },
+    {
+      "name": "hair_segmenter.tflite",
+      "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/hair_segmenter/float32/1/hair_segmenter.tflite",
+      "present": true,
+      "expectedSha256": "2628cf3ce5f695f604cbea2841e00befcaa3624bf80caf3664bef2656d59bf84",
+      "actualSha256": "2628cf3ce5f695f604cbea2841e00befcaa3624bf80caf3664bef2656d59bf84",
+      "hashMatches": true,
+      "officialSource": true,
+      "modelCardLicense": "Apache-2.0-documented",
+      "cards": [
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20-%20Hair%20Segmentation.pdf",
+          "sha256": "369a9ded9ed15dce5525d05ff00bedce54f9e3b9033195609eff49f479c94c67",
+          "quote": "Licensed under ​Apache License, Version 2.0"
+        }
+      ],
+      "status": "documented-license-and-source"
+    },
+    {
+      "name": "selfie_multiclass_256x256.tflite",
+      "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/1/selfie_multiclass_256x256.tflite",
+      "present": true,
+      "expectedSha256": "c6748b1253a99067ef71f7e26ca71096cd449baefa8f101900ea23016507e0e0",
+      "actualSha256": "c6748b1253a99067ef71f7e26ca71096cd449baefa8f101900ea23016507e0e0",
+      "hashMatches": true,
+      "officialSource": true,
+      "modelCardLicense": "Apache-2.0-documented",
+      "cards": [
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Multiclass%20Segmentation.pdf",
+          "sha256": "59372fce0666d4c75b3877540fa77f80ac4b2a0f75e914711417f85fc490a9e6",
+          "quote": "LICENSED UNDER Apache License, Version 2.0"
+        }
+      ],
+      "status": "documented-license-and-source"
+    },
+    {
+      "name": "pose_landmarker_lite.task",
+      "url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+      "present": true,
+      "expectedSha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+      "actualSha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+      "hashMatches": true,
+      "officialSource": true,
+      "modelCardLicense": "Apache-2.0-documented",
+      "cards": [
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+          "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+          "quote": "LICENSED UNDER Apache License, Version 2.0"
+        }
+      ],
+      "status": "documented-license-and-source"
+    },
+    {
+      "name": "hand_landmarker.task",
+      "url": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
+      "present": true,
+      "expectedSha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+      "actualSha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+      "hashMatches": true,
+      "officialSource": true,
+      "modelCardLicense": "Apache-2.0-documented",
+      "cards": [
+        {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Hand%20Tracking%20(Lite_Full)%20with%20Fairness%20Oct%202021.pdf",
+          "sha256": "43127ff8a92e22717f0d8c30dab3efef4641a29cbf50b15ae3de001be94ab76b",
+          "quote": "LICENSED UNDER Blogpost: Google AI blog post 2 March 2020 Example usage included as part of MediaPipe February 2021 release Apache License, Version 2.0"
+        }
+      ],
+      "status": "documented-license-and-source"
+    }
+  ],
+  "retainedNotices": [
+    {
+      "component": "OpenMakeupSDK",
+      "file": "packages/shader-library/LICENSE.OpenMakeupSDK",
+      "declaredLicense": "MIT",
+      "present": true,
+      "contentValid": true,
+      "sha256": "0c5d890007453760b564f3a29a995d00dc0208d042d5f471e5491ff0befe25de"
+    },
+    {
+      "component": "SKIN_AI",
+      "file": "packages/skin-engine/LICENSE.MIROIR",
+      "declaredLicense": "MIT",
+      "present": true,
+      "contentValid": true,
+      "sha256": "a0d5daa049321f98b17fe55c5c26a7001cef7511cce29f4df9eb2c48da56bdd9"
+    },
+    {
+      "component": "Skyn",
+      "file": "packages/skin-engine/LICENSE.SKYN",
+      "declaredLicense": "MIT",
+      "present": true,
+      "contentValid": true,
+      "sha256": "9e10a2e4e70d8d1abad8d5c274ad7d1d921f422acdb0319381eaf78e4cb7a04a"
+    },
+    {
+      "component": "Virtual Makeup declaration",
+      "file": "packages/vision-core/THIRD_PARTY_NOTICE.md",
+      "declaredLicense": "MIT declaration only",
+      "present": true,
+      "contentValid": true,
+      "sha256": "eae28f4d1090fc95526c20f7e2701ccb084253a687c1134d9015130958020baf"
+    },
+    {
+      "component": "Model Apache2 text",
+      "file": "docs/rights/Apache-2.0.txt",
+      "declaredLicense": "Apache-2.0",
+      "present": true,
+      "contentValid": true,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "component": "Model attribution",
+      "file": "docs/rights/MEDIAPIPE_MODELS_NOTICE.md",
+      "declaredLicense": "Attribution",
+      "present": true,
+      "contentValid": true,
+      "sha256": "0fdc5339a4da6e39e0a34272e191e7159c926bc0accf6215c5531a67238b1a99"
+    },
+    {
+      "component": "Distributed model Apache2 text",
+      "file": "apps/web/public/models/LICENSE",
+      "declaredLicense": "Apache-2.0",
+      "present": true,
+      "contentValid": true,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "component": "Distributed model attribution",
+      "file": "apps/web/public/models/NOTICE.md",
+      "declaredLicense": "Attribution",
+      "present": true,
+      "contentValid": true,
+      "sha256": "fb344e0ba13f68058f7c1526486429edba3ca31a6e06f6342880cdec579ddbad"
+    },
+    {
+      "component": "DM Sans",
+      "file": "apps/web/public/fonts/dmsans-OFL.txt",
+      "declaredLicense": "OFL-1.1",
+      "present": true,
+      "contentValid": true,
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "component": "DM Serif Display",
+      "file": "apps/web/public/fonts/dmserifdisplay-OFL.txt",
+      "declaredLicense": "OFL-1.1",
+      "present": true,
+      "contentValid": true,
+      "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+    }
+  ],
+  "fonts": [
+    {
+      "name": "dm-sans-400.ttf",
+      "sha256": "b0ae3e89a7d3ef2b1838bb4b1ceb0b17cc3435af061eee809d76aa623ff116e9"
+    },
+    {
+      "name": "dm-sans-500.ttf",
+      "sha256": "376427b5322148d8de1e03f263bcca4935a2d60ba71d9f94f4947ab664c711ae"
+    },
+    {
+      "name": "dm-sans-600.ttf",
+      "sha256": "b79a2ea7a38f33fd96a282fadb9ce97626bb0724a44d21075859f0e50239993a"
+    },
+    {
+      "name": "dm-sans-700.ttf",
+      "sha256": "2a8e7f713ee79fbccdef3cef5c787aff47580299f7da60144961e7db2ec08211"
+    },
+    {
+      "name": "dm-serif-italic.ttf",
+      "sha256": "0ab2fcacedaafc0a7536453d4a763f131ba83a636706d3ec2d685cf04478a920"
+    },
+    {
+      "name": "dm-serif.ttf",
+      "sha256": "c03775f8cc3db88cfea259b231abe13f94e6a3d3cb01c09477a2e42a1f5919e1"
+    }
+  ],
+  "directDependencies": [
+    {
+      "name": "@fastify/cors",
+      "version": "11.4.0",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "@fastify/multipart",
+      "version": "9.4.0",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "@fastify/rate-limit",
+      "version": "10.3.0",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "@mediapipe/tasks-vision",
+      "version": "0.10.35",
+      "declaredSpdx": "Apache-2.0",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "@react-three/fiber",
+      "version": "9.8.2",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "@techstark/opencv-js",
+      "version": "5.0.0-release.1",
+      "declaredSpdx": "Apache-2.0",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "dexie",
+      "version": "4.4.7",
+      "declaredSpdx": "Apache-2.0",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "dexie-react-hooks",
+      "version": "4.4.0",
+      "declaredSpdx": "Apache-2.0",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "fastify",
+      "version": "5.12.7",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "lucide-react",
+      "version": "0.552.0",
+      "declaredSpdx": "ISC",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "three",
+      "version": "0.181.2",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "zod",
+      "version": "4.6.7",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    },
+    {
+      "name": "zustand",
+      "version": "5.0.16",
+      "declaredSpdx": "MIT",
+      "scope": "package metadata only; bundled/transitive/model/assets rights separate"
+    }
+  ],
+  "issues": [
+    "Virtual Makeup: full MIT copyright/permission notice not recovered; README declaration and attribution remain the available evidence.",
+    "Demo portraits: photographer/model-release/personality-right review remains incomplete; no commercial endorsement or release is asserted.",
+    "Direct dependency SPDX metadata is not a complete transitive/bundled dependency legal audit."
+  ]
+}

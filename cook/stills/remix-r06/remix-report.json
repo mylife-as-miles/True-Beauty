@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-02T13:30:16.991Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "mode": "desktop",
+      "elapsedMs": 1400,
+      "regions": {
+        "lipstick": {
+          "color": "#b16e6f",
+          "pixels": 897,
+          "quality": 0.45861931074596485,
+          "source": "region-pixels"
+        },
+        "eyeshadow": {
+          "color": "#805b4b",
+          "pixels": 742,
+          "quality": 0.5105929919137466,
+          "source": "region-pixels"
+        },
+        "blush": {
+          "color": "#b48370",
+          "pixels": 1339,
+          "quality": 0.44942494870286137,
+          "source": "region-pixels"
+        },
+        "skin": {
+          "color": "#d1a291",
+          "pixels": 88,
+          "quality": 0.5368181818181819,
+          "source": "region-pixels"
+        },
+        "hair": {
+          "color": "#3d2e20",
+          "pixels": 559,
+          "quality": 0.4816969762347816,
+          "source": "region-pixels"
+        }
+      },
+      "palette": [
+        {
+          "color": "#0d0c0b",
+          "fraction": 0.5514511873350924
+        },
+        {
+          "color": "#1d1818",
+          "fraction": 0.3117854001759015
+        },
+        {
+          "color": "#41342f",
+          "fraction": 0.0998240985048373
+        },
+        {
+          "color": "#8f6d5d",
+          "fraction": 0.036939313984168866
+        }
+      ],
+      "analysis": {
+        "worker": 2,
+        "main": 0
+      },
+      "targetSource": "/images/portrait-neutral.jpg",
+      "changedTargetPixels": true,
+      "applied": {
+        "color": "#943356",
+        "finish": "gloss"
+      },
+      "posts": [],
+      "databases": [],
+      "overflow": false,
+      "axe": {
+        "violations": [],
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "mode": "mobile-reduced-motion",
+      "elapsedMs": 1349,
+      "regions": {
+        "lipstick": {
+          "color": "#b16e6f",
+          "pixels": 897,
+          "quality": 0.45861931074596485,
+          "source": "region-pixels"
+        },
+        "eyeshadow": {
+          "color": "#805b4b",
+          "pixels": 742,
+          "quality": 0.5105929919137466,
+          "source": "region-pixels"
+        },
+        "blush": {
+          "color": "#b48370",
+          "pixels": 1339,
+          "quality": 0.44942494870286137,
+          "source": "region-pixels"
+        },
+        "skin": {
+          "color": "#d1a291",
+          "pixels": 88,
+          "quality": 0.5368181818181819,
+          "source": "region-pixels"
+        },
+        "hair": {
+          "color": "#3d2e20",
+          "pixels": 559,
+          "quality": 0.4816969762347816,
+          "source": "region-pixels"
+        }
+      },
+      "palette": [
+        {
+          "color": "#0d0c0b",
+          "fraction": 0.5514511873350924
+        },
+        {
+          "color": "#1d1818",
+          "fraction": 0.3117854001759015
+        },
+        {
+          "color": "#41342f",
+          "fraction": 0.0998240985048373
+        },
+        {
+          "color": "#8f6d5d",
+          "fraction": 0.036939313984168866
+        }
+      ],
+      "analysis": {
+        "worker": 2,
+        "main": 0
+      },
+      "targetSource": "/images/portrait-neutral.jpg",
+      "changedTargetPixels": true,
+      "applied": {
+        "color": "#943356",
+        "finish": "gloss"
+      },
+      "posts": [],
+      "databases": [],
+      "overflow": false,
+      "axe": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "mode": "private-no-face-upload",
+      "faceDetected": false,
+      "scope": "whole-image",
+      "facialLayer": false,
+      "posts": [],
+      "databases": []
+    }
+  ],
+  "errors": []
+}

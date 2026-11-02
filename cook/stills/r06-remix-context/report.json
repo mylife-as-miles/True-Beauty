@@ -1,0 +1,61 @@
+{
+  "at": "2026-11-02T14:34:54.159Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "mode": "mobile",
+      "stickyTop": 12,
+      "thumbnailChanges": true,
+      "beforeFrames": 3,
+      "afterFrames": 3,
+      "comparisonRetained": true,
+      "posts": [],
+      "errors": [],
+      "overflow": false,
+      "axe": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "mode": "desktop",
+      "compactViewHidden": true,
+      "beforeFrames": 3,
+      "afterFrames": 3,
+      "posts": [],
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "mode": "tablet",
+      "compactViewHidden": true,
+      "beforeFrames": 3,
+      "afterFrames": 3,
+      "posts": [],
+      "errors": [],
+      "overflow": false
+    },
+    {
+      "mode": "mobile-generated-provenance",
+      "kind": "Controlled metadata boundary using existing receipt image; no new generation/provider request",
+      "label": "AI-generated hair preview\nPerfect Corp · Still image · Session only. Not stored with this profile.",
+      "posts": [],
+      "imageFreeExport": true,
+      "axe": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "mode": "desktop-generated-provenance",
+      "kind": "Controlled metadata boundary using existing receipt image; no new generation/provider request",
+      "label": "AI-generated hair preview\nPerfect Corp · Still image · Session only. Not stored with this profile.",
+      "posts": [],
+      "imageFreeExport": true,
+      "axe": {
+        "violations": [],
+        "incomplete": []
+      }
+    }
+  ]
+}

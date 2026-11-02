@@ -38,7 +38,7 @@ No first-build/first-screenshot stopping. The user authorizes autonomous continu
 
 The connected local application, source integrations and browser evidence are implemented to the checkpoint documented in QUALITY_REPORT. Many full-product capabilities remain incomplete or externally blocked. Resume the exact next task in REMAINING_WORK; reference fetches do not validate commercial/model claims.
 
-## Active steering — immersive UX round05
+## Historical steering — immersive UX round05
 
 The user requested continued UI/UX/shader improvements and explicitly reinforced Proofline and Common Table as inspiration. This takes precedence over the formerly queued bag-variant task for the current round. Root is integrating bounded desktop/mobile editing, real shared-geometry look previews, undo/redo, scene lighting, full-portrait framing and facial-region context lenses. Specialized agents are improving actual materials, Skin Lab region exploration and the spatial canvas; independent visual, interaction, accessibility and product critics review actual browser evidence. No source/asset copying from restricted Proofline files.
 

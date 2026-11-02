@@ -1,0 +1,158 @@
+{
+  "format": "true-beauty-cosmetic-profile",
+  "version": 1,
+  "exportedAt": "2026-11-02T14:47:15.960Z",
+  "profile": {
+    "id": "local-profile",
+    "displayName": "Reviewer",
+    "skinType": "Not specified",
+    "budget": 20000,
+    "currency": "NGN",
+    "concerns": [],
+    "preferences": [],
+    "createdAt": 1793630825832,
+    "updatedAt": 1793630835460
+  },
+  "preferences": {
+    "hairTexture": "Coily",
+    "hairLength": "Not specified",
+    "hairGoals": [],
+    "styleGoals": [],
+    "favoriteColors": [],
+    "avoidIngredients": [],
+    "preferredFinish": "unspecified",
+    "version": 1,
+    "revision": 1,
+    "updatedAt": 1793630835460,
+    "source": "user-provided"
+  },
+  "ownedProducts": [
+    {
+      "id": "7db90063-fa61-41e6-b1d7-497180eb9226",
+      "productId": "owned:f98dc48b-cdba-4b47-9bf8-8ec027c08066",
+      "name": "Critic evening cream",
+      "addedAt": 1793630833296,
+      "note": ""
+    }
+  ],
+  "outfits": [
+    {
+      "id": "a9c2c887-6a7c-439b-9512-b429679655fa",
+      "name": "Critic blue story",
+      "color": "#24395b",
+      "technology": "static-photo-compositing"
+    }
+  ],
+  "looks": [
+    {
+      "id": "a9d8c089-a41d-417e-98a1-a9412bd115d2",
+      "name": "Critic occasion",
+      "look": {
+        "lipstick": {
+          "enabled": true,
+          "color": "#943356",
+          "opacity": 0.6,
+          "finish": "gloss"
+        },
+        "blush": {
+          "enabled": true,
+          "color": "#b48370",
+          "opacity": 0.25,
+          "finish": "matte"
+        },
+        "eyeshadow": {
+          "enabled": true,
+          "color": "#805b4b",
+          "opacity": 0.25,
+          "finish": "matte"
+        },
+        "foundation": {
+          "enabled": false,
+          "color": "#C99B7A",
+          "opacity": 0.14,
+          "finish": "matte"
+        },
+        "eyeliner": {
+          "enabled": false,
+          "color": "#2B2020",
+          "opacity": 0.5,
+          "finish": "matte"
+        },
+        "mascara": {
+          "enabled": false,
+          "color": "#211C1C",
+          "opacity": 0.45,
+          "finish": "matte"
+        },
+        "brows": {
+          "enabled": false,
+          "color": "#45312C",
+          "opacity": 0.25,
+          "finish": "matte"
+        },
+        "contour": {
+          "enabled": false,
+          "color": "#815C4C",
+          "opacity": 0.22,
+          "finish": "matte"
+        },
+        "bronzer": {
+          "enabled": false,
+          "color": "#B27C51",
+          "opacity": 0.2,
+          "finish": "matte"
+        },
+        "highlighter": {
+          "enabled": false,
+          "color": "#F6DBBD",
+          "opacity": 0.2,
+          "finish": "shimmer"
+        },
+        "lipliner": {
+          "enabled": false,
+          "color": "#834449",
+          "opacity": 0.4,
+          "finish": "matte"
+        },
+        "lipgloss": {
+          "enabled": false,
+          "color": "#F5D0CB",
+          "opacity": 0.25,
+          "finish": "gloss"
+        },
+        "hair": {
+          "enabled": true,
+          "color": "#3d2e20",
+          "secondaryColor": "#3d2e20",
+          "opacity": 0.4,
+          "mode": "solid"
+        },
+        "accessories": {
+          "glasses": false,
+          "earrings": false,
+          "necklace": false
+        },
+        "reshape": 0
+      },
+      "composition": {
+        "version": 1,
+        "source": "digital-twin",
+        "occasion": "A connected self-authored study",
+        "productIds": [
+          "owned:f98dc48b-cdba-4b47-9bf8-8ec027c08066"
+        ],
+        "outfitId": "a9c2c887-6a7c-439b-9512-b429679655fa",
+        "profileRevision": 1,
+        "lighting": {
+          "preset": "neutral",
+          "intensity": 0.65,
+          "direction": {
+            "x": -0.35,
+            "y": -0.45
+          }
+        }
+      }
+    }
+  ],
+  "notice": "User-provided cosmetic preferences and styling choices. No photograph, face geometry, clinical profile, chat history or identity reconstruction is included."
+}

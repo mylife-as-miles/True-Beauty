@@ -1,0 +1,42 @@
+[
+  {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "browser": "156.0.8078.4",
+    "errors": [],
+    "posts": [],
+    "databases": [],
+    "axe": [],
+    "incomplete": [],
+    "reportPath": "benchmark-desktop.json",
+    "annotationPairingResetVerified": true
+  },
+  {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "browser": "156.0.8078.4",
+    "errors": [],
+    "posts": [],
+    "databases": [],
+    "axe": [],
+    "incomplete": [],
+    "reportPath": "benchmark-mobile.json",
+    "annotationPairingResetVerified": true
+  },
+  {
+    "name": "cancel-model-load",
+    "cancelled": true
+  },
+  {
+    "name": "actual-video-stream-fixture",
+    "stopped": 1,
+    "uniqueUpdates": 2,
+    "physicalDeviceVerified": false
+  },
+  {
+    "name": "camera-denial-recovery",
+    "recovered": true
+  }
+]

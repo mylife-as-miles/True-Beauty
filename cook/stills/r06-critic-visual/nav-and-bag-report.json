@@ -1,0 +1,21 @@
+{
+  "activeRouteReselect": {
+    "drawerClass": "nav-rail extended-rail open",
+    "closeNavigationVisible": true
+  },
+  "bagToast": {
+    "toast": {
+      "x": 15,
+      "y": 767.8125,
+      "w": 360,
+      "h": 61.1875
+    },
+    "sourceAction": {
+      "x": 30,
+      "y": 769,
+      "w": 330,
+      "h": 42
+    },
+    "covered": 42
+  }
+}

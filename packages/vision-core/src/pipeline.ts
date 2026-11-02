@@ -676,13 +676,18 @@ export class VisionPipeline {
     for (const tracker of this.gestureTrackers) tracker.reset();
     this.lastVideoTime = -1;
     this.scheduler.reset();
-    this.snapshot.landmarks = [];
-    this.snapshot.blendshapes = {};
-    this.snapshot.transform = null;
-    this.snapshot.hairMask = null;
-    this.snapshot.hands = [];
-    this.snapshot.bodyMask = null;
-    this.snapshot.pose = null;
+    // Returned observations belong to their callers. Release internal references
+    // without altering a result that a caller may still be interpreting.
+    this.snapshot = {
+      ...this.snapshot,
+      landmarks: [],
+      blendshapes: {},
+      transform: null,
+      hairMask: null,
+      hands: [],
+      bodyMask: null,
+      pose: null,
+    };
   }
   dispose() {
     this.disposed = true;

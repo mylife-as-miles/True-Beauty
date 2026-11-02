@@ -1,0 +1,88 @@
+{
+  "format": "true-beauty-live-skin-ui-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T15:09:08.001Z",
+  "fixture": "Original synthetic portrait, explicit local framing, genuine provider, no private photograph.",
+  "authorizationCredits": 9,
+  "paidTaskRequests": 1,
+  "observations": [
+    {
+      "concern": "pore",
+      "label": "Pore appearance",
+      "uiScore": 69,
+      "rawScore": 52.702648758888245,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "texture",
+      "label": "Texture appearance",
+      "uiScore": 77,
+      "rawScore": 72.23509550094604,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "redness",
+      "label": "Redness appearance",
+      "uiScore": 99,
+      "rawScore": 100,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "moisture",
+      "label": "Apparent hydration",
+      "uiScore": 69,
+      "rawScore": 46.294522285461426,
+      "confidence": null,
+      "kind": "provider-prediction"
+    }
+  ],
+  "pageErrors": [],
+  "billingVerified": false,
+  "preparedSha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e",
+  "before": {
+    "skinScans": 0,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 0,
+    "savedImageReferences": false
+  },
+  "quote": {
+    "credits": 9,
+    "actions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ],
+    "expiresAt": "2026-11-02T15:14:19.848Z"
+  },
+  "taskId": "22b6fa98-abf4-4c73-8337-0fb9b30bb1c6",
+  "limitations": [
+    "Cosmetic predictions from a photograph are not a medical diagnosis or direct measurements of hydration, sebum or skin physiology.",
+    "Provider UI scores are adjusted display scores; raw model scores are kept separate. Neither field is a probability or confidence estimate.",
+    "Lighting, complexion, camera processing, makeup and pose can affect the result. You can correct your profile."
+  ],
+  "saved": {
+    "skinScans": 1,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 4,
+    "savedImageReferences": false
+  },
+  "reloadRetained": true,
+  "deleted": {
+    "skinScans": 0,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 0,
+    "savedImageReferences": false
+  },
+  "verified": true,
+  "finishedAt": "2026-11-02T15:09:40.559Z"
+}

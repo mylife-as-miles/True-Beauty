@@ -1,0 +1,107 @@
+{
+  "at": "2026-11-02T14:45:50.403Z",
+  "browser": "156.0.8078.4",
+  "scope": "Independent downstream provenance contract probe using preexisting genuine hair output bytes, no paid/provider call or intercepted response; actual UI save, download, reload, restore",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "posts": [],
+      "errors": [],
+      "ordinary": {
+        "unchangedBytes": true,
+        "width": 720,
+        "height": 1080
+      },
+      "generatedExport": {
+        "width": 720,
+        "height": 714,
+        "canvasDimensions": {
+          "width": 720,
+          "height": 658
+        }
+      },
+      "footer": "This canvas is manual photo compositing. Generate clothing preview opens a separate provider workflow and requests consent before upload.",
+      "profileLabel": "AI-generated hair preview\nPerfect Corp · Still image · Session only. Not stored with this profile.",
+      "saved": {
+        "id": "48639755-0f9e-437c-a797-021408f5284b",
+        "sourceProvenance": {
+          "kind": "ai-generated",
+          "provider": "perfect-corp",
+          "feature": "hair",
+          "createdAt": "2026-11-02T14:10:47.553Z"
+        },
+        "photoCount": 1,
+        "photoConsent": true
+      },
+      "restoredState": {
+        "provenance": {
+          "kind": "ai-generated",
+          "provider": "perfect-corp",
+          "feature": "hair",
+          "createdAt": "2026-11-02T14:10:47.553Z"
+        },
+        "original": null
+      },
+      "skin": {
+        "notice": "This is a generated styling image. Its colours can inspire a look; it cannot describe your skin.\n\nUse studio portrait",
+        "framingDisabled": true
+      },
+      "studioFallback": "Studio portrait selected; generated badge absent; actual mirror source neutral",
+      "status": "passed"
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "posts": [],
+      "errors": [],
+      "ordinary": {
+        "unchangedBytes": true,
+        "width": 720,
+        "height": 1080
+      },
+      "generatedExport": {
+        "width": 720,
+        "height": 714,
+        "canvasDimensions": {
+          "width": 720,
+          "height": 658
+        }
+      },
+      "footer": "This canvas is manual photo compositing. Generate clothing preview opens a separate provider workflow and requests consent before upload.",
+      "profileLabel": "AI-generated hair preview\nPerfect Corp · Still image · Session only. Not stored with this profile.",
+      "saved": {
+        "id": "09366fa6-1769-4d40-b530-8beeca481618",
+        "sourceProvenance": {
+          "kind": "ai-generated",
+          "provider": "perfect-corp",
+          "feature": "hair",
+          "createdAt": "2026-11-02T14:10:47.553Z"
+        },
+        "photoCount": 1,
+        "photoConsent": true
+      },
+      "restoredState": {
+        "provenance": {
+          "kind": "ai-generated",
+          "provider": "perfect-corp",
+          "feature": "hair",
+          "createdAt": "2026-11-02T14:10:47.553Z"
+        },
+        "original": null
+      },
+      "skin": {
+        "notice": "This is a generated styling image. Its colours can inspire a look; it cannot describe your skin.\n\nUse studio portrait",
+        "framingDisabled": true
+      },
+      "studioFallback": "Studio portrait selected; generated badge absent; actual mirror source neutral",
+      "status": "passed"
+    }
+  ]
+}

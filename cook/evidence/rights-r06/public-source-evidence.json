@@ -1,0 +1,265 @@
+{
+  "recordedAt": "2026-11-02T13:27:54.985919+00:00",
+  "kind": "public-source-rights-evidence-not-legal-clearance",
+  "sources": [
+    {
+      "id": "virtual-api",
+      "url": "https://api.github.com/repos/otdnnc/virtual-makeup/license",
+      "finalUrl": "https://api.github.com/repos/otdnnc/virtual-makeup/license",
+      "status": 404,
+      "bytes": 140,
+      "sha256": "6c0109c2ac75f1f264b61da6aff1737f7bc7eac254e6396710ff81a4139f32b1",
+      "licenseSnippets": [
+        "{\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/licenses/licenses#get-the-license-for-a-repository\",\"status\":\"404\"}"
+      ]
+    },
+    {
+      "id": "virtual-readme",
+      "url": "https://raw.githubusercontent.com/otdnnc/virtual-makeup/1d6ed5ef2b1c947dcbc144fa9fde2a26b6745fc1/README.md",
+      "finalUrl": "https://raw.githubusercontent.com/otdnnc/virtual-makeup/1d6ed5ef2b1c947dcbc144fa9fde2a26b6745fc1/README.md",
+      "status": 200,
+      "bytes": 6062,
+      "sha256": "1fac6c73c421e1751fb59e0b2c616d3965c2f0b231e5515b40b8726142554b09",
+      "licenseSnippets": [
+        "## License",
+        "MIT \u2014 see [LICENSE](./LICENSE)."
+      ]
+    },
+    {
+      "id": "face-doc",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker",
+      "finalUrl": "https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker",
+      "status": 200,
+      "bytes": 132243,
+      "sha256": "619862cb3fb5162e8b4798703e3660220e8080135f2fbd5a994b47afd4ac8464",
+      "licenseSnippets": [
+        "      <th>Model Cards</th>",
+        "  <p>Except as otherwise noted, the content of this page is licensed under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href",
+        "=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. For details, see the <a href=\"https://developers.google.com/site-policies\">Google Developers Site Policies</a>. Java is a registered trademark of Oracle a"
+      ]
+    },
+    {
+      "id": "hair-doc",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/image_segmenter",
+      "finalUrl": "https://developers.google.com/edge/mediapipe/solutions/vision/image_segmenter",
+      "status": 200,
+      "bytes": 137449,
+      "sha256": "04f2cf6103f3285b0854b0bafd619957449b846d23594a857dec04845f36b728",
+      "licenseSnippets": [
+        "      <th>Model Card</th>",
+        "      <th>Model Card</th>",
+        "      <th>Model Card</th>",
+        "  <p>Except as otherwise noted, the content of this page is licensed under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href",
+        "=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. For details, see the <a href=\"https://developers.google.com/site-policies\">Google Developers Site Policies</a>. Java is a registered trademark of Oracle a"
+      ]
+    },
+    {
+      "id": "hand-doc",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker",
+      "finalUrl": "https://developers.google.com/edge/mediapipe/solutions/vision/hand_landmarker",
+      "status": 200,
+      "bytes": 131261,
+      "sha256": "5f7ae2e61c0d5e108f531d8598d6023153547051e057fc892e22edc1f7818a3c",
+      "licenseSnippets": [
+        "      <th>Model Card</th>",
+        "  <p>Except as otherwise noted, the content of this page is licensed under the <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href",
+        "=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. For details, see the <a href=\"https://developers.google.com/site-policies\">Google Developers Site Policies</a>. Java is a registered trademark of Oracle a"
+      ]
+    },
+    {
+      "id": "unsplash-license",
+      "url": "https://unsplash.com/license",
+      "finalUrl": "https://unsplash.com/license",
+      "status": 401,
+      "bytes": 9337,
+      "sha256": "311e6b21a8e251452a40a012b777684ba07ca59f9f641d6e930b935c7c3eee19",
+      "licenseSnippets": [
+        "@licstart  The following is the entire license notice for the",
+        "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell",
+        "@licend  The above is the entire license notice"
+      ]
+    },
+    {
+      "id": "face-kaggle",
+      "url": "https://www.kaggle.com/models/mediapipe/face-landmarker",
+      "finalUrl": "https://www.kaggle.com/models/mediapipe/face-landmarker",
+      "status": 404,
+      "bytes": 5238,
+      "sha256": "7fc0caae367dd0376e6a7b829ed9293a11ef3148ffc45fa2b4cfc015ebd6fc9a",
+      "licenseSnippets": []
+    },
+    {
+      "id": "google-license",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/about#license",
+      "finalUrl": "https://ai.google.dev/edge/mediapipe/solutions/about#license",
+      "status": 404,
+      "bytes": 47061,
+      "sha256": "b92704e3005c1f23c92e59dd69083033ef46029878d1d0d48013c196208459b1",
+      "licenseSnippets": []
+    },
+    {
+      "id": "face-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf",
+      "status": 200,
+      "bytes": 3476420,
+      "mime": "application/pdf",
+      "sha256": "c6add060f4ebfb37b2690136b6c711c7e5fcb7038baa2649ae3338b83979565a",
+      "modelLicenceQuote": "LICENSED UNDER Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "hand-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Hand%20Tracking%20(Lite_Full)%20with%20Fairness%20Oct%202021.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Hand%20Tracking%20(Lite_Full)%20with%20Fairness%20Oct%202021.pdf",
+      "status": 200,
+      "bytes": 358044,
+      "mime": "application/pdf",
+      "sha256": "43127ff8a92e22717f0d8c30dab3efef4641a29cbf50b15ae3de001be94ab76b",
+      "modelLicenceQuote": "LICENSED UNDER Blogpost: Google AI blog post 2 March 2020 Example usage included as part of MediaPipe February 2021 release Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "hair-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20-%20Hair%20Segmentation.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20-%20Hair%20Segmentation.pdf",
+      "status": 200,
+      "bytes": 341893,
+      "mime": "application/pdf",
+      "sha256": "369a9ded9ed15dce5525d05ff00bedce54f9e3b9033195609eff49f479c94c67",
+      "modelLicenceQuote": "Licensed under \u200bApache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "multiclass-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Multiclass%20Segmentation.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Multiclass%20Segmentation.pdf",
+      "status": 200,
+      "bytes": 1378158,
+      "mime": "application/pdf",
+      "sha256": "59372fce0666d4c75b3877540fa77f80ac4b2a0f75e914711417f85fc490a9e6",
+      "modelLicenceQuote": "LICENSED UNDER Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "face-object",
+      "url": "https://storage.googleapis.com/storage/v1/b/mediapipe-models/o/face_landmarker%2Fface_landmarker%2Ffloat16%2F1%2Fface_landmarker.task",
+      "finalUrl": "https://storage.googleapis.com/storage/v1/b/mediapipe-models/o/face_landmarker%2Fface_landmarker%2Ffloat16%2F1%2Fface_landmarker.task",
+      "status": 200,
+      "bytes": 1035,
+      "mime": "application/json; charset=UTF-8",
+      "sha256": "c36ef8b02b5f2844b84b58402a45c8263c1cc6f690ad73b94142aea0d8af2579"
+    },
+    {
+      "id": "unsplash-terms",
+      "url": "https://unsplash.com/terms",
+      "finalUrl": "https://unsplash.com/terms",
+      "status": 401,
+      "bytes": 9337,
+      "mime": "text/html; charset=utf-8",
+      "sha256": "fbd4ae898480144792e1144d74db6e87f1d469862304924309061ae93c0bbeff"
+    },
+    {
+      "id": "unsplash-help",
+      "url": "https://help.unsplash.com/en/articles/2511245-unsplash-license",
+      "finalUrl": "https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines",
+      "status": 200,
+      "bytes": 94816,
+      "mime": "text/html; charset=utf-8",
+      "sha256": "6469cf8eb720c6fb8551bbd36e7776ecba50e8bf617a931903d482f09bd79de4"
+    },
+    {
+      "id": "blazeface-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20(Short%20Range).pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20(Short%20Range).pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 434425,
+      "sha256": "cd335c06fc0de7807cd815a0777a697932598bcdb28fa98adaaabf847485f758",
+      "modelLicenceQuote": "LICENSED UNDER Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "blendshape-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 2324099,
+      "sha256": "c8e9cf60a39998f4b341740623917590e050d1c97004e2de4568d84e026445ae",
+      "modelLicenceQuote": "LICENSED UNDER Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "pose-card",
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+      "finalUrl": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 1398977,
+      "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+      "modelLicenceQuote": "LICENSED UNDER Apache License, Version 2.0",
+      "quotationSource": "pdftotext of exact SHA256 PDF; not website-footer inference"
+    },
+    {
+      "id": "nasa-policy",
+      "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "finalUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "status": 200,
+      "mime": "text/html; charset=UTF-8",
+      "bytes": 315720,
+      "sha256": "5fcd8b220c80f598bc11ce3d3835659b890e7afc1ad436c4f76caac8740deab6"
+    },
+    {
+      "id": "nasa-wiseman",
+      "url": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~medium.jpg",
+      "finalUrl": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~medium.jpg",
+      "status": 200,
+      "mime": "image/jpeg",
+      "bytes": 178685,
+      "sha256": "28fe479b52352a23f1b06bc285aef30693929b413c855538178f5b26bc672166"
+    },
+    {
+      "id": "nasa-magnus",
+      "url": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~medium.jpg",
+      "finalUrl": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~medium.jpg",
+      "status": 200,
+      "mime": "image/jpeg",
+      "bytes": 183951,
+      "sha256": "df21b873d7bc9021502ff5ea08b8937f77769c18aecb5739c2329b052ead0eb0"
+    }
+  ],
+  "modelCardMappings": {
+    "face_landmarker.task": [
+      "blazeface-card",
+      "face-card",
+      "blendshape-card"
+    ],
+    "hair_segmenter.tflite": [
+      "hair-card"
+    ],
+    "hand_landmarker.task": [
+      "hand-card"
+    ],
+    "selfie_multiclass_256x256.tflite": [
+      "multiclass-card"
+    ],
+    "pose_landmarker_lite.task": [
+      "pose-card"
+    ]
+  },
+  "apacheLicenseText": {
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "localPath": "docs/rights/Apache-2.0.txt"
+  },
+  "virtualMakeupHistory": {
+    "commitCount": 2,
+    "commits": [
+      "1d6ed5ef2b1c947dcbc144fa9fde2a26b6745fc1",
+      "2955d924eca03f97f2c4d3d54ec34eddac8dbfbb"
+    ],
+    "licensePathHistory": [],
+    "status": "README declares MIT; no complete standalone notice recovered in all available public history. Remains unresolved."
+  }
+}

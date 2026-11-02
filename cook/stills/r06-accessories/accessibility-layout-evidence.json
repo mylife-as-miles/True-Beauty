@@ -1,0 +1,59 @@
+{
+  "recordedAt": "2026-11-02T14:16:31.883Z",
+  "browser": "154.0.8037.57",
+  "results": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "style": {
+        "violations": [],
+        "keyboard": {
+          "focused": true,
+          "outline": "solid"
+        },
+        "frameHeight": 652.609375,
+        "overflow": false
+      },
+      "generated": {
+        "violations": [],
+        "badgeOverlapsZoom": false,
+        "restoreTarget": {
+          "x": 965,
+          "y": 293.640625,
+          "width": 44,
+          "height": 44
+        }
+      },
+      "posts": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "style": {
+        "violations": [],
+        "keyboard": {
+          "focused": true,
+          "outline": "solid"
+        },
+        "frameHeight": 256.203125,
+        "overflow": false
+      },
+      "generated": {
+        "violations": [],
+        "badgeOverlapsZoom": false,
+        "restoreTarget": {
+          "x": 246,
+          "y": 306,
+          "width": 44,
+          "height": 44
+        }
+      },
+      "posts": []
+    }
+  ],
+  "limits": "Viewport emulation and automated WCAG rules are not physical-device, screen-reader or full accessibility certification. Generated metadata is an explicit contract fixture, not a live provider call."
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02T14:02:36.760Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "mode": "desktop",
+      "posts": [],
+      "errors": [],
+      "overflow": false,
+      "animation": "twin-reveal",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "mode": "mobile-reduced-motion",
+      "posts": [],
+      "errors": [],
+      "overflow": false,
+      "animation": "none",
+      "violations": [],
+      "incomplete": []
+    }
+  ]
+}

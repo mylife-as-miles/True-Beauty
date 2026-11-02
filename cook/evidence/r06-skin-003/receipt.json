@@ -1,0 +1,86 @@
+{
+  "format": "true-beauty-live-provider-receipt",
+  "version": 1,
+  "mode": "skin-only",
+  "startedAt": "2026-11-02T14:30:25.475Z",
+  "fixtureDeclaration": "Operator-declared original synthetic fixtures; not patient data or a clinical validation dataset.",
+  "sourceFiles": {
+    "portrait": {
+      "name": "framed-portrait.jpg",
+      "sha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e"
+    }
+  },
+  "spendAuthorizationCeiling": 9,
+  "quotedTotal": 9,
+  "actualBilledCredits": null,
+  "billingVerified": false,
+  "providerRetentionDays": 30,
+  "retentionSource": "https://docs.perfectcorp.com/develop/file_retention_period.md",
+  "operations": [
+    {
+      "feature": "skin",
+      "status": "success",
+      "quoteId": "46c4459f-00a1-4f7f-9da1-0210b20d2e62",
+      "quotedCredits": 9,
+      "taskId": "fb211433-732b-45dd-afad-64ef803a70db",
+      "result": {
+        "provider": "perfect-corp",
+        "capturedAt": "2026-11-02T14:30:38.821Z",
+        "overall": 78.5,
+        "observations": [
+          {
+            "id": "pore:whole",
+            "concern": "pore",
+            "label": "Pore appearance",
+            "uiScore": 69,
+            "rawScore": 52.702648758888245,
+            "kind": "provider-prediction",
+            "confidence": null
+          },
+          {
+            "id": "redness:whole",
+            "concern": "redness",
+            "label": "Redness appearance",
+            "uiScore": 99,
+            "rawScore": 100,
+            "kind": "provider-prediction",
+            "confidence": null
+          },
+          {
+            "id": "texture:whole",
+            "concern": "texture",
+            "label": "Texture appearance",
+            "uiScore": 77,
+            "rawScore": 72.23509550094604,
+            "kind": "provider-prediction",
+            "confidence": null
+          },
+          {
+            "id": "moisture:whole",
+            "concern": "moisture",
+            "label": "Apparent hydration",
+            "uiScore": 69,
+            "rawScore": 46.294522285461426,
+            "kind": "provider-prediction",
+            "confidence": null
+          }
+        ],
+        "limitations": [
+          "Cosmetic predictions from a photograph are not a medical diagnosis or direct measurements of hydration, sebum or skin physiology.",
+          "Provider UI scores are adjusted display scores; raw model scores are kept separate. Neither field is a probability or confidence estimate.",
+          "Lighting, complexion, camera processing, makeup and pose can affect the result. You can correct your profile."
+        ]
+      }
+    }
+  ],
+  "requestedSpecs": {
+    "skinActions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ]
+  },
+  "finishedAt": "2026-11-02T14:30:38.824Z",
+  "allProviderTasksVerified": true
+}

@@ -1,0 +1,261 @@
+{
+  "recordedAt": "2026-11-02T15:00:34.066Z",
+  "browser": "27.2",
+  "fastNavigation": true,
+  "setup": [
+    "http://127.0.0.1:5173/packages/vision-core/src/index.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/useCamera.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/pipeline.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/workerClient.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/createVision.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/validation.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/capabilities.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/taskQueue.ts",
+    "http://127.0.0.1:5173/packages/vision-core/src/scheduler.ts"
+  ],
+  "records": [
+    {
+      "engine": "VisionWorkerClient",
+      "sourceType": "HTMLImageElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": false,
+        "hands": false,
+        "body": false,
+        "pose": false
+      },
+      "error": "Error: Vision worker was disposed"
+    },
+    {
+      "engine": "VisionWorkerClient",
+      "sourceType": "HTMLImageElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "error": "Error: Hair segmentation needs a usable graphics context in this browser, including when inference uses the CPU. Enable browser graphics acceleration or try a graphics-enabled browser. You can still choose colour swatches manually and use your saved collections."
+    },
+    {
+      "engine": "VisionWorkerClient",
+      "sourceType": "HTMLCanvasElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "error": "Error: Hair segmentation needs a usable graphics context in this browser, including when inference uses the CPU. Enable browser graphics acceleration or try a graphics-enabled browser. You can still choose colour swatches manually and use your saved collections."
+    },
+    {
+      "engine": "VisionPipeline",
+      "sourceType": "HTMLImageElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "face": 478,
+      "hands": 1,
+      "hairMean": 0.0755724617741944,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    },
+    {
+      "engine": "VisionPipeline",
+      "sourceType": "HTMLCanvasElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "face": 478,
+      "hands": 1,
+      "hairMean": 0.19471908962005105,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    },
+    {
+      "engine": "VisionWorkerClient",
+      "sourceType": "HTMLImageElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "error": "Error: Hair segmentation needs a usable graphics context in this browser, including when inference uses the CPU. Enable browser graphics acceleration or try a graphics-enabled browser. You can still choose colour swatches manually and use your saved collections."
+    },
+    {
+      "engine": "VisionPipeline",
+      "sourceType": "HTMLImageElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "face": 478,
+      "hands": 1,
+      "hairMean": 0.19471908962005105,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    },
+    {
+      "engine": "VisionPipeline",
+      "sourceType": "HTMLCanvasElement",
+      "sourceSize": [
+        600,
+        900
+      ],
+      "features": {
+        "face": true,
+        "hair": true,
+        "hands": true
+      },
+      "face": 478,
+      "hands": 1,
+      "hairMean": 0.19471908962005105,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    }
+  ],
+  "actualCanvas": {
+    "width": 600,
+    "height": 900,
+    "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671"
+  },
+  "retry": [
+    {
+      "name": "image",
+      "face": 478,
+      "hairMean": 0.19471908962005105,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    },
+    {
+      "name": "sameCanvasAfterReadback",
+      "face": 478,
+      "hairMean": 0.19471908962005105,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      }
+    }
+  ],
+  "notices": [],
+  "limits": "Runtime instrumentation records actual model results without replacing any geometry; all service API calls blocked. Canvas readback is after the initial Remix inference, to distinguish readback effects."
+}

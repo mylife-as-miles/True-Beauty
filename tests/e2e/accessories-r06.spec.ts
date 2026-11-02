@@ -174,20 +174,26 @@ test("generated-photo provenance persists in the mirror, labels a real controlle
 }, info) => {
   // Metadata contract fixture only: this does not claim a live provider generated the image.
   await page.addInitScript(() => {
-    Object.defineProperty(navigator.mediaDevices, "getUserMedia", {
-      configurable: true,
-      value: async () => {
-        const c = document.createElement("canvas");
-        c.width = 480;
-        c.height = 720;
-        const ctx = c.getContext("2d")!;
-        ctx.fillStyle = "#8a8a8a";
-        ctx.fillRect(0, 0, 480, 720);
-        const stream = c.captureStream(15);
-        Object.assign(window, { __r06CameraStream: stream });
-        return stream;
+    // WebKit can discard a per-instance MediaDevices wrapper override while
+    // initializing the real models. The shared prototype retains this fixture.
+    Object.defineProperty(
+      Object.getPrototypeOf(navigator.mediaDevices),
+      "getUserMedia",
+      {
+        configurable: true,
+        value: async () => {
+          const c = document.createElement("canvas");
+          c.width = 480;
+          c.height = 720;
+          const ctx = c.getContext("2d")!;
+          ctx.fillStyle = "#8a8a8a";
+          ctx.fillRect(0, 0, 480, 720);
+          const stream = c.captureStream(15);
+          Object.assign(window, { __r06CameraStream: stream });
+          return stream;
+        },
       },
-    });
+    );
   });
   await ready(page);
   await page.evaluate(async () => {

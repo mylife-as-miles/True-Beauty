@@ -1,0 +1,483 @@
+{
+  "recordedAt": "2026-11-02T15:01:38.771Z",
+  "browser": "27.2",
+  "capabilities": {
+    "webgl": true,
+    "webgl2": true,
+    "offscreenWebgl2": true,
+    "worker": true
+  },
+  "workerSupported": true,
+  "source": [
+    600,
+    900
+  ],
+  "pixelResults": {
+    "image": {
+      "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671",
+      "mean": 49.12624320987654,
+      "top": [
+        33,
+        34,
+        38,
+        255,
+        34,
+        35,
+        39,
+        255,
+        34,
+        35,
+        39,
+        255
+      ],
+      "bottom": [
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255
+      ]
+    },
+    "canvas": {
+      "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671",
+      "mean": 49.12624320987654,
+      "top": [
+        33,
+        34,
+        38,
+        255,
+        34,
+        35,
+        39,
+        255,
+        34,
+        35,
+        39,
+        255
+      ],
+      "bottom": [
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255
+      ]
+    },
+    "frequentCanvas": {
+      "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671",
+      "mean": 49.12624320987654,
+      "top": [
+        33,
+        34,
+        38,
+        255,
+        34,
+        35,
+        39,
+        255,
+        34,
+        35,
+        39,
+        255
+      ],
+      "bottom": [
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255
+      ]
+    },
+    "bitmapImage": {
+      "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671",
+      "mean": 49.12624320987654,
+      "top": [
+        33,
+        34,
+        38,
+        255,
+        34,
+        35,
+        39,
+        255,
+        34,
+        35,
+        39,
+        255
+      ],
+      "bottom": [
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255
+      ]
+    },
+    "bitmapCanvas": {
+      "hash": "7aca14125df210968495fee8957745e3f3f88669bbcf2b9774300437e8c7d671",
+      "mean": 49.12624320987654,
+      "top": [
+        33,
+        34,
+        38,
+        255,
+        34,
+        35,
+        39,
+        255,
+        34,
+        35,
+        39,
+        255
+      ],
+      "bottom": [
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255,
+        46,
+        47,
+        51,
+        255
+      ]
+    }
+  },
+  "tests": [
+    {
+      "mode": "factory",
+      "name": "image",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 1745
+    },
+    {
+      "mode": "factory",
+      "name": "canvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 203
+    },
+    {
+      "mode": "factory",
+      "name": "frequentCanvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 201
+    },
+    {
+      "mode": "factory",
+      "name": "bitmapImage",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 193
+    },
+    {
+      "mode": "factory",
+      "name": "bitmapCanvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 173
+    },
+    {
+      "mode": "main",
+      "name": "image",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 1062
+    },
+    {
+      "mode": "main",
+      "name": "canvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 172
+    },
+    {
+      "mode": "main",
+      "name": "frequentCanvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 202
+    },
+    {
+      "mode": "main",
+      "name": "bitmapImage",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 208
+    },
+    {
+      "mode": "main",
+      "name": "bitmapCanvas",
+      "face": 478,
+      "hands": 1,
+      "hair": {
+        "width": 171,
+        "height": 256,
+        "mean": 0.19471908962005105
+      },
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "idle"
+        },
+        "pose": {
+          "state": "idle"
+        }
+      },
+      "elapsedMs": 197
+    }
+  ],
+  "disposal": {
+    "before": {
+      "face": 478,
+      "hair": true,
+      "hands": 1
+    },
+    "after": {
+      "face": 0,
+      "hair": false,
+      "hands": 0
+    },
+    "isSameCurrentSnapshot": true
+  },
+  "limits": "WebKit WPE Linux software graphics; identical local portrait input variants, actual models. All service routes blocked. No source change or provider call."
+}

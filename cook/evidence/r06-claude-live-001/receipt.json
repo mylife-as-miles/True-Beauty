@@ -1,0 +1,95 @@
+{
+  "format": "true-beauty-live-reasoning-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T14:16:01.385Z",
+  "fixture": "Nonpersonal explicit colour request; no images or personal context.",
+  "authorizeUsd": 0.111,
+  "paidStarts": 1,
+  "steps": [
+    {
+      "httpStatus": 200,
+      "status": "needs-tools",
+      "calls": [
+        {
+          "id": "toolu_017BK96AkWkFhfqLjX4T5AQv",
+          "name": "setLipColor",
+          "args": {
+            "color": "#B35B6B"
+          }
+        }
+      ],
+      "guidance": "I'll make both changes for you, one tool at a time.\n\nFirst, let me set the lipstick color to #B35B6B:",
+      "stepsUsed": 1,
+      "stepsRemaining": 2,
+      "usage": {
+        "inputTokens": 1268,
+        "outputTokens": 84
+      }
+    },
+    {
+      "httpStatus": 200,
+      "status": "needs-tools",
+      "calls": [
+        {
+          "id": "toolu_01DMiGJ3xxqd7RiBo2p4uDzE",
+          "name": "setHairColor",
+          "args": {
+            "color": "#A35C36"
+          }
+        }
+      ],
+      "guidance": "Great! The lipstick color has been successfully set to #B35B6B.\n\nNow let me set the hair color to #A35C36:",
+      "stepsUsed": 2,
+      "stepsRemaining": 1,
+      "usage": {
+        "inputTokens": 1427,
+        "outputTokens": 84
+      }
+    },
+    {
+      "httpStatus": 200,
+      "status": "done",
+      "calls": [],
+      "guidance": "**Results:**\n✓ **Lipstick**: Successfully set to #B35B6B (a warm mauve-rose tone)\n✓ **Hair**: Successfully set to #A35C36 (a warm burnt sienna/bronze tone)\n\nThe hair tint will display when a hair segmentation mask is available. Both changes are now active in your preview.",
+      "stepsUsed": 3,
+      "stepsRemaining": 0,
+      "usage": {
+        "inputTokens": 1596,
+        "outputTokens": 85
+      }
+    }
+  ],
+  "billingVerified": false,
+  "capabilities": {
+    "ready": true,
+    "provider": "Anthropic Claude",
+    "model": "claude-haiku-4-5-20251001"
+  },
+  "contextCategories": [],
+  "goal": "Set the lipstick color to #B35B6B and the hair color to #A35C36. Use one tool for each change and report the actual results.",
+  "quote": {
+    "quoteId": "6e918b7a-fa06-450b-a418-07d890cd68c7",
+    "maximumUsd": 0.111,
+    "currency": "USD",
+    "maxSteps": 3,
+    "maxOutputTokens": 1000,
+    "inputTokenCeiling": 32000,
+    "expiresAt": "2026-11-02T14:21:03.870Z",
+    "model": "claude-haiku-4-5-20251001",
+    "pricingProvenance": {
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "reviewedAt": "2026-11-02T14:10:13.071Z",
+      "kind": "operator-reviewed-upper-bound"
+    },
+    "note": "Conservative maximum for all authorized turns. Rates are operator-reviewed, not a live provider-price lookup. The full ceiling is reserved once and not refunded automatically, including uncertain failures/cancellation."
+  },
+  "usage": "3 completed model turns · 4291 input / 253 output tokens · maximum reservation US$0.111000. Check your provider for actual billing.",
+  "actions": [
+    "Changed your lip preview to #B35B6B.\n\nSet the hair tint control to #A35C36. It appears only when a hair mask is available."
+  ],
+  "actualLipColor": "#b35b6b",
+  "actualHairColor": "#A35C36",
+  "verified": true,
+  "pageErrors": [],
+  "finishedAt": "2026-11-02T14:16:09.619Z"
+}

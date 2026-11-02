@@ -1,0 +1,73 @@
+{
+  "boj": {
+    "origin": "https://beautyofjoseon.com",
+    "fetchedAt": "2026-11-02T13:04:45.126291+00:00",
+    "robots": {
+      "status": 200,
+      "url": "https://beautyofjoseon.com/robots.txt",
+      "bytes": 3708,
+      "preview": "# Shopify storefront. Public product, collection, page, blog, policy, cart, and localized HTML is crawlable.\n# Agent instructions: https://beautyofjos"
+    },
+    "home": {
+      "status": 200,
+      "url": "https://beautyofjoseon.com/",
+      "bytes": 598218,
+      "preview": ""
+    }
+  },
+  "beautyhut": {
+    "origin": "https://beautyhutafrica.com",
+    "fetchedAt": "2026-11-02T13:04:45.127502+00:00",
+    "robots": {
+      "status": 200,
+      "url": "https://beautyhutafrica.com/robots.txt",
+      "bytes": 325,
+      "preview": "User-agent: *\nDisallow: /wp-content/uploads/wc-logs/\nDisallow: /wp-content/uploads/woocommerce_transient_files/\nDisallow: /wp-content/uploads/woocomme"
+    },
+    "home": {
+      "error": "HTTP Error 403: Forbidden"
+    }
+  },
+  "buybetter": {
+    "origin": "https://buybetter.ng",
+    "fetchedAt": "2026-11-02T13:04:45.128148+00:00",
+    "robots": {
+      "status": 200,
+      "url": "https://buybetter.ng/robots.txt",
+      "bytes": 3417,
+      "preview": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a Content-Signal = yes, you may collect "
+    },
+    "home": {
+      "status": 200,
+      "url": "https://buybetter.ng/",
+      "bytes": 599635,
+      "preview": ""
+    }
+  },
+  "beautyhub": {
+    "origin": "https://beautyhub.ng",
+    "fetchedAt": "2026-11-02T13:04:45.128896+00:00",
+    "robots": {
+      "error": "HTTP Error 404: Not Found"
+    },
+    "home": {
+      "error": "HTTP Error 404: Not Found"
+    }
+  },
+  "ordinary": {
+    "origin": "https://theordinary.com",
+    "fetchedAt": "2026-11-02T13:04:45.129788+00:00",
+    "robots": {
+      "status": 200,
+      "url": "https://theordinary.com/robots.txt",
+      "bytes": 1355,
+      "preview": "User-agent: *\r\nDisallow: /*pmin*\r\nDisallow: /*pmax*\r\nDisallow: /*prefn2*\r\nDisallow: /*prefn3*\r\nDisallow: /*prefn4*\r\nDisallow: /*prefn5*\r\nDisallow: /*p"
+    },
+    "home": {
+      "status": 200,
+      "url": "https://theordinary.com/en-us",
+      "bytes": 505319,
+      "preview": ""
+    }
+  }
+}

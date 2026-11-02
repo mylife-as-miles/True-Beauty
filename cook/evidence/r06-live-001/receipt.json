@@ -1,0 +1,91 @@
+{
+  "format": "true-beauty-live-provider-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T14:10:23.737Z",
+  "fixtureDeclaration": "Operator-declared original synthetic fixtures; not patient data or a clinical validation dataset.",
+  "sourceFiles": {
+    "portrait": {
+      "name": "portrait.png",
+      "sha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9"
+    },
+    "person": {
+      "name": "person.png",
+      "sha256": "a64ba3ea11481a5d53690d8c4c71bb1ac4aa1e459bbd0a64cd36012b152bce34"
+    },
+    "garment": {
+      "name": "garment.png",
+      "sha256": "3b21837f76602871511582ef2d8bfbfbc9d36003d3815bb1dce73a70b756e555"
+    }
+  },
+  "spendAuthorizationCeiling": 13,
+  "quotedTotal": 13,
+  "actualBilledCredits": null,
+  "billingVerified": false,
+  "providerRetentionDays": 30,
+  "retentionSource": "https://docs.perfectcorp.com/develop/file_retention_period.md",
+  "operations": [
+    {
+      "feature": "skin",
+      "status": "error",
+      "quoteId": "538e42c9-8e6f-4200-ac6d-fd3e74f62a8c",
+      "quotedCredits": 9,
+      "taskId": "129981e4-472f-4fe0-8c1a-0596cbd73f28",
+      "error": "The provider could not analyse this image. Try a clear front-facing photo in even light."
+    },
+    {
+      "feature": "hair",
+      "status": "success",
+      "quoteId": "030fd3c9-ecdb-4e73-9b94-d6f3ab595016",
+      "quotedCredits": 2,
+      "taskId": "f3b6bfb8-b5c3-4c0a-9351-4f588e9aab27",
+      "outputFile": "generated-hair.jpg",
+      "result": {
+        "kind": "ai-generated-image",
+        "provider": "perfect-corp",
+        "feature": "hair",
+        "receivedAt": "2026-11-02T14:10:47.553Z",
+        "notice": "AI-generated hairstyle preview, not live AR. Actual hair results may vary; consult a professional stylist for colouring.",
+        "bytes": 354893,
+        "sha256": "dec855170d2f37b2a99d37e44ab30829f35623393875f9232db5829b9822df37"
+      }
+    },
+    {
+      "feature": "clothing",
+      "status": "success",
+      "quoteId": "2ca676b9-5c5e-4b5b-92b5-c554a2badb8b",
+      "quotedCredits": 2,
+      "taskId": "3859b0de-6b23-427f-b6b4-88674e27f537",
+      "outputFile": "generated-clothing.jpg",
+      "result": {
+        "kind": "ai-generated-image",
+        "provider": "perfect-corp",
+        "feature": "clothing",
+        "receivedAt": "2026-11-02T14:10:48.155Z",
+        "notice": "AI-generated clothing preview, not live AR or a fit measurement. Actual fit and appearance may vary.",
+        "bytes": 202440,
+        "sha256": "0901c877a3f210263c07d169e813dbfe136149aecd3e073c493c0e6094a04f7f"
+      }
+    }
+  ],
+  "requestedSpecs": {
+    "skinActions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ],
+    "hair": {
+      "feature": "hair",
+      "hairColor": "src",
+      "templateId": "female_s_wave_brunette"
+    },
+    "clothing": {
+      "feature": "clothing",
+      "garmentCategory": "full_body",
+      "changeShoes": false,
+      "filterMultiPerson": "strict"
+    }
+  },
+  "finishedAt": "2026-11-02T14:10:48.358Z",
+  "allProviderTasksVerified": false
+}

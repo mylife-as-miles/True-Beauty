@@ -1,0 +1,105 @@
+{
+  "kind": "actual-browser-to-api-to-official-source",
+  "recordedAt": "2026-11-02T13:38:59.125Z",
+  "note": "No page.route interception or merchant response mocking. These are source observations, not checkout/order/shipping verification or a merchant partnership. API session tokens/headers are intentionally excluded.",
+  "requests": [
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:5173/api/merchants/refresh",
+      "body": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-fixing-spray"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:5173/api/merchants/refresh",
+      "body": {
+        "sourceId": "boj",
+        "referenceId": "boj-glow-serum"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "status": 200,
+      "result": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-fixing-spray",
+        "fetchedAt": "2026-11-02T13:38:52.158Z",
+        "observations": [
+          {
+            "id": "10ca1239-1d69-4c8b-8d44-1fa3b689caa3",
+            "sourceId": "nuban",
+            "referenceId": "nuban-fixing-spray",
+            "merchant": "Nuban Beauty",
+            "title": "SEAL IT! MAKEUP FIXING SPRAY (105ml)",
+            "variantId": "SI-MFS",
+            "variantName": "SKU SI-MFS",
+            "amount": 11950,
+            "currency": "NGN",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:38:52.158Z",
+            "sourceUrl": "https://nubanbeauty.com/products/seal-it-makeup-fixing-spray",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:53:54.282Z"
+      }
+    },
+    {
+      "status": 200,
+      "result": {
+        "sourceId": "boj",
+        "referenceId": "boj-glow-serum",
+        "fetchedAt": "2026-11-02T13:38:55.136Z",
+        "observations": [
+          {
+            "id": "e2729ba6-1e25-4533-bd98-592e78a81499",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS006",
+            "variantName": "SKU 82BS006",
+            "amount": 15.3,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:38:55.136Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          },
+          {
+            "id": "ae2bc508-9911-4f6f-addc-c7f5a2319272",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS030",
+            "variantName": "SKU 82BS030",
+            "amount": 27.2,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:38:55.136Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:53:56.385Z"
+      }
+    }
+  ],
+  "savedText": "Recent merchant observation\nMerchant reported in stock\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\n\nSKU SI-MFS\n\n₦11,950\nNGN · no currency conversion\n\nFetched 11/2/2026, 1:38:52 PM · source price-valid-until 2026-12-02\n\nPublic product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.\n\nVerify with Nuban Beauty\nAdd planning quote",
+  "errors": []
+}

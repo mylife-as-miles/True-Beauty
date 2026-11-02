@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-02T13:31:16.691Z",
+  "checks": [
+    {
+      "mode": "second-portrait",
+      "faceDetected": true,
+      "scope": "lower-image-possible-outfit",
+      "regions": {
+        "lipstick": {
+          "color": "#3f1709",
+          "pixels": 1221,
+          "confidence": 0.27289927680307635
+        },
+        "eyeshadow": {
+          "color": "#362010",
+          "pixels": 850,
+          "confidence": 0.27370778099972387
+        },
+        "blush": {
+          "color": "#7c5a39",
+          "pixels": 874,
+          "confidence": 0.22165100041072586
+        },
+        "skin": {
+          "color": "#836343",
+          "pixels": 123,
+          "confidence": 0.2690338655904545
+        },
+        "hair": {
+          "color": "#2b1610",
+          "pixels": 296,
+          "confidence": 0.283695945945946
+        }
+      },
+      "warnings": [
+        "Turned face: regional samples have reduced reliability.",
+        "Detected hand areas are excluded geometrically; other occlusions may remain.",
+        "Pixel colours include lighting, natural features and any makeup. This is an editable interpretation, not product identification or a validated material classifier.",
+        "The outfit palette is a spatial crop, not garment segmentation or a clothing try-on."
+      ],
+      "quality": {
+        "meanLuminance": 88.8799565333344,
+        "clippedFraction": 0.004416666666666667,
+        "sharpness": 604.0153768443234,
+        "warnings": []
+      },
+      "posts": []
+    },
+    {
+      "mode": "missing-models",
+      "faceDetected": false,
+      "scope": "whole-image",
+      "regions": {
+        "lipstick": {
+          "color": null,
+          "pixels": 0,
+          "confidence": 0
+        },
+        "eyeshadow": {
+          "color": null,
+          "pixels": 0,
+          "confidence": 0
+        },
+        "blush": {
+          "color": null,
+          "pixels": 0,
+          "confidence": 0
+        },
+        "skin": {
+          "color": null,
+          "pixels": 0,
+          "confidence": 0
+        },
+        "hair": {
+          "color": null,
+          "pixels": 0,
+          "confidence": 0
+        }
+      },
+      "warnings": [
+        "Local tracking unavailable: Failed to fetch. Palette-only interpretation.",
+        "No usable face geometry. Facial colours are unavailable; the palette describes the whole image only.",
+        "No confident hair segmentation was available; hair colour is not inferred from the background.",
+        "Pixel colours include lighting, natural features and any makeup. This is an editable interpretation, not product identification or a validated material classifier.",
+        "The outfit palette is a spatial crop, not garment segmentation or a clothing try-on."
+      ],
+      "quality": {
+        "meanLuminance": 48.61799306666815,
+        "clippedFraction": 0.041166666666666664,
+        "sharpness": 51.47006074625205,
+        "warnings": []
+      },
+      "posts": []
+    }
+  ]
+}

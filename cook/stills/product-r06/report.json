@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-02T14:25:43.628Z",
+  "base": "http://127.0.0.1:5173",
+  "browser": "156.0.8078.4",
+  "results": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "steps": [
+        "Real reference extraction → correction → same portrait mirror",
+        "Real user-entered owned product saved via UI",
+        "Same session garment study saved with original sample garment",
+        "Actual profile and complete-look archive survive reload",
+        "Profile → complete look with actual custom owned product/outfit → export → changed mirror → saved mirror restore → exact outfit restore",
+        "Local agent actual Open Remix tool → real Remix route"
+      ],
+      "errors": [],
+      "posts": [],
+      "original": "/images/portrait-neutral.jpg",
+      "remixInspector": "Lips, reimagined.\n\nYour choice · measured #B16E6F\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude lips\nPresence\n60%\nFinish\nMatte\nGloss\nShimmer\nGlitter",
+      "dressingText": "My products\nDressing room\nSaved looks (0)\n\nYour dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition\nGenerate a clothing preview\nYour composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative.\n\nCompose your look\nInclude current mirror look\n\nAligning your current mirror look…\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n107%\nHeight\n40%\nRotation\n0°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 sits in your palette (closest to your clay, ΔE 18). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here.\n\nYour outfit studies\n\nYour first outfit study will live here. Save colours and placement without storing a photo.",
+      "outfitOptions": [
+        {
+          "text": "No outfit attached",
+          "value": ""
+        },
+        {
+          "text": "Critic blue story",
+          "value": "5806f61f-f6db-4208-8020-ac0c937fa39c"
+        }
+      ],
+      "archive": "Critic occasion\n\nA connected self-authored study\n\nNov 2, 2026 · 1 owned-product reference · Original light\nReopen in mirror\nOpen outfit",
+      "outfitCanvas": [
+        {
+          "outfit": "5806f61f-f6db-4208-8020-ac0c937fa39c",
+          "source": "/images/portrait-neutral.jpg"
+        }
+      ],
+      "ownedAgent": "You\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: Critic evening cream.\n1 of 1 actions completed",
+      "agent": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nYour beauty companion\nMy products\nDressing room\nSaved looks (1)\n\nYour dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition\nGenerate a clothing preview\nYour composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative.\n\nCompose your look\nInclude current mirror look\n\nCurrent mirror look included · shared face geometry.\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n107%\nHeight\n40%\nRotation\n0°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 is far from every colour in your palette (nearest is warm taupe, ΔE 54). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here.\n\nYour outfit studies\nCritic blue story\n\nOriginal sample blouse · 11/2/2026\n\nOutfit study restored on your current mirror portrait.\nTRUE BEAUTY\n\nMade for self-expression. Kept personal.\n\nYour data, your choice\nYour beauty agent\nLocal assistant\nAssistant mode\nLocal · no paid requests\nClaude / configured provider\nYou\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: Critic evening cream.\n1 of 1 actions completed\nYou\nOpen Remix\nApplying your request…\nYour beauty request\nChanges affect your editable mirror. Chat history is saved only when you enable it in privacy settings.\n\nVoice input uses your browser’s speech service; audio may be processed externally when you press the microphone.",
+      "overflow": false,
+      "status": "passed"
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "steps": [
+        "Real reference extraction → correction → same portrait mirror",
+        "Real user-entered owned product saved via UI",
+        "Same session garment study saved with original sample garment",
+        "Actual profile and complete-look archive survive reload",
+        "Profile → complete look with actual custom owned product/outfit → export → changed mirror → saved mirror restore → exact outfit restore",
+        "Local agent actual Open Remix tool → real Remix route"
+      ],
+      "errors": [],
+      "posts": [],
+      "original": "/images/portrait-neutral.jpg",
+      "remixInspector": "Lips, reimagined.\n\nYour choice · measured #B16E6F\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude lips\nPresence\n60%\nFinish\nMatte\nGloss\nShimmer\nGlitter",
+      "dressingText": "My products\nDressing room\nSaved looks (0)\n\nYour dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition\nGenerate a clothing preview\nYour composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative.\n\nCompose your look\nInclude current mirror look\n\nAligning your current mirror look…\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n107%\nHeight\n40%\nRotation\n0°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 sits in your palette (closest to your clay, ΔE 18). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here.\n\nYour outfit studies\n\nYour first outfit study will live here. Save colours and placement without storing a photo.",
+      "outfitOptions": [
+        {
+          "text": "No outfit attached",
+          "value": ""
+        },
+        {
+          "text": "Critic blue story",
+          "value": "646787c4-7b15-4a76-9ea8-17d32c61a6d5"
+        }
+      ],
+      "archive": "Critic occasion\n\nA connected self-authored study\n\nNov 2, 2026 · 1 owned-product reference · Original light\nReopen in mirror\nOpen outfit",
+      "outfitCanvas": [
+        {
+          "outfit": "646787c4-7b15-4a76-9ea8-17d32c61a6d5",
+          "source": "/images/portrait-neutral.jpg"
+        }
+      ],
+      "ownedAgent": "You\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: Critic evening cream.\n1 of 1 actions completed",
+      "agent": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nInspiration canvas\nBeauty profile\nLook Remix\nDevice & fairness lab\nBeauty journal\nPrivacy & settings\nMy products\nDressing room\nSaved looks (1)\n\nYour dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition\nGenerate a clothing preview\nYour composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative.\n\nCompose your look\nInclude current mirror look\n\nCurrent mirror look included · shared face geometry.\n\nYour makeup, hair colour, accessories and creative light stay with this portrait. The garment is manually placed.\n\nYour portrait\nYour garment\n\nJPEG, PNG or WebP · up to 12 MB. Uploads stay in this tab unless you choose to save them.\n\nA colour to start with\nMake it sit just right\nHorizontal position\n1%\nVertical position\n64%\nWidth\n107%\nHeight\n40%\nRotation\n0°\nOpacity\n93%\nExplore a seasonal palette\nLight Spring\nTrue Spring\nBright Spring\nLight Summer\nTrue Summer\nSoft Summer\nSoft Autumn\nTrue Autumn\nDeep Autumn\nTrue Winter\nDeep Winter\nBright Winter\n\nColour 1 is far from every colour in your palette (nearest is warm taupe, ΔE 54). Your preference comes first.\n\nName this outfit\nAlso store my uploaded photos locally\n\nThis grants photo storage consent on this device. You can revoke it in Privacy. Browser storage is not encrypted.\n\nSave this outfit\n\nGenerative virtual try-on is not configured. No images are uploaded and no paid requests are made here.\n\nYour outfit studies\nCritic blue story\n\nOriginal sample blouse · 11/2/2026\n\nOutfit study restored on your current mirror portrait.\nTRUE BEAUTY\nYour data, your choice\nYour beauty agent\nLocal assistant\nAssistant mode\nLocal · no paid requests\nClaude / configured provider\nYou\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: Critic evening cream.\n1 of 1 actions completed\nYou\nOpen Remix\nApplying your request…\nYour beauty request\nChanges affect your editable mirror. Chat history is saved only when you enable it in privacy settings.\n\nVoice input uses your browser’s speech service; audio may be processed externally when you press the microphone.",
+      "overflow": false,
+      "status": "passed"
+    }
+  ]
+}

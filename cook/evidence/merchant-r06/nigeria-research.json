@@ -1,0 +1,47 @@
+{
+  "zaron": {
+    "origin": "https://zaroncosmetics.com",
+    "robots": {
+      "status": 200,
+      "url": "https://www.zaroncosmetics.com/robots.txt",
+      "bytes": 227,
+      "preview": "User-agent: *\nAllow: /\nDisallow: /basket\nDisallow: /checkout\nDisallow: /my-order"
+    },
+    "home": {
+      "status": 200,
+      "url": "https://www.zaroncosmetics.com/",
+      "bytes": 2685,
+      "preview": ""
+    }
+  },
+  "nuban": {
+    "origin": "https://nubanbeauty.com",
+    "robots": {
+      "status": 200,
+      "url": "https://nubanbeauty.com/robots.txt",
+      "bytes": 3687,
+      "preview": "# Shopify storefront. Public product, collection, page, blog, policy, cart, and "
+    },
+    "home": {
+      "status": 200,
+      "url": "https://nubanbeauty.com/",
+      "bytes": 499094,
+      "preview": ""
+    }
+  },
+  "houseoftara": {
+    "origin": "https://houseoftara.com",
+    "robots": {
+      "status": 200,
+      "url": "https://www.houseoftara.com/robots.txt",
+      "bytes": 521,
+      "preview": "User-Agent: *\nAllow: /\nDisallow: /api/\nDisallow: /products\n\nUser-Agent: GPTBot\nA"
+    },
+    "home": {
+      "status": 200,
+      "url": "https://www.houseoftara.com/",
+      "bytes": 22999,
+      "preview": ""
+    }
+  }
+}

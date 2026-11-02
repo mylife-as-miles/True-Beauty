@@ -1,0 +1,254 @@
+{
+  "kind": "real-outbound-public-HTTP-contract",
+  "recordedAt": "2026-11-02T13:22:28.268Z",
+  "note": "Route invoked in-process with Fastify inject. The fetch wrapper calls real native fetch through inherited proxy; no merchant response is mocked. These observations do not establish checkout, shipping, a partnership or lasting availability.",
+  "requests": [
+    {
+      "url": "https://nubanbeauty.com/robots.txt",
+      "status": 200,
+      "at": "2026-11-02T13:22:24.277Z"
+    },
+    {
+      "url": "https://nubanbeauty.com/products/seal-it-makeup-fixing-spray",
+      "status": 200,
+      "at": "2026-11-02T13:22:24.659Z"
+    },
+    {
+      "url": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+      "status": 200,
+      "at": "2026-11-02T13:22:24.999Z"
+    },
+    {
+      "url": "https://beautyofjoseon.com/robots.txt",
+      "status": 200,
+      "at": "2026-11-02T13:22:26.004Z"
+    },
+    {
+      "url": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+      "status": 200,
+      "at": "2026-11-02T13:22:26.951Z"
+    },
+    {
+      "url": "https://theordinary.com/robots.txt",
+      "status": 200,
+      "at": "2026-11-02T13:22:27.339Z"
+    },
+    {
+      "url": "https://theordinary.com/en-us/natural-moisturizing-factors-ha-moisturizer-100435.html",
+      "status": 200,
+      "at": "2026-11-02T13:22:28.253Z"
+    }
+  ],
+  "observations": [
+    {
+      "httpStatus": 200,
+      "result": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-fixing-spray",
+        "fetchedAt": "2026-11-02T13:22:23.822Z",
+        "observations": [
+          {
+            "id": "8c31c548-8826-41c5-b1de-5008b8404a3d",
+            "sourceId": "nuban",
+            "referenceId": "nuban-fixing-spray",
+            "merchant": "Nuban Beauty",
+            "title": "SEAL IT! MAKEUP FIXING SPRAY (105ml)",
+            "variantId": "SI-MFS",
+            "variantName": "SKU SI-MFS",
+            "amount": 11950,
+            "currency": "NGN",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:22:23.822Z",
+            "sourceUrl": "https://nubanbeauty.com/products/seal-it-makeup-fixing-spray",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:37:24.688Z"
+      }
+    },
+    {
+      "httpStatus": 200,
+      "result": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-gloss",
+        "fetchedAt": "2026-11-02T13:22:24.695Z",
+        "observations": [
+          {
+            "id": "5dabc86e-34fe-40f8-95f1-df89ac847c34",
+            "sourceId": "nuban",
+            "referenceId": "nuban-gloss",
+            "merchant": "Nuban Beauty",
+            "title": "PRO GLOSS MINI LIPSTICKS [Singles] - Scandal",
+            "variantId": "#scandal",
+            "variantName": "SKU #scandal",
+            "amount": 3600,
+            "currency": "NGN",
+            "availability": "out-of-stock",
+            "fetchedAt": "2026-11-02T13:22:24.695Z",
+            "sourceUrl": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          },
+          {
+            "id": "ef5a0d08-06d1-4204-a1f3-9b0db0d865cb",
+            "sourceId": "nuban",
+            "referenceId": "nuban-gloss",
+            "merchant": "Nuban Beauty",
+            "title": "PRO GLOSS MINI LIPSTICKS [Singles] - Bliss",
+            "variantId": "#bliss",
+            "variantName": "SKU #bliss",
+            "amount": 2400,
+            "currency": "NGN",
+            "availability": "out-of-stock",
+            "fetchedAt": "2026-11-02T13:22:24.695Z",
+            "sourceUrl": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          },
+          {
+            "id": "c6d372a9-b2f1-4e98-81c2-a78bcbc8ba50",
+            "sourceId": "nuban",
+            "referenceId": "nuban-gloss",
+            "merchant": "Nuban Beauty",
+            "title": "PRO GLOSS MINI LIPSTICKS [Singles]",
+            "variantId": "#lily",
+            "variantName": "SKU #lily",
+            "amount": 2400,
+            "currency": "NGN",
+            "availability": "out-of-stock",
+            "fetchedAt": "2026-11-02T13:22:24.695Z",
+            "sourceUrl": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          },
+          {
+            "id": "41a6fd40-3c89-44b2-b72d-43bf8147032e",
+            "sourceId": "nuban",
+            "referenceId": "nuban-gloss",
+            "merchant": "Nuban Beauty",
+            "title": "PRO GLOSS MINI LIPSTICKS [Singles]",
+            "variantId": "#sleek",
+            "variantName": "SKU #sleek",
+            "amount": 2400,
+            "currency": "NGN",
+            "availability": "out-of-stock",
+            "fetchedAt": "2026-11-02T13:22:24.695Z",
+            "sourceUrl": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          },
+          {
+            "id": "71967c12-1069-45c2-9d89-d87015a0d851",
+            "sourceId": "nuban",
+            "referenceId": "nuban-gloss",
+            "merchant": "Nuban Beauty",
+            "title": "PRO GLOSS MINI LIPSTICKS [Singles]",
+            "variantId": "#noble",
+            "variantName": "SKU #noble",
+            "amount": 2400,
+            "currency": "NGN",
+            "availability": "out-of-stock",
+            "fetchedAt": "2026-11-02T13:22:24.695Z",
+            "sourceUrl": "https://nubanbeauty.com/products/pro-gloss-mini-lipsticks",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:37:25.017Z"
+      }
+    },
+    {
+      "httpStatus": 200,
+      "result": {
+        "sourceId": "boj",
+        "referenceId": "boj-glow-serum",
+        "fetchedAt": "2026-11-02T13:22:25.019Z",
+        "observations": [
+          {
+            "id": "3f0b7e3d-adba-4d60-854b-2749742d056b",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS006",
+            "variantName": "SKU 82BS006",
+            "amount": 15.3,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:22:25.019Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          },
+          {
+            "id": "6bb4634d-6dfd-4b80-b814-4a3783a979c8",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS030",
+            "variantName": "SKU 82BS030",
+            "amount": 27.2,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:22:25.019Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:37:26.972Z"
+      }
+    },
+    {
+      "httpStatus": 200,
+      "result": {
+        "sourceId": "ordinary",
+        "referenceId": "ordinary-nmf-30ml",
+        "fetchedAt": "2026-11-02T13:22:26.973Z",
+        "observations": [
+          {
+            "id": "8e902a28-266a-4609-84c7-edf24381f547",
+            "sourceId": "ordinary",
+            "referenceId": "ordinary-nmf-30ml",
+            "catalogProductId": "ordinary-moisturizer",
+            "merchant": "The Ordinary",
+            "title": "Natural Moisturizing Factors + HA",
+            "variantId": "rdn-natural-moisturizing-factors-ha-30ml",
+            "variantName": "SKU rdn-natural-moisturizing-factors-ha-30ml",
+            "amount": 6.7,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T13:22:26.973Z",
+            "sourceUrl": "https://theordinary.com/en-us/natural-moisturizing-factors-ha-moisturizer-100435.html",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ."
+          }
+        ],
+        "cached": false,
+        "nextRefreshAt": "2026-11-02T13:37:28.268Z"
+      }
+    }
+  ]
+}

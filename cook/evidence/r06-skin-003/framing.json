@@ -1,0 +1,35 @@
+{
+  "format": "true-beauty-local-synthetic-framing",
+  "createdAt": "2026-11-02T14:30:04.367Z",
+  "sourceSha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9",
+  "outputSha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e",
+  "plan": {
+    "ok": true,
+    "crop": {
+      "x": 303,
+      "y": 214,
+      "width": 724,
+      "height": 809
+    },
+    "output": {
+      "width": 724,
+      "height": 809
+    },
+    "face": {
+      "left": 404.6637783050537,
+      "top": 295.2158415913582,
+      "right": 925.6313362121582,
+      "bottom": 942.0919188857079,
+      "widthFraction": 0.7195684501479344
+    },
+    "scale": 1,
+    "upscaled": false,
+    "warnings": [
+      "Framing is estimated from visible landmarks. Confirm that the face is frontal and the forehead and chin remain visible; this does not guarantee provider acceptance."
+    ],
+    "source": "observed-face-landmarks"
+  },
+  "landmarkCount": 478,
+  "bytes": 169022,
+  "notice": "Explicit local crop of an original synthetic fixture; not a fairness or clinical validation image."
+}

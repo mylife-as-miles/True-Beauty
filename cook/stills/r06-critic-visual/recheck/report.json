@@ -1,0 +1,683 @@
+{
+  "date": "2026-11-02T14:47:09.956Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "label": "active-mobile-route-reselection",
+      "drawerClass": "nav-rail extended-rail ",
+      "closeVisible": false
+    },
+    {
+      "label": "mobile-remix-live-copy",
+      "beforeHair": {
+        "hash": 1982264171,
+        "width": 219,
+        "height": 240,
+        "nonzero": 157021,
+        "data": {
+          "rendered": "aligned",
+          "sourceUrl": "/images/portrait-neutral.jpg"
+        }
+      },
+      "afterHair": {
+        "hash": 1982264171,
+        "width": 219,
+        "height": 240,
+        "nonzero": 157021,
+        "data": {
+          "rendered": "aligned",
+          "sourceUrl": "/images/portrait-neutral.jpg"
+        }
+      },
+      "changed": false
+    },
+    {
+      "label": "mobile-remix-hair-correction",
+      "scrollY": 1126,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 45,
+            "y": 12,
+            "w": 300,
+            "h": 183.6875,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "YOUR EXPRESSION\nHair in focus\nOriginal hair · mask unavailable\nFull preview\nBefore & after"
+        },
+        {
+          "selector": ".remix-detail-preview canvas",
+          "rect": {
+            "x": 57,
+            "y": 24,
+            "w": 108,
+            "h": 137,
+            "visible": true,
+            "position": "static"
+          },
+          "text": ""
+        },
+        {
+          "selector": ".remix-target-stage",
+          "rect": {
+            "x": 201.5,
+            "y": -694.03125,
+            "w": 143.5,
+            "h": 265,
+            "visible": false,
+            "position": "relative"
+          },
+          "text": ""
+        },
+        {
+          "selector": "input[aria-label=\"Hair presence\"]",
+          "rect": {
+            "x": 115,
+            "y": 530,
+            "w": 179,
+            "h": 4,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "75"
+        },
+        {
+          "selector": ".remix-inspector",
+          "rect": {
+            "x": 45,
+            "y": 324.8125,
+            "w": 300,
+            "h": 315.25,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "Hair, reimagined.\n\nYour choice · measured #3D2E20\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude hair\nPresence\n75%\nSegmented hair pixels; lighting and highlights affect the shade. Preview does not change hair shape."
+        }
+      ]
+    },
+    {
+      "label": "mobile-remix-compare",
+      "scrollY": 1151,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 45,
+            "y": 12,
+            "w": 300,
+            "h": 208.6875,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "YOUR EXPRESSION\nHair in focus\nOriginal hair · mask unavailable\nFull preview\nBefore & after"
+        },
+        {
+          "selector": "input[aria-label=\"Detail comparison split\"]",
+          "rect": {
+            "x": 179,
+            "y": 188.6875,
+            "w": 154,
+            "h": 20,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "65"
+        },
+        {
+          "selector": "input[aria-label=\"Hair presence\"]",
+          "rect": {
+            "x": 115,
+            "y": 530,
+            "w": 179,
+            "h": 4,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "75"
+        }
+      ]
+    },
+    {
+      "label": "mobile-remix-apply",
+      "scrollY": 1164,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 45,
+            "y": 12,
+            "w": 300,
+            "h": 208.6875,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "YOUR EXPRESSION\nHair in focus\nOriginal hair · mask unavailable\nFull preview\nBefore & after"
+        },
+        {
+          "selector": ".remix-detail-preview canvas",
+          "rect": {
+            "x": 57,
+            "y": 24,
+            "w": 108,
+            "h": 155,
+            "visible": true,
+            "position": "static"
+          },
+          "text": ""
+        },
+        {
+          "selector": ".remix-apply",
+          "rect": {
+            "x": 45,
+            "y": 770.15625,
+            "w": 300,
+            "h": 73.59375,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "Your portrait stays yours. Adjustments stay editable.\nApply this interpretation"
+        }
+      ]
+    },
+    {
+      "label": "mobile-remix-full-preview",
+      "scrollY": 142,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-target-stage",
+          "rect": {
+            "x": 201.5,
+            "y": 289.96875,
+            "w": 143.5,
+            "h": 265,
+            "visible": true,
+            "position": "relative"
+          },
+          "text": ""
+        },
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "visible": false,
+            "position": "static"
+          },
+          "text": "Your expressionHair in focusOriginal hair · mask unavailableFull preview  Before & after"
+        }
+      ]
+    },
+    {
+      "label": "tablet-remix-correction",
+      "scrollY": 650,
+      "viewport": {
+        "w": 768,
+        "h": 1024
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "visible": false,
+            "position": "static"
+          },
+          "text": "Your expressionHair in focusOriginal hair · mask unavailableFull preview  Before & after"
+        },
+        {
+          "selector": ".remix-target-stage",
+          "rect": {
+            "x": 406,
+            "y": -308.46875,
+            "w": 300.921875,
+            "h": 320,
+            "visible": true,
+            "position": "relative"
+          },
+          "text": "Original\nInterpretation"
+        },
+        {
+          "selector": ".remix-inspector",
+          "rect": {
+            "x": 61.078125,
+            "y": 405.296875,
+            "w": 645.84375,
+            "h": 230.375,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "Hair, reimagined.\n\nYour choice · measured #3D2E20\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude hair\nPresence\n75%\nSegmented hair pixels; lighting and highlights affect the shade. Preview does not change hair shape."
+        },
+        {
+          "selector": "input[aria-label=\"Hair presence\"]",
+          "rect": {
+            "x": 345.078125,
+            "y": 549.984375,
+            "w": 80,
+            "h": 4,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "75"
+        }
+      ]
+    },
+    {
+      "label": "desktop-remix-correction",
+      "scrollY": 650,
+      "viewport": {
+        "w": 1440,
+        "h": 1000
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".remix-detail-preview",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 0,
+            "h": 0,
+            "visible": false,
+            "position": "static"
+          },
+          "text": "Your expressionHair in focusOriginal hair · mask unavailableFull preview  Before & after"
+        },
+        {
+          "selector": ".remix-target-stage",
+          "rect": {
+            "x": 790,
+            "y": -268.03125,
+            "w": 527.265625,
+            "h": 570,
+            "visible": true,
+            "position": "relative"
+          },
+          "text": "Original\nInterpretation"
+        },
+        {
+          "selector": ".remix-inspector",
+          "rect": {
+            "x": 188.734375,
+            "y": 708.359375,
+            "w": 1128.53125,
+            "h": 172.375,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "Hair, reimagined.\n\nYour choice · measured #3D2E20\n\nQuality is a heuristic indicator, not a probability.\nRefine shade\nInclude hair\nPresence\n75%\nSegmented hair pixels; lighting and highlights affect the shade. Preview does not change hair shape."
+        },
+        {
+          "selector": "input[aria-label=\"Hair presence\"]",
+          "rect": {
+            "x": 1176.265625,
+            "y": 772.203125,
+            "w": 80,
+            "h": 4,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "75"
+        }
+      ]
+    },
+    {
+      "label": "mobile-dressing-live-copy",
+      "beforeDress": {
+        "hash": 2766764964,
+        "width": 180,
+        "height": 270,
+        "nonzero": 145446,
+        "data": {}
+      },
+      "afterDress": {
+        "hash": 3837084513,
+        "width": 180,
+        "height": 270,
+        "nonzero": 145180,
+        "data": {}
+      },
+      "changed": true
+    },
+    {
+      "label": "mobile-dressing-width",
+      "scrollY": 1426,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".dressing-edit-preview",
+          "rect": {
+            "x": 25,
+            "y": 0,
+            "w": 340,
+            "h": 170,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "As you compose\n\nYour placement preview\n\nAdjust below. See the same composition here.\nView full composition"
+        },
+        {
+          "selector": ".dressing-edit-preview canvas",
+          "rect": {
+            "x": 25,
+            "y": 11,
+            "w": 100,
+            "h": 148,
+            "visible": true,
+            "position": "static"
+          },
+          "text": ""
+        },
+        {
+          "selector": ".dressing-stage",
+          "rect": {
+            "x": 25,
+            "y": -995,
+            "w": 340,
+            "h": 635.421875,
+            "visible": false,
+            "position": "static"
+          },
+          "text": "Your composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative."
+        },
+        {
+          "selector": "input[aria-label=\"Width\"]",
+          "rect": {
+            "x": 25,
+            "y": 407.9375,
+            "w": 158,
+            "h": 28,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "0.72"
+        }
+      ]
+    },
+    {
+      "label": "mobile-dressing-rotation",
+      "scrollY": 1426,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".dressing-edit-preview",
+          "rect": {
+            "x": 25,
+            "y": 0,
+            "w": 340,
+            "h": 170,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "As you compose\n\nYour placement preview\n\nAdjust below. See the same composition here.\nView full composition"
+        },
+        {
+          "selector": "input[aria-label=\"Rotation\"]",
+          "rect": {
+            "x": 25,
+            "y": 472.4375,
+            "w": 158,
+            "h": 28,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "label": "tablet-dressing-width",
+      "scrollY": 1426,
+      "viewport": {
+        "w": 768,
+        "h": 1024
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".dressing-edit-preview",
+          "rect": {
+            "x": 33,
+            "y": 0,
+            "w": 702,
+            "h": 170,
+            "visible": true,
+            "position": "sticky"
+          },
+          "text": "As you compose\n\nYour placement preview\n\nAdjust below. See the same composition here.\nView full composition"
+        },
+        {
+          "selector": ".dressing-edit-preview canvas",
+          "rect": {
+            "x": 33,
+            "y": 11,
+            "w": 100,
+            "h": 148,
+            "visible": true,
+            "position": "static"
+          },
+          "text": ""
+        },
+        {
+          "selector": "input[aria-label=\"Width\"]",
+          "rect": {
+            "x": 33,
+            "y": 426.875,
+            "w": 339,
+            "h": 28,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "",
+          "value": "0.72"
+        }
+      ]
+    },
+    {
+      "label": "mobile-dressing-targets",
+      "targets": [
+        {
+          "name": "Export composition",
+          "w": 34,
+          "h": 34
+        },
+        {
+          "name": "Reset garment placement",
+          "w": 34,
+          "h": 34
+        },
+        {
+          "name": "Garment colour",
+          "w": 25,
+          "h": 25
+        },
+        {
+          "name": "Choose garment colour #98645e",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "name": "Choose garment colour #d2bc9c",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "name": "Choose garment colour #293b43",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "name": "Choose garment colour #7d843e",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "name": "Choose garment colour #7e4c6d",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "name": "Choose garment colour #232323",
+          "w": 30,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "label": "mobile-profile-open-outfit",
+      "scrollY": 419,
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "overflow": false,
+      "items": [
+        {
+          "selector": ".dressing-title",
+          "rect": {
+            "x": 25,
+            "y": -249.5,
+            "w": 340,
+            "h": 167.5,
+            "visible": false,
+            "position": "static"
+          },
+          "text": "Your dressing room\n\nWear the feeling.\n\nA colour story, a finishing detail, a look that belongs to you.\n\nStatic photo composition"
+        },
+        {
+          "selector": ".dressing-stage",
+          "rect": {
+            "x": 25,
+            "y": 12,
+            "w": 340,
+            "h": 635.421875,
+            "visible": true,
+            "position": "static"
+          },
+          "text": "Your composition\nLocal static-photo composition · manual placement\n\nA playful composition, not a sizing or draping prediction. Uploaded garments work best on a transparent or plain white background. Demo portrait and sample blouse are illustrative."
+        },
+        {
+          "selector": ".dressing-stage canvas",
+          "rect": {
+            "x": 34,
+            "y": 55,
+            "w": 322,
+            "h": 483,
+            "visible": true,
+            "position": "static"
+          },
+          "text": ""
+        }
+      ]
+    },
+    {
+      "label": "mobile-bag-targets",
+      "targets": [
+        {
+          "name": "Close dialog",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "name": "O FACE Satin Lipstick Soft rose NGN quantity",
+          "w": 54,
+          "h": 44
+        },
+        {
+          "name": "Remove O FACE Satin Lipstick Soft rose NGN from bag",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "name": "Check reviewed merchant sources",
+          "w": 330,
+          "h": 42
+        }
+      ]
+    },
+    {
+      "label": "mobile-bag-source-hit-test",
+      "action": {
+        "x": 30,
+        "y": 651,
+        "w": 330,
+        "h": 42
+      },
+      "hit": "<button class=\"button secondary full-width\">Check reviewed merchant sources<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-up-right\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"></path><path d=\"M7 17 17 7\"></path></svg></button>",
+      "containsHit": true,
+      "toast": {
+        "x": 15,
+        "y": 767.8125,
+        "w": 360,
+        "h": 61.1875,
+        "z": "95"
+      },
+      "modalZ": "60"
+    },
+    {
+      "label": "merchant-source-opened",
+      "visible": true
+    },
+    {
+      "label": "mobile-remix-live-hair-after-studio-hair-enabled",
+      "before": {
+        "hash": 261312905,
+        "width": 219,
+        "height": 240
+      },
+      "after": {
+        "hash": 3909539716,
+        "width": 219,
+        "height": 240
+      },
+      "changed": true,
+      "notice": "YOUR EXPRESSION\nHair in focus\nAligned colour preview\nFull preview\nBefore & after"
+    }
+  ],
+  "errors": [],
+  "posts": [],
+  "outbound": []
+}

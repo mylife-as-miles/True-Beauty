@@ -1,0 +1,102 @@
+[
+  {
+    "file": "nuban-home.txt",
+    "sha256": "231af91aa520d72929a3803b35b588adcaf9d4dfcb78723bf5c1db843d488af9",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "boj-home.txt",
+    "sha256": "d1e7f6cef865e163ea78123b47c3c0200cd6d41cbbbe42a3ba2de71be1195d8a",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "zaron-home.txt",
+    "sha256": "73ce3b106d6dbff6f0c28d64e8e49661038e942eb03c6fd15e67a69e85441af1",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "houseoftara-home.txt",
+    "sha256": "4fa1cd5f33410e2c0885898e779bd6d8ecb3b12fe27ab383de483641622aad2b",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "buybetter-home.txt",
+    "sha256": "954e6b201424a242c1e7ae5f9e6deef8c67e77b33e4116c6cc68d77ebd3b37df",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "ordinary-home.txt",
+    "sha256": "278139a8485a305d27a1d52240b792c26daaf7868919833f5ccb1b1b2548622e",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "ordinary-nmf-product.txt",
+    "sha256": "50699d7530a2df59174af01d496d4cc0db032d6dd28b1ebc11f8d98194cf7ea9",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "nuban-lipgloss-product.txt",
+    "sha256": "ca431454e5c725088176ef8064e2edd82ef763f18880bee5f972b5886c2b298c",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "nuban-setting-spray-product.txt",
+    "sha256": "5257488460f34f3916f0325b47e7795b9703f24d2123bcdcb4f5f59e3a78a0de",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "boj-glow-product.txt",
+    "sha256": "3ffa010df48878498afaf8076cd689698314a2d31f74cf620fcc1eb4d3d6087c",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "zaron-robots.txt",
+    "sha256": "d2a1a20b92212dc440f593b80fd71519749f259fe212d008b3ed55ccc0831b23",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "houseoftara-robots.txt",
+    "sha256": "96fa6d3c9f70ab9edde204945d82a80cbccdf7a115b09c396409e6d3c25f2d12",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "buybetter-robots.txt",
+    "sha256": "1a7880b311d8cee7f75bf18d8770289511d7a4be669152aa709e77d73a1865a3",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "ordinary-robots.txt",
+    "sha256": "53c722bf03b34a32c87814a6597bd5ee1c43d8dbeec1163c564f2721bc0198ae",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "nuban-robots.txt",
+    "sha256": "1d62803d1ca23823c3b14d0f6ffdb96c8df896f636027a76552dd9a306120107",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "beautyhut-robots.txt",
+    "sha256": "1cbe4aaace0cea37da2977adac06f262d84e40d7726cf008cf3579386d57f1ae",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "boj-robots.txt",
+    "sha256": "3f33b4f23ac39a8dc5d3a7bb15ff3ab6734965a24a3123f8ca8cc37992bc893a",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "nuban-sitemap.txt",
+    "sha256": "f693df57b9137b0be46240276074bdc44ee19a65070b2eb721b322b71ead9cec",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "global-products-research.json",
+    "sha256": "a829d8de828d322293058d7d8062593888bc3a156953345e045feec9da14e32d",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  },
+  {
+    "file": "nigeria-products-research.json",
+    "sha256": "e5fe458e001b8e8385dcbc6b2e737a14d9051eca750dec827e5e99ef310b4a61",
+    "reason": "Inspected research source retained outside distributable app; no page text, merchant photography or full descriptions bundled."
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "format": "true-beauty-live-provider-receipt",
+  "version": 1,
+  "mode": "skin-only",
+  "startedAt": "2026-11-02T14:22:54.168Z",
+  "fixtureDeclaration": "Operator-declared original synthetic fixtures; not patient data or a clinical validation dataset.",
+  "sourceFiles": {
+    "portrait": {
+      "name": "portrait.png",
+      "sha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9"
+    }
+  },
+  "spendAuthorizationCeiling": 9,
+  "quotedTotal": 9,
+  "actualBilledCredits": null,
+  "billingVerified": false,
+  "providerRetentionDays": 30,
+  "retentionSource": "https://docs.perfectcorp.com/develop/file_retention_period.md",
+  "operations": [
+    {
+      "feature": "skin",
+      "status": "error",
+      "quoteId": "552e7500-2984-4089-aff4-be5081624219",
+      "quotedCredits": 9,
+      "taskId": "59b7492e-c238-4cd1-b45e-0c560dfb849e",
+      "providerFailure": {
+        "code": "error_src_face_too_small",
+        "known": true,
+        "summary": "The provider found the face too small in the image.",
+        "recovery": "Frame the full frontal face at more than 60% of the image width, keeping the forehead and chin inside the image.",
+        "nextStep": "change-input-and-authorize",
+        "automaticRetry": false
+      },
+      "error": "The provider found the face too small in the image. Frame the full frontal face at more than 60% of the image width, keeping the forehead and chin inside the image."
+    }
+  ],
+  "requestedSpecs": {
+    "skinActions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ]
+  },
+  "finishedAt": "2026-11-02T14:23:07.122Z",
+  "allProviderTasksVerified": false
+}

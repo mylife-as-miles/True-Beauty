@@ -16,6 +16,27 @@ The current Fastify router fails actual workerd runtime code-generation restrict
 
 Latest independent product score7.09 (local usefulness8.5), expanded visual review8.2 after independent recheck. These are bounded critic judgments, not completion percentages. Full≥9 acceptance remains unmet. Physical-device performance, representative consenting-person evaluation, full occasion planning, broader model/asset/source distribution rights and advanced scope remain open.
 
+## Integrated R06 closure
+
+| Check | Exact outcome and evidence boundary |
+|---|---|
+| Final TypeScript / ESLint / Vitest | Passed;269tests/41files after snapshot-lifetime repair. |
+| Complete Chromium + mobile snapshot |132passed,2production-onlyskips of134; `test-results-r06-clean`. |
+| Post-lifetime Chromium/mobile regressions |26/26passed: actual accessory, Remix, source switch and scan-framing paths; `test-results-r06-lifetime-chromium`. |
+| Final selected Firefox / WebKit |12/12each: actual optional models, camera-stream fixture, Remix and Twin; `test-results-r06-{firefox,webkit}-final`. Firefox uses headedXvfb/Mesa; LinuxWebKit is not physicalSafari. |
+| Final actual production/offline |8/8passed; `test-results-r06-production-final`. An additional UI-created Remix→inventory→outfit→profile→archive/restore journey passed on both built desktop/mobile views in `cook/evidence/r06-production`. |
+| Genuine skin browser journey |r06-skin-ui-002: visible exact local crop, nine-credit authorization, one actual task/four predictions, explicit history save, reload, deletion;0photos/image references/implicit memory. |
+| Independent adversarial review |20Twin/database/export/migration cases +17API/security cases pass; actual repro/fix reports retained. |
+| Independent critique |Weighted7.09/local usefulness8.5; expanded visual8.2after repair recheck. Remaining UI/model/occasion/device/rights/hosting limits remain explicit. |
+| Credential scan |Current source/build + retained Git history inspected using hidden-input exact keys; no values printed or persisted. Final scan receipt is under cook/evidence. |
+| Distribution inventory |5/5model-specific licenses/notices recovered,10retained audit notices and11runtime-library notices shipped by build. Overall legal/distribution clearance remains blocked. |
+
+The first 134-case run had130pass/2fixture-fail/2skip because a pre-credential test assumed the provider was absent. Explicit unavailable-deployment metadata made that test environment-independent; the clean134snapshot above then passed. Earlier HMR-invalidated runs remain separate and are not passing evidence. WebKit initially exposed a genuine main-fallback teardown bug: returned478-point/hair/hand results were cleared on dispose before Remix sampled them. resetTracking now releases internal references through a new snapshot;18scoped core tests and real browser regressions preserve caller observations while all task models close. A separate WebKit camera fixture required a prototype override because the browser replaced its per-instance MediaDevices wrapper; actual live/playback/ended-track assertions remain.
+
+Final production main chunk796.42KB (~248.34KB gzip), lazy3D906.89KB (~248.54KB gzip), optional OpenCV15.51MB (~3.91MB gzip). Size and third-party packaging warnings remain visible. The local artifact is84MB including lazy models/WASM. Build notices are distributed with the artifact; no paid API or personal data is precached. Sustained physical-device performance is unverified.
+
+The local implementation checkpoint is6fd24f8, followed by the snapshot-lifetime/evidence closure. Native Sites publication and GitHub synchronization are recorded in DEPLOYMENT and the final Cook entry after their actual remote results. Do not mistake a Git commit or static publication for a hosted paid backend.
+
 ## Historical round05 — immersive UX, materials and contextual exploration
 
 The renewed request for immersive UI/UX and Proofline/Common Table inspiration is implemented as original interactions: real six-look portrait previews sharing one tracking result, bounded editor layouts, focus/undo/redo, full-portrait/fill framing, facial-region lenses, creative light controls, actual enhanced WebGL materials, Skin Lab region exploration and a spatial canvas with real palette/product handoffs. Source/reference boundaries are in DESIGN_RESEARCH, SOURCE_INTEGRATION_MATRIX and CANVAS_UX_ROUND05.
