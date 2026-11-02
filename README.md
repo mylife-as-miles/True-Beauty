@@ -53,7 +53,7 @@ node packages/vision-core/scripts/verify-lifecycle.mjs http://127.0.0.1:5173
 GRAPHICS_TEST_ORIGIN=http://127.0.0.1:5173 node packages/ar-renderer/scripts/smoke.mjs
 ```
 
-Latest integrated R06 unit snapshot:245tests/38files, before final framing/mobile additions. Whole-browser, production/offline and cross-browser evidence is reconciled in QUALITY_REPORT rather than inferred from a build. Earlier R05 cross-browser results remain historical; they do not certify new R06 model features.
+Final R06 unit snapshot:269tests/41files; completeChrome/mobile132passed+2production-onlyskips; finalproduction/offline8/8, selectedFirefox12/12andWebKit12/12. Whole-browser, production/offline and cross-browser evidence is reconciled in QUALITY_REPORT rather than inferred from a build. Earlier R05 cross-browser results remain historical; they do not certify new R06 model features.
 
 Use a separate test output directory if running independent Playwright processes. Browser recordings/screenshots and independent review findings live in `cook/`. Device/clinical/model accuracy is not established by these synthetic browser tests.
 

@@ -1,0 +1,14 @@
+{
+  "project_id": "appgprj_6ae88d68c5bc81918175edf22df8b3b5",
+  "url": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "audience": "public",
+  "access_revision": 2,
+  "version_number": 2,
+  "version_id": "appgprj_6ae88d68c5bc81918175edf22df8b3b5~appgver_e0bbf4c4a9c48191abf3673afba2f8b5",
+  "deployment_id": "appgdep_6ae8abce07688191b961a4edd0e5f9f0",
+  "status": "succeeded",
+  "source_commit": "2b3ca436cb6e0fcf7e8be9ff6bde71bb3227bb3d",
+  "engineering_commit": "a590427a5f250bfa796db428805add15a6ad91fe",
+  "archive_sha256": "60ecb090595186ed21b6908a064028234890e7ee426c22838b48cf9b4411464e",
+  "hostedProviderBackend": false
+}

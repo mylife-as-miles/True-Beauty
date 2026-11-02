@@ -4,7 +4,7 @@ The requested complete product acceptance is **not met**. A running local applic
 
 ## Active round06 — genuine providers and complete local workflows
 
-Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Native access service confirms **public**, revision2. The published release currently contains R05 static functionality; the R06 engineering checkout is being verified before update. Publication does not imply a hosted API.
+Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Native access service confirms **public**, revision2. Published version2 now contains the verified R06 static/local workflows; native deployment succeeded. Publication does not imply a hosted API.
 
 R06 adds actual local inspiration analysis/correction, editable self-described Beauty Digital Twin, linked complete-look/outfit/product recipes, variant/currency/source-aware persistent bags, manual INCI inventory, genuine merchant observations, body/pose/accessory inference and semantic overlap masks, and native Claude reasoning. Provider execution now has genuine receipts: hair and upper-body clothing generation, four dynamically parsed skin concerns after explicit local framing, and three Claude turns executing two actual mirror tools. See LIVE_PROVIDER_VERIFICATION_R06. Synthetic fixtures establish execution only; no accuracy/clinical/fairness claim follows.
 
@@ -130,3 +130,6 @@ The first production Taste inspection reported2FAIL/5WARN: the mirror shadow and
 Remaining warnings are explicit: editorial italic headline, tracked wordmark, original warm palette, small support text (81% under13px in this measured view, floor11px), and desktop40px title. These follow the chosen art direction but remain typography/legibility improvement opportunities; they are not converted into a9/10 claim. All three final meter stills and final real-model production captures were opened and inspected. Final build retains the main-bundle size warning and third-party Zod/OpenCV packaging warnings. No check was hidden by raising thresholds.
 
 Passing original-path regression captures overwritten by test scripts were copied to `cook/stills/r05-regressions` before restoring the earlier round captures from Git. Earlier comparison evidence remains intact.
+
+
+Final publication: publicSitesversion2 succeeded, with audience unchanged; exact opaque IDs/source/archive fingerprint are in DEPLOYMENT and cook/evidence/r06-deployment.json. All source/test/evidence history is pushed to GitHubmain. This is an incremental verified checkpoint, not the full≥9product or a hosted paid backend.
