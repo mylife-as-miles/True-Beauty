@@ -29,3 +29,7 @@ Read-only requests returned HTTP 200 for these pages. Source HTML was saved outs
 ## Visual evidence boundary
 
 The source repositories were inspected, but source app screenshot/interaction capture is not yet performed. No image reference has been quietly substituted or similarity percentage invented. `cook/SHOTS.md` defines reproducible True Beauty captures for the implementation loop. First actual captures become the baseline; later rounds compare fixed states and review them against the original product/design brief.
+
+## Round05 renewed creator-reference study
+
+Explicit user steering renewed D01/D02. Re-read the pinned Proofline reader Lens and Common Table ImmersiveMap/MenuBook source. Independently authored selected-face/skin/object lenses, spatial canvas controls and stateful palette/product handoffs apply their principles. No restricted source or third-party assets copied. Actual True Beauty screenshots and independent criticism are retained under `cook/stills/r05*` and `cook/reviews/*r05*`; no source-app visual similarity score is asserted.

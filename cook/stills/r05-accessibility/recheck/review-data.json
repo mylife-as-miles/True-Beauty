@@ -1,0 +1,6203 @@
+[
+  {
+    "viewport": {
+      "id": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    "states": [],
+    "checks": [],
+    "posts": [],
+    "errors": [],
+    "error": "Error: Condition timeout"
+  },
+  {
+    "viewport": {
+      "id": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    "states": [
+      {
+        "name": "default",
+        "axe": {
+          "name": "default",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 4
+            }
+          ],
+          "passes": 45
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 930
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 133.9,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 88.2,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Lip colour",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Blush",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeshadow",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Foundation",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Change colour palette",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 21,
+              "height": 21,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 1",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 2",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 3",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 4",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 5",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 6",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 7",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 8",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 9",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 10",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 11",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 12",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 346,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BODY",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "light",
+        "axe": {
+          "name": "light",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 5
+            }
+          ],
+          "passes": 46
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 930
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 133.9,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 88.2,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 84,
+              "height": 84,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 189,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 346,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "DIV",
+            "label": "Light direction",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "focus",
+        "axe": {
+          "name": "focus",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 5
+            }
+          ],
+          "passes": 42
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 853
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Leave focus",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 84.5,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 84,
+              "height": 84,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 209,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 366,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Leave focus",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "gallery",
+        "axe": {
+          "name": "gallery",
+          "violations": [],
+          "incomplete": [],
+          "passes": 38
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 930
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Close dialog",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Previous look",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Next look",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplySoft glowA rose lip, warm cheeks, and a little light.",
+              "tag": "BUTTON",
+              "selector": "look-object",
+              "width": 158,
+              "height": 262.7,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplyRose hourPetal pink, luminous skin, softly defined eyes.",
+              "tag": "BUTTON",
+              "selector": "look-object is-active",
+              "width": 158,
+              "height": 262.7,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplyGolden museSunlit bronze with a warm caramel lip.",
+              "tag": "BUTTON",
+              "selector": "look-object",
+              "width": 158,
+              "height": 262.7,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "See in the mirror",
+              "tag": "BUTTON",
+              "selector": "button primary full-width",
+              "width": 330,
+              "height": 42,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "region-lens",
+        "axe": {
+          "name": "region-lens",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 6
+            }
+          ],
+          "passes": 45
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 930
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 133.9,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 88.2,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Edit selected region",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss region lens",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Lip colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Blush",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeshadow",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Foundation",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 73.5,
+              "height": 51.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Change colour palette",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 21,
+              "height": 21,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 1",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 2",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 3",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 4",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 5",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 6",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 7",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 8",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 9",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 10",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 11",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 12",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 346,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss notification",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 16,
+              "height": 16,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "MAIN",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "skin-lens",
+        "axe": {
+          "name": "skin-lens",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "aria-prohibited-attr",
+              "nodes": 1
+            },
+            {
+              "id": "color-contrast",
+              "nodes": 13
+            }
+          ],
+          "passes": 42
+        },
+        "layout": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 2371
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 133.9,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Back to your mirror",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 111.8,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus skin region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens selected",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus hair region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens ",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus eyes region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens ",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hide regions",
+              "tag": "BUTTON",
+              "selector": "skin-map-button",
+              "width": 106.7,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out of portrait",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 32,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom into portrait",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 32,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "skin-reset",
+              "width": 89.1,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore skin colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 64.8,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore hair colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 64,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore eyes colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 67.7,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss notification",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 16,
+              "height": 16,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Explore skin colour",
+            "visible": true
+          }
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "Lighting changes real preview pixels and supports arrow direction",
+        "passed": true,
+        "initial": {
+          "hash": 3580279275,
+          "width": 600,
+          "height": 900
+        },
+        "changed": {
+          "hash": 3438421473,
+          "width": 600,
+          "height": 900
+        },
+        "directionBefore": "-35",
+        "directionAfter": "-25",
+        "focusRing": {
+          "active": true,
+          "focusVisible": true,
+          "outlineStyle": "auto",
+          "outlineWidth": "1px",
+          "outlineColor": "rgb(16, 16, 16)",
+          "outlineOffset": "0px"
+        }
+      },
+      {
+        "name": "F enters focus without resetting the lighting mode",
+        "passed": true,
+        "focusState": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 853
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Leave focus",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 84.5,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 116.7,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 80.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 84,
+              "height": 84,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 209,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 366,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Leave focus",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "Escape exits focus",
+        "passed": true,
+        "focusState": {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "document": {
+            "width": 390,
+            "height": 930
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 133.9,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 88.2,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 160,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 102.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 72.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 36,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 32,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 110,
+              "height": 40,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 65.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 49.8,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 49.5,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 75.8,
+              "height": 60,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 84,
+              "height": 84,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 189,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 346,
+              "height": 28,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Focus mirror",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "Gallery roving arrows select a look and Tab stays inside modal",
+        "passed": true,
+        "selected": "rose-hour",
+        "focusLeak": []
+      },
+      {
+        "name": "Escape closes gallery without entering focus",
+        "passed": true
+      },
+      {
+        "name": "Skin region lens uses actual model coordinates and zooms accessibly",
+        "passed": true,
+        "zoom": "1.8",
+        "focusedRegion": "skin",
+        "ring": {
+          "active": true,
+          "focusVisible": true,
+          "outlineStyle": "solid",
+          "outlineWidth": "2px",
+          "outlineColor": "rgb(130, 67, 86)",
+          "outlineOffset": "4px"
+        }
+      },
+      {
+        "name": "Inspection creates no raw photos or saved analysis without consent",
+        "passed": true,
+        "before": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "skinScans": 0,
+          "skinObservations": 0,
+          "agentEpisodes": 0,
+          "memoryNodes": 0
+        },
+        "after": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "skinScans": 0,
+          "skinObservations": 0,
+          "agentEpisodes": 0,
+          "memoryNodes": 0
+        }
+      },
+      {
+        "name": "No POST/image upload occurred during local inspection",
+        "passed": true,
+        "posts": []
+      }
+    ],
+    "posts": [],
+    "errors": [],
+    "databaseBefore": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "skinScans": 0,
+      "skinObservations": 0,
+      "agentEpisodes": 0,
+      "memoryNodes": 0
+    },
+    "regionControls": [
+      "Lip colour",
+      "Blush",
+      "Eyeshadow",
+      "Foundation"
+    ],
+    "regionLens": 1,
+    "reducedMotion": {
+      "requested": true,
+      "activeAnimations": [],
+      "mirrorTransition": null,
+      "skinTransition": "0s"
+    },
+    "databaseAfter": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "skinScans": 0,
+      "skinObservations": 0,
+      "agentEpisodes": 0,
+      "memoryNodes": 0
+    }
+  },
+  {
+    "viewport": {
+      "id": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    "states": [
+      {
+        "name": "default",
+        "axe": {
+          "name": "default",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".profile-button"
+                  ],
+                  "html": "<button class=\"profile-button\" aria-label=\"Your profile and privacy\"><i aria-hidden=\"true\" style=\"font-style: inherit;\">you</i><span></span></button>",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 6
+            }
+          ],
+          "passes": 45
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1105
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 152.8,
+              "height": 36.8,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 167.3,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your profile and privacy",
+              "tag": "BUTTON",
+              "selector": "profile-button",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Lip colour",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Blush",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeshadow",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Foundation",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Change colour palette",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 21,
+              "height": 21,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 1",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 2",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 3",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 4",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 5",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 6",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 7",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 8",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 9",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 10",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 11",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Lip colour shade 12",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 243,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "More material detail can use more battery",
+              "tag": "BUTTON",
+              "selector": "material-detail-toggle",
+              "width": 211,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Matte",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Glossy",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Shimmer",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Glitter",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeliner",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Mascara",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Brows",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Contour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Love this shade?Explore similar shade references",
+              "tag": "BUTTON",
+              "selector": "product-match",
+              "width": 243,
+              "height": 78.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 250,
+              "height": 25,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BODY",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "light",
+        "axe": {
+          "name": "light",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".profile-button"
+                  ],
+                  "html": "<button class=\"profile-button\" aria-label=\"Your profile and privacy\"><i aria-hidden=\"true\" style=\"font-style: inherit;\">you</i><span></span></button>",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 4
+            }
+          ],
+          "passes": 44
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1105
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 152.8,
+              "height": 36.8,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 167.3,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your profile and privacy",
+              "tag": "BUTTON",
+              "selector": "profile-button",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 104,
+              "height": 104,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 119,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Balanced",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 68.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Detailed materials",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 113.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "DIV",
+            "label": "Light direction",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "focus",
+        "axe": {
+          "name": "focus",
+          "violations": [],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 4
+            }
+          ],
+          "passes": 40
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1024
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Leave focus",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 104,
+              "height": 104,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 119,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Balanced",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 68.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Detailed materials",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 113.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Leave focus",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "gallery",
+        "axe": {
+          "name": "gallery",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    "section[aria-labelledby=\"_r_2_\"] > .look-gallery-reel[role=\"list\"][aria-label=\"Look collection\"] > .look-gallery-item[role=\"listitem\"]:nth-child(1) > .look-object[data-look-id=\"soft-glow\"][type=\"button\"]"
+                  ],
+                  "html": "<button type=\"button\" class=\"look-object\" data-look-id=\"soft-glow\" aria-labelledby=\"_r_2_-soft-glow-action _r_2_-soft-glow-name _r_2_-soft-glow-description\" aria-pressed=\"false\" tabindex=\"-1\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    "section[aria-labelledby=\"_r_2_\"] > .look-gallery-reel[role=\"list\"][aria-label=\"Look collection\"] > .look-gallery-item[role=\"listitem\"]:nth-child(2) > .is-active.look-object[data-look-id=\"rose-hour\"]"
+                  ],
+                  "html": "<button type=\"button\" class=\"look-object is-active\" data-look-id=\"rose-hour\" aria-labelledby=\"_r_2_-rose-hour-action _r_2_-rose-hour-name _r_2_-rose-hour-description\" aria-pressed=\"true\" tabindex=\"0\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    "section[aria-labelledby=\"_r_2_\"] > .look-gallery-reel[role=\"list\"][aria-label=\"Look collection\"] > .look-gallery-item[role=\"listitem\"]:nth-child(3) > .look-object[data-look-id=\"golden\"][type=\"button\"]"
+                  ],
+                  "html": "<button type=\"button\" class=\"look-object\" data-look-id=\"golden\" aria-labelledby=\"_r_2_-golden-action _r_2_-golden-name _r_2_-golden-description\" aria-pressed=\"false\" tabindex=\"-1\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    "section[aria-labelledby=\"_r_2_\"] > .look-gallery-reel[role=\"list\"][aria-label=\"Look collection\"] > .look-gallery-item[role=\"listitem\"]:nth-child(4) > .look-object[data-look-id=\"berry\"][type=\"button\"]"
+                  ],
+                  "html": "<button type=\"button\" class=\"look-object\" data-look-id=\"berry\" aria-labelledby=\"_r_2_-berry-action _r_2_-berry-name _r_2_-berry-description\" aria-pressed=\"false\" tabindex=\"-1\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 3
+            }
+          ],
+          "passes": 37
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1105
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Close dialog",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Previous look",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Next look",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplySoft glowA rose lip, warm cheeks, and a little light.",
+              "tag": "BUTTON",
+              "selector": "look-object",
+              "width": 148,
+              "height": 272.4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplyRose hourPetal pink, luminous skin, softly defined eyes.",
+              "tag": "BUTTON",
+              "selector": "look-object is-active",
+              "width": 148,
+              "height": 272.4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplyGolden museSunlit bronze with a warm caramel lip.",
+              "tag": "BUTTON",
+              "selector": "look-object",
+              "width": 148,
+              "height": 295.4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "ApplyAfter hoursA deeper berry lip and expressive smoky eyes.",
+              "tag": "BUTTON",
+              "selector": "look-object",
+              "width": 148,
+              "height": 272.4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "See in the mirror",
+              "tag": "BUTTON",
+              "selector": "button primary full-width",
+              "width": 428,
+              "height": 42,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "region-lens",
+        "axe": {
+          "name": "region-lens",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".profile-button"
+                  ],
+                  "html": "<button class=\"profile-button\" aria-label=\"Your profile and privacy\"><i aria-hidden=\"true\" style=\"font-style: inherit;\">you</i><span></span></button>",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".more-tools-cue"
+                  ],
+                  "html": "<button class=\"more-tools-cue\" aria-label=\"Scroll to more editing controls\" style=\"visibility: visible;\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "color-contrast",
+              "nodes": 8
+            }
+          ],
+          "passes": 45
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1105
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 152.8,
+              "height": 36.8,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 167.3,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your profile and privacy",
+              "tag": "BUTTON",
+              "selector": "profile-button",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Edit selected region",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 30,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss region lens",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 30,
+              "height": 36,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Lip colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Blush",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeshadow",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Foundation",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 69.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Change colour palette",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 21,
+              "height": 21,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 1",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 2",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 3",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 4",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 5",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 6",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 7",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 8",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 9",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 10",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 11",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Apply Blush shade 12",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 35.5,
+              "height": 35.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 243,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "More material detail can use more battery",
+              "tag": "BUTTON",
+              "selector": "material-detail-toggle",
+              "width": 211,
+              "height": 32,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Matte",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Glossy",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Shimmer",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Glitter",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 57,
+              "height": 72,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Eyeliner",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Mascara",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Brows",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Contour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117.5,
+              "height": 28.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Love this shade?Explore similar shade references",
+              "tag": "BUTTON",
+              "selector": "product-match",
+              "width": 243,
+              "height": 78.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Scroll to more editing controls",
+              "tag": "BUTTON",
+              "selector": "more-tools-cue",
+              "width": 250,
+              "height": 25,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss notification",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 16,
+              "height": 16,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "MAIN",
+            "label": null,
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "skin-lens",
+        "axe": {
+          "name": "skin-lens",
+          "violations": [
+            {
+              "id": "label-content-name-mismatch",
+              "impact": "serious",
+              "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+              "help": "Elements must have their visible text as part of their accessible name",
+              "nodes": [
+                {
+                  "target": [
+                    ".wordmark"
+                  ],
+                  "html": "<button class=\"wordmark\" aria-label=\"True Beauty home\">",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                },
+                {
+                  "target": [
+                    ".profile-button"
+                  ],
+                  "html": "<button class=\"profile-button\" aria-label=\"Your profile and privacy\"><i aria-hidden=\"true\" style=\"font-style: inherit;\">you</i><span></span></button>",
+                  "failureSummary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "aria-prohibited-attr",
+              "nodes": 1
+            },
+            {
+              "id": "color-contrast",
+              "nodes": 9
+            }
+          ],
+          "passes": 42
+        },
+        "layout": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1429
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 152.8,
+              "height": 36.8,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 167.3,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your profile and privacy",
+              "tag": "BUTTON",
+              "selector": "profile-button",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Back to your mirror",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 131.2,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus skin region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens selected",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus hair region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens ",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus eyes region",
+              "tag": "BUTTON",
+              "selector": "skin-region-lens ",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hide regions",
+              "tag": "BUTTON",
+              "selector": "skin-map-button",
+              "width": 112.4,
+              "height": 39,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out of portrait",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 32,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom into portrait",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 32,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "skin-reset",
+              "width": 89.1,
+              "height": 30,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore skin colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 60.8,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore hair colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 60,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore eyes colour",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 63.7,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Correct this colour",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 116.7,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 85.3,
+              "height": 33.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload portrait",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 129.8,
+              "height": 33.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your colours",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 74.4,
+              "height": 47.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Skin & care",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 67.6,
+              "height": 47.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your history",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 71.3,
+              "height": 47.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Read my colours locally",
+              "tag": "BUTTON",
+              "selector": "button skin-primary",
+              "width": 194.2,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Explore the colour regions",
+              "tag": "BUTTON",
+              "selector": "text-action skin-explore-link",
+              "width": 176.2,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try chocolate in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try deep teal in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try warm burgundy in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try dark gold in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try dark olive in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Try brick in your mirror",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 52.3,
+              "height": 108,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Dismiss notification",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 16,
+              "height": 16,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Explore skin colour",
+            "visible": true
+          }
+        }
+      }
+    ],
+    "checks": [
+      {
+        "name": "Lighting changes real preview pixels and supports arrow direction",
+        "passed": true,
+        "initial": {
+          "hash": 3580279275,
+          "width": 600,
+          "height": 900
+        },
+        "changed": {
+          "hash": 3438421473,
+          "width": 600,
+          "height": 900
+        },
+        "directionBefore": "-35",
+        "directionAfter": "-25",
+        "focusRing": {
+          "active": true,
+          "focusVisible": true,
+          "outlineStyle": "auto",
+          "outlineWidth": "1px",
+          "outlineColor": "rgb(16, 16, 16)",
+          "outlineOffset": "0px"
+        }
+      },
+      {
+        "name": "F enters focus without resetting the lighting mode",
+        "passed": true,
+        "focusState": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1024
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Leave focus",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 144.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 104,
+              "height": 104,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 119,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Balanced",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 68.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Detailed materials",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 113.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Leave focus",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "Escape exits focus",
+        "passed": true,
+        "focusState": {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "document": {
+            "width": 768,
+            "height": 1105
+          },
+          "bodyOverflow": false,
+          "targets": [
+            {
+              "label": "True Beauty home",
+              "tag": "BUTTON",
+              "selector": "wordmark",
+              "width": 152.8,
+              "height": 36.8,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your beauty companion",
+              "tag": "BUTTON",
+              "selector": "companion-button",
+              "width": 167.3,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Your profile and privacy",
+              "tag": "BUTTON",
+              "selector": "profile-button",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open navigation",
+              "tag": "BUTTON",
+              "selector": "icon-button mobile-menu",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Undo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Redo edit",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 44,
+              "height": 44,
+              "disabled": true,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Focus mirror",
+              "tag": "BUTTON",
+              "selector": "focus-toggle",
+              "width": 44,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Save this look",
+              "tag": "BUTTON",
+              "selector": "button primary",
+              "width": 114.9,
+              "height": 37,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "The look edit",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 94,
+              "height": 18,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Soft glowRose hourGolden museAfter hoursBarely thereStudio violet",
+              "tag": "SELECT",
+              "selector": "",
+              "width": 185,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Studio portrait: Choose a demo portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-label",
+              "width": 106.8,
+              "height": 30.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Show full portrait",
+              "tag": "BUTTON",
+              "selector": "mirror-framing-toggle",
+              "width": 97.8,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Download preview",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom in",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Zoom out",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset view",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 38,
+              "height": 38,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Compare before and after",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Enable hand gestures",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Reset makeup",
+              "tag": "BUTTON",
+              "selector": "icon-button ",
+              "width": 34,
+              "height": 34,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Demo portrait",
+              "tag": "BUTTON",
+              "selector": "selected",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Open camera",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Upload photo",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 142.7,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Makeup",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 59.8,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Hair",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 40.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Style",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 45.5,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light",
+              "tag": "BUTTON",
+              "selector": "active",
+              "width": 45.2,
+              "height": 45,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Keep the photograph’s original colour.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A clean, gently cool studio-light interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Warm highlights and a softer amber balance.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "A restrained cool blue evening interpretation.",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 117,
+              "height": 52,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Light direction",
+              "tag": "DIV",
+              "selector": "light-orbit",
+              "width": 104,
+              "height": 104,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "",
+              "tag": "INPUT",
+              "selector": "",
+              "width": 119,
+              "height": 4,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Balanced",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 68.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Detailed materials",
+              "tag": "BUTTON",
+              "selector": "",
+              "width": 113.8,
+              "height": 44,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            },
+            {
+              "label": "Get to know your skin",
+              "tag": "BUTTON",
+              "selector": "text-action",
+              "width": 135.1,
+              "height": 16.5,
+              "disabled": false,
+              "visible": true,
+              "onscreen": true
+            }
+          ],
+          "focus": {
+            "tag": "BUTTON",
+            "label": "Focus mirror",
+            "visible": true
+          }
+        }
+      },
+      {
+        "name": "Gallery roving arrows select a look and Tab stays inside modal",
+        "passed": true,
+        "selected": "rose-hour",
+        "focusLeak": []
+      },
+      {
+        "name": "Escape closes gallery without entering focus",
+        "passed": true
+      },
+      {
+        "name": "Skin region lens uses actual model coordinates and zooms accessibly",
+        "passed": true,
+        "zoom": "1.8",
+        "focusedRegion": "skin",
+        "ring": {
+          "active": true,
+          "focusVisible": true,
+          "outlineStyle": "solid",
+          "outlineWidth": "2px",
+          "outlineColor": "rgb(130, 67, 86)",
+          "outlineOffset": "4px"
+        }
+      },
+      {
+        "name": "Inspection creates no raw photos or saved analysis without consent",
+        "passed": true,
+        "before": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "skinScans": 0,
+          "skinObservations": 0,
+          "agentEpisodes": 0,
+          "memoryNodes": 0
+        },
+        "after": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "skinScans": 0,
+          "skinObservations": 0,
+          "agentEpisodes": 0,
+          "memoryNodes": 0
+        }
+      },
+      {
+        "name": "No POST/image upload occurred during local inspection",
+        "passed": true,
+        "posts": []
+      }
+    ],
+    "posts": [],
+    "errors": [],
+    "databaseBefore": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "skinScans": 0,
+      "skinObservations": 0,
+      "agentEpisodes": 0,
+      "memoryNodes": 0
+    },
+    "regionControls": [
+      "Lip colour",
+      "Blush",
+      "Eyeshadow",
+      "Foundation"
+    ],
+    "regionLens": 1,
+    "reducedMotion": {
+      "requested": true,
+      "activeAnimations": [],
+      "mirrorTransition": null,
+      "skinTransition": "0s"
+    },
+    "databaseAfter": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "skinScans": 0,
+      "skinObservations": 0,
+      "agentEpisodes": 0,
+      "memoryNodes": 0
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            ".canvas-signature"
+          ],
+          [
+            ".canvas-signature > span"
+          ]
+        ]
+      }
+    ],
+    "overflow": false,
+    "skip": {
+      "y": -60,
+      "height": 41
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            ".canvas-signature"
+          ],
+          [
+            ".canvas-signature > span"
+          ]
+        ]
+      }
+    ],
+    "overflow": false,
+    "skip": {
+      "y": -60,
+      "height": 41
+    }
+  }
+]

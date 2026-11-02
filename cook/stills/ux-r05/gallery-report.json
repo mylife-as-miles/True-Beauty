@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-02T11:14:25.173Z",
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "mode": "standalone",
+      "count": 6,
+      "distinct": 6,
+      "width": 160,
+      "height": 240,
+      "modelRequests": 1,
+      "analysis": {
+        "worker": 1,
+        "main": 0
+      },
+      "arrow": "rose-hour",
+      "end": "editorial",
+      "selected": "rose-hour"
+    },
+    {
+      "mode": "mobile",
+      "selected": "berry",
+      "overflow": false
+    },
+    {
+      "mode": "shared",
+      "count": 6,
+      "distinct": 6,
+      "width": 160,
+      "height": 240,
+      "modelRequests": 1,
+      "analysis": {
+        "worker": 1,
+        "main": 0
+      },
+      "arrow": "rose-hour",
+      "end": "editorial",
+      "selected": "rose-hour"
+    },
+    {
+      "mode": "pending",
+      "state": "loading",
+      "modelRequests": 0,
+      "analysis": {
+        "worker": 0,
+        "main": 0
+      }
+    },
+    {
+      "mode": "failure",
+      "state": "unavailable",
+      "notice": "Original photo shown. Aligned look previews are unavailable. Retry previews",
+      "modelRequests": 2
+    },
+    {
+      "mode": "compact/reduced-motion",
+      "cards": 6,
+      "transition": "0s"
+    }
+  ],
+  "errors": []
+}

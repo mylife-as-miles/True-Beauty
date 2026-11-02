@@ -1,0 +1,29 @@
+{
+  "evidenceWarning": "Exploratory script dynamic imports resolved a separate stale HMR store. Those debug state fields were excluded; only actual DOM observations below and screenshots are review evidence.",
+  "cameraDenied": "Camera permission was declined. Allow camera access in browser settings, or use a portrait instead. Retry tracking",
+  "skinBody": "A closer look, with care\n\nSkin, understood.\nBack to your mirror\nSkin\nHair\nEyes\nStudio portrait \u00b7 Colour sampling regions\nHide regions\n180%\nReset view\nLook closer\nSkin\nHair\nEyes\nSkin colour\nFrom your portrait\n\nA blend of small cheek and forehead samples. Makeup, light and your camera all change this colour.\n\nCorrect this colour\nCamera\nUpload portrait\n\nYour image is processed locally unless you explicitly choose provider analysis.\n\nPortrait checks\nReady for local exploration\nYour colours\nSkin & care\nYour history\nPersonal colour studio\nA palette that feels\nlike you.\n\nYour skin, hair and eyes tell a colour story. Read your portrait, explore each detail, then take a shade into your mirror.\n\nRead my colours locally\n\nColour sampled from facial regions. Lighting changes the reading; correct any swatch.\n\nExplore the colour regions\nSkin\n#7f5e3e\nHair\n#2d1811\nEyes\n#1b0c02\nPhoto-based colour suggestion\nDeep Autumn\n\nWarm, deep and rich. A styling direction to explore, never a rule.\n\nChoose a shade to try it on your lips in the mirror\n\nchocolate\ndeep teal\nwarm burgundy\ndark gold\ndark olive\nbrick\nHeuristic confidence\n88%\n\nA styling suggestion for this photograph. Lighting and makeup affect the reading; your preferences come first. Confidence is a rough styling guide, not a validated accuracy score. No clinical skin type or phototype is inferred.\n\nWhat informed this palette?\nSave this observation to my local history. No photograph.\nSave observation",
+  "skinShade": "Try chocolate in your mirror",
+  "skinToMirrorBeforeFix": {
+    "tabs": [
+      {
+        "text": "Makeup",
+        "selected": "false"
+      },
+      {
+        "text": "Hair",
+        "selected": "false"
+      },
+      {
+        "text": "Style",
+        "selected": "false"
+      },
+      {
+        "text": "Light",
+        "selected": "true"
+      }
+    ],
+    "body": "Your personal beauty space / The Living Mirror\nA little more you.\n\nYour reflection. An open canvas.\n\nFocus mirror\nSave this look\nFind your feeling.\nSoft glow\nRose hour\nGolden muse\nAfter hours\nBarely there\nStudio violet\n\nColour studies on your portrait. Explore the finish in your mirror.\n\nCreate with your\nbeauty companion\nStudio portrait \u00b7 preparing\nFull portrait\n100%\nMapping facial contours\u2026\nDemo portrait\nOpen camera\nUpload photo\nProcessed on your device. Always your reflection.\nLocal vision\nMakeup\nHair\nStyle\nLight\nSet the light.\n\nA different mood. The same you.\n\nOriginal\nDaylight\nGolden\nMoonlight\nLight strength\n65%\n\nDrag the light or use arrow keys.\n\nCreative preview only. Skin Lab reads your original photo.\n\nPreview quality\nDetailed\nYour face. Your palette. Your possibilities.\nGet to know your skin"
+  },
+  "canvasBody": "Your visual beauty canvas\n\nFollow your inspiration.\nA thought, a colour, a finishing detail. Keep them in conversation.\nExport board\nNote\nMirror palette\nSample product\nReference\n95%\nFit all\nDemo editorial portrait\n\nA feeling to follow.\nSoft rose. Warm light.\nA little everyday romance.\n\nEdit note\n\nA palette from your mirror\n\ne.l.f. Cosmetics\nO FACE Satin Lipstick\nSample product reference\n\nExplore products\nA place for possibilities.\nTrue Beauty\nDrag the open space to explore\nSee the whole story\nReference portrait\nA note to follow\nColour palette\nO FACE Satin Lipstick\nA space for your eye.\nLet one detail\nlead to another.\n\nSelect a note, a product or a palette. Its possibilities will meet you here.\n\nChoose a colour to try it in your mirror. Explore a product without losing the shade that caught your eye.\n\nPointer, touch and keyboard all have a place at this table.\nArrow keys move a selected object. Focus the board to pan. Home fits everything; 0 returns to actual size.\nRestore sample board\n\nNotes, colours and layout save locally. Uploaded reference images stay in this canvas session and are excluded from exports. No automatic look extraction or remote image processing has run.",
+  "errors": []
+}

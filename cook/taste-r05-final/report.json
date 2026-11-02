@@ -1,0 +1,1479 @@
+{
+ "url": "http://127.0.0.1:4173",
+ "at": "2026-11-02T12:18:00.603Z",
+ "allow": [
+  "icon-chips"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.89,
+    0.89
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 981,
+     "screens": 1.1,
+     "words": 178,
+     "img": 6,
+     "video": 1,
+     "canvas": 7,
+     "svg": 57,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 40,
+     "vw": 2.8,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 1.1,
+     "top": 141,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A little more you.",
+     "words": 4,
+     "lines": 1,
+     "size": 40.3,
+     "font": "DM Serif Display"
+    },
+    "headings": [
+     {
+      "text": "A little more you.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 40.3,
+      "vw": 2.8,
+      "font": "DM Serif Display",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 141,
+      "mixedFonts": [
+       "DM Serif Display",
+       "DM Serif Display italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "DM Sans",
+       "share": 0.9,
+       "mono": false
+      },
+      {
+       "family": "DM Serif Display",
+       "share": 0.1,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      17,
+      22,
+      24,
+      40
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "DM Sans",
+      "size": 11,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.5
+     },
+     "measureChars": 51,
+     "max": {
+      "size": 40.3,
+      "vw": 2.8,
+      "font": "DM Serif Display",
+      "text": "A little more"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.008,
+     "microSamples": [
+      "TRUE BEAUTY"
+     ],
+     "upperShare": 0.02,
+     "centerShare": 0.3,
+     "smallText": 34
+    },
+    "eyebrows": [
+     {
+      "text": "Your personal beauty space The Living Mirror",
+      "above": "A little more you.",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 115
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f2ef",
+     "bodyBgHsl": {
+      "h": 30,
+      "s": 0.23,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fffdfa",
+       "top": 84,
+       "hsl": {
+        "h": 36,
+        "s": 1,
+        "l": 0.99
+       }
+      },
+      {
+       "color": "#b5a39d",
+       "top": 232,
+       "hsl": {
+        "h": 15,
+        "s": 0.14,
+        "l": 0.66
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#302a2c",
+       "share": 0.18
+      },
+      {
+       "color": "#716469",
+       "share": 0.16
+      },
+      {
+       "color": "#824356",
+       "share": 0.15
+      },
+      {
+       "color": "#6c5d62",
+       "share": 0.1
+      },
+      {
+       "color": "#675e58",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#f7f4f0",
+      "hsl": {
+       "h": 34,
+       "s": 0.3,
+       "l": 0.95
+      },
+      "fg": "#302a2c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 21,
+     "inHero": 10,
+     "radius": 4,
+     "height": 29,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to your beauty space",
+      "Save this look",
+      "Create with your beauty companion",
+      "Studio portrait",
+      "Full portrait"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 2,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "span.look-object-image → rgb(130, 67, 86) 0px 0px 0px 2px",
+      "div.mirror-frame → rgba(66, 38, 52, 0.05) 0px 3px 12px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 4,
+     "hairlineSamples": [
+      "div.atelier-tabs 279px",
+      "details.more-layers 279px",
+      "details.studio-quality 279px",
+      "div.studio-bottom 1288px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 3,
+     "roundedBoxes": 2,
+     "boxRadius": 18,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 10,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.33
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 84,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "dm sans",
+     "dm serif display"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 981,
+    "margins": {
+     "left": 18,
+     "right": 49
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A little more you.",
+      "size": 40,
+      "top": 141,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 109,
+      "n": 2
+     },
+     {
+      "x": 326,
+      "n": 1
+     },
+     {
+      "x": 1112,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.03,
+    "voidBox": {
+     "x": 420,
+     "y": 120,
+     "w": 600,
+     "h": 60
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f5f2ef",
+    "sidebar": null,
+    "topbar": {
+     "h": 84
+    },
+    "canvas": {
+     "left": 18,
+     "right": 43
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 40,
+     "vw": 2.8,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 1.1,
+     "top": 141,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 2,
+     "radii": [
+      [
+       18,
+       1
+      ],
+      [
+       10,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 1,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 4,
+     "hues": 3,
+     "samples": [
+      {
+       "hue": 26,
+       "size": 34,
+       "radius": "50%"
+      },
+      {
+       "hue": 10,
+       "size": 42,
+       "radius": "12px"
+      },
+      {
+       "hue": 40,
+       "size": 34,
+       "radius": "50%"
+      },
+      {
+       "hue": 358,
+       "size": 38,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 3,
+     "tabularShare": 0,
+     "kpiMax": 11
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.81,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      17,
+      22,
+      24,
+      40
+     ]
+    },
+    "title": {
+     "text": "A little more you.",
+     "size": 40,
+     "top": 141
+    },
+    "colourShare": 0.12
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.95,
+    0.94
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1105,
+     "screens": 1.1,
+     "words": 147,
+     "img": 6,
+     "video": 1,
+     "canvas": 7,
+     "svg": 57,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 32,
+     "vw": 4.2,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.03,
+     "leading": 1.1,
+     "top": 122,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A little more you.",
+     "words": 4,
+     "lines": 1,
+     "size": 32,
+     "font": "DM Serif Display"
+    },
+    "headings": [
+     {
+      "text": "A little more you.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "DM Serif Display",
+      "weight": 500,
+      "tracking": -0.031,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 122,
+      "mixedFonts": [
+       "DM Serif Display",
+       "DM Serif Display italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "DM Sans",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "DM Serif Display",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      24,
+      32
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "DM Sans",
+      "size": 11,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.5
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 32,
+      "vw": 4.2,
+      "font": "DM Serif Display",
+      "text": "A little more"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.01,
+     "microSamples": [
+      "TRUE BEAUTY"
+     ],
+     "upperShare": 0.02,
+     "centerShare": 0.31,
+     "smallText": 30
+    },
+    "eyebrows": [
+     {
+      "text": "Your personal beauty space The Living Mirror",
+      "above": "A little more you.",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 96
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f2ef",
+     "bodyBgHsl": {
+      "h": 30,
+      "s": 0.23,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fffdfa",
+       "top": 72,
+       "hsl": {
+        "h": 36,
+        "s": 1,
+        "l": 0.99
+       }
+      },
+      {
+       "color": "#b5a39d",
+       "top": 265,
+       "hsl": {
+        "h": 15,
+        "s": 0.14,
+        "l": 0.66
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#302a2c",
+       "share": 0.16
+      },
+      {
+       "color": "#716469",
+       "share": 0.14
+      },
+      {
+       "color": "#824356",
+       "share": 0.14
+      },
+      {
+       "color": "#6c5d62",
+       "share": 0.12
+      },
+      {
+       "color": "#675e58",
+       "share": 0.06
+      }
+     ],
+     "button": {
+      "bg": "#f7f4f0",
+      "hsl": {
+       "h": 34,
+       "s": 0.3,
+       "l": 0.95
+      },
+      "fg": "#302a2c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 16,
+     "inHero": 10,
+     "radius": 4,
+     "height": 29,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to your beauty space",
+      "Save this look",
+      "Studio portrait",
+      "Full portrait",
+      "Demo portrait"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.mirror-frame → rgba(66, 38, 52, 0.05) 0px 3px 12px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 4,
+     "hairlineSamples": [
+      "div.atelier-tabs 243px",
+      "details.more-layers 243px",
+      "details.studio-quality 243px",
+      "div.studio-bottom 706px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 3,
+     "roundedBoxes": 2,
+     "boxRadius": 14,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 10,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.36
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 72,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "dm sans",
+     "dm serif display"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1105,
+    "margins": {
+     "left": 31,
+     "right": 31
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A little more you.",
+      "size": 32,
+      "top": 122,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 1
+     },
+     {
+      "x": 200,
+      "n": 1
+     },
+     {
+      "x": 488,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 3,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f5f2ef",
+    "sidebar": null,
+    "topbar": {
+     "h": 72
+    },
+    "canvas": {
+     "left": 30,
+     "right": 26
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 32,
+     "vw": 4.2,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.03,
+     "leading": 1.1,
+     "top": 122,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 3,
+     "radii": [
+      [
+       14,
+       1
+      ],
+      [
+       10,
+       1
+      ],
+      [
+       5,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 1,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 3,
+     "hues": 2,
+     "samples": [
+      {
+       "hue": 26,
+       "size": 34,
+       "radius": "50%"
+      },
+      {
+       "hue": 40,
+       "size": 34,
+       "radius": "50%"
+      },
+      {
+       "hue": 358,
+       "size": 36,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 3,
+     "tabularShare": 0,
+     "kpiMax": 11
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.86,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      22,
+      24,
+      32
+     ]
+    },
+    "title": {
+     "text": "A little more you.",
+     "size": 32,
+     "top": 122
+    },
+    "colourShare": 0.086
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.97,
+    0.98
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 1
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 930,
+     "screens": 1.1,
+     "words": 113,
+     "img": 6,
+     "video": 1,
+     "canvas": 7,
+     "svg": 57,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 28,
+     "vw": 7.2,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 1.1,
+     "top": 88,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "A little more you.",
+     "words": 4,
+     "lines": 1,
+     "size": 28,
+     "font": "DM Serif Display"
+    },
+    "headings": [
+     {
+      "text": "A little more you.",
+      "words": 4,
+      "chars": 18,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "DM Serif Display",
+      "weight": 500,
+      "tracking": -0.025,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 88,
+      "mixedFonts": [
+       "DM Serif Display",
+       "DM Serif Display italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 1
+    },
+    "type": {
+     "families": [
+      {
+       "family": "DM Sans",
+       "share": 0.96,
+       "mono": false
+      },
+      {
+       "family": "DM Serif Display",
+       "share": 0.04,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      28
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "DM Sans",
+      "size": 11,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5.5
+     },
+     "measureChars": 58,
+     "max": {
+      "size": 28,
+      "vw": 7.2,
+      "font": "DM Serif Display",
+      "text": "A little more"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "TRUE BEAUTY"
+     ],
+     "upperShare": 0.03,
+     "centerShare": 0.39,
+     "smallText": 23
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f5f2ef",
+     "bodyBgHsl": {
+      "h": 30,
+      "s": 0.23,
+      "l": 0.95
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fffdfa",
+       "top": 66,
+       "hsl": {
+        "h": 36,
+        "s": 1,
+        "l": 0.99
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#302a2c",
+       "share": 0.18
+      },
+      {
+       "color": "#824356",
+       "share": 0.17
+      },
+      {
+       "color": "#6c5d62",
+       "share": 0.15
+      },
+      {
+       "color": "#716469",
+       "share": 0.15
+      },
+      {
+       "color": "#675e58",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#f7f4f0",
+      "hsl": {
+       "h": 34,
+       "s": 0.3,
+       "l": 0.95
+      },
+      "fg": "#302a2c"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 20,
+     "inHero": 5,
+     "radius": 4,
+     "height": 38,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to your beauty space",
+      "Studio portrait",
+      "Full portrait",
+      "Demo portrait",
+      "More controls below"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.mirror-frame → rgba(66, 38, 52, 0.05) 0px 3px 12px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 4,
+     "hairlineSamples": [
+      "div.atelier-tabs 318px",
+      "details.more-layers 318px",
+      "details.studio-quality 318px",
+      "div.studio-bottom 346px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 3,
+     "roundedBoxes": 3,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.27
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 66,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "dm sans",
+     "dm serif display"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 930,
+    "margins": {
+     "left": 22,
+     "right": 22
+    },
+    "sections": [
+     {
+      "sel": "div.mirror-column",
+      "tag": "div",
+      "top": 244,
+      "height": 302,
+      "words": 14,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 22,
+      "right": 22,
+      "textLeft": 39,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.atelier-dock",
+      "tag": "div",
+      "top": 556,
+      "height": 263,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Lip colour",
+       "size": 13,
+       "tag": "h3"
+      },
+      "left": 22,
+      "right": 22,
+      "textLeft": 36,
+      "textRight": 37,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "A little more you.",
+      "size": 28,
+      "top": 88,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 22,
+      "n": 1
+     },
+     {
+      "x": 173,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f5f2ef",
+    "sidebar": null,
+    "topbar": {
+     "h": 66
+    },
+    "canvas": {
+     "left": 21,
+     "right": 22
+    },
+    "hero": {
+     "text": "A little more you.",
+     "words": 4,
+     "chars": 18,
+     "lines": 1,
+     "size": 28,
+     "vw": 7.2,
+     "font": "DM Serif Display",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 1.1,
+     "top": 88,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 3,
+     "radii": [
+      [
+       8,
+       2
+      ],
+      [
+       12,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 1,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 2,
+     "hues": 2,
+     "samples": [
+      {
+       "hue": 40,
+       "size": 34,
+       "radius": "50%"
+      },
+      {
+       "hue": 358,
+       "size": 44,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 2,
+     "tabularShare": 0,
+     "kpiMax": 12
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.85,
+     "tiny": 1,
+     "tinySamples": [
+      "Save this look 0px"
+     ],
+     "sizes": [
+      0,
+      11,
+      12,
+      13,
+      14,
+      17,
+      22,
+      24,
+      28
+     ]
+    },
+    "title": {
+     "text": "A little more you.",
+     "size": 28,
+     "top": 88
+    },
+    "colourShare": 0.074
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "1 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"TRUE BEAUTY\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f5f2ef, section #fffdfa, button #f7f4f0).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "tiny-text",
+   "width": 1440,
+   "message": "81% of the text is under 13px.",
+   "fix": "Data and labels read at 13–14px; keep 11–12px for sublines and axis ticks.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "app-title-size",
+   "width": 1440,
+   "message": "The h1 is 40px (\"A little more you.\").",
+   "fix": "An app screen is not a landing page: the title is 18-32px (20-24px on a phone)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/workspace/True-Beauty/cook/taste-r05-final/desktop-fold.jpg",
+   "pages": [
+    "/workspace/True-Beauty/cook/taste-r05-final/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/workspace/True-Beauty/cook/taste-r05-final/tablet-fold.jpg",
+   "pages": [
+    "/workspace/True-Beauty/cook/taste-r05-final/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/workspace/True-Beauty/cook/taste-r05-final/mobile-fold.jpg",
+   "pages": [
+    "/workspace/True-Beauty/cook/taste-r05-final/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+  "landmarks": 478,
+  "backends": [
+    {
+      "requested": "canvas",
+      "actual": "canvas2d",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 7784
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 7786
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 7786
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 7800
+        }
+      ]
+    },
+    {
+      "requested": "webgl",
+      "actual": "webgl2",
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 7851
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 7972
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 7916
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 7880
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "quality": "adaptive",
+      "backend": "canvas2d",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    },
+    {
+      "quality": "high",
+      "backend": "webgl2",
+      "resolution": {
+        "width": 427,
+        "height": 640,
+        "maxSide": 640
+      },
+      "cachedMedianMs": 98.59999999962747,
+      "cachedP90Ms": 118.29999999888241
+    },
+    {
+      "quality": "adaptive-restored",
+      "backend": "canvas2d",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    }
+  ],
+  "checks": {
+    "canvasOutsideMaskPixelsChanged": 0,
+    "canvasFinishDifferences": {
+      "gloss": 551,
+      "shimmer": 800,
+      "glitter": 765
+    },
+    "canvasStableAcrossTime": true,
+    "canvasDirectionalFinishPixels": 770,
+    "canvasBeforeSidePixelsChanged": 0,
+    "canvasLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 175762
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 318825
+      },
+      {
+        "preset": "moonlight",
+        "changed": 318998
+      }
+    ],
+    "canvasImageCacheInvalidated": true,
+    "canvasNeutralCacheCleared": true,
+    "webglOutsideMaskPixelsChanged": 0,
+    "webglFinishDifferences": {
+      "gloss": 4209,
+      "shimmer": 3146,
+      "glitter": 1589
+    },
+    "webglStableAcrossTime": true,
+    "webglDirectionalFinishPixels": 2445,
+    "webglBeforeSidePixelsChanged": 0,
+    "webglLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 177738
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 319869
+      },
+      {
+        "preset": "moonlight",
+        "changed": 319567
+      }
+    ],
+    "webglImageCacheInvalidated": true,
+    "webglNeutralCacheCleared": true,
+    "pigmentRgbMaxDelta": 0.32954545454543904
+  },
+  "benchmarks": [
+    {
+      "mutableSourceGoldenMedianMs": 11.699999999254942,
+      "mutableSourceGoldenP90Ms": 46.80000000074506,
+      "backend": "canvas",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 5,
+      "cachedP90Ms": 5.299999998882413,
+      "newGeometryMedianMs": 23.09999999962747,
+      "newGeometryP90Ms": 36.80000000074506
+    },
+    {
+      "mutableSourceGoldenMedianMs": 86.5,
+      "mutableSourceGoldenP90Ms": 106.09999999962747,
+      "backend": "webgl",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 80.20000000111759,
+      "cachedP90Ms": 103,
+      "newGeometryMedianMs": 90.5,
+      "newGeometryP90Ms": 104.5
+    }
+  ],
+  "notes": [
+    "Static portrait repeat timings with pixel-read flush; not camera FPS.",
+    "Managed browser with software graphics where configured; hardware realism/performance not validated."
+  ],
+  "canvasOutsideMaskFootprint": {
+    "guardPixels": 1,
+    "outsideAnyDifferencePixels": 0,
+    "outsideVisibleDifferencePixels": 0,
+    "maxRgbSumDelta": 0,
+    "examples": []
+  },
+  "webglOutsideMaskFootprint": {
+    "guardPixels": 1,
+    "outsideAnyDifferencePixels": 0,
+    "outsideVisibleDifferencePixels": 0,
+    "maxRgbSumDelta": 0,
+    "examples": []
+  },
+  "pigmentParity": {
+    "hex": "#AE4C8B",
+    "opacity": 0.9,
+    "finish": "matte",
+    "canvasRgb": [
+      136.11079545454547,
+      62.25284090909091,
+      105.76136363636364
+    ],
+    "shaderRgb": [
+      136.4403409090909,
+      62.4375,
+      106.05397727272727
+    ]
+  },
+  "runtime": {
+    "engine": "chromium",
+    "version": "156.0.8078.4",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+    "viewport": {
+      "width": 1520,
+      "height": 1120
+    },
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpus": 5,
+    "loadAverage": [
+      6.54,
+      6.71,
+      4.56
+    ]
+  },
+  "errors": []
+}

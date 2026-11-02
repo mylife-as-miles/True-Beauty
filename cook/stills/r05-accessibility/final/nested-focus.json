@@ -1,0 +1,14 @@
+{
+  "focusedBefore": true,
+  "afterGallery": {
+    "dialogOpen": false,
+    "focused": true,
+    "activeLabel": null,
+    "activeText": "The look edit"
+  },
+  "afterFocus": {
+    "focused": false,
+    "activeLabel": "Focus mirror"
+  },
+  "passed": true
+}

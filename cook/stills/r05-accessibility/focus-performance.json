@@ -1,0 +1,138 @@
+[
+  {
+    "viewport": {
+      "id": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    "environment": {
+      "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 5,
+      "renderer": "initializing",
+      "quality": "adaptive"
+    },
+    "idleScheduling": {
+      "duration": 1207.6999999999998,
+      "callbacks": 69,
+      "p50": 16.699999999999818,
+      "p95": 16.800000000000182,
+      "longTasks": [
+        {
+          "start": 4336.799999998882,
+          "duration": 56
+        }
+      ]
+    },
+    "lightScheduling": {
+      "duration": 1215.5999999996275,
+      "callbacks": 72,
+      "p50": 16.699999999999818,
+      "p95": 16.800000000000182,
+      "longTasks": []
+    },
+    "editFromLight": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetExists": true,
+      "targetFocused": true,
+      "targetRect": {
+        "left": 1112,
+        "top": 715.640625,
+        "right": 1391,
+        "bottom": 719.640625
+      },
+      "atelierRect": {
+        "left": 1111,
+        "top": 231.640625,
+        "right": 1397,
+        "bottom": 971.640625
+      },
+      "targetWithinAtelier": true
+    },
+    "editFromMakeup": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetFocused": true,
+      "targetRect": {
+        "top": 715.640625,
+        "bottom": 719.640625
+      },
+      "atelierRect": {
+        "top": 231.640625,
+        "bottom": 971.640625
+      },
+      "targetWithinAtelier": true,
+      "ancestorScroll": 0
+    },
+    "focusFromNavigation": {
+      "activeTag": "BODY",
+      "activeLabel": null,
+      "focused": true
+    }
+  },
+  {
+    "viewport": {
+      "id": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    "environment": {
+      "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 5,
+      "renderer": "initializing",
+      "quality": "adaptive"
+    },
+    "idleScheduling": {
+      "duration": 1204.30000000149,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000273,
+      "longTasks": []
+    },
+    "lightScheduling": {
+      "duration": 1209.5,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.799999999999727,
+      "longTasks": []
+    },
+    "editFromLight": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetExists": true,
+      "targetFocused": true,
+      "targetRect": {
+        "left": 36,
+        "top": 925.265625,
+        "right": 354,
+        "bottom": 931.265625
+      },
+      "atelierRect": {
+        "left": 22,
+        "top": 548.765625,
+        "right": 368,
+        "bottom": 818.984375
+      },
+      "targetWithinAtelier": false
+    },
+    "editFromMakeup": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetFocused": true,
+      "targetRect": {
+        "top": 925.265625,
+        "bottom": 931.265625
+      },
+      "atelierRect": {
+        "top": 548.765625,
+        "bottom": 818.984375
+      },
+      "targetWithinAtelier": false,
+      "ancestorScroll": 0
+    }
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-11-02T12:05:09.186Z",
+  "commit": "f8295f34aa41ab2aea70f7ce0243744b1a346e84",
+  "note": "Snapshot hashes after the stated source freeze; working tree may include uncommitted changes.",
+  "files": [
+    {
+      "file": "apps/web/src/components/StudioExperience.css",
+      "sha256": "2b9489b146e534493d5ab822ed37d065e524a24dfc82a5b40d2f900d4f836e8c",
+      "modifiedAt": "2026-11-02T11:49:13.011Z"
+    },
+    {
+      "file": "apps/web/src/components/Studio.tsx",
+      "sha256": "070c1fa8451aa024fdced6db43ec11649f884ebb32ee142c707ed6b09db66208",
+      "modifiedAt": "2026-11-02T11:57:33.743Z"
+    },
+    {
+      "file": "apps/web/src/components/LightControl.tsx",
+      "sha256": "a78f9fd0223a2d06e34dd0a30239777a9b4e297a13b354b240a7079adcfc96a8",
+      "modifiedAt": "2026-11-02T11:49:12.029Z"
+    },
+    {
+      "file": "apps/web/src/components/LivingMirror.tsx",
+      "sha256": "db315be1ea4f1c9d18972dd6f0cd2b0c714acd5a491ee0527dd5d9ad19209c47",
+      "modifiedAt": "2026-11-02T11:51:10.591Z"
+    },
+    {
+      "file": "apps/web/src/components/LookGallery.tsx",
+      "sha256": "081beaf3dc136d0b234e7e8055d8f1a8a1c9013e93898ffc186262a3e8d9aad9",
+      "modifiedAt": "2026-11-02T11:57:34.427Z"
+    },
+    {
+      "file": "apps/web/src/components/SkinLab.tsx",
+      "sha256": "9fc897b11f6f531d5d5e5d4453de0062e88b568b098a64f77f5b136ef9a7531e",
+      "modifiedAt": "2026-11-02T11:49:43.635Z"
+    },
+    {
+      "file": "apps/web/src/components/ui.tsx",
+      "sha256": "20436dfb3cb9224f61f4d3368bcb5a934b6ba1467decc5808c2e4e857e6bd3ca",
+      "modifiedAt": "2026-11-02T10:17:02.713Z"
+    },
+    {
+      "file": "apps/web/src/App.tsx",
+      "sha256": "924f95398ce008fc1041d775f2de231cc46b79258b26c35ddc5afb52ca0e93f8",
+      "modifiedAt": "2026-11-02T11:57:34.255Z"
+    }
+  ]
+}

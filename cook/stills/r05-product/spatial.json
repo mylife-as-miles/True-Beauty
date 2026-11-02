@@ -1,0 +1,44 @@
+{
+  "desktop": {
+    "focusShortcut": true,
+    "zoomFit": "95%",
+    "zoomPlus": "105%",
+    "keyboardPanChanged": true,
+    "pointerPanChanged": true,
+    "before": {
+      "left": 55,
+      "top": 25
+    },
+    "keyboard": {
+      "left": 125,
+      "top": 25
+    },
+    "pointer": {
+      "left": 75,
+      "top": 0
+    }
+  },
+  "mobile": {
+    "focusShortcut": true,
+    "zoomFit": "35%",
+    "zoomPlus": "45%",
+    "keyboardPanChanged": true,
+    "pointerPanChanged": true,
+    "before": {
+      "left": 49,
+      "top": 0
+    },
+    "keyboard": {
+      "left": 119,
+      "top": 0
+    },
+    "pointer": {
+      "left": 69,
+      "top": 0
+    },
+    "paletteFeedback": {
+      "toasts": 0,
+      "actionHit": "See it in my mirror"
+    }
+  }
+}

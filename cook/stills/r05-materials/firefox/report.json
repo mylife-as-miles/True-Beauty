@@ -1,0 +1,198 @@
+{
+  "landmarks": 478,
+  "backends": [
+    {
+      "requested": "canvas",
+      "actual": "canvas2d",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 5416
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 5593
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 5720
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 5651
+        }
+      ]
+    },
+    {
+      "requested": "webgl",
+      "actual": "webgl2",
+      "gpu": "llvmpipe, or similar",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 8542
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 8664
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 8609
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 8569
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "quality": "adaptive",
+      "backend": "canvas2d",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    },
+    {
+      "quality": "high",
+      "backend": "webgl2",
+      "resolution": {
+        "width": 427,
+        "height": 640,
+        "maxSide": 640
+      },
+      "cachedMedianMs": 16,
+      "cachedP90Ms": 34
+    },
+    {
+      "quality": "adaptive-restored",
+      "backend": "canvas2d",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    }
+  ],
+  "checks": {
+    "canvasFinishDifferences": {
+      "gloss": 687,
+      "shimmer": 1470,
+      "glitter": 1087
+    },
+    "canvasStableAcrossTime": true,
+    "canvasDirectionalFinishPixels": 870,
+    "canvasBeforeSidePixelsChanged": 0,
+    "canvasLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 109509
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 300023
+      },
+      {
+        "preset": "moonlight",
+        "changed": 304790
+      }
+    ],
+    "canvasImageCacheInvalidated": false,
+    "canvasNeutralCacheCleared": true,
+    "webglFinishDifferences": {
+      "gloss": 4111,
+      "shimmer": 3023,
+      "glitter": 1361
+    },
+    "webglStableAcrossTime": true,
+    "webglDirectionalFinishPixels": 2469,
+    "webglBeforeSidePixelsChanged": 0,
+    "webglLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 134180
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 303843
+      },
+      {
+        "preset": "moonlight",
+        "changed": 301625
+      }
+    ],
+    "webglImageCacheInvalidated": false,
+    "webglNeutralCacheCleared": true
+  },
+  "benchmarks": [
+    {
+      "mutableSourceGoldenMedianMs": 20,
+      "mutableSourceGoldenP90Ms": 65,
+      "backend": "canvas",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 12,
+      "cachedP90Ms": 13,
+      "newGeometryMedianMs": 37,
+      "newGeometryP90Ms": 54
+    },
+    {
+      "mutableSourceGoldenMedianMs": 19,
+      "mutableSourceGoldenP90Ms": 26,
+      "backend": "webgl",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 7,
+      "cachedP90Ms": 8,
+      "newGeometryMedianMs": 22,
+      "newGeometryP90Ms": 24
+    }
+  ],
+  "notes": [
+    "Static portrait repeat timings with pixel-read flush; not camera FPS.",
+    "Managed browser with software graphics where configured; hardware realism/performance not validated."
+  ],
+  "runtime": {
+    "engine": "firefox",
+    "version": "157.0",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:157.0) Gecko/20100101 Firefox/157.0",
+    "viewport": {
+      "width": 1520,
+      "height": 1120
+    },
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpus": 5,
+    "loadAverage": [
+      2.12,
+      2.46,
+      1.88
+    ]
+  },
+  "errors": []
+}

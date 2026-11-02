@@ -80,3 +80,7 @@ The feature matrix retains these boundaries. Automated success and the resolved 
 ## Later checkpoint closure
 
 The tab-pattern gap above was subsequently fixed with roving tabIndex and ArrowLeft/ArrowRight/Home/End focus/selection. Current desktop/mobile accessibility suite passes **8/8**, including an explicit selected-tab/tabpanel regression. WebKit's native Safari-style Tab mode exposed a further intermediate-button escape; the modal now explicitly focuses every next/previous enabled visible control for every Tab press. WebKit's current four accessibility cases pass4/4; Firefox's current four cases also pass4/4. These executed updates close those reproduced keyboard defects without claiming a full assistive-technology audit.
+
+## Round05 current bounded review
+
+See `cook/reviews/accessibility-r05.md` for18final WCAG2/2.1/2.2AA+best-practice scans with0violations,24functional/privacy checks,2camera-cleanup regressions and reduced-motion/nested-dialog checks. It records actual initial label-name/focus/hierarchy findings and their verified fixes. The single-character F shortcut is editor-focus scoped; native text editing keeps its own undo. Firefox's range focus-visibility heuristic required a final comparison-handle `:focus` rule; exact and clean Firefox application tests pass. Physical AT and all-product/device certification remain unverified; tablet/desktop44px geometry exceptions are explicitly retained.

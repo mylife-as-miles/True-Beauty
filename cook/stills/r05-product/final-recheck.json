@@ -1,0 +1,17 @@
+{
+  "desktop": {
+    "errors": [],
+    "skinPalette": "Try chocolate in your mirror",
+    "skinHandoff": "Makeup pressed; Lip colour inspector and Intensity visible after starting Foundation→Light→Golden",
+    "cameraDenied": "Camera permission was declined. Allow camera access in browser settings, or use a portrait instead. Retry tracking",
+    "focus": "Focus button enters; Escape from Intensity exits"
+  },
+  "mobile": {
+    "errors": [],
+    "gallery": "Next look applies Rose hour and modal stays until See in the mirror",
+    "skinPalette": "Try chocolate in your mirror",
+    "skinHandoff": "Makeup pressed; Lip colour inspector and Intensity visible after starting Foundation→Light→Golden",
+    "cameraDenied": "Camera permission was declined. Allow camera access in browser settings, or use a portrait instead. Retry tracking",
+    "focus": "Focus button enters; Escape from Intensity exits"
+  }
+}

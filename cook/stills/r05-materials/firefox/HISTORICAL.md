@@ -1,0 +1,1 @@
+This standalone material/performance capture predates the final Canvas/GLSL pigment-parity correction. It is historical evidence, not a current benchmark. See current Chromium/WebKit reports and root-owned current Firefox application regressions.

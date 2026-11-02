@@ -1,0 +1,154 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "browser": "156.0.8078.4",
+    "geometry": [
+      {
+        "class": "mirror-frame",
+        "bounds": {
+          "x": 317,
+          "y": 231.640625,
+          "width": 770,
+          "height": 552.609375,
+          "top": 231.640625,
+          "right": 1087,
+          "bottom": 784.25,
+          "left": 317
+        }
+      },
+      {
+        "class": "atelier",
+        "bounds": {
+          "x": 1111,
+          "y": 231.640625,
+          "width": 286,
+          "height": 611,
+          "top": 231.640625,
+          "right": 1397,
+          "bottom": 842.640625,
+          "left": 1111
+        }
+      }
+    ],
+    "errors": [],
+    "posts": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 768
+    },
+    "browser": "156.0.8078.4",
+    "geometry": [
+      {
+        "class": "mirror-frame",
+        "bounds": {
+          "x": 317,
+          "y": 229.359375,
+          "width": 696,
+          "height": 420.609375,
+          "top": 229.359375,
+          "right": 1013,
+          "bottom": 649.96875,
+          "left": 317
+        }
+      },
+      {
+        "class": "atelier",
+        "bounds": {
+          "x": 1037,
+          "y": 229.359375,
+          "width": 286,
+          "height": 479,
+          "top": 229.359375,
+          "right": 1323,
+          "bottom": 708.359375,
+          "left": 1037
+        }
+      }
+    ],
+    "errors": [],
+    "posts": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "browser": "156.0.8078.4",
+    "geometry": [
+      {
+        "class": "mirror-frame",
+        "bounds": {
+          "x": 31,
+          "y": 265.484375,
+          "width": 438,
+          "height": 644.609375,
+          "top": 265.484375,
+          "right": 469,
+          "bottom": 910.09375,
+          "left": 31
+        }
+      },
+      {
+        "class": "atelier",
+        "bounds": {
+          "x": 487,
+          "y": 265.484375,
+          "width": 250,
+          "height": 703,
+          "top": 265.484375,
+          "right": 737,
+          "bottom": 968.484375,
+          "left": 487
+        }
+      }
+    ],
+    "errors": [],
+    "posts": [],
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "browser": "156.0.8078.4",
+    "geometry": [
+      {
+        "class": "mirror-frame",
+        "bounds": {
+          "x": 22,
+          "y": 244,
+          "width": 346,
+          "height": 256.203125,
+          "top": 244,
+          "right": 368,
+          "bottom": 500.203125,
+          "left": 22
+        }
+      },
+      {
+        "class": "atelier",
+        "bounds": {
+          "x": 22,
+          "y": 556.203125,
+          "width": 346,
+          "height": 231.78125,
+          "top": 556.203125,
+          "right": 368,
+          "bottom": 787.984375,
+          "left": 22
+        }
+      }
+    ],
+    "errors": [],
+    "posts": [],
+    "overflow": false
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "viewport": {
+      "id": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    "environment": {
+      "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 5,
+      "renderer": "canvas2d",
+      "quality": "adaptive"
+    },
+    "idleScheduling": {
+      "duration": 1205.1999999999998,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000273,
+      "longTasks": []
+    },
+    "lightScheduling": {
+      "duration": 1201.7000000011176,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000728,
+      "longTasks": []
+    },
+    "editFromLight": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetExists": true,
+      "targetFocused": true,
+      "targetRect": {
+        "left": 1112,
+        "top": 715.640625,
+        "right": 1391,
+        "bottom": 719.640625
+      },
+      "atelierRect": {
+        "left": 1111,
+        "top": 231.640625,
+        "right": 1397,
+        "bottom": 942.640625
+      },
+      "targetWithinAtelier": true
+    },
+    "editFromMakeup": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetFocused": true,
+      "targetRect": {
+        "top": 715.640625,
+        "bottom": 719.640625
+      },
+      "atelierRect": {
+        "top": 231.640625,
+        "bottom": 942.640625
+      },
+      "targetWithinAtelier": true,
+      "ancestorScroll": 0
+    },
+    "focusFromNavigation": {
+      "activeTag": "BUTTON",
+      "activeLabel": null,
+      "focused": false
+    },
+    "focusRestoredAfterEscape": {
+      "activeTag": "BUTTON",
+      "activeText": "The studio",
+      "activeInNavigation": true
+    }
+  },
+  {
+    "viewport": {
+      "id": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    "environment": {
+      "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 5,
+      "renderer": "canvas2d",
+      "quality": "adaptive"
+    },
+    "idleScheduling": {
+      "duration": 1213.3999999988823,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000273,
+      "longTasks": []
+    },
+    "lightScheduling": {
+      "duration": 1202.0999999992546,
+      "callbacks": 73,
+      "p50": 16.699999999999818,
+      "p95": 16.700000000000728,
+      "longTasks": []
+    },
+    "editFromLight": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetExists": true,
+      "targetFocused": true,
+      "targetRect": {
+        "left": 36,
+        "top": 780.703125,
+        "right": 354,
+        "bottom": 786.703125
+      },
+      "atelierRect": {
+        "left": 22,
+        "top": 556.203125,
+        "right": 368,
+        "bottom": 787.984375
+      },
+      "targetWithinAtelier": true
+    },
+    "editFromMakeup": {
+      "activeTag": "INPUT",
+      "activeLabel": null,
+      "activeId": "intensity",
+      "targetFocused": true,
+      "targetRect": {
+        "top": 780.703125,
+        "bottom": 786.703125
+      },
+      "atelierRect": {
+        "top": 556.203125,
+        "bottom": 787.984375
+      },
+      "targetWithinAtelier": true,
+      "ancestorScroll": 152
+    }
+  }
+]

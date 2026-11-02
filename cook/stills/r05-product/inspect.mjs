@@ -1,0 +1,14 @@
+import {chromium} from '@playwright/test';
+import {writeFile} from 'node:fs/promises';
+const browser=await chromium.launch({headless:true});
+const context=await browser.newContext({viewport:{width:1366,height:768},reducedMotion:'reduce',recordVideo:{dir:'cook/stills/r05-product/video',size:{width:1366,height:768}}});
+await context.addInitScript(()=>{if(navigator.mediaDevices)navigator.mediaDevices.getUserMedia=async()=>{throw new DOMException('Controlled review permission rejection','NotAllowedError')}});
+const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:5173',{waitUntil:'domcontentloaded'});
+await page.getByRole('heading',{name:/A little more/}).waitFor();
+await page.getByText('Face mesh connected',{exact:true}).waitFor({timeout:60000});
+console.log((await page.locator('body').innerText()).slice(0,14000));
+console.log('BUTTONS',await page.getByRole('button').evaluateAll(els=>els.map(e=>({text:e.textContent,label:e.getAttribute('aria-label'),title:e.getAttribute('title')}))));
+await page.screenshot({path:'cook/stills/r05-product/01-first-visit.png',fullPage:false});
+await writeFile('cook/stills/r05-product/initial.json',JSON.stringify({errors,body:await page.locator('body').innerText()},null,2));
+await context.close();await browser.close();

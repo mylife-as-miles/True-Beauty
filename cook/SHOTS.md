@@ -37,3 +37,7 @@ Security/fairness: consent/deletion/API boundary tests, client bundle scan, rete
 ## Motion/performance
 
 Record user-triggered controls at stable frame intervals; inspect transition start/middle/end, reduced-motion equivalent and focus. Measure render/inference scheduling separately. No 30/60 FPS claim without hardware/browser/resolution and a captured trace. Source references did not include approved motion files; no frame-by-frame reference match is claimed.
+
+## Round05 additional reproducible states
+
+`cook/capture-r05-final.mjs` captures built production at1440×900,1366×768,768×1024,390×844 after actual face/gallery readiness, plus Golden/Focus/fullportrait/gallery/canvas. Reports record browser/geometry/errors/POST/overflow. `tests/e2e/immersive-studio.spec.ts` verifies real material/light pixels, undo/reset preservation, source-aligned letterboxed comparison and keyboard focus scope/restoration. `skin-lenses.spec.ts` verifies actual iris/ring projection, untouched source pixels, viewport-visible selection and correct palette→lip editor. `canvas-ux.spec.ts` verifies spatial/touch/keyboard navigation, contextual palette/product continuity and private upload/export exclusion. Actual video is retained in product-critic evidence; these demo/viewport runs do not establish real-camera/device accuracy.

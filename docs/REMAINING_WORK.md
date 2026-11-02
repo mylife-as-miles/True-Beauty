@@ -10,11 +10,15 @@ The full requested product is **not complete**. This is an engineering checkpoin
 4. **Distribution rights**: recover Virtual Makeup's missing standalone full notice; independently clear Google model distribution/model cards, demo subject releases/photographer metadata and any future third-party weights/textures/datasets. Source code MIT/Apache is not blanket model/dataset clearance. No public deployment/push was performed.
 5. **Browser runtime reproducibility**: privileged system-wide dependency install is unavailable. Firefox and WebKit were successfully provisioned and verified with unprivileged libraries; exact temporary paths, download hashes and commands are in VISION_REPORT. Recreate that runtime in a fresh container. Linux Playwright WebKit is not physical Safari on Apple hardware.
 
-## Exact first task after this checkpoint
+## Exact first task after round05
 
-Implement UI shopping-bag variant persistence without rewriting the working catalogue. Today `packages/commerce-engine/src/bag.ts` has tested variant/size-aware utilities, while `Discover.addBag` and Dexie's shoppingBags uniqueness bind only productId. Choosing two e.l.f.lipstick shades should create two labelled lines that survive reload; quantity changes must affect only that variant.
+The latest user steering prioritized immersive UI/UX and renewed Proofline/Common Table inspiration. Round05 implemented and independently reviewed that work; preserve it. Current UI judgment8.4/10, weighted full-product6.65; acceptance remains unmet. Read the four round05 critic reports, IMMERSIVE_RENDERING, CANVAS_UX_ROUND05 and current QUALITY_REPORT. Reproduce the weakest remaining issue before editing.
 
-Read `apps/web/src/components/Discover.tsx`, `packages/commerce-engine/src/bag.ts`, and database schema/import/export tests. Add a versioned migration from currentproduct-level entries to explicit default variant keys, runtime import validation and reactive UI shade labels. Preserve oldbackups/consents or version the backup format explicitly with a tested upgrade. Use the existing engine rather than a second bag algorithm. Add a browser journey selecting two shades, reloading, changing quantity/removing only one, checking separate NGN/USD illustrative totals and retaining sample/no-order disclosures. Test migration and privacy regressions, then run affected browser suites. This is the first unblocked backlog task; live provider work still requires configuration/authorization.
+First unblocked UX task: improve the mobile spatial canvas overview and tablet touch targets without losing real pan/selection/product/palette context. The object inspector currently overlays the object index until dismissed; fit-all can make objects small and leave a tall empty board. Refine a compact mobile editing surface with a readable overview/object rail, selection focus and44px newly introduced actions. Record actual touch/keyboard/reduced-motion evidence, inspect screenshots and get fresh independent critique. Keep personal reference images session-only and exports image-free unless separately consented.
+
+Next rendering task: improve high-opacity lip boundary/material realism while keeping shared Canvas/GLSL pigment math, mouth holes and texture. The corrected actual-app hue sample is within1.1/255; do not reintroduce soft-light tint divergence. Use mask/edge/pose fixtures, real graphics measurements and the existing material harness. Software high quality is expensive; do not promise hardware cameraFPS from these fixtures. Physical representative validation remains unavailable.
+
+The previously queued commerce task is preserved: bind the tested variant-aware `packages/commerce-engine/src/bag.ts` utility to Discover/Dexie shopping bags. Migrate product-level uniqueness to explicit variant keys, preserve old backups/import/privacy semantics and test two lipstick shades surviving reload, independent quantity/removal and separately labelled NGN/USD sample totals. That work was deferred by explicit UI steering, not dropped from scope.
 
 ## Next executable tasks
 
@@ -36,3 +40,9 @@ See FEATURE_MATRIX for all 219 capability rows. Significant incomplete scope inc
 ## Resume instruction
 
 Continue the existing repository at `/workspace/True-Beauty`. Read AGENTS and Cook checkpoint; inspect Git before changing anything. Start with the highest-risk verified defect or lowest scored unblocked category, not a rewrite. Preserve test/evidence/source provenance. If provider credentials/hardware/rights remain unavailable, maintain honest blockers and implement independent scope. Never claim the complete 9/10 product from current passing local tests.
+
+## Round05 resumable process state
+
+Development Vite5173, API3001 and production preview4173 were actually running at checkpoint; a prior fixtureVite4174 and Xvfb:99 also remain. Recheck process/port state rather than assuming they survive a new environment. Use `npm ci`, `npm run models`, `npm run dev`, `npm run dev:api`; build before production tests. Firefox/WebKit unprivileged runtime commands remain in VISION_REPORT. No ongoing coding/critique job is claimed after this checkpoint.
+
+Latest implementation commit is `0c263d3`; the verification/evidence commit follows it in Git history; source, tests, reports and captures are retained locally. Run `git status`, read AGENTS/Cook first, and continue without rewriting passing engines. No provider credentials, real hardware, model/subject rights or publishing authorization have appeared. Do not invent them to clear the9/10 gate.

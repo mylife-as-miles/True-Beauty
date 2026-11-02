@@ -1,0 +1,18 @@
+{
+  "before": {
+    "requested": true,
+    "mirrorTransition": "0s",
+    "lookTransition": "0s",
+    "buttonAnimation": "0s"
+  },
+  "after": {
+    "scrollOptions": [
+      {
+        "behavior": "auto",
+        "block": "nearest",
+        "inline": "nearest"
+      }
+    ],
+    "running": 0
+  }
+}

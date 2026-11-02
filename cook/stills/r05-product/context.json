@@ -1,0 +1,62 @@
+{
+  "desktop": {
+    "glassesAfterReset": true,
+    "hairAfterReset": true,
+    "intensityAfterUndo": "31",
+    "paletteHandoff": {
+      "makeupPressed": "true",
+      "blushActive": 0,
+      "colorText": "#B76C63\nCustom shade",
+      "focusLayer": "Blush",
+      "source": null
+    },
+    "productHandoff": {
+      "title": [
+        "O FACE Satin Lipstick",
+        "Inside the formula",
+        "A few alternatives to explore"
+      ],
+      "body": "O FACE Satin Lipstick\nOriginal illustration · sample reference\nExplore a 3D packaging study\ne.l.f. Cosmetics\n\nAn expressive satin lip reference; preview colours are illustrative.\n\n₦9,500 sample budget price\n\nIllustrative shades\nSoft rose\nTerracotta\nBerry muse\nWarm nude\n\nBerry muse\n\nTry this shade\nI own this\nAdd to bag\nInside the formula\n\nIllustrative ingredient subset. Select an ingredient to explore its known cosmetic role.\n\nCastor Seed Oil\nSqualane\nJojoba Esters\nVisit official brand website\n\nBrand reference only. Illustrative ingredient subset and sample budget prices; no claim of current formula, availability, merchant quotation or currency conversion. Reference date: 11/2/2026.\n\nA few alternatives to explore\n\nNo lower-priced reference in this sample catalogue. We won’t invent a dupe."
+    },
+    "returnedCanvas": {
+      "selectedInspector": "A space for your eye.\nLet one detail\nlead to another.\n\nSelect a note, a product or a palette. Its possibilities will meet you here.\n\nChoose a colour to try it in your mirror. Explore a product without losing the shade that caught your eye.\n\nPointer, touch and keyboard all have a place at this table.",
+      "shadeSelected": "true",
+      "pageWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "errors": []
+  },
+  "mobile": {
+    "paletteHandoff": {
+      "makeupPressed": "true",
+      "blushActive": 0,
+      "colorText": "#B76C63\nCustom shade",
+      "focusLayer": "Blush",
+      "source": null
+    },
+    "mobileInspectorOcclusion": {
+      "box": {
+        "x": 25,
+        "y": 523.328125,
+        "width": 131,
+        "height": 44
+      },
+      "hit": "Selected object inspector"
+    },
+    "productHandoff": {
+      "title": [
+        "O FACE Satin Lipstick",
+        "Inside the formula",
+        "A few alternatives to explore"
+      ],
+      "body": "O FACE Satin Lipstick\nOriginal illustration · sample reference\nExplore a 3D packaging study\ne.l.f. Cosmetics\n\nAn expressive satin lip reference; preview colours are illustrative.\n\n₦9,500 sample budget price\n\nIllustrative shades\nSoft rose\nTerracotta\nBerry muse\nWarm nude\n\nBerry muse\n\nTry this shade\nI own this\nAdd to bag\nInside the formula\n\nIllustrative ingredient subset. Select an ingredient to explore its known cosmetic role.\n\nCastor Seed Oil\nSqualane\nJojoba Esters\nVisit official brand website\n\nBrand reference only. Illustrative ingredient subset and sample budget prices; no claim of current formula, availability, merchant quotation or currency conversion. Reference date: 11/2/2026.\n\nA few alternatives to explore\n\nNo lower-priced reference in this sample catalogue. We won’t invent a dupe."
+    },
+    "returnedCanvas": {
+      "selectedInspector": "A finishing detail\nO FACE Satin Lipstick\ne.l.f. Cosmetics\n\nAn expressive satin lip reference; preview colours are illustrative.\n\nBerry muse · #793A59\nExplore this product\nTry this shade in my mirror\nSample product reference. The actual formula, price and packaging may differ.\nFocus object\nRemove",
+      "shadeSelected": "true",
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "errors": []
+  }
+}

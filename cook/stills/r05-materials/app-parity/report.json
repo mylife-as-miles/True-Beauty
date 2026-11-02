@@ -1,0 +1,43 @@
+{
+  "records": [
+    {
+      "label": "balanced",
+      "width": 600,
+      "height": 900,
+      "backend": "canvas2d",
+      "colour": "#ae4c8b",
+      "intensity": "90",
+      "pixelCount": 540000
+    },
+    {
+      "label": "detailed",
+      "width": 427,
+      "height": 640,
+      "backend": "webgl2",
+      "colour": "#ae4c8b",
+      "intensity": "90",
+      "pixelCount": 273280
+    }
+  ],
+  "samples": [
+    {
+      "label": "balanced",
+      "rgb": [
+        136.64102564102564,
+        62.5207100591716,
+        106.30374753451676
+      ]
+    },
+    {
+      "label": "detailed",
+      "rgb": [
+        137.7357142857143,
+        63.135714285714286,
+        107.275
+      ]
+    }
+  ],
+  "maxRgbDelta": 1.0946886446886595,
+  "errors": [],
+  "note": "Actual app controls, same #AE4C8B at90% matte on the supplied demo. Digital pixel parity, not calibrated physical shade accuracy."
+}

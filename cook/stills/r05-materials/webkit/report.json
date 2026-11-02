@@ -1,0 +1,230 @@
+{
+  "landmarks": 478,
+  "backends": [
+    {
+      "requested": "canvas",
+      "actual": "canvas2d",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 7158
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 7159
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 7159
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 7160
+        }
+      ]
+    },
+    {
+      "requested": "webgl",
+      "actual": "webgl2",
+      "gpu": "Apple GPU",
+      "resolution": {
+        "width": 480,
+        "height": 720,
+        "maxSide": 720
+      },
+      "finishes": [
+        {
+          "finish": "matte",
+          "pixelDifferenceFromOriginal": 7184
+        },
+        {
+          "finish": "gloss",
+          "pixelDifferenceFromOriginal": 7222
+        },
+        {
+          "finish": "shimmer",
+          "pixelDifferenceFromOriginal": 7202
+        },
+        {
+          "finish": "glitter",
+          "pixelDifferenceFromOriginal": 7196
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "quality": "adaptive",
+      "backend": "webgl2",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    },
+    {
+      "quality": "high",
+      "backend": "webgl2",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      },
+      "cachedMedianMs": 12,
+      "cachedP90Ms": 13
+    },
+    {
+      "quality": "adaptive-restored",
+      "backend": "webgl2",
+      "resolution": {
+        "width": 600,
+        "height": 900,
+        "maxSide": 960
+      }
+    }
+  ],
+  "checks": {
+    "canvasOutsideMaskPixelsChanged": 0,
+    "canvasFinishDifferences": {
+      "gloss": 547,
+      "shimmer": 1146,
+      "glitter": 1066
+    },
+    "canvasStableAcrossTime": true,
+    "canvasDirectionalFinishPixels": 763,
+    "canvasBeforeSidePixelsChanged": 0,
+    "canvasLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 176904
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 319447
+      },
+      {
+        "preset": "moonlight",
+        "changed": 319795
+      }
+    ],
+    "canvasImageCacheInvalidated": true,
+    "canvasNeutralCacheCleared": true,
+    "webglOutsideMaskPixelsChanged": 0,
+    "webglFinishDifferences": {
+      "gloss": 4137,
+      "shimmer": 3279,
+      "glitter": 1655
+    },
+    "webglStableAcrossTime": true,
+    "webglDirectionalFinishPixels": 2367,
+    "webglBeforeSidePixelsChanged": 0,
+    "webglLighting": [
+      {
+        "preset": "neutral",
+        "changed": 0
+      },
+      {
+        "preset": "daylight",
+        "changed": 176682
+      },
+      {
+        "preset": "golden-hour",
+        "changed": 319517
+      },
+      {
+        "preset": "moonlight",
+        "changed": 320058
+      }
+    ],
+    "webglImageCacheInvalidated": true,
+    "webglNeutralCacheCleared": true,
+    "pigmentRgbMaxDelta": 0.03693181818182012
+  },
+  "benchmarks": [
+    {
+      "mutableSourceGoldenMedianMs": 15,
+      "mutableSourceGoldenP90Ms": 38,
+      "backend": "canvas",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 4,
+      "cachedP90Ms": 5,
+      "newGeometryMedianMs": 35,
+      "newGeometryP90Ms": 36
+    },
+    {
+      "mutableSourceGoldenMedianMs": 10,
+      "mutableSourceGoldenP90Ms": 23,
+      "backend": "webgl",
+      "resolution": [
+        480,
+        720
+      ],
+      "cachedMedianMs": 8,
+      "cachedP90Ms": 11,
+      "newGeometryMedianMs": 17,
+      "newGeometryP90Ms": 20
+    }
+  ],
+  "notes": [
+    "Static portrait repeat timings with pixel-read flush; not camera FPS.",
+    "Managed browser with software graphics where configured; hardware realism/performance not validated."
+  ],
+  "canvasOutsideMaskFootprint": {
+    "guardPixels": 1,
+    "outsideAnyDifferencePixels": 0,
+    "outsideVisibleDifferencePixels": 0,
+    "maxRgbSumDelta": 0,
+    "examples": []
+  },
+  "webglOutsideMaskFootprint": {
+    "guardPixels": 1,
+    "outsideAnyDifferencePixels": 0,
+    "outsideVisibleDifferencePixels": 0,
+    "maxRgbSumDelta": 0,
+    "examples": []
+  },
+  "pigmentParity": {
+    "hex": "#AE4C8B",
+    "opacity": 0.9,
+    "finish": "matte",
+    "canvasRgb": [
+      136.54829545454547,
+      62.40056818181818,
+      106.25852272727273
+    ],
+    "shaderRgb": [
+      136.58522727272728,
+      62.4375,
+      106.27272727272727
+    ]
+  },
+  "runtime": {
+    "engine": "webkit",
+    "version": "27.2",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+    "viewport": {
+      "width": 1520,
+      "height": 1120
+    },
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logicalCpus": 5,
+    "loadAverage": [
+      6.58,
+      6.72,
+      4.58
+    ]
+  },
+  "errors": []
+}

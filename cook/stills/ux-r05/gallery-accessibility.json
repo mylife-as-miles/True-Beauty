@@ -1,0 +1,39 @@
+[
+  {
+    "width": 1440,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            ".look-object[data-look-id=\"editorial\"] > .look-object-caption > .look-object-description"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            ".look-object[data-look-id=\"golden\"] > .look-object-caption > .look-object-name"
+          ],
+          [
+            ".look-object[data-look-id=\"berry\"] > .look-object-caption > .look-object-name"
+          ],
+          [
+            ".look-object[data-look-id=\"bare\"] > .look-object-caption > .look-object-name"
+          ],
+          [
+            ".look-object[data-look-id=\"editorial\"] > .look-object-caption > .look-object-name"
+          ]
+        ]
+      }
+    ]
+  }
+]
