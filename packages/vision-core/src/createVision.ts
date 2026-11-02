@@ -54,7 +54,21 @@ class ResilientVision implements VisionEngine {
     if (this.failover) await this.failover;
     const original = this.engine;
     try {
-      return await operation(original);
+      const result = await operation(original);
+      if (original instanceof VisionWorkerClient) {
+        const snapshot = original.getSnapshot();
+        for (const feature of ["body", "pose"] as const) {
+          if (
+            this.features[feature] &&
+            snapshot.status[feature]?.state === "error"
+          )
+            throw new Error(
+              snapshot.status[feature]?.error ??
+                `${feature} worker model unavailable`,
+            );
+        }
+      }
+      return result;
     } catch (error) {
       if (this.disposed) throw new Error("Vision engine has been disposed");
       // Retry only worker failures, once. Never invent geometry when both paths fail.

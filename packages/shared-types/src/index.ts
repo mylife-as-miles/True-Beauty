@@ -18,7 +18,11 @@ export type Space =
   | "discover"
   | "journal"
   | "intelligence"
-  | "canvas";
+  | "canvas"
+  | "remix"
+  | "generation"
+  | "validation"
+  | "twin";
 export type StudioMode = "makeup" | "hair" | "style" | "light";
 export type SourceMode = "demo" | "camera" | "upload";
 export interface ToastMessage {

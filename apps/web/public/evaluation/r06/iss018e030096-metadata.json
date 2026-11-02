@@ -1,0 +1,60 @@
+{
+  "sourceUrl": "https://images-api.nasa.gov/search?nasa_id=iss018e030096",
+  "status": 200,
+  "retrievedAt": "2026-11-02T13:23:15.283286+00:00",
+  "record": {
+    "href": "https://images-assets.nasa.gov/image/iss018e030096/collection.json",
+    "data": [
+      {
+        "center": "JSC",
+        "date_created": "2009-02-12T00:00:00Z",
+        "description": "ISS018-E-030096 (12 Feb. 2009) --- Astronaut Sandra Magnus, Expedition 18 flight engineer, equipped with a bungee harness, exercises on the Treadmill Vibration Isolation System (TVIS) in the Zvezda Service Module of the International Space Station.",
+        "media_type": "image",
+        "nasa_id": "iss018e030096",
+        "title": "ISS Expedition 18 Sandra Magnus on the Treadmill Vibration Isolation and Stabilization (TVIS) in Service Module (SM)"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~medium.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 850,
+        "size": 184000,
+        "height": 1280
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~small.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 425,
+        "size": 62000,
+        "height": 640
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~thumb.jpg",
+        "rel": "preview",
+        "render": "image",
+        "width": 425,
+        "size": 62000,
+        "height": 640
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~large.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 1275,
+        "size": 341000,
+        "height": 1920
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~orig.jpg",
+        "rel": "canonical",
+        "render": "image",
+        "height": 4288,
+        "width": 2848,
+        "size": 1421000
+      }
+    ]
+  }
+}

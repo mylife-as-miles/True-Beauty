@@ -9,18 +9,29 @@ import {
   FilesetResolver,
   HandLandmarker,
   ImageSegmenter,
+  PoseLandmarker,
 } from "@mediapipe/tasks-vision";
 import type {
   FaceLandmarkerResult,
   HandLandmarkerResult,
   ImageSegmenterResult,
+  PoseLandmarkerResult,
 } from "@mediapipe/tasks-vision";
 import { LandmarkSmoother, type Landmark } from "../../face-tracking/src";
 import { HairMaskSmoother, type HairMask } from "../../hair-segmentation/src";
 import { GestureTracker, type Gesture } from "../../hand-tracking/src";
 import { InferenceScheduler } from "./scheduler";
-export type { Landmark, HairMask, Gesture };
-export type Feature = "face" | "hair" | "hands";
+import {
+  decodeBodyMasks,
+  BodyMaskSmoother,
+  type BodySegmentation,
+} from "../../body-segmentation/src";
+import { PoseSmoother, type PoseFrame } from "../../pose-tracking/src";
+export type { Landmark, HairMask, Gesture, BodySegmentation, PoseFrame };
+export type CoreFeature = "face" | "hair" | "hands";
+export type Feature = CoreFeature | "body" | "pose";
+export type VisionStatus = Record<CoreFeature, FeatureStatus> &
+  Partial<Record<"body" | "pose", FeatureStatus>>;
 export interface FeatureStatus {
   state: "idle" | "loading" | "ready" | "error";
   error?: string;
@@ -40,7 +51,9 @@ export interface VisionSnapshot {
   timestamp: number;
   latencyMs: number;
   inferenceCount: number;
-  status: Record<Feature, FeatureStatus>;
+  status: VisionStatus;
+  bodyMask?: BodySegmentation | null;
+  pose?: PoseFrame | null;
   scheduler?: ReturnType<InferenceScheduler["getMetrics"]>;
 }
 export interface VisionOptions {
@@ -52,13 +65,18 @@ export interface VisionOptions {
   handsHz?: number;
   inferenceMaxSide?: number;
   hairMaxSide?: number;
+  bodyHz?: number;
+  poseHz?: number;
+  bodyMaxSide?: number;
 }
 type ImageSource =
   HTMLImageElement | HTMLCanvasElement | ImageBitmap | OffscreenCanvas;
-const initialStatus = (): Record<Feature, FeatureStatus> => ({
+const initialStatus = (): VisionStatus => ({
   face: { state: "idle" },
   hair: { state: "idle" },
   hands: { state: "idle" },
+  body: { state: "idle" },
+  pose: { state: "idle" },
 });
 
 /**
@@ -72,6 +90,11 @@ export class VisionPipeline {
   private face: FaceLandmarker | null = null;
   private hair: ImageSegmenter | null = null;
   private hand: HandLandmarker | null = null;
+  private body: ImageSegmenter | null = null;
+  private pose: PoseLandmarker | null = null;
+  private optionalRetryAfter = new Map<Feature, number>();
+  private bodySmoother = new BodyMaskSmoother();
+  private poseSmoother = new PoseSmoother();
   private readonly options: Required<VisionOptions>;
   private fileset: Awaited<
     ReturnType<typeof FilesetResolver.forVisionTasks>
@@ -100,6 +123,11 @@ export class VisionPipeline {
   private readonly scheduler: InferenceScheduler;
   private readonly faceSmoother = new LandmarkSmoother();
   private readonly hairSmoother = new HairMaskSmoother();
+  private readonly handSmoothers = [
+    new LandmarkSmoother(),
+    new LandmarkSmoother(),
+  ];
+  private previousHandLabels: string[] = [];
   private readonly gestureTrackers = [
     new GestureTracker(),
     new GestureTracker(),
@@ -125,12 +153,17 @@ export class VisionPipeline {
       handsHz: 15,
       inferenceMaxSide: 640,
       hairMaxSide: 256,
+      bodyMaxSide: 256,
+      bodyHz: 4,
+      poseHz: 8,
       ...options,
     };
     this.scheduler = new InferenceScheduler({
       face: this.options.faceHz,
       hair: this.options.hairHz,
       hands: this.options.handsHz,
+      body: this.options.bodyHz,
+      pose: this.options.poseHz,
     });
   }
   getSnapshot() {
@@ -149,20 +182,44 @@ export class VisionPipeline {
       this.options.wasmPath,
       typeof document === "undefined",
     );
-    for (const feature of ["face", "hair", "hands"] as const) {
+    for (const feature of ["face", "body", "pose", "hair", "hands"] as const) {
       if (!features[feature]) continue;
+      if (feature === "hair" && features.body && this.body) {
+        this.snapshot.status.hair = { state: "ready" };
+        continue;
+      }
+      if (
+        (feature === "body" || feature === "pose") &&
+        performance.now() < (this.optionalRetryAfter.get(feature) ?? 0)
+      )
+        continue;
       let promise = this.loads.get(feature);
       if (!promise) {
         promise = this.loadFeature(feature);
         this.loads.set(feature, promise);
       }
-      await promise;
+      try {
+        await promise;
+      } catch (error) {
+        if (feature === "body" || feature === "pose") {
+          this.optionalRetryAfter.set(feature, performance.now() + 30000);
+          continue;
+        }
+        throw error;
+      }
     }
   }
   private async loadFeature(feature: Feature) {
     this.snapshot.status[feature] = { state: "loading" };
     try {
-      const modelAssetPath = `${this.options.modelPath}/${feature === "face" ? "face_landmarker.task" : feature === "hair" ? "hair_segmenter.tflite" : "hand_landmarker.task"}`;
+      const file = {
+        face: "face_landmarker.task",
+        hair: "hair_segmenter.tflite",
+        hands: "hand_landmarker.task",
+        body: "selfie_multiclass_256x256.tflite",
+        pose: "pose_landmarker_lite.task",
+      }[feature];
+      const modelAssetPath = `${this.options.modelPath}/${file}`;
       const baseOptions = { modelAssetPath, delegate: this.options.delegate };
       // A main-thread fallback must use the HTML canvas when worker/offscreen GL is unavailable.
       const canvas =
@@ -200,6 +257,35 @@ export class VisionPipeline {
           return;
         }
         this.hair = model;
+      } else if (feature === "body") {
+        const model = await ImageSegmenter.createFromOptions(this.fileset, {
+          baseOptions,
+          canvas,
+          runningMode: this.mode,
+          outputConfidenceMasks: true,
+          outputCategoryMask: false,
+        });
+        if (this.disposed) {
+          model.close();
+          return;
+        }
+        this.body = model;
+      } else if (feature === "pose") {
+        const model = await PoseLandmarker.createFromOptions(this.fileset, {
+          baseOptions,
+          canvas,
+          runningMode: this.mode,
+          numPoses: 1,
+          outputSegmentationMasks: false,
+          minPoseDetectionConfidence: 0.55,
+          minPosePresenceConfidence: 0.55,
+          minTrackingConfidence: 0.55,
+        });
+        if (this.disposed) {
+          model.close();
+          return;
+        }
+        this.pose = model;
       } else {
         const model = await HandLandmarker.createFromOptions(this.fileset, {
           baseOptions,
@@ -224,7 +310,11 @@ export class VisionPipeline {
           ? "Hair segmentation"
           : feature === "face"
             ? "Face tracking"
-            : "Hand tracking",
+            : feature === "body"
+              ? "Person segmentation"
+              : feature === "pose"
+                ? "Pose tracking"
+                : "Hand tracking",
       );
       this.snapshot.status[feature] = {
         state: "error",
@@ -239,6 +329,8 @@ export class VisionPipeline {
     if (this.face) await this.face.setOptions({ runningMode: mode });
     if (this.hair) await this.hair.setOptions({ runningMode: mode });
     if (this.hand) await this.hand.setOptions({ runningMode: mode });
+    if (this.body) await this.body.setOptions({ runningMode: mode });
+    if (this.pose) await this.pose.setOptions({ runningMode: mode });
     this.mode = mode;
     this.resetTracking();
   }
@@ -273,7 +365,20 @@ export class VisionPipeline {
           start,
           false,
         );
-      if (features.hair && this.hair)
+      if (features.body && this.body)
+        this.body.segment(
+          this.prepareFrame(image, this.options.bodyMaxSide),
+          (result) => this.acceptBody(result, start, false),
+        );
+      if (features.pose && this.pose)
+        this.acceptPose(
+          this.pose.detect(
+            this.prepareFrame(image, this.options.inferenceMaxSide),
+          ),
+          start,
+          false,
+        );
+      if (features.hair && this.hair && !(features.body && this.body))
         this.hair.segment(
           this.prepareFrame(image, this.options.hairMaxSide),
           (result) => this.acceptHair(result, start, false),
@@ -324,7 +429,20 @@ export class VisionPipeline {
     this.busy = true;
     try {
       await this.setMode("VIDEO");
-      this.scheduler.setActive(features);
+      const active = {
+        ...features,
+        hair: features.hair && !(features.body && this.body),
+      };
+      this.scheduler.setActive(active);
+      if (!features.face) {
+        this.snapshot.landmarks = [];
+        this.snapshot.blendshapes = {};
+        this.snapshot.transform = null;
+      }
+      if (!features.body) this.snapshot.bodyMask = null;
+      if (!features.pose) this.snapshot.pose = null;
+      if (!features.hands) this.snapshot.hands = [];
+      if (!features.hair && !features.body) this.snapshot.hairMask = null;
       const start = performance.now();
       if (features.face && this.face && this.scheduler.due("face", timestamp)) {
         const began = performance.now();
@@ -338,7 +456,28 @@ export class VisionPipeline {
         );
         this.scheduler.record("face", timestamp, performance.now() - began);
       }
-      if (features.hair && this.hair && this.scheduler.due("hair", timestamp)) {
+      if (features.body && this.body && this.scheduler.due("body", timestamp)) {
+        const began = performance.now();
+        this.body.segmentForVideo(
+          this.prepareFrame(source, this.options.bodyMaxSide),
+          timestamp,
+          (result) => this.acceptBody(result, timestamp, true),
+        );
+        this.scheduler.record("body", timestamp, performance.now() - began);
+      }
+      if (features.pose && this.pose && this.scheduler.due("pose", timestamp)) {
+        const began = performance.now();
+        this.acceptPose(
+          this.pose.detectForVideo(
+            this.prepareFrame(source, this.options.inferenceMaxSide),
+            timestamp,
+          ),
+          timestamp,
+          true,
+        );
+        this.scheduler.record("pose", timestamp, performance.now() - began);
+      }
+      if (active.hair && this.hair && this.scheduler.due("hair", timestamp)) {
         const began = performance.now();
         this.hair.segmentForVideo(
           this.prepareFrame(source, this.options.hairMaxSide),
@@ -459,19 +598,66 @@ export class VisionPipeline {
     );
     // All mask data is copied during the callback; MediaPipe owns result disposal.
   }
+  private acceptBody(
+    result: ImageSegmenterResult,
+    timestamp: number,
+    smooth: boolean,
+  ) {
+    const masks = result.confidenceMasks;
+    if (!masks || masks.length !== 6) {
+      this.snapshot.bodyMask = null;
+      this.snapshot.status.body = {
+        state: "error",
+        error:
+          "The multiclass body model did not return six expected confidence channels.",
+      };
+      return;
+    }
+    const body = decodeBodyMasks(
+      masks.map((mask) => mask.getAsFloat32Array()),
+      masks[0].width,
+      masks[0].height,
+      timestamp,
+    );
+    const forehead = this.snapshot.landmarks[10];
+    if (forehead) body.faceAnchor = { x: forehead.x, y: forehead.y };
+    this.snapshot.bodyMask = smooth ? this.bodySmoother.update(body) : body;
+    this.snapshot.hairMask = this.hairSmoother.update(
+      masks[1].getAsFloat32Array(),
+      masks[1].width,
+      masks[1].height,
+      timestamp,
+      smooth ? 0.25 : 0,
+    );
+  }
+  private acceptPose(
+    result: PoseLandmarkerResult,
+    timestamp: number,
+    smooth: boolean,
+  ) {
+    const points = result.landmarks[0];
+    if (!points?.length) {
+      this.snapshot.pose = null;
+      this.poseSmoother.reset();
+      return;
+    }
+    this.snapshot.pose = smooth
+      ? this.poseSmoother.update(points, timestamp)
+      : { landmarks: points, timestamp, source: "mediapipe-pose-lite" };
+  }
   private acceptHands(result: HandLandmarkerResult, timestamp: number) {
     this.snapshot.hands = result.landmarks.map((landmarks, i) => {
       const category = result.handedness[i]?.[0];
       const confidence = category?.score ?? 0;
+      const label = category?.categoryName ?? "Unknown";
+      if (this.previousHandLabels[i] !== label) this.handSmoothers[i].reset();
+      this.previousHandLabels[i] = label;
+      const stable = this.handSmoothers[i].update(landmarks, timestamp);
       return {
-        landmarks,
+        landmarks: stable,
         handedness: category?.categoryName ?? "Unknown",
         confidence,
-        gesture: this.gestureTrackers[i].update(
-          landmarks,
-          timestamp,
-          confidence,
-        ),
+        gesture: this.gestureTrackers[i].update(stable, timestamp, confidence),
       };
     });
     if (!result.landmarks.length)
@@ -483,12 +669,20 @@ export class VisionPipeline {
   resetTracking() {
     this.faceSmoother.reset();
     this.hairSmoother.reset();
+    this.bodySmoother.reset();
+    this.poseSmoother.reset();
+    this.previousHandLabels = [];
+    for (const smoother of this.handSmoothers) smoother.reset();
     for (const tracker of this.gestureTrackers) tracker.reset();
     this.lastVideoTime = -1;
     this.scheduler.reset();
     this.snapshot.landmarks = [];
+    this.snapshot.blendshapes = {};
+    this.snapshot.transform = null;
     this.snapshot.hairMask = null;
     this.snapshot.hands = [];
+    this.snapshot.bodyMask = null;
+    this.snapshot.pose = null;
   }
   dispose() {
     this.disposed = true;
@@ -496,9 +690,13 @@ export class VisionPipeline {
     this.face?.close();
     this.hair?.close();
     this.hand?.close();
+    this.body?.close();
+    this.pose?.close();
     this.face = null;
     this.hair = null;
     this.hand = null;
+    this.body = null;
+    this.pose = null;
     this.loads.clear();
     this.frameCanvases.clear();
     this.resetTracking();

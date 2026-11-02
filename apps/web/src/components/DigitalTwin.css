@@ -1,0 +1,1035 @@
+.digital-twin {
+  --twin-ink: #302a2c;
+  --twin-muted: #716469;
+  --twin-wine: #824356;
+  --twin-line: #ded5d0;
+  color: var(--twin-ink);
+  max-width: 1330px;
+  padding: 48px 5.5% 28px;
+  margin: 0 auto;
+  animation: twin-reveal 0.45s ease both;
+}
+.twin-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+.twin-heading h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(42px, 5vw, 68px);
+  letter-spacing: -1.7px;
+  line-height: 1.06;
+  font-weight: 400;
+  margin: 12px 0;
+}
+.twin-heading h1 em {
+  font-weight: 400;
+  color: var(--twin-wine);
+}
+.twin-heading p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--twin-muted);
+  margin: 0;
+}
+.twin-text-action {
+  background: none;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--twin-wine);
+  font-size: 11px;
+  min-height: 44px;
+  padding: 7px 0;
+}
+.twin-introduction {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+  margin-bottom: 47px;
+}
+.twin-portrait {
+  position: relative;
+  margin: 0;
+  max-width: 430px;
+  align-self: stretch;
+}
+.twin-portrait-media {
+  position: relative;
+}
+.twin-portrait-media > img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+  border-radius: 3px;
+}
+.twin-portrait figcaption {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 13px;
+  font-size: 11px;
+  margin-top: 13px;
+  line-height: 1.7;
+}
+.twin-portrait figcaption small {
+  color: var(--twin-muted);
+  font-size: 11px;
+  max-width: 170px;
+  text-align: right;
+}
+.twin-portrait-action {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  right: 20px;
+  min-height: 46px;
+  background: #fffdfa;
+  border: 1px solid #fffdfa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 15px;
+  font-size: 12px;
+  color: var(--twin-ink);
+  border-radius: 2px;
+}
+.twin-profile-intro {
+  padding: 15px 0;
+}
+.twin-profile-intro h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(30px, 3.5vw, 46px);
+  line-height: 1.17;
+  letter-spacing: -0.7px;
+  font-weight: 400;
+  margin: 16px 0 23px;
+}
+.twin-profile-intro h2 em {
+  font-style: italic;
+  color: var(--twin-wine);
+}
+.twin-profile-intro > p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--twin-muted);
+  max-width: 380px;
+  margin: 0 0 14px;
+}
+.twin-anchor-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 20px 0 17px;
+  max-width: 340px;
+}
+.twin-anchor-links > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--twin-wine);
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--twin-line);
+  min-height: 45px;
+}
+.twin-anchor-links > a:hover {
+  border-color: var(--twin-wine);
+}
+.twin-profile-source {
+  display: block;
+  font-size: 11px;
+  color: var(--twin-muted);
+  line-height: 1.8;
+}
+.twin-profile-form,
+.twin-composer,
+.twin-archive {
+  border-top: 1px solid var(--twin-line);
+  padding-top: 31px;
+  margin-top: 34px;
+  scroll-margin-top: 110px;
+}
+.twin-section-heading {
+  margin-bottom: 27px;
+  max-width: 700px;
+}
+.twin-section-heading > span {
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--twin-muted);
+}
+.twin-section-heading h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 34px;
+  letter-spacing: -0.6px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 11px 0;
+}
+.twin-section-heading p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--twin-muted);
+  margin: 0;
+}
+.digital-twin label {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #594c51;
+}
+.digital-twin input:not([type="checkbox"]):not([type="color"]),
+.digital-twin textarea,
+.digital-twin select {
+  width: 100%;
+  display: block;
+  background: #fffdfa;
+  border: 1px solid #d9cec7;
+  border-radius: 3px;
+  min-height: 43px;
+  color: var(--twin-ink);
+  font-family: inherit;
+  font-size: 12px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.digital-twin textarea {
+  resize: vertical;
+  line-height: 1.7;
+  min-height: 80px;
+}
+.digital-twin input::placeholder,
+.digital-twin textarea::placeholder {
+  color: #716469;
+  opacity: 1;
+}
+.digital-twin input[type="checkbox"] {
+  accent-color: var(--twin-wine);
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+.digital-twin label > small {
+  display: block;
+  font-size: 11px;
+  color: var(--twin-muted);
+  line-height: 1.65;
+  margin-top: 8px;
+}
+.twin-profile-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+.twin-field-wide {
+  grid-column: span 2;
+}
+.twin-detail-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #e9e1db;
+}
+.twin-detail-columns fieldset {
+  border: 0;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.twin-detail-columns legend {
+  font-family: "DM Serif Display", serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.twin-colors {
+  border: 0;
+  padding: 25px 0 0;
+  margin: 30px 0 0;
+  border-top: 1px solid #e9e1db;
+}
+.twin-colors legend {
+  font-family: "DM Serif Display", serif;
+  font-size: 26px;
+  padding: 0 15px 0 0;
+  line-height: 1.3;
+}
+.twin-color-editor {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.twin-favorite-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-right: auto;
+  min-height: 47px;
+  align-items: center;
+}
+.twin-favorite-colors > span {
+  font-size: 12px;
+  color: var(--twin-muted);
+}
+.twin-favorite-colors > button {
+  width: 44px;
+  min-height: 47px;
+  border: 1px solid #302a2c20;
+  border-radius: 2px;
+  position: relative;
+}
+.twin-favorite-colors > button svg {
+  background: #fffdfa;
+  color: #4d3e44;
+  border-radius: 50%;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  padding: 1px;
+  width: 16px;
+  height: 16px;
+}
+.twin-color-editor > label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.twin-color-editor input[type="color"] {
+  height: 36px;
+  width: 36px;
+  padding: 2px;
+  border: 1px solid #cbbac0;
+  background: #fffdfa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.twin-color-editor input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+.twin-color-editor input[type="color"]::-webkit-color-swatch {
+  border: 0;
+  border-radius: 50%;
+}
+.twin-color-editor input[type="color"]::-moz-color-swatch {
+  border: 0;
+  border-radius: 50%;
+}
+.twin-add-color {
+  background: none;
+  color: var(--twin-wine);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #cbbac0;
+  border-radius: 3px;
+  padding: 9px 12px;
+  min-height: 44px;
+  font-size: 11px;
+}
+.twin-colors > p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--twin-muted);
+  margin: 15px 0 0;
+}
+.twin-save-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--twin-line);
+  padding-top: 25px;
+  margin-top: 30px;
+}
+.twin-save-profile > div {
+  max-width: 600px;
+  flex: 1;
+}
+.twin-memory-choice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  min-height: 32px;
+}
+.twin-save-profile small,
+.twin-compose-memory > small {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--twin-muted);
+  display: block;
+  max-width: 530px;
+  margin-top: 5px;
+}
+.twin-save-profile > .button {
+  min-height: 46px;
+  font-size: 12px;
+  gap: 9px;
+}
+.twin-draft-state {
+  flex-basis: 100%;
+  color: var(--twin-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.twin-feedback {
+  padding: 14px 16px;
+  background: #f3eeea;
+  border-left: 2px solid var(--twin-wine);
+  color: #51434a;
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 25px 0;
+}
+.twin-error {
+  background: #faf0ef;
+  border-color: #923045;
+  color: #862b3c;
+}
+.twin-composer {
+  margin-top: 45px;
+}
+.twin-composer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: 45px;
+  align-items: start;
+}
+.twin-current-recipe {
+  background: #f2ece7;
+  padding: 23px 25px;
+  border: 1px solid #e3d8cf;
+  border-radius: 3px;
+}
+.twin-recipe-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.twin-recipe-heading > span {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.twin-recipe-heading .twin-text-action {
+  font-size: 11px;
+}
+.twin-recipe-pigments {
+  display: flex;
+  gap: 5px;
+  min-height: 80px;
+  margin: 18px 0 22px;
+  align-items: stretch;
+}
+.twin-recipe-pigments > span {
+  min-width: 10px;
+  flex: 1;
+  border-radius: 2px;
+  border: 1px solid #302a2c14;
+  max-width: 70px;
+}
+.twin-bare-recipe {
+  background: repeating-linear-gradient(
+    135deg,
+    #ede4dd,
+    #ede4dd 2px,
+    #fffdfa 2px,
+    #fffdfa 7px
+  );
+}
+.twin-recipe-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.twin-recipe-details li {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 11px;
+  line-height: 1.7;
+  border-bottom: 1px solid #ddd1c9;
+  padding: 10px 0;
+}
+.twin-recipe-details li > span:first-child {
+  white-space: nowrap;
+}
+.twin-recipe-details li > span:last-child {
+  color: var(--twin-muted);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.twin-current-recipe > p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--twin-muted);
+  margin: 19px 0 0;
+}
+.twin-composition-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+.twin-owned-selection {
+  border: 0;
+  border-top: 1px solid var(--twin-line);
+  padding: 16px 0 0;
+  margin: 3px 0 0;
+  min-width: 0;
+}
+.twin-owned-selection legend {
+  font-family: "DM Serif Display", serif;
+  font-size: 23px;
+  line-height: 1.3;
+  padding: 0 14px 0 0;
+}
+.twin-owned-selection > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 210px;
+  overflow: auto;
+  padding: 4px 4px 4px 0;
+}
+.twin-owned-selection label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+}
+.twin-owned-selection p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--twin-muted);
+  margin: 6px 0;
+}
+.twin-outfit-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  min-height: 35px;
+  background: none;
+  color: var(--twin-wine);
+  border: 0;
+  padding: 0;
+  text-align: left;
+  align-self: start;
+}
+.twin-composition-form > .button {
+  min-height: 46px;
+  font-size: 12px;
+  gap: 8px;
+  align-self: start;
+  margin-top: 1px;
+}
+.twin-compose-memory {
+  border-top: 1px solid var(--twin-line);
+  padding-top: 15px;
+}
+.twin-archive {
+  margin-top: 43px;
+}
+.twin-look-list {
+  border-top: 1px solid var(--twin-line);
+}
+.twin-saved-look {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 23px 0;
+  border-bottom: 1px solid var(--twin-line);
+}
+.twin-saved-palette {
+  display: flex;
+  gap: 3px;
+  min-width: 100px;
+  width: 110px;
+  min-height: 100px;
+  align-self: stretch;
+  flex: none;
+}
+.twin-saved-palette > span {
+  flex: 1;
+  border-radius: 2px;
+  border: 1px solid #302a2c12;
+  min-width: 8px;
+}
+.twin-saved-caption {
+  min-width: 0;
+  flex: 1;
+}
+.twin-saved-caption h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 7px;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+.twin-saved-caption p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0 0 7px;
+  color: #594b51;
+  overflow-wrap: anywhere;
+}
+.twin-saved-caption small {
+  color: var(--twin-muted);
+  font-size: 11px;
+  line-height: 1.7;
+  display: block;
+}
+.twin-saved-actions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  justify-content: end;
+  max-width: 235px;
+}
+.twin-reopen-look {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  background: none;
+  border: 1px solid #b99ca5;
+  color: var(--twin-wine);
+  border-radius: 3px;
+  min-height: 44px;
+  padding: 9px 11px;
+}
+.twin-delete-look {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 0;
+  color: var(--twin-muted);
+}
+.twin-empty-looks {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #f5f0ec;
+  padding: 25px 28px;
+  border-radius: 3px;
+}
+.twin-empty-looks > span {
+  font-size: 48px;
+  color: #a57a83;
+  flex: none;
+}
+.twin-empty-looks h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+.twin-empty-looks p {
+  font-size: 12px;
+  color: var(--twin-muted);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 560px;
+}
+.twin-footer {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  border-top: 1px solid var(--twin-line);
+  margin-top: 38px;
+  padding-top: 20px;
+  color: var(--twin-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.twin-footer > span {
+  max-width: 200px;
+  flex: none;
+}
+.twin-footer p {
+  max-width: 570px;
+  margin: 0;
+}
+.twin-loading {
+  min-height: 400px;
+}
+.twin-loading h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 44px;
+  font-weight: 400;
+  margin: 20px 0;
+}
+.twin-loading p {
+  font-size: 13px;
+  color: var(--twin-muted);
+  line-height: 1.8;
+}
+.digital-twin button:focus-visible,
+.digital-twin a:focus-visible,
+.digital-twin input:focus-visible,
+.digital-twin textarea:focus-visible,
+.digital-twin select:focus-visible {
+  outline: 2px solid var(--twin-wine);
+  outline-offset: 4px;
+}
+.digital-twin button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.digital-twin button,
+.digital-twin a {
+  touch-action: manipulation;
+}
+.digital-twin button {
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.twin-text-action:hover,
+.twin-portrait-action:hover {
+  color: #623044;
+}
+.twin-reopen-look:hover {
+  background: #f3e9e7;
+}
+.twin-favorite-colors > button:hover {
+  transform: translateY(-3px);
+}
+@keyframes twin-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 1100px) {
+  .digital-twin {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .twin-introduction {
+    gap: 40px;
+    grid-template-columns: minmax(230px, 0.85fr) minmax(0, 1fr);
+  }
+  .twin-profile-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .twin-detail-columns {
+    gap: 30px;
+  }
+  .twin-composer-layout {
+    gap: 28px;
+  }
+  .twin-current-recipe {
+    padding: 20px;
+  }
+  .twin-recipe-heading {
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .twin-saved-look {
+    gap: 18px;
+  }
+  .twin-saved-actions {
+    max-width: 160px;
+    gap: 8px;
+  }
+  .twin-saved-palette {
+    width: 90px;
+    min-width: 90px;
+  }
+}
+@media (max-width: 760px) {
+  .digital-twin {
+    padding: 27px 22px 23px;
+  }
+  .twin-heading {
+    align-items: start;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  .twin-heading h1 {
+    font-size: 45px;
+    letter-spacing: -1px;
+    margin: 11px 0;
+  }
+  .twin-heading p {
+    font-size: 12px;
+  }
+  .twin-introduction {
+    display: block;
+    margin-bottom: 35px;
+  }
+  .twin-portrait {
+    max-width: none;
+  }
+  .twin-portrait-media > img {
+    height: 365px;
+    object-position: center 32%;
+  }
+  .twin-portrait figcaption {
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .twin-portrait figcaption small {
+    max-width: 140px;
+  }
+  .twin-portrait-action {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  .twin-profile-intro {
+    padding: 27px 0 0;
+  }
+  .twin-profile-intro h2 {
+    font-size: 36px;
+    margin: 13px 0 18px;
+  }
+  .twin-profile-intro > p {
+    font-size: 12px;
+    max-width: none;
+  }
+  .twin-anchor-links {
+    max-width: none;
+    margin: 20px 0;
+  }
+  .twin-profile-form,
+  .twin-composer,
+  .twin-archive {
+    padding-top: 25px;
+    scroll-margin-top: 90px;
+  }
+  .twin-section-heading h2 {
+    font-size: 30px;
+  }
+  .twin-section-heading p {
+    font-size: 12px;
+  }
+  .twin-profile-fields {
+    gap: 19px 14px;
+  }
+  .twin-profile-fields > label:first-child,
+  .twin-profile-fields > label:nth-child(2) {
+    grid-column: span 2;
+  }
+  .twin-detail-columns {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    margin-top: 25px;
+    padding-top: 25px;
+  }
+  .twin-detail-columns fieldset {
+    gap: 17px;
+  }
+  .twin-detail-columns legend {
+    font-size: 25px;
+    margin-bottom: 17px;
+  }
+  .twin-colors {
+    margin-top: 25px;
+    padding-top: 21px;
+  }
+  .twin-colors legend {
+    font-size: 25px;
+    max-width: 280px;
+  }
+  .twin-color-editor {
+    gap: 13px;
+  }
+  .twin-favorite-colors {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .twin-favorite-colors > button {
+    width: 44px;
+    height: 49px;
+  }
+  .twin-save-profile {
+    margin-top: 25px;
+    padding-top: 20px;
+    gap: 16px;
+  }
+  .twin-save-profile > div {
+    flex-basis: 100%;
+  }
+  .twin-save-profile > .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .twin-draft-state {
+    font-size: 11px;
+  }
+  .twin-memory-choice {
+    align-items: start;
+    font-size: 11px;
+    min-height: 34px;
+  }
+  .twin-memory-choice > input {
+    margin-top: 3px;
+  }
+  .twin-composer {
+    margin-top: 35px;
+  }
+  .twin-composer-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .twin-recipe-heading {
+    align-items: center;
+    gap: 10px;
+  }
+  .twin-recipe-pigments {
+    min-height: 75px;
+    margin-top: 13px;
+  }
+  .twin-current-recipe {
+    padding: 18px 19px;
+  }
+  .twin-composition-form {
+    gap: 19px;
+  }
+  .twin-composition-form > .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .twin-owned-selection label {
+    min-height: 44px;
+  }
+  .twin-saved-look {
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 23px 0;
+  }
+  .twin-saved-palette {
+    width: 75px;
+    min-width: 75px;
+    min-height: 110px;
+  }
+  .twin-saved-caption h3 {
+    font-size: 25px;
+  }
+  .twin-saved-caption {
+    max-width: calc(100% - 90px);
+  }
+  .twin-saved-actions {
+    width: 100%;
+    max-width: none;
+    justify-content: start;
+    gap: 10px;
+  }
+  .twin-saved-actions > .twin-delete-look {
+    margin-left: auto;
+  }
+  .twin-saved-actions > .twin-text-action {
+    font-size: 11px;
+  }
+  .twin-empty-looks {
+    padding: 23px 20px;
+    gap: 18px;
+    align-items: start;
+  }
+  .twin-empty-looks > span {
+    font-size: 35px;
+  }
+  .twin-empty-looks h3 {
+    font-size: 24px;
+  }
+  .twin-empty-looks p {
+    font-size: 11px;
+  }
+  .twin-footer {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 18px;
+  }
+  .twin-footer > span {
+    max-width: none;
+  }
+  .twin-loading h1 {
+    font-size: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .digital-twin {
+    animation: none;
+  }
+  .digital-twin * {
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
+
+.twin-draft-context {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #716469;
+  margin: 0;
+  padding: 9px 12px;
+  border-left: 2px solid #824356;
+  background: #f3eeea;
+}
+.twin-generated-caption {
+  padding-top: 13px;
+  border-top: 1px solid #cbb7bb;
+}
+.twin-generated-caption > span {
+  display: flex;
+  align-items: start;
+  gap: 7px;
+  color: #824356;
+  font-weight: 500;
+}
+.twin-generated-caption > span svg {
+  flex: none;
+  margin-top: 2px;
+}
+@media (max-width: 760px) {
+  .twin-generated-caption {
+    flex-direction: column;
+    gap: 5px !important;
+  }
+  .twin-generated-caption small {
+    max-width: none !important;
+    text-align: left !important;
+  }
+}

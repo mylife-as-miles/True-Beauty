@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
   ArrowUpRight,
@@ -32,6 +32,10 @@ import {
   type AppearanceSample,
 } from "../../../../packages/skin-engine/src";
 import {
+  planScanFraming,
+  type ScanFramingPlan,
+} from "../../../../packages/skin-engine/src/framing";
+import {
   buildRoutine,
   type IntelligenceRoutine,
 } from "../../../../packages/beauty-intelligence/src";
@@ -63,7 +67,17 @@ interface Capabilities {
     allowedActions?: string[];
   };
 }
+interface UploadPayload {
+  base64: string;
+  type: "image/jpeg" | "image/png";
+  previewUrl: string;
+  sourceUrl: string;
+  kind: "original" | "prepared";
+  framing?: ScanFramingPlan;
+}
 interface Quote {
+  imageRevision: number;
+  sourceEpoch: number;
   quoteId: string;
   credits: number;
   actions: string[];
@@ -101,10 +115,14 @@ export default function SkinLab() {
   const notify = useApp((s) => s.notify),
     setSpace = useApp((s) => s.setSpace),
     sourceUrl = useApp((s) => s.portraitUrl),
+    generatedSource = useApp((s) => s.portraitProvenance),
+    originalPortraitUrl = useApp((s) => s.originalPortraitUrl),
     setSourceUrl = useApp((s) => s.setPortraitUrl);
-  const sourceName = sourceUrl.startsWith("blob:")
-    ? "Your session photo"
-    : "Studio portrait";
+  const sourceName = generatedSource
+    ? `AI-generated ${generatedSource.feature} preview`
+    : sourceUrl.startsWith("blob:")
+      ? "Your session photo"
+      : "Studio portrait";
   const {
     stream: cameraStream,
     error: cameraError,
@@ -155,10 +173,7 @@ export default function SkinLab() {
     [authorizedCredits, setAuthorizedCredits] = useState(""),
     [remoteResult, setRemoteResult] = useState<SkinAnalysisResult | null>(null),
     [taskId, setTaskId] = useState(""),
-    [uploadBytes, setUploadBytes] = useState<{
-      base64: string;
-      type: "image/jpeg" | "image/png";
-    } | null>(null),
+    [uploadBytes, setUploadBytes] = useState<UploadPayload | null>(null),
     [saveConsent, setSaveConsent] = useState(false),
     [comparison, setComparison] = useState<string[]>([]);
   const imageRef = useRef<HTMLImageElement | null>(null),
@@ -170,6 +185,29 @@ export default function SkinLab() {
     aliveRef = useRef(true),
     sourceEpochRef = useRef(0),
     inspectionIdRef = useRef(0);
+  const preparationIdRef = useRef(0),
+    uploadRevisionRef = useRef(0),
+    quoteRequestRef = useRef(0);
+  const originalUploadRef = useRef<UploadPayload | null>(null);
+  const visionSourceRef = useRef<{
+    image: HTMLImageElement;
+    epoch: number;
+    url: string;
+  } | null>(null);
+  const [framingBusy, setFramingBusy] = useState(false),
+    [framingError, setFramingError] = useState("");
+  const invalidateRemoteImage = useCallback(() => {
+    uploadRevisionRef.current++;
+    quoteRequestRef.current++;
+    setQuote(null);
+    setCsrf("");
+    setRemoteConsent(false);
+    setRetentionConsent(false);
+    setAuthorizedCredits("");
+    setRemoteResult(null);
+    setTaskId("");
+    setSaveConsent(false);
+  }, []);
   const appearance = useMemo(
     () =>
       sampled
@@ -331,6 +369,13 @@ export default function SkinLab() {
     const epoch = ++sourceEpochRef.current;
     imageRef.current = null;
     inspectionIdRef.current++;
+    preparationIdRef.current++;
+    uploadRevisionRef.current++;
+    quoteRequestRef.current++;
+    originalUploadRef.current = null;
+    visionSourceRef.current = null;
+    setFramingBusy(false);
+    setFramingError("");
     setBusy(false);
     setShowMap(false);
     setPortraitZoom(1);
@@ -383,7 +428,8 @@ export default function SkinLab() {
         );
     };
     img.src = sourceUrl;
-    if (sourceUrl.startsWith("blob:"))
+    const preparationVersion = preparationIdRef.current;
+    if (sourceUrl.startsWith("blob:") && !generatedSource)
       void fetch(sourceUrl)
         .then((r) => r.blob())
         .then(async (blob) => {
@@ -397,16 +443,23 @@ export default function SkinLab() {
           let binary = "";
           for (let i = 0; i < bytes.length; i += 8192)
             binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
-          setUploadBytes({
-            base64: btoa(binary),
+          const base64 = btoa(binary);
+          const payload: UploadPayload = {
+            base64,
             type: blob.type as "image/jpeg" | "image/png",
-          });
+            previewUrl: `data:${blob.type};base64,${base64}`,
+            sourceUrl,
+            kind: "original",
+          };
+          originalUploadRef.current = payload;
+          if (preparationVersion === preparationIdRef.current)
+            setUploadBytes(payload);
         })
         .catch(() => {});
     return () => {
       active = false;
     };
-  }, [sourceUrl]);
+  }, [sourceUrl, generatedSource]);
   const inspectLocal = async () => {
     const img = imageRef.current;
     if (!img || !pipelineRef.current) return;
@@ -428,6 +481,7 @@ export default function SkinLab() {
       )
         return;
       setVision(snapshot);
+      visionSourceRef.current = { image: img, epoch, url: sourceUrl };
       const c = document.createElement("canvas");
       const ratio = Math.min(
         1,
@@ -489,6 +543,144 @@ export default function SkinLab() {
         setBusy(false);
     }
   };
+  const prepareScanFraming = async () => {
+    const img = imageRef.current,
+      current = useApp.getState();
+    if (current.portraitProvenance || generatedSource) {
+      setFramingError(
+        "Restore the original photograph before preparing a skin scan. Generated pixels remain excluded.",
+      );
+      return;
+    }
+    if (
+      !img ||
+      !sourceUrl.startsWith("blob:") ||
+      current.portraitUrl !== sourceUrl
+    ) {
+      setFramingError(
+        "Upload your own original portrait first. Keep the full forehead and chin visible and face the camera directly.",
+      );
+      return;
+    }
+    const epoch = sourceEpochRef.current,
+      id = ++preparationIdRef.current;
+    invalidateRemoteImage();
+    setFramingBusy(true);
+    setFramingError("");
+    const isCurrent = () =>
+      aliveRef.current &&
+      epoch === sourceEpochRef.current &&
+      id === preparationIdRef.current &&
+      img === imageRef.current &&
+      useApp.getState().portraitUrl === sourceUrl &&
+      !useApp.getState().portraitProvenance;
+    let preparedCanvas: HTMLCanvasElement | null = null;
+    try {
+      let snapshot = vision;
+      const identity = visionSourceRef.current;
+      if (
+        !snapshot?.landmarks.length ||
+        identity?.image !== img ||
+        identity.epoch !== epoch ||
+        identity.url !== sourceUrl
+      ) {
+        const pipeline = pipelineRef.current;
+        if (!pipeline)
+          throw new Error(
+            "Local face tracking is not ready. Try again, or retake a close frontal portrait with the forehead and chin inside the image.",
+          );
+        setStatus("Finding scan framing locally. Nothing is being uploaded…");
+        snapshot = await pipeline.analyzeImage(img, { face: true });
+        if (!isCurrent()) return;
+        setVision(snapshot);
+        visionSourceRef.current = { image: img, epoch, url: sourceUrl };
+      }
+      const plan = planScanFraming({
+        width: img.naturalWidth,
+        height: img.naturalHeight,
+        landmarks: snapshot.landmarks,
+      });
+      if (!plan.ok) throw new Error(plan.message);
+      preparedCanvas = document.createElement("canvas");
+      preparedCanvas.width = plan.output.width;
+      preparedCanvas.height = plan.output.height;
+      const context = preparedCanvas.getContext("2d");
+      if (!context)
+        throw new Error(
+          "Local image preparation is unavailable. Retake a closer frontal portrait instead.",
+        );
+      context.drawImage(
+        img,
+        plan.crop.x,
+        plan.crop.y,
+        plan.crop.width,
+        plan.crop.height,
+        0,
+        0,
+        plan.output.width,
+        plan.output.height,
+      );
+      const blob = await new Promise<Blob>((resolve, reject) =>
+        preparedCanvas!.toBlob(
+          (value) =>
+            value
+              ? resolve(value)
+              : reject(
+                  new Error(
+                    "The local JPEG could not be prepared. No image was uploaded.",
+                  ),
+                ),
+          "image/jpeg",
+          0.94,
+        ),
+      );
+      if (!isCurrent()) return;
+      if (blob.size > 4 * 1024 * 1024)
+        throw new Error(
+          "This prepared JPEG is above the provider's 4 MB limit. Choose a smaller original image; nothing has been uploaded.",
+        );
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+      if (!isCurrent()) return;
+      let binary = "";
+      for (let i = 0; i < bytes.length; i += 8192)
+        binary += String.fromCharCode(...bytes.subarray(i, i + 8192));
+      const base64 = btoa(binary);
+      setUploadBytes({
+        base64,
+        type: "image/jpeg",
+        previewUrl: `data:image/jpeg;base64,${base64}`,
+        sourceUrl,
+        kind: "prepared",
+        framing: plan,
+      });
+      setStatus(
+        "Temporary scan crop prepared locally. Review the exact upload image before requesting a new quote.",
+      );
+    } catch (e) {
+      if (isCurrent())
+        setFramingError(
+          e instanceof Error
+            ? e.message
+            : "Framing could not be prepared. Retake a close frontal portrait.",
+        );
+    } finally {
+      if (preparedCanvas) preparedCanvas.width = preparedCanvas.height = 1;
+      if (isCurrent()) setFramingBusy(false);
+    }
+  };
+  const resetScanFraming = () => {
+    preparationIdRef.current++;
+    invalidateRemoteImage();
+    setFramingBusy(false);
+    setFramingError("");
+    const original = originalUploadRef.current;
+    setUploadBytes(original?.sourceUrl === sourceUrl ? original : null);
+    setStatus(
+      original
+        ? "Original upload image selected. Review it and request a new quote before authorizing transmission."
+        : "The original file is selected locally. Prepare a JPEG crop or choose an eligible JPEG/PNG for provider upload.",
+    );
+  };
   const upload = async (file?: File) => {
     if (!file) return;
     if (
@@ -499,6 +691,11 @@ export default function SkinLab() {
       return;
     }
     sourceEpochRef.current++;
+    preparationIdRef.current++;
+    invalidateRemoteImage();
+    setFramingBusy(false);
+    setFramingError("");
+    visionSourceRef.current = null;
     imageRef.current = null;
     inspectionIdRef.current++;
     closeCamera();
@@ -592,10 +789,32 @@ export default function SkinLab() {
     }
   };
   const requestQuote = async () => {
+    if (generatedSource || useApp.getState().portraitProvenance) {
+      setError(
+        "Restore your original photograph before requesting skin observations. Generated pixels cannot describe your skin.",
+      );
+      return;
+    }
+    if (
+      framingBusy ||
+      !uploadBytes ||
+      uploadBytes.sourceUrl !== useApp.getState().portraitUrl
+    )
+      return;
+    const epoch = sourceEpochRef.current,
+      revision = uploadRevisionRef.current,
+      requestId = ++quoteRequestRef.current;
+    const isCurrent = () =>
+      aliveRef.current &&
+      epoch === sourceEpochRef.current &&
+      revision === uploadRevisionRef.current &&
+      requestId === quoteRequestRef.current &&
+      !useApp.getState().portraitProvenance;
     setBusy(true);
     setError("");
     try {
       const session = await fetch("/api/session").then((r) => r.json());
+      if (!isCurrent()) return;
       setCsrf(session.csrfToken);
       const actions = capabilities?.skinAnalysis?.allowedActions ?? [
         "texture",
@@ -616,22 +835,37 @@ export default function SkinLab() {
         throw new Error(
           body.error ?? "A verified provider quote is unavailable.",
         );
-      setQuote(body);
+      if (isCurrent())
+        setQuote({ ...body, imageRevision: revision, sourceEpoch: epoch });
     } catch (e) {
-      setError(e instanceof Error ? e.message : "The provider is unavailable.");
+      if (isCurrent())
+        setError(
+          e instanceof Error ? e.message : "The provider is unavailable.",
+        );
     } finally {
-      setBusy(false);
+      if (isCurrent()) setBusy(false);
     }
   };
   const submitRemote = async () => {
     if (
+      useApp.getState().portraitProvenance ||
       !quote ||
       !uploadBytes ||
+      framingBusy ||
+      uploadBytes.sourceUrl !== useApp.getState().portraitUrl ||
+      quote.imageRevision !== uploadRevisionRef.current ||
+      quote.sourceEpoch !== sourceEpochRef.current ||
       !remoteConsent ||
       !retentionConsent ||
       Number(authorizedCredits) < quote.credits
     )
       return;
+    const epoch = sourceEpochRef.current,
+      revision = uploadRevisionRef.current;
+    const isCurrent = () =>
+      aliveRef.current &&
+      epoch === sourceEpochRef.current &&
+      revision === uploadRevisionRef.current;
     setBusy(true);
     setError("");
     try {
@@ -654,22 +888,31 @@ export default function SkinLab() {
       const body = await res.json();
       if (!res.ok)
         throw new Error(body.error ?? "The provider could not start the task.");
+      if (!isCurrent()) return;
       setTaskId(body.taskId);
       setStatus(
         "Provider task started. Checking status never starts a new paid task.",
       );
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Provider request failed.");
+      if (isCurrent())
+        setError(e instanceof Error ? e.message : "Provider request failed.");
     } finally {
-      setBusy(false);
+      if (isCurrent()) setBusy(false);
     }
   };
   const checkTask = async () => {
     if (!taskId) return;
+    const epoch = sourceEpochRef.current,
+      revision = uploadRevisionRef.current;
+    const isCurrent = () =>
+      aliveRef.current &&
+      epoch === sourceEpochRef.current &&
+      revision === uploadRevisionRef.current;
     setBusy(true);
     try {
       const res = await fetch("/api/skin/tasks/" + encodeURIComponent(taskId));
       const body = await res.json();
+      if (!isCurrent()) return;
       if (!res.ok || body.status === "error")
         throw new Error(body.error ?? "Provider task failed.");
       if (body.status === "success") {
@@ -680,9 +923,10 @@ export default function SkinLab() {
           "The provider is still processing. Check again after 10 seconds.",
         );
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Status unavailable.");
+      if (isCurrent())
+        setError(e instanceof Error ? e.message : "Status unavailable.");
     } finally {
-      setBusy(false);
+      if (isCurrent()) setBusy(false);
     }
   };
   const saveObservation = async () => {
@@ -818,7 +1062,11 @@ export default function SkinLab() {
             )}
             <span className="skin-image-label">
               {sourceName} ·{" "}
-              {showMap ? "Colour sampling regions" : "Unretouched image"}
+              {showMap
+                ? "Colour sampling regions"
+                : generatedSource
+                  ? "Generated pixels"
+                  : "Unretouched image"}
             </span>
             <button
               className="skin-map-button"
@@ -830,6 +1078,22 @@ export default function SkinLab() {
               {showMap ? "Hide regions" : "Show regions"}
             </button>
           </div>
+          {generatedSource && (
+            <div className="skin-generated-notice" role="note">
+              <p>
+                This is a generated styling image. Its colours can inspire a
+                look; it cannot describe your skin.
+              </p>
+              <button
+                className="button secondary"
+                onClick={() => useApp.getState().restoreOriginalPortrait()}
+              >
+                {originalPortraitUrl
+                  ? "Restore original photograph"
+                  : "Use studio portrait"}
+              </button>
+            </div>
+          )}
           <div
             className="skin-zoom-controls"
             aria-label="Portrait zoom controls"
@@ -1291,6 +1555,110 @@ export default function SkinLab() {
                   Local colour sampling remains available. No photo is
                   transmitted by opening this panel.
                 </p>
+                <section
+                  className="skin-scan-framing"
+                  aria-label="Provider image framing"
+                >
+                  <h4>Frame your scan</h4>
+                  <p>
+                    Face the camera directly in even light. The provider asks
+                    for a full face over 60% of the image width, with forehead
+                    and chin visible. Local preparation aims for 72%; it cannot
+                    create missing detail or guarantee acceptance.
+                  </p>
+                  <button
+                    className="button secondary"
+                    disabled={
+                      busy ||
+                      framingBusy ||
+                      !quality ||
+                      !!generatedSource ||
+                      !sourceUrl.startsWith("blob:")
+                    }
+                    onClick={() => void prepareScanFraming()}
+                  >
+                    {framingBusy ? (
+                      <LoaderCircle size={16} className="spin" />
+                    ) : (
+                      <ScanFace size={16} />
+                    )}{" "}
+                    {framingBusy
+                      ? "Preparing scan framing…"
+                      : "Prepare scan framing"}
+                  </button>
+                  {!sourceUrl.startsWith("blob:") && !generatedSource && (
+                    <p className="skin-note">
+                      Upload your own original portrait to prepare a temporary
+                      scan image. Studio portraits cannot be submitted.
+                    </p>
+                  )}
+                  {!vision?.landmarks.length && !generatedSource && (
+                    <p className="skin-note">
+                      Preparation reads face landmarks locally through the
+                      existing tracker. If no clear face is found, retake a
+                      closer frontal photo with both cheeks, forehead and chin
+                      visible.
+                    </p>
+                  )}
+                  {framingError && (
+                    <p role="alert" className="inline-error">
+                      {framingError}
+                    </p>
+                  )}
+                  {uploadBytes &&
+                    uploadBytes.sourceUrl === sourceUrl &&
+                    !generatedSource && (
+                      <figure className="skin-upload-preview">
+                        <img
+                          src={uploadBytes.previewUrl}
+                          alt={
+                            uploadBytes.kind === "prepared"
+                              ? "Exact temporary cropped image selected for provider upload"
+                              : "Exact original image selected for provider upload"
+                          }
+                        />
+                        <figcaption>
+                          <strong>
+                            {uploadBytes.kind === "prepared"
+                              ? "Temporary cropped upload preview"
+                              : "Original upload preview"}
+                          </strong>
+                          {uploadBytes.framing && (
+                            <span>
+                              {uploadBytes.framing.output.width}×
+                              {uploadBytes.framing.output.height}px · detected
+                              face approximately{" "}
+                              {Math.round(
+                                uploadBytes.framing.face.widthFraction * 100,
+                              )}
+                              % of image width
+                            </span>
+                          )}
+                          <span>
+                            This exact encoded image is selected for upload.
+                            Your session photograph is unchanged; no image has
+                            been sent or saved by preparing it.
+                          </span>
+                        </figcaption>
+                        {uploadBytes.framing && (
+                          <>
+                            <ul>
+                              {uploadBytes.framing.warnings.map((warning) => (
+                                <li key={warning}>{warning}</li>
+                              ))}
+                            </ul>
+                            <button
+                              className="text-action"
+                              disabled={busy}
+                              onClick={resetScanFraming}
+                            >
+                              Use original upload image
+                            </button>
+                          </>
+                        )}
+                      </figure>
+                    )}
+                </section>
                 {capabilities?.skinAnalysis?.status ===
                   "requires-verified-quote" && (
                   <>
@@ -1301,7 +1669,13 @@ export default function SkinLab() {
                     <button
                       className="button secondary"
                       onClick={() => void requestQuote()}
-                      disabled={busy || !uploadBytes}
+                      disabled={
+                        busy ||
+                        framingBusy ||
+                        !uploadBytes ||
+                        uploadBytes.sourceUrl !== sourceUrl ||
+                        !!generatedSource
+                      }
                     >
                       Get a credit quote
                     </button>
@@ -1331,7 +1705,9 @@ export default function SkinLab() {
                             }
                           />
                           I understand the provider processes the image remotely
-                          and documents up to 24-hour task result retention.
+                          and publishes media/file retention of up to 30 days;
+                          some task documentation still says 24 hours. This
+                          preview uses the longer period.
                         </label>
                         <label className="skin-field">
                           Maximum credits I authorize
@@ -1348,6 +1724,11 @@ export default function SkinLab() {
                           className="button"
                           disabled={
                             busy ||
+                            framingBusy ||
+                            !uploadBytes ||
+                            uploadBytes.sourceUrl !== sourceUrl ||
+                            !!generatedSource ||
+                            quote.imageRevision !== uploadRevisionRef.current ||
                             !remoteConsent ||
                             !retentionConsent ||
                             Number(authorizedCredits) < quote.credits

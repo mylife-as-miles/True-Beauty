@@ -720,6 +720,12 @@ export function PrivacySettings() {
                                 createDefaultLook(),
                                 "Your signature look",
                               );
+                            useApp
+                              .getState()
+                              .setCompleteScene({
+                                activeOutfitId: null,
+                                activeProductIds: [],
+                              });
                             useApp.getState().clearEditHistory();
                             useApp.getState().setMirrorView({
                               mirrorFocused: false,

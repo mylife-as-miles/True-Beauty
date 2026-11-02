@@ -22,7 +22,8 @@ export interface ProductVariant {
 export interface PriceSnapshot {
   amount: number;
   currency: Currency;
-  kind: "sample" | "verified";
+  kind: "sample" | "verified" | "imported";
+  imported?: boolean;
   observedAt: string;
   sourceUrl: string;
   merchant: string;

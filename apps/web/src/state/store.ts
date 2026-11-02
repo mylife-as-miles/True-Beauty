@@ -3,8 +3,11 @@ import {
   createDefaultLook,
   MAKEUP_LAYERS,
   type MakeupLook,
+  normalizeLook,
 } from "../../../../packages/makeup-engine/src";
 import type { VisionSnapshot } from "../../../../packages/vision-core/src";
+import type { SavedLook } from "../../../../packages/local-database/src";
+import { CompositionSchema } from "../../../../packages/digital-twin/src/contracts";
 import type { Space, StudioMode } from "../../../../packages/shared-types/src";
 export interface StudioLighting {
   preset: "neutral" | "daylight" | "golden-hour" | "moonlight";
@@ -20,12 +23,37 @@ interface EditSnapshot {
   look: MakeupLook;
   lookName: string;
   lighting: StudioLighting;
+  activeOutfitId: string | null;
+  activeProductIds: string[];
 }
 interface State {
+  portraitProvenance: {
+    kind: "ai-generated";
+    provider: "perfect-corp";
+    feature: "hair" | "clothing";
+    createdAt: string;
+  } | null;
+  originalPortraitUrl: string | null;
+  setGeneratedPortrait: (
+    url: string,
+    provenance: NonNullable<State["portraitProvenance"]>,
+    options?: { restored: true },
+  ) => void;
+  restoreOriginalPortrait: () => void;
+  visionOcclusion: boolean;
+  setVisionOcclusion: (enabled: boolean) => void;
   portraitUrl: string;
   portraitVision: { url: string; snapshot: VisionSnapshot } | null;
   setPortraitUrl: (url: string) => void;
   setPortraitVision: (url: string, snapshot: VisionSnapshot) => void;
+  generationFeature: "hair" | "clothing";
+  setGenerationFeature: (feature: "hair" | "clothing") => void;
+  activeOutfitId: string | null;
+  activeProductIds: string[];
+  setCompleteScene: (patch: {
+    activeOutfitId?: string | null;
+    activeProductIds?: string[];
+  }) => void;
   space: Space;
   studioMode: StudioMode;
   look: MakeupLook;
@@ -80,6 +108,7 @@ interface State {
   setRenderer: (backend: string, reason?: string) => void;
   setSpace: (space: Space) => void;
   setStudioMode: (mode: StudioMode) => void;
+  applySavedLook: (saved: SavedLook) => void;
   setLook: (look: MakeupLook, name?: string) => void;
   patchLayer: (name: string, patch: Record<string, unknown>) => void;
   notify: (toast: string) => void;
@@ -87,18 +116,28 @@ interface State {
   setSettingsOpen: (open: boolean) => void;
 }
 const snap = (
-  state: Pick<State, "look" | "lookName" | "lighting">,
+  state: Pick<
+    State,
+    "look" | "lookName" | "lighting" | "activeOutfitId" | "activeProductIds"
+  >,
 ): EditSnapshot =>
   structuredClone({
     look: state.look,
     lookName: state.lookName,
     lighting: state.lighting,
+    activeOutfitId: state.activeOutfitId,
+    activeProductIds: state.activeProductIds,
   });
 const same = (a: EditSnapshot, b: EditSnapshot) =>
   JSON.stringify(a) === JSON.stringify(b);
 function edit(
   state: State,
-  patch: Partial<Pick<State, "look" | "lookName" | "lighting">>,
+  patch: Partial<
+    Pick<
+      State,
+      "look" | "lookName" | "lighting" | "activeOutfitId" | "activeProductIds"
+    >
+  >,
 ): Partial<State> {
   const next = { ...state, ...patch };
   if (same(snap(state), snap(next))) return {};
@@ -110,10 +149,63 @@ function edit(
   };
 }
 export const useApp = create<State>((set, get) => ({
+  portraitProvenance: null,
+  originalPortraitUrl: null,
+  visionOcclusion: false,
+  setVisionOcclusion: (visionOcclusion) => set({ visionOcclusion }),
+  setGeneratedPortrait: (url, provenance, options) =>
+    set((state) => {
+      if (options?.restored) {
+        for (const previous of new Set([
+          state.portraitUrl,
+          state.originalPortraitUrl,
+        ])) {
+          if (previous?.startsWith("blob:") && previous !== url)
+            URL.revokeObjectURL(previous);
+        }
+        return {
+          portraitUrl: url,
+          originalPortraitUrl: null,
+          portraitProvenance: provenance,
+          portraitVision: null,
+        };
+      }
+      if (
+        state.portraitProvenance &&
+        state.portraitUrl !== url &&
+        state.portraitUrl.startsWith("blob:")
+      )
+        URL.revokeObjectURL(state.portraitUrl);
+      return {
+        portraitUrl: url,
+        originalPortraitUrl: state.originalPortraitUrl ?? state.portraitUrl,
+        portraitProvenance: provenance,
+        portraitVision: null,
+      };
+    }),
+  restoreOriginalPortrait: () =>
+    set((state) => {
+      if (!state.originalPortraitUrl && !state.portraitProvenance) return {};
+      if (state.portraitUrl.startsWith("blob:"))
+        URL.revokeObjectURL(state.portraitUrl);
+      return {
+        portraitUrl:
+          state.originalPortraitUrl ?? "/images/portrait-neutral.jpg",
+        originalPortraitUrl: null,
+        portraitProvenance: null,
+        portraitVision: null,
+      };
+    }),
   portraitUrl: "/images/portrait-neutral.jpg",
   portraitVision: null,
   setPortraitUrl: (portraitUrl) =>
     set((state) => {
+      if (state.portraitUrl === portraitUrl) return {};
+      if (
+        state.originalPortraitUrl?.startsWith("blob:") &&
+        state.originalPortraitUrl !== portraitUrl
+      )
+        URL.revokeObjectURL(state.originalPortraitUrl);
       if (
         state.portraitUrl.startsWith("blob:") &&
         state.portraitUrl !== portraitUrl
@@ -121,6 +213,8 @@ export const useApp = create<State>((set, get) => ({
         URL.revokeObjectURL(state.portraitUrl);
       return {
         portraitUrl,
+        portraitProvenance: null,
+        originalPortraitUrl: null,
         ...(state.portraitUrl !== portraitUrl ? { portraitVision: null } : {}),
       };
     }),
@@ -130,6 +224,11 @@ export const useApp = create<State>((set, get) => ({
         ? { portraitVision: { url, snapshot: structuredClone(snapshot) } }
         : {},
     ),
+  generationFeature: "hair",
+  setGenerationFeature: (generationFeature) => set({ generationFeature }),
+  activeOutfitId: null,
+  activeProductIds: [],
+  setCompleteScene: (patch) => set((state) => edit(state, patch)),
   space: "studio",
   studioMode: "makeup",
   look: createDefaultLook(),
@@ -220,6 +319,25 @@ export const useApp = create<State>((set, get) => ({
     set({ rendererBackend, rendererReason }),
   setSpace: (space) => set({ space }),
   setStudioMode: (studioMode) => set({ studioMode, space: "studio" }),
+  applySavedLook: (saved) =>
+    set((state) => {
+      const composition = CompositionSchema.safeParse(saved.composition);
+      if (saved.composition !== undefined && !composition.success) {
+        state.notify("This complete look has invalid composition data.");
+        return {};
+      }
+      return edit(state, {
+        look: normalizeLook(saved.look),
+        lookName: saved.name,
+        activeOutfitId: composition.success
+          ? (composition.data.outfitId ?? null)
+          : null,
+        activeProductIds: composition.success
+          ? composition.data.productIds
+          : [],
+        ...(composition.success ? { lighting: composition.data.lighting } : {}),
+      });
+    }),
   setLook: (look, name) =>
     set((state) =>
       edit(state, {

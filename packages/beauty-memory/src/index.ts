@@ -30,7 +30,7 @@ const fingerprint = (value: JsonValue): string =>
       ? Object.keys(value).sort()
       : undefined,
   );
-function isCurrent(node: MemoryNode, now: number) {
+export function isCurrentMemory(node: MemoryNode, now: number) {
   return (
     (!node.validUntil || node.validUntil > now) &&
     node.retentionPolicy !== "session" &&
@@ -75,7 +75,7 @@ export async function rememberPreference(
           .equals([subjectId, type, cleanKey])
           .toArray()
       )
-        .filter((n) => isCurrent(n, now))
+        .filter((n) => isCurrentMemory(n, now))
         .sort((a, b) => b.updatedAt - a.updatedAt)[0];
       if (previous && fingerprint(previous.value) === fingerprint(value)) {
         await database.memoryNodes.update(previous.id, {
@@ -161,7 +161,7 @@ export async function retrieveMemories(
         .filter(
           (node) =>
             permits.has(node.consentScope) &&
-            isCurrent(node, now) &&
+            isCurrentMemory(node, now) &&
             (!options.types || options.types.includes(node.type)),
         )
         .map((node) => {

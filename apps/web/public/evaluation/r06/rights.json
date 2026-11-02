@@ -1,0 +1,54 @@
+{
+  "purpose": "Factual non-training local pose/occlusion evaluation only. Not a beauty-product demonstration or marketing endorsement.",
+  "credit": "NASA/JSC. Retain photographer from official record where supplied; do not invent missing photographer.",
+  "policyUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "policyRetrievedStatus": 200,
+  "policySha256": "5fcd8b220c80f598bc11ce3d3835659b890e7afc1ad436c4f76caac8740deab6",
+  "rightsBasis": "NASA official factual educational/informational-use policy; generally not subject to UScopyright, subject to stated third-party and likeness/employee/noendorsement restrictions. This is not a CC0 assertion.",
+  "limitations": [
+    "No NASA endorsement or implied product association.",
+    "No subject demographic group is inferred or annotated.",
+    "Not a representative fairness cohort.",
+    "Application-level holdout only; no claim that upstream model never trained on these public images.",
+    "No model training or optimization on these fixtures.",
+    "Do not reuse for commercial beauty marketing without a separate rights review."
+  ],
+  "records": [
+    {
+      "nasaId": "iss040e006091",
+      "metadataPath": "iss040e006091-metadata.json",
+      "sourceUrl": "https://images-api.nasa.gov/search?nasa_id=iss040e006091",
+      "data": {
+        "center": "JSC",
+        "date_created": "2014-05-31T00:00:00Z",
+        "description": "ISS040-E-006091 (31 May 2014) --- NASA astronaut Reid Wiseman, Expedition 40 flight engineer, equipped with a bungee harness, exercises on the Combined Operational Load Bearing External Resistance Treadmill (COLBERT) in the Tranquility node of the International Space Station.",
+        "keywords": [
+          "ASTRONAUTS",
+          "ONBOARD ACTIVITIES",
+          "PHYSICAL EXERCISE",
+          "TREADMILLS",
+          "EXPEDITION 40",
+          "TWEETED PHOTO",
+          "SOCIAL MEDIA"
+        ],
+        "media_type": "image",
+        "nasa_id": "iss040e006091",
+        "photographer": "Reid Wiseman",
+        "title": "Wiseman on COLBERT in Node 3"
+      }
+    },
+    {
+      "nasaId": "iss018e030096",
+      "metadataPath": "iss018e030096-metadata.json",
+      "sourceUrl": "https://images-api.nasa.gov/search?nasa_id=iss018e030096",
+      "data": {
+        "center": "JSC",
+        "date_created": "2009-02-12T00:00:00Z",
+        "description": "ISS018-E-030096 (12 Feb. 2009) --- Astronaut Sandra Magnus, Expedition 18 flight engineer, equipped with a bungee harness, exercises on the Treadmill Vibration Isolation System (TVIS) in the Zvezda Service Module of the International Space Station.",
+        "media_type": "image",
+        "nasa_id": "iss018e030096",
+        "title": "ISS Expedition 18 Sandra Magnus on the Treadmill Vibration Isolation and Stabilization (TVIS) in Service Module (SM)"
+      }
+    }
+  ]
+}

@@ -20,11 +20,12 @@ import {
   LOOK_PRESETS,
   cloneLook,
   MAKEUP_LAYERS,
+  ACCESSORY_KEYS,
   type MakeupLayerName,
   type MakeupFinish,
 } from "../../../../packages/makeup-engine/src";
 import { saveLook } from "../../../../packages/local-database/src";
-import LivingMirror from "./LivingMirror";
+import LivingMirror, { type MirrorTrackingStatus } from "./LivingMirror";
 import LookGallery from "./LookGallery";
 import LightControl from "./LightControl";
 import "./StudioExperience.css";
@@ -92,6 +93,18 @@ export default function Studio() {
     past = useApp((s) => s.past),
     future = useApp((s) => s.future),
     quality = useApp((s) => s.renderQuality);
+  const visionOcclusion = useApp((s) => s.visionOcclusion);
+  const [tracking, setTracking] = useState<MirrorTrackingStatus>({
+    accessories: [],
+    warning: "",
+  });
+  const onTrackingStatus = useCallback(
+    (next: MirrorTrackingStatus) =>
+      setTracking((previous) =>
+        JSON.stringify(previous) === JSON.stringify(next) ? previous : next,
+      ),
+    [],
+  );
   const focusReturnRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     let frame = 0;
@@ -292,7 +305,10 @@ export default function Studio() {
             ))}
           </select>
         </div>
-        <LivingMirror onSnapshot={onSnapshot} />
+        <LivingMirror
+          onSnapshot={onSnapshot}
+          onTrackingStatus={onTrackingStatus}
+        />
         <div className="atelier-dock">
           <aside
             ref={inspectorRef}
@@ -717,9 +733,19 @@ export default function Studio() {
                   />
                 </label>
                 <div className="info-note">
-                  Recolouring is a local preview. A change in hairstyle or hair
-                  shape requires a generative provider, which is not configured.
+                  Recolouring is a local preview. For generated hairstyle
+                  changes, open provider preview to review availability and a
+                  credit quote.
                 </div>
+                <button
+                  className="button secondary full-width"
+                  onClick={() => {
+                    useApp.getState().setGenerationFeature("hair");
+                    useApp.getState().setSpace("generation");
+                  }}
+                >
+                  Explore hairstyle previews <ArrowUpRight size={16} />
+                </button>
               </>
             ) : (
               <>
@@ -732,7 +758,7 @@ export default function Studio() {
                 <p className="panel-description">
                   Landmark-anchored accessories move with your reflection.
                 </p>
-                {(["glasses", "earrings", "necklace"] as const).map((a) => (
+                {ACCESSORY_KEYS.map((a) => (
                   <div className="accessory-row" key={a}>
                     <Diamond size={20} />
                     <span>{a[0].toUpperCase() + a.slice(1)}</span>
@@ -740,7 +766,7 @@ export default function Studio() {
                       <input
                         aria-label={`Preview ${a}`}
                         type="checkbox"
-                        checked={look.accessories[a]}
+                        checked={!!look.accessories[a]}
                         onChange={(e) =>
                           setLook({
                             ...look,
@@ -756,9 +782,76 @@ export default function Studio() {
                   </div>
                 ))}
                 <div className="info-note">
-                  These are geometric AR accessory previews. Fit, material and
-                  dimensions are illustrative.
+                  These are geometric landmark projections. Fit, material and
+                  dimensions are illustrative. Rings need a supported visible
+                  hand; wrist previews can use a visible hand or visible
+                  wrist/elbow pose. Choose Full portrait to see wrist and head
+                  accessories. The diamond control opens tracker details.
                 </div>
+                {tracking.accessories.length > 0 && (
+                  <div
+                    id="accessory-tracking-details"
+                    tabIndex={-1}
+                    style={{ scrollMarginTop: 60 }}
+                    onFocus={(event) => {
+                      event.currentTarget.style.outline =
+                        "2px solid var(--accent)";
+                      event.currentTarget.style.outlineOffset = "3px";
+                    }}
+                    onBlur={(event) => {
+                      event.currentTarget.style.outline = "";
+                      event.currentTarget.style.outlineOffset = "";
+                    }}
+                    className="info-note"
+                    role="status"
+                    aria-label="Accessory tracking status"
+                  >
+                    {tracking.accessories.map((item) => (
+                      <p key={item.key} style={{ margin: "4px 0" }}>
+                        <strong>
+                          {item.key[0].toUpperCase() + item.key.slice(1)}:{" "}
+                          {item.available
+                            ? `${item.source} anchor available`
+                            : "anchor unavailable"}
+                          .
+                        </strong>{" "}
+                        {item.reason}
+                      </p>
+                    ))}
+                  </div>
+                )}
+                {tracking.warning && (
+                  <p
+                    className="inline-error"
+                    role="status"
+                    aria-label="Optional vision unavailable"
+                  >
+                    {tracking.warning} Basic local previews remain available.
+                  </p>
+                )}
+                <label
+                  className="check-label"
+                  style={{
+                    minHeight: 44,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={visionOcclusion}
+                    onChange={(e) =>
+                      useApp.getState().setVisionOcclusion(e.target.checked)
+                    }
+                  />
+                  Enhanced overlap detail
+                </label>
+                <p className="panel-description">
+                  Optional local body segmentation helps preserve hair and skin
+                  boundaries around accessories. It loads only with an accessory
+                  enabled, uses more processing, and does not measure depth.
+                </p>
                 <button
                   className="button secondary full-width"
                   onClick={() => useApp.getState().setSpace("wardrobe")}

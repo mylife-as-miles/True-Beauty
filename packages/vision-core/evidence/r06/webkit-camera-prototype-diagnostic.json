@@ -1,0 +1,58 @@
+{
+  "overrideMode": "prototype",
+  "recordedAt": "2026-11-02T14:56:52.140Z",
+  "browser": "27.2",
+  "before": {
+    "initial": {
+      "secureContext": true,
+      "url": "http://127.0.0.1:5173/",
+      "devicesPresent": true,
+      "captureStream": "function",
+      "overrideInstalled": true,
+      "invocations": [],
+      "failure": null
+    },
+    "now": {
+      "secureContext": true,
+      "devicesPresent": true,
+      "getUserMedia": "async()=>{\n    record.invocations.push({at:performance.now(),devicesSame:navigator.mediaDevices.getUserMedia.toString().includes('record.invocations')});\n    const c=document.createElement('canvas');c.width=480;c.height=720;const ctx=c.getContext('2d');ctx.fillStyle='#999';ctx.fillRect(0,0,480,720);\n    try{const stream=c.captureStream(15);Object.assign(window,{__r06CameraStream:stream});return stream;}catch(error){record.failure={name:error.name,message:error.message};throw error;}\n   }",
+      "captureStream": "function"
+    }
+  },
+  "after": {
+    "diagnostic": {
+      "secureContext": true,
+      "url": "http://127.0.0.1:5173/",
+      "devicesPresent": true,
+      "captureStream": "function",
+      "overrideInstalled": true,
+      "invocations": [
+        {
+          "at": 5658,
+          "devicesSame": true
+        }
+      ],
+      "failure": null
+    },
+    "stream": {
+      "active": true,
+      "tracks": [
+        {
+          "kind": "video",
+          "state": "live"
+        }
+      ]
+    },
+    "video": {
+      "readyState": 3
+    },
+    "tracksAfterStop": [
+      "ended"
+    ]
+  },
+  "pageErrors": [],
+  "consoleErrors": [
+    "INFO: Created TensorFlow Lite XNNPACK delegate for CPU."
+  ],
+  "limits": "WebKit WPE headless Linux with software GL and local dependency wrapper; controlled fixture only, not physical-camera proof. All service API routes blocked."
+}

@@ -1,0 +1,67 @@
+{
+  "recordedAt": "2026-11-02T13:48:37.944Z",
+  "browser": "154.0.8037.57",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "platform": "linux",
+  "photo": {
+    "landmarks": 478,
+    "bodyPixels": 43776,
+    "posePoints": 33,
+    "hairMask": [
+      171,
+      256
+    ],
+    "latencyMs": 1030.9000000022352,
+    "mainThreadTimerTicks": 104
+  },
+  "fakeVideo": {
+    "durationMs": 8082.599999997765,
+    "sourceResolution": [
+      480,
+      720
+    ],
+    "cameraStreamFrameRate": 30,
+    "uiRafFrames": 480,
+    "uiRafFPS": 59.386830970248774,
+    "renderIntervalP50Ms": 16.699999999999818,
+    "renderIntervalP95Ms": 16.700000000000728,
+    "inferenceBatchP50Ms": 40,
+    "inferenceBatchP95Ms": 337.5,
+    "landmarks": 478,
+    "bodyPixels": 43776,
+    "posePoints": 33,
+    "scheduler": {
+      "slowdown": 5.682508301360742,
+      "meanCostMs": {
+        "face": 25.787749402577756,
+        "hair": 0,
+        "hands": 78.21571507625617,
+        "body": 363.0738281241938,
+        "pose": 56.149171447749836
+      },
+      "targetHz": {
+        "body": 4,
+        "pose": 8,
+        "face": 24,
+        "hair": 8,
+        "hands": 15
+      },
+      "runs": {
+        "face": 24,
+        "hair": 0,
+        "hands": 16,
+        "body": 5,
+        "pose": 9
+      }
+    },
+    "detections": {
+      "analyzedSnapshots": 243,
+      "poseSnapshots": 243,
+      "bodySnapshots": 243,
+      "handSnapshots": 243
+    },
+    "error": null,
+    "tracksStopped": true
+  },
+  "limitations": "Canvas-captureStream repeating a static portrait with face, hands, multiclass body, pose (and hair derived from multiclass, not a redundant hair invocation). This checks scheduling, actual video-mode inference and responsiveness, not moving-face stability, real camera/mobile FPS or long-run memory leaks."
+}

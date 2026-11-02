@@ -6,3 +6,9 @@ export {
   getGraphicsCapabilities,
   type VisionEngine,
 } from "./createVision";
+export {
+  summarizeVision,
+  maskPredictionAgreement,
+  summarizeValidationCoverage,
+  type ValidationObservation,
+} from "./validation";

@@ -2,24 +2,26 @@
 
 Target: weighted overall >=9.0/10, no critical category below9, all mandatory engines operational, no known unresolved critical/high defects, real browser and privacy evidence. **Acceptance is not met.** Ratings below are conservative provisional engineering judgments for prioritization, not measured accuracy percentages or a claim of independent certification. Independent critiques and actual measurements remain separate.
 
-| Category | Weight | Provisional /10 | Evidence and limit |
+| Category | Weight | R06 /10 | Evidence and practical limit |
 |---|---:|---:|---|
-| Complete functionality / feature coverage |15%|3.5|Connected local workflows; full219-row scope retained; genuine provider and generative engines blocked, advanced scope planned |
-| Visual realism / shaders / AR compositing |12%|6.5|Actual WebGL/OpenCV/source integration and geometric previews; hardware/matting/accessory realism not validated |
-| Face / hair / hand tracking quality |11%|6.0|Real478-point/segmentation/hand inference in actual browser fixtures; physical motion/accuracy/fairness unverified |
-| UX / design / immersion |10%|8.4|Independent visual-r05 and product-r05 actual browser reviews; target9 not met; material realism and full scope remain separate |
-| Agent intelligence / actual tools |10%|7.0|Real typed tools, memory use and total-budget planner; scoped deterministic language, no remote LLM/complete advanced tools |
-| BeautyGraph memory |9%|8.0|Structured temporal attributed nodes, revisions, consent/race/import regressions; richer semantics/longitudinal evaluation pending |
-| Scientific accuracy / transparency |7%|7.5|No invented diagnoses or provider scores; sourced cosmetic functions; model validation/provider fairness unverified |
-| Runtime performance |8%|6.0|Dirty static rendering, adaptive workers, measured cloud fixtures; physical 30/60FPS and sustained allocations unverified |
-| Integration reliability / tests |7%|8.0|Typed build/domain tests/real browser workflows and independent regressions; live provider/endless devices not established |
-| Accessibility / responsive usability |4%|7.5|Axe/state scans, actual touch/keyboard regression work; assistive-technology user review and full matrix pending |
-| Privacy / security |5%|8.0|Transactional consent, attributed deletion, bounded fail-closed API, encrypted backup; production deployment/security audit pending |
-| Source integration / provenance |2%|8.0|All four actual code contributions + pinned matrix/notices; model/media/missing upstream notice audit outstanding |
-| **Weighted provisional total** |**100%**|**6.65**|**Not an acceptance pass. Missing mandatory engines cannot be averaged away.** |
-
+| Complete functionality / feature coverage | 15% | 5.2 | Actual connected Remix, self-described profile, complete recipe/outfit, custom inventory and real merchant observations; genuine hair/clothing and Claude receipts exist. Successful skin result, comprehensive generation/planning/accessory/morph scope and hosted service remain incomplete. |
+| Visual realism / shaders / AR compositing | 12% | 6.7 | Shared edited portrait appears in garment composition and new semantic/accessory work has real pixel/model evidence. Procedural blouse remains conspicuously flat/manual; generated-image plausibility does not validate live AR, depth or cosmetic calibration. |
+| Face / hair / hand tracking quality | 11% | 6.4 | Real optional body/pose/hand outputs, source-consistent shared geometry and failure/suppression reports. No labelled representative moving-person accuracy or physical-device proof. |
+| UX / design / immersion | 10% | 8.5 | Independent desktop/mobile end-to-end recipe restoration and contextual Remix control; long mobile profile, separated planning artifacts and provenance findings below prevent a higher judgment. |
+| Agent intelligence / actual tools | 10% | 7.6 | Local inventory inspection and actual Remix navigation independently work; native Claude receipt records 3 genuine turns and 2 actual color tools. This small command does not establish broad occasion reasoning, robust grounding or an operational hosted LLM service. |
+| BeautyGraph memory | 9% | 8.1 | Attributed profile revision/complete-look contracts and separate optional memory permissions; R06 domain/adversarial evidence read. This review did not repeat long-term retention, semantic retrieval or all memory categories. |
+| Scientific accuracy / transparency | 7% | 7.7 | Actual heuristic-quality, static composition, sample versus observed quote, no-fit and local/provider distinctions. Skin rejection is retained honestly; no clinical/complexion/fairness accuracy follows from synthetic imagery or model cards. Generated provenance needs the cross-space repair below. |
+| Runtime performance | 8% | 6.0 | Executable numeric evaluation lab and bounded inference evidence improve visibility. Keep the prior score: short software-server samples and UI animation intervals do not establish physical 30/60 FPS, sustained thermals or frame/mask lifetime. |
+| Integration reliability / tests | 7% | 8.2 | Independent UI-created inventory/outfit → complete look → reload/export → changed-mirror restore works on both viewports; genuine browser/API/source checks pass. R06 focused test evidence exists; reviewer did not rerun the entire suite or hosted/cross-device matrix. |
+| Accessibility / responsive usability | 4% | 7.7 | Real 390px workflows usable without document overflow; native named controls, contextual anchors and R06 scoped axe evidence. No assistive-technology user study or physical-touch/full-scope certification. |
+| Privacy / security | 5% | 8.0 | Local journeys and controlled provenance checks emitted zero POSTs; explicit merchant actions sent only source/reference IDs; separate image/history/paid consent and fail-closed boundaries reviewed. Production dispatch/authentication, distributed state and provider retention/deletion remain unverified. |
+| Source integration / provenance | 2% | 8.3 | Four actual source contributions retained; new model-card license evidence and adjacent notices materially improve auditability. Virtual Makeup notice, portrait releases and broader distribution/provider-output rights remain unresolved. |
+| **Weighted total** | **100%** | **7.09** | **Not a ≥9 acceptance pass. No category is 9; mandatory failed/incomplete engines cannot be averaged away.** |
 Independent reviews: visual-r01 7.0; visual-r02 7.7; product-r01 local usefulness7.3/full-scope3.0/acceptance judgment5.5; technical-r01 provisional6.0 with reproduced defects. Subsequent technical rounds close original reproductions using actual evidence, not by raising subjective scores. New cross-browser defects are tracked until fixed.
 
 Measured evidence is in docs/QUALITY_REPORT.md, docs/VISION_REPORT.md, cook/metrics and actual renderer/browser reports. No score represents medical accuracy, a calibrated model probability, or real-device FPS.
 
 Round05 updates only the UX category from7.7 to the independent8.4 judgment (+0.07 weighted). Other categories retain conservative prior scores; new material functionality is verified, but photorealism/device fairness is not inferred from pixel tests. Independent interaction-r05=8.0, local product usefulness=8.4; full product scope=3.5. The final visual addendum retires reproduced hue/viewport defects without inflating the8.4 score.
+
+
+Round06: the exact weighted table above is the independent product critic's 7.094→7.09 judgment, recorded before the successful framed-skin receipt and final UX corrections. Keep it conservative until independently rescored. The separate expanded-surface visual critique is8.2/10 after its independent repair recheck; local usefulness8.5 is not the same as visual quality. Those findings drove a second improvement pass. Genuine skin/hair/clothing/Claude execution, concern/fit accuracy, production hosting and physical-device fairness are separate gates.

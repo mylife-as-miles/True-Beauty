@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-11-02T14:13:06.206Z",
+  "node": "v24.19.0",
+  "actualFastify": "5.12.7",
+  "actualRouter": "9.10.0",
+  "wrangler": "4.156.1",
+  "miniflare": "5.20261101.0-beta",
+  "results": [
+    {
+      "kind": "node-http",
+      "status": 200,
+      "body": "{\"ok\":true,\"engine\":\"actual-cloudflare-node-http\",\"method\":\"GET\",\"url\":\"/health\"}",
+      "echoStatus": 200,
+      "echoBody": "{\"ok\":true,\"engine\":\"actual-cloudflare-node-http\",\"method\":\"POST\",\"url\":\"/echo\"}",
+      "coldMs": 221.84835899999996,
+      "warmMedianMs": 6.154320000000098,
+      "bundleBytes": 594
+    },
+    {
+      "kind": "fastify-inject",
+      "status": 500,
+      "body": "{\"name\":\"EvalError\",\"error\":\"Code generation from strings disallowed for this context\",\"stack\":\"EvalError: Code generation from strings disallowed for this context\\n    at new Function (<anonymous>)\\n    at compilePrefixMatch (file:///index.mjs:46589:14)\\n    at new Node (file:///index.mjs:46603:57)\\n    at createStaticNode (file:///index.mjs:46745:14)\\n    at Node.createStaticChild (file:///index.mjs:46670:22)\\n    at Router._on (file:///index.mjs:47874:37)\\n    at Router.on (file:///index.mjs:47830:14)\\n    at Object.addNewRoute (file:///index.mjs:48900:20)\\n    at Object.route (file:///index.mjs:48822:23)\\n    at Object.prepareRoute (file:///index.mjs:48748:22)\"}",
+      "echoStatus": 500,
+      "echoBody": "{\"name\":\"EvalError\",\"error\":\"Code generation from strings disallowed for this context\",\"stack\":\"EvalError: Code generation from strings disallowed for this context\\n    at new Function (<anonymous>)\\n    at compilePrefixMatch (file:///index.mjs:46589:14)\\n    at new Node (file:///index.mjs:46603:57)\\n    at createStaticNode (file:///index.mjs:46745:14)\\n    at Node.createStaticChild (file:///index.mjs:46670:22)\\n    at Router._on (file:///index.mjs:47874:37)\\n    at Router.on (file:///index.mjs:47830:14)\\n    at Object.addNewRoute (file:///index.mjs:48900:20)\\n    at Object.route (file:///index.mjs:48822:23)\\n    at Object.prepareRoute (file:///index.mjs:48748:22)\"}",
+      "coldMs": 398.362394,
+      "warmMedianMs": null,
+      "bundleBytes": 2053390
+    },
+    {
+      "kind": "fastify-http",
+      "status": 500,
+      "body": "{\"name\":\"EvalError\",\"error\":\"Code generation from strings disallowed for this context\",\"stack\":\"EvalError: Code generation from strings disallowed for this context\\n    at new Function (<anonymous>)\\n    at compilePrefixMatch (file:///index.mjs:46589:14)\\n    at new Node (file:///index.mjs:46603:57)\\n    at createStaticNode (file:///index.mjs:46745:14)\\n    at Node.createStaticChild (file:///index.mjs:46670:22)\\n    at Router._on (file:///index.mjs:47874:37)\\n    at Router.on (file:///index.mjs:47830:14)\\n    at Object.addNewRoute (file:///index.mjs:48900:20)\\n    at Object.route (file:///index.mjs:48822:23)\\n    at Object.prepareRoute (file:///index.mjs:48748:22)\"}",
+      "echoStatus": 500,
+      "echoBody": "{\"name\":\"EvalError\",\"error\":\"Code generation from strings disallowed for this context\",\"stack\":\"EvalError: Code generation from strings disallowed for this context\\n    at new Function (<anonymous>)\\n    at compilePrefixMatch (file:///index.mjs:46589:14)\\n    at new Node (file:///index.mjs:46603:57)\\n    at createStaticNode (file:///index.mjs:46745:14)\\n    at Node.createStaticChild (file:///index.mjs:46670:22)\\n    at Router._on (file:///index.mjs:47874:37)\\n    at Router.on (file:///index.mjs:47830:14)\\n    at Object.addNewRoute (file:///index.mjs:48900:20)\\n    at Object.route (file:///index.mjs:48822:23)\\n    at Object.prepareRoute (file:///index.mjs:48748:22)\"}",
+      "coldMs": 258.78746299999966,
+      "warmMedianMs": null,
+      "bundleBytes": 2052928
+    }
+  ],
+  "runtimeWarnings": []
+}

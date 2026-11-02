@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-11-02T14:54:17.663Z",
+  "browser": "27.2",
+  "before": {
+    "initial": {
+      "secureContext": true,
+      "url": "http://127.0.0.1:5173/",
+      "devicesPresent": true,
+      "captureStream": "function",
+      "overrideInstalled": true,
+      "invocations": [],
+      "failure": null
+    },
+    "now": {
+      "secureContext": true,
+      "devicesPresent": true,
+      "getUserMedia": "function getUserMedia() {\n    [native code]\n}",
+      "captureStream": "function"
+    }
+  },
+  "after": {
+    "diagnostic": {
+      "secureContext": true,
+      "url": "http://127.0.0.1:5173/",
+      "devicesPresent": true,
+      "captureStream": "function",
+      "overrideInstalled": true,
+      "invocations": [],
+      "failure": null
+    },
+    "alert": "Camera permission was declined. Allow camera access in browser settings, or use a portrait instead. Retry tracking",
+    "stream": null,
+    "video": {
+      "readyState": 0
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": [
+    "INFO: Created TensorFlow Lite XNNPACK delegate for CPU."
+  ],
+  "limits": "WebKit WPE headless Linux with software GL and local dependency wrapper; controlled fixture only, not physical-camera proof. All service API routes blocked."
+}

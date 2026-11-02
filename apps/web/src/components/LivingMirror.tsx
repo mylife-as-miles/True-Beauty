@@ -15,6 +15,7 @@ import {
   X,
   Paintbrush,
   Ratio,
+  Diamond,
 } from "lucide-react";
 import {
   createVision,
@@ -24,10 +25,15 @@ import {
 } from "../../../../packages/vision-core/src";
 import {
   LOOK_PRESETS,
+  ACCESSORY_KEYS,
+  accessoryVisionRequirements,
   cloneLook,
   type MakeupLayerName,
 } from "../../../../packages/makeup-engine/src";
-import { BeautyRenderer } from "../../../../packages/ar-renderer/src";
+import {
+  BeautyRenderer,
+  accessoryAnchorStatus,
+} from "../../../../packages/ar-renderer/src";
 import { useApp } from "../state/store";
 import { IconButton } from "./ui";
 import { sourceCoordinates, objectPosition } from "../lib/mirror-coordinates";
@@ -46,10 +52,18 @@ const emptySnapshot = (): VisionSnapshot => ({
     hands: { state: "idle" },
   },
 });
+export interface MirrorTrackingStatus {
+  accessories: ReturnType<typeof accessoryAnchorStatus>;
+  warning: string;
+}
 export interface MirrorProps {
+  onTrackingStatus?: (status: MirrorTrackingStatus) => void;
   onSnapshot?: (canvas: HTMLCanvasElement, vision: VisionSnapshot) => void;
 }
-export default function LivingMirror({ onSnapshot }: MirrorProps) {
+export default function LivingMirror({
+  onSnapshot,
+  onTrackingStatus,
+}: MirrorProps) {
   const {
     stream: cameraStream,
     error: cameraError,
@@ -60,6 +74,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
   const sourceUrl = useApp((s) => s.portraitUrl),
     setSourceUrl = useApp((s) => s.setPortraitUrl);
   const maskBackend = useApp((s) => s.maskBackend);
+  const visionOcclusion = useApp((s) => s.visionOcclusion);
+  const portraitProvenance = useApp((s) => s.portraitProvenance);
+  const originalPortraitUrl = useApp((s) => s.originalPortraitUrl);
   const rendererBackend = useApp((s) => s.rendererBackend);
   const lighting = useApp((s) => s.lighting),
     quality = useApp((s) => s.renderQuality);
@@ -110,6 +127,60 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     [retry, setRetry] = useState(0),
     [modelsOpen, setModelsOpen] = useState(false),
     [facing, setFacing] = useState<"user" | "environment">("user");
+  const [accessoryStatus, setAccessoryStatus] = useState<
+    ReturnType<typeof accessoryAnchorStatus>
+  >([]);
+  const accessoryBits = ACCESSORY_KEYS.map((key) =>
+    look.accessories[key] ? "1" : "0",
+  ).join("");
+  const requirements = accessoryVisionRequirements(look.accessories);
+  const bodyEnabled = visionOcclusion && requirements.body;
+  const poseNeeded = requirements.pose;
+  const handsNeeded = gestures || requirements.hands;
+  const hairEnabled = look.hair.enabled;
+  const featuresRef = useRef({
+    face: true,
+    hair: hairEnabled,
+    hands: handsNeeded,
+    body: bodyEnabled,
+    pose: poseNeeded,
+  });
+  useEffect(() => {
+    featuresRef.current = {
+      face: true,
+      hair: hairEnabled,
+      hands: handsNeeded,
+      body: bodyEnabled,
+      pose: poseNeeded,
+    };
+    // A feature toggle also invalidates the cached static render.
+    lookRef.current = { ...lookRef.current };
+  }, [hairEnabled, handsNeeded, bodyEnabled, poseNeeded]);
+  const publishAccessoryStatus = useCallback(
+    (snapshot: VisionSnapshot) => {
+      const next = accessoryAnchorStatus(
+        useApp.getState().look.accessories,
+        snapshot,
+        canvasRef.current?.width ?? 960,
+        canvasRef.current?.height ?? 1200,
+      );
+      setAccessoryStatus((previous) =>
+        JSON.stringify(previous) === JSON.stringify(next) ? previous : next,
+      );
+      const warnings = (["body", "pose"] as const)
+        .filter(
+          (feature) =>
+            featuresRef.current[feature] &&
+            snapshot.status[feature]?.state === "error",
+        )
+        .map(
+          (feature) =>
+            snapshot.status[feature]?.error ?? `${feature} model unavailable`,
+        );
+      onTrackingStatus?.({ accessories: next, warning: warnings.join(" ") });
+    },
+    [onTrackingStatus],
+  );
   const sourceEpoch = useRef(0),
     zoomRef = useRef(1),
     compareRef = useRef(false),
@@ -195,6 +266,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     let lastLook: unknown = null;
     let lastLandmarks: unknown = null;
     let lastHair: unknown = null;
+    let lastBody: unknown = null;
+    let lastPose: unknown = null;
+    let lastHands: unknown = null;
     let lastCompare = false;
     let lastSplit = 0;
     let lastVideoTime = -1;
@@ -209,13 +283,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
           running = true;
           const epoch = sourceEpoch.current;
           pipeline
-            .analyzeVideo(videoRef.current!, time, {
-              face: true,
-              hair: lookRef.current.hair.enabled,
-              hands:
-                gesturesRef.current ||
-                Object.values(lookRef.current.accessories).some(Boolean),
-            })
+            .analyzeVideo(videoRef.current!, time, featuresRef.current)
             .then((snapshot) => {
               if (!alive || epoch !== sourceEpoch.current || !streamRef.current)
                 return;
@@ -223,6 +291,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               if (time - lastStatus.current > 600) {
                 setTracked(snapshot.landmarks.length > 0);
                 setLatency(snapshot.latencyMs);
+                publishAccessoryStatus(snapshot);
                 setStatus(
                   snapshot.landmarks.length
                     ? "Face mesh connected"
@@ -278,6 +347,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
           lookRef.current !== lastLook ||
           snapshotRef.current.landmarks !== lastLandmarks ||
           snapshotRef.current.hairMask !== lastHair ||
+          snapshotRef.current.bodyMask !== lastBody ||
+          snapshotRef.current.pose !== lastPose ||
+          snapshotRef.current.hands !== lastHands ||
           compareRef.current !== lastCompare ||
           splitRef.current !== lastSplit ||
           (source instanceof HTMLVideoElement &&
@@ -290,7 +362,13 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               look: lookRef.current,
               lighting: lightingRef.current,
               hairMask: snapshotRef.current.hairMask ?? undefined,
-              hands: snapshotRef.current.hands,
+              hands: featuresRef.current.hands ? snapshotRef.current.hands : [],
+              bodyMask: featuresRef.current.body
+                ? snapshotRef.current.bodyMask
+                : undefined,
+              pose: featuresRef.current.pose
+                ? snapshotRef.current.pose
+                : undefined,
               beforeAfter: compareRef.current
                 ? 0.5 +
                   ((splitRef.current - 0.5) *
@@ -309,6 +387,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             lastLook = lookRef.current;
             lastLandmarks = snapshotRef.current.landmarks;
             lastHair = snapshotRef.current.hairMask;
+            lastBody = snapshotRef.current.bodyMask;
+            lastPose = snapshotRef.current.pose;
+            lastHands = snapshotRef.current.hands;
             lastCompare = compareRef.current;
             lastSplit = splitRef.current;
             lastVideoTime =
@@ -331,7 +412,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
       rendererRef.current = null;
       pipelineRef.current = null;
     };
-  }, [stopCamera, onSnapshot]);
+  }, [stopCamera, onSnapshot, publishAccessoryStatus]);
   useEffect(() => {
     let active = true;
     const epoch = ++sourceEpoch.current;
@@ -339,6 +420,8 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     snapshotRef.current = emptySnapshot();
     imageRef.current = null;
     setTracked(false);
+    setAccessoryStatus([]);
+    onTrackingStatus?.({ accessories: [], warning: "" });
     setLoading(true);
     setStatus("Opening your portrait…");
     const img = new Image();
@@ -348,18 +431,16 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
       setLoading(true);
       setStatus("Mapping facial contours…");
       try {
-        const snapshot = await pipelineRef.current?.analyzeImage(img, {
-          face: true,
-          hair: lookRef.current.hair.enabled,
-          hands:
-            gesturesRef.current ||
-            Object.values(lookRef.current.accessories).some(Boolean),
-        });
+        const snapshot = await pipelineRef.current?.analyzeImage(
+          img,
+          featuresRef.current,
+        );
         if (active && epoch === sourceEpoch.current && snapshot) {
           snapshotRef.current = snapshot;
           useApp.getState().setPortraitVision(sourceUrl, snapshot);
           setTracked(snapshot.landmarks.length > 0);
           setLatency(snapshot.latencyMs);
+          publishAccessoryStatus(snapshot);
           setStatus(
             snapshot.landmarks.length
               ? "Face mesh connected"
@@ -389,39 +470,42 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     return () => {
       active = false;
     };
-  }, [sourceUrl, retry]);
+  }, [sourceUrl, retry, publishAccessoryStatus, onTrackingStatus]);
   useEffect(() => {
-    if (
-      !look.hair.enabled &&
-      !gestures &&
-      !Object.values(look.accessories).some(Boolean)
-    )
+    if (!hairEnabled && !handsNeeded && !bodyEnabled && !poseNeeded) {
+      snapshotRef.current = {
+        ...snapshotRef.current,
+        hairMask: null,
+        hands: [],
+        bodyMask: null,
+        pose: null,
+      };
+      publishAccessoryStatus(snapshotRef.current);
       return;
+    }
     const pipeline = pipelineRef.current;
     if (!pipeline) return;
     let active = true;
     const epoch = sourceEpoch.current;
     const sourceImage = imageRef.current;
     setStatus(
-      "Preparing " +
-        (gestures || Object.values(look.accessories).some(Boolean)
-          ? "hand tracking"
-          : "hair segmentation") +
-        "…",
+      bodyEnabled
+        ? "Preparing overlap detail…"
+        : poseNeeded
+          ? "Preparing accessory anchors…"
+          : handsNeeded
+            ? "Preparing hand tracking…"
+            : "Preparing hair segmentation…",
     );
     pipeline
-      .load({
-        hair: look.hair.enabled,
-        hands: gestures || Object.values(look.accessories).some(Boolean),
-      })
+      .load(featuresRef.current)
       .then(async () => {
         if (!active) return;
-        if (mode !== "camera" && imageRef.current) {
-          const snap = await pipeline.analyzeImage(imageRef.current, {
-            face: true,
-            hair: look.hair.enabled,
-            hands: gestures || Object.values(look.accessories).some(Boolean),
-          });
+        if (mode !== "camera" && sourceImage) {
+          const snap = await pipeline.analyzeImage(
+            sourceImage,
+            featuresRef.current,
+          );
           if (
             active &&
             epoch === sourceEpoch.current &&
@@ -429,8 +513,11 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
           ) {
             snapshotRef.current = snap;
             useApp.getState().setPortraitVision(sourceUrl, snap);
+            setTracked(snap.landmarks.length > 0);
+            setLatency(snap.latencyMs);
+            publishAccessoryStatus(snap);
           }
-        }
+        } else if (active) publishAccessoryStatus(pipeline.getSnapshot());
         if (
           active &&
           epoch === sourceEpoch.current &&
@@ -443,19 +530,23 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
           );
       })
       .catch((e) => {
-        if (active) setError(e.message);
+        if (active)
+          setError(
+            e instanceof Error ? e.message : "Accessory tracking unavailable",
+          );
       });
     return () => {
       active = false;
     };
   }, [
-    look.hair.enabled,
-    gestures,
+    hairEnabled,
+    handsNeeded,
+    bodyEnabled,
+    poseNeeded,
+    accessoryBits,
     mode,
     sourceUrl,
-    look.accessories.glasses,
-    look.accessories.earrings,
-    look.accessories.necklace,
+    publishAccessoryStatus,
   ]);
   useEffect(() => {
     const pause = () => {
@@ -476,11 +567,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
     setLoading(true);
     setMode("camera");
     try {
-      await pipelineRef.current?.load({
-        face: true,
-        hair: lookRef.current.hair.enabled,
-        hands: gestures || Object.values(look.accessories).some(Boolean),
-      });
+      await pipelineRef.current?.load(featuresRef.current);
       if (epoch !== sourceEpoch.current) return;
       await openCamera(nextFacing);
     } catch (e) {
@@ -554,6 +641,14 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
       "Your preview was downloaded. It has not been stored in your beauty history.",
     );
   };
+  const sourceCaption =
+    mode === "camera"
+      ? "Live mirror"
+      : portraitProvenance
+        ? `AI-generated ${portraitProvenance.feature} preview`
+        : mode === "upload"
+          ? "Your photo"
+          : "Studio portrait";
   return (
     <div className="mirror-column">
       <div
@@ -620,6 +715,7 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
               }
             }}
             ref={canvasRef}
+            data-source-url={sourceUrl}
             style={{ objectFit: framing }}
             width={960}
             height={1200}
@@ -636,17 +732,22 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
         </div>
         <div className="mirror-top">
           <button
-            aria-label={`${mode === "camera" ? "Live mirror" : mode === "upload" ? "Your photo" : "Studio portrait"}${loading ? " · preparing" : ""}: Choose a demo portrait`}
+            aria-label={`${sourceCaption}${loading ? " · preparing" : ""}: Choose a demo portrait`}
             aria-expanded={modelsOpen}
             onClick={() => setModelsOpen((v) => !v)}
             className="mirror-label"
           >
             <span className={tracked ? "live-dot" : "loading-dot"} />
-            {mode === "camera"
-              ? "Live mirror"
-              : mode === "upload"
-                ? "Your photo"
-                : "Studio portrait"}
+            <span
+              style={{
+                maxWidth: "min(36vw,170px)",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {sourceCaption}
+            </span>
             {loading ? " · preparing" : ""}
           </button>
           <div className="mirror-top-actions">
@@ -672,6 +773,69 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             </IconButton>
           </div>
         </div>
+        {mode !== "camera" && portraitProvenance && (
+          <div
+            role="note"
+            aria-label="Generated image provenance"
+            style={{
+              position: "absolute",
+              top: 58,
+              left: 14,
+              right: 70,
+              zIndex: 4,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 8,
+              padding: "4px 8px",
+              background: "rgba(255,250,240,.94)",
+              borderRadius: 6,
+              fontSize: 11,
+              lineHeight: 1.4,
+            }}
+          >
+            <span>
+              <strong>AI-generated {portraitProvenance.feature} preview</strong>
+              <br />
+              Still image · Perfect Corp
+            </span>
+            {portraitProvenance && (
+              <button
+                className="icon-button"
+                aria-label={
+                  originalPortraitUrl
+                    ? "Restore original photo"
+                    : "Use studio portrait"
+                }
+                title={
+                  originalPortraitUrl
+                    ? "Restore original photo"
+                    : "Use studio portrait"
+                }
+                style={{
+                  minHeight: 44,
+                  minWidth: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onClick={() => {
+                  sourceEpoch.current++;
+                  stopCamera();
+                  snapshotRef.current = emptySnapshot();
+                  setMode(
+                    originalPortraitUrl?.startsWith("blob:")
+                      ? "upload"
+                      : "demo",
+                  );
+                  useApp.getState().restoreOriginalPortrait();
+                }}
+              >
+                <RotateCcw size={17} />
+              </button>
+            )}
+          </div>
+        )}
         {modelsOpen && (
           <div
             className="demo-chooser"
@@ -813,6 +977,36 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
             >
               <Columns2 size={18} />
             </IconButton>
+            {accessoryStatus.length > 0 && (
+              <button
+                className="icon-button"
+                aria-label="Accessory tracking details"
+                title="Accessory tracking details"
+                style={{
+                  minWidth: 44,
+                  minHeight: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onClick={() => {
+                  useApp.getState().setStudioMode("style");
+                  useApp.getState().setMirrorView({ mirrorFocused: false });
+                  requestAnimationFrame(() => {
+                    const target = document.querySelector<HTMLElement>(
+                      "#accessory-tracking-details",
+                    );
+                    target?.scrollIntoView({
+                      block: "nearest",
+                      behavior: "instant",
+                    });
+                    target?.focus({ preventScroll: true });
+                  });
+                }}
+              >
+                <Diamond size={16} />
+              </button>
+            )}
             <IconButton
               label={
                 gestures ? "Disable hand gestures" : "Enable hand gestures"
@@ -909,7 +1103,9 @@ export default function LivingMirror({ onSnapshot }: MirrorProps) {
       <div className="mirror-footnote">
         <span>
           <span className="privacy-dot" />
-          Processed on your device. Always your reflection.
+          {mode !== "camera" && portraitProvenance
+            ? "Preview effects processed on your device."
+            : "Processed on your device. Always your reflection."}
         </span>
         <span title="Last model inference latency">
           {latency > 0 ? `${latency.toFixed(0)} ms` : "Local vision"}

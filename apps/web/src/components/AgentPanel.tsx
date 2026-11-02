@@ -13,16 +13,33 @@ import {
   LoaderCircle,
   Mic,
   Sparkles,
+  ShieldCheck,
+  Square,
 } from "lucide-react";
 import {
   executeBeautyRequest,
   type AgentResult,
 } from "../../../../packages/agent-runtime/src";
 import { SAMPLE_PRODUCTS } from "../../../../packages/commerce-engine/src";
-import { saveLook } from "../../../../packages/local-database/src";
+import { saveLook, hasConsent } from "../../../../packages/local-database/src";
+import { useLiveQuery } from "dexie-react-hooks";
+import {
+  buildReasoningPreview,
+  createReasoningTransport,
+  executeRemoteBeautyRequest,
+  RemoteReasoningError,
+  type ReasoningPreview,
+} from "../../../../packages/agent-runtime/src/remote";
+import {
+  REASONING_SCOPES,
+  type ReasoningCapabilities,
+  type ReasoningQuote,
+  type ReasoningScope,
+} from "../../../../packages/agent-runtime/src/reasoning-protocol";
 import { useApp } from "../state/store";
 import { Modal, Mark } from "./ui";
 import "./PrivacySettings.css";
+import "./ReasoningPanel.css";
 
 interface SpeechEvent {
   results: ArrayLike<ArrayLike<{ transcript: string }>>;
@@ -53,7 +70,31 @@ export function AgentPanel() {
   const [text, setText] = useState(""),
     [busy, setBusy] = useState(false),
     [items, setItems] = useState<ConversationItem[]>([]),
-    [listening, setListening] = useState(false);
+    [listening, setListening] = useState(false),
+    [mode, setMode] = useState<"local" | "remote">("local"),
+    [capabilities, setCapabilities] = useState<ReasoningCapabilities | null>(
+      null,
+    ),
+    [reviewOpen, setReviewOpen] = useState(false),
+    [reviewGoal, setReviewGoal] = useState(""),
+    [selectedScopes, setSelectedScopes] = useState<ReasoningScope[]>([]),
+    [allowPersistence, setAllowPersistence] = useState(false),
+    [maximumTurns, setMaximumTurns] = useState(3),
+    [outputTokens, setOutputTokens] = useState(1000),
+    [preview, setPreview] = useState<ReasoningPreview | null>(null),
+    [quote, setQuote] = useState<ReasoningQuote | null>(null),
+    [remoteConsent, setRemoteConsent] = useState(false),
+    [retentionConsent, setRetentionConsent] = useState(false),
+    [maximumUsd, setMaximumUsd] = useState(0),
+    [reviewError, setReviewError] = useState(""),
+    [progress, setProgress] = useState(""),
+    [remoteRunning, setRemoteRunning] = useState(false);
+  const mayShareContext = useLiveQuery(
+    () => hasConsent("remote.history"),
+    [],
+    false,
+  );
+  const remoteAbort = useRef<AbortController | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null),
     endRef = useRef<HTMLDivElement>(null),
     recognitionRef = useRef<SpeechRecognizer | null>(null);
@@ -76,11 +117,38 @@ export function AgentPanel() {
       });
   }, [items, open]);
   useEffect(() => () => recognitionRef.current?.stop(), []);
+  useEffect(() => () => remoteAbort.current?.abort(), []);
+  useEffect(() => {
+    if (mode !== "remote") return;
+    const controller = new AbortController();
+    createReasoningTransport()
+      .capabilities(controller.signal)
+      .then(setCapabilities)
+      .catch((error) => {
+        if (!controller.signal.aborted)
+          setReviewError(
+            error instanceof Error
+              ? error.message
+              : "Connected reasoning is unavailable.",
+          );
+      });
+    return () => controller.abort();
+  }, [mode]);
   useEffect(() => {
     if (!open) recognitionRef.current?.stop();
   }, [open]);
   async function send(request: string) {
     if (!request.trim() || busy) return;
+    if (mode === "remote") {
+      setReviewGoal(request.trim());
+      setReviewOpen(true);
+      setPreview(null);
+      setQuote(null);
+      setRemoteConsent(false);
+      setRetentionConsent(false);
+      setReviewError("");
+      return;
+    }
     setItems((previous) => [
       ...previous,
       { id: crypto.randomUUID(), role: "user", text: request.trim() },
@@ -90,6 +158,9 @@ export function AgentPanel() {
     try {
       const result = await executeBeautyRequest(request, {
         inspectCurrentLook: () => useApp.getState().look,
+        openRemix: () => {
+          useApp.getState().setSpace("remix");
+        },
         applyLook: (look) => setLook(look, "Agent composition"),
         setLipColor: (color) =>
           patchLayer("lipstick", { color, enabled: true }),
@@ -130,6 +201,147 @@ export function AgentPanel() {
       inputRef.current?.focus();
     }
   }
+  function agentContext() {
+    return {
+      inspectCurrentLook: () => useApp.getState().look,
+      openRemix: () => {
+        useApp.getState().setSpace("remix");
+      },
+      applyLook: (
+        look: import("../../../../packages/makeup-engine/src").MakeupLook,
+      ) => setLook(look, "Connected agent composition"),
+      setLipColor: (color: string) =>
+        patchLayer("lipstick", { color, enabled: true }),
+      setHairColor: (color: string) =>
+        patchLayer("hair", { color, enabled: true }),
+      saveLook: async (name: string) => {
+        await saveLook(name, useApp.getState().look);
+        notify(`“${name}” saved to your journal`);
+      },
+      products: SAMPLE_PRODUCTS.map((product) => ({
+        ...product,
+        priceNgn: product.price,
+        sample: product.source === "sample",
+      })),
+    };
+  }
+  function invalidateReview() {
+    setPreview(null);
+    setQuote(null);
+    setRemoteConsent(false);
+    setRetentionConsent(false);
+    setReviewError("");
+  }
+  async function preparePreview() {
+    setBusy(true);
+    setReviewError("");
+    try {
+      setPreview(
+        await buildReasoningPreview(
+          reviewGoal,
+          selectedScopes,
+          agentContext(),
+          allowPersistence,
+        ),
+      );
+      setQuote(null);
+      setRemoteConsent(false);
+      setRetentionConsent(false);
+    } catch (error) {
+      setReviewError(
+        error instanceof Error
+          ? error.message
+          : "The context preview could not be prepared.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function getQuote() {
+    if (!preview) return;
+    setBusy(true);
+    setReviewError("");
+    try {
+      const value = await createReasoningTransport().quote(preview, {
+        maxSteps: maximumTurns,
+        maxOutputTokens: outputTokens,
+      });
+      setQuote(value);
+      setMaximumUsd(value.maximumUsd);
+      setRemoteConsent(false);
+      setRetentionConsent(false);
+    } catch (error) {
+      setReviewError(
+        error instanceof Error
+          ? error.message
+          : "A reasoning quote is unavailable.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function runRemote() {
+    if (!preview || !quote || !remoteConsent || !retentionConsent || busy)
+      return;
+    const controller = new AbortController();
+    remoteAbort.current = controller;
+    setBusy(true);
+    setRemoteRunning(true);
+    setReviewError("");
+    setReviewOpen(false);
+    setText("");
+    setItems((previous) => [
+      ...previous,
+      { id: crypto.randomUUID(), role: "user", text: preview.payload.goal },
+    ]);
+    try {
+      const result = await executeRemoteBeautyRequest(
+        {
+          ...preview,
+          quote,
+          maxUsd: maximumUsd,
+          textTransmission: true,
+          providerRetentionAcknowledged: true,
+        },
+        agentContext(),
+        { signal: controller.signal, onProgress: setProgress },
+      );
+      setItems((previous) => [
+        ...previous,
+        {
+          id: crypto.randomUUID(),
+          role: "assistant",
+          text: result.message,
+          result,
+        },
+      ]);
+    } catch (error) {
+      const result =
+        error instanceof RemoteReasoningError ? error.partialResult : undefined;
+      setItems((previous) => [
+        ...previous,
+        {
+          id: crypto.randomUUID(),
+          role: "assistant",
+          text:
+            result?.message ??
+            (error instanceof Error
+              ? error.message
+              : "Connected reasoning failed."),
+          result,
+        },
+      ]);
+    } finally {
+      remoteAbort.current = null;
+      setBusy(false);
+      setRemoteRunning(false);
+      setProgress("");
+      setQuote(null);
+      setRemoteConsent(false);
+      setRetentionConsent(false);
+      inputRef.current?.focus();
+    }
+  }
   function submit(event: FormEvent) {
     event.preventDefault();
     void send(text);
@@ -167,10 +379,274 @@ export function AgentPanel() {
       <div className="agent-panel">
         <div className="agent-mode">
           <span>
-            <span className="local-dot" /> Local assistant
+            <span className="local-dot" />{" "}
+            {mode === "local" ? "Local assistant" : "Connected reasoning"}
           </span>
-          <span>No image upload · no paid requests</span>
+          <label className="reasoning-mode-label">
+            <span className="sr-only">Assistant mode</span>
+            <select
+              aria-label="Assistant mode"
+              value={mode}
+              disabled={busy}
+              onChange={(event) => {
+                setMode(event.target.value as "local" | "remote");
+                setReviewOpen(false);
+                invalidateReview();
+              }}
+            >
+              <option value="local">Local · no paid requests</option>
+              <option value="remote">Claude / configured provider</option>
+            </select>
+          </label>
         </div>
+        {mode === "remote" && (
+          <div className="reasoning-status">
+            <ShieldCheck size={15} />
+            <span>
+              {capabilities?.ready
+                ? `${capabilities.model} · exact review and a cost quote before each request.`
+                : (capabilities?.unavailableReason ?? reviewError) ||
+                  "Checking server reasoning configuration…"}{" "}
+              Images are never sent by this text-only adapter.
+            </span>
+          </div>
+        )}
+        {mode === "remote" && reviewOpen && (
+          <section
+            className="reasoning-review"
+            aria-label="Review connected reasoning request"
+          >
+            <div className="reasoning-review-heading">
+              <h3>Review before connecting.</h3>
+              <button onClick={() => setReviewOpen(false)} disabled={busy}>
+                Back to chat
+              </button>
+            </div>
+            <label className="field-label">
+              Request to send
+              <textarea
+                aria-label="Request to send"
+                value={reviewGoal}
+                maxLength={4000}
+                rows={2}
+                onChange={(event) => {
+                  setReviewGoal(event.target.value);
+                  invalidateReview();
+                }}
+                disabled={busy}
+              />
+            </label>
+            <p>
+              Only your typed request is selected by default. Choose any
+              additional local context you want this one request to use.
+            </p>
+            <div className="reasoning-scopes">
+              {REASONING_SCOPES.map((scope) => (
+                <label key={scope}>
+                  <input
+                    type="checkbox"
+                    checked={selectedScopes.includes(scope)}
+                    disabled={busy || !mayShareContext}
+                    onChange={(event) => {
+                      setSelectedScopes((previous) =>
+                        event.target.checked
+                          ? [...previous, scope]
+                          : previous.filter((value) => value !== scope),
+                      );
+                      invalidateReview();
+                    }}
+                  />
+                  {
+                    {
+                      currentLook: "Editable mirror controls · no photo",
+                      profile: "Self-reported beauty profile",
+                      preferences: "Up to 8 permitted preferences",
+                      wardrobe: "Up to 50 owned-product records",
+                      history: "Up to 3 saved consultation excerpts",
+                    }[scope]
+                  }
+                </label>
+              ))}
+            </div>
+            {!mayShareContext && (
+              <p className="reasoning-scope-note">
+                Personal-context sharing is off.{" "}
+                <button onClick={() => useApp.getState().setSettingsOpen(true)}>
+                  Review privacy permissions
+                </button>
+                , or send only your typed request.
+              </p>
+            )}
+            <label className="reasoning-permission">
+              <input
+                type="checkbox"
+                checked={allowPersistence}
+                disabled={busy}
+                onChange={(event) => {
+                  setAllowPersistence(event.target.checked);
+                  invalidateReview();
+                }}
+              />
+              Allow this request to save editable looks and create routines
+              locally
+            </label>
+            <p className="reasoning-scope-note">
+              The model can use only the actions listed in the exact preview.
+              Tool-result summaries from those approved actions may be sent back
+              for the next turn. Purchases, image APIs, memory changes and
+              deletion are excluded.
+            </p>
+            <button
+              className="button secondary"
+              onClick={() => void preparePreview()}
+              disabled={busy || !reviewGoal.trim()}
+            >
+              Prepare exact preview
+            </button>
+            {preview && (
+              <>
+                <details className="reasoning-payload" open>
+                  <summary>
+                    Exact outgoing text · {preview.bytes.toLocaleString()} bytes
+                  </summary>
+                  <pre>{JSON.stringify(preview.payload, null, 2)}</pre>
+                </details>
+                <div className="reasoning-limits">
+                  <label>
+                    Maximum model turns
+                    <select
+                      aria-label="Maximum model turns"
+                      value={maximumTurns}
+                      disabled={busy}
+                      onChange={(event) => {
+                        setMaximumTurns(Number(event.target.value));
+                        setQuote(null);
+                        setRemoteConsent(false);
+                        setRetentionConsent(false);
+                      }}
+                    >
+                      {[1, 2, 3, 4].map((value) => (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    Output tokens per turn
+                    <select
+                      aria-label="Output tokens per turn"
+                      value={outputTokens}
+                      disabled={busy}
+                      onChange={(event) => {
+                        setOutputTokens(Number(event.target.value));
+                        setQuote(null);
+                        setRemoteConsent(false);
+                        setRetentionConsent(false);
+                      }}
+                    >
+                      {[256, 512, 1000, 1600].map((value) => (
+                        <option key={value} value={value}>
+                          {value}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+                <button
+                  className="button secondary"
+                  disabled={busy || !capabilities?.ready}
+                  onClick={() => void getQuote()}
+                >
+                  Get a maximum-cost quote
+                </button>
+              </>
+            )}
+            {quote && (
+              <div className="reasoning-quote">
+                <h4>Up to US${quote.maximumUsd.toFixed(6)}</h4>
+                <p>
+                  {quote.maxSteps} model turns maximum · {quote.maxOutputTokens}{" "}
+                  output tokens per turn. Full quote reserved once; cancellation
+                  or uncertain failures do not automatically refund the ceiling.
+                </p>
+                <p>
+                  Operator-reviewed rates dated{" "}
+                  {new Date(
+                    quote.pricingProvenance.reviewedAt,
+                  ).toLocaleDateString()}
+                  .{" "}
+                  <a
+                    href={quote.pricingProvenance.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Pricing source
+                  </a>
+                  . This is a conservative bound, not a live provider-price
+                  lookup.
+                </p>
+                <label className="field-label">
+                  My maximum authorized USD amount
+                  <input
+                    type="number"
+                    aria-label="Maximum authorized USD amount"
+                    min={quote.maximumUsd}
+                    max={10}
+                    step="0.000001"
+                    value={maximumUsd}
+                    onChange={(event) =>
+                      setMaximumUsd(Number(event.target.value))
+                    }
+                  />
+                </label>
+                <label className="reasoning-permission">
+                  <input
+                    type="checkbox"
+                    checked={remoteConsent}
+                    onChange={(event) => setRemoteConsent(event.target.checked)}
+                  />
+                  Send this request, exactly the selected context, and approved
+                  tool-result feedback to the configured provider.
+                </label>
+                <label className="reasoning-permission">
+                  <input
+                    type="checkbox"
+                    checked={retentionConsent}
+                    onChange={(event) =>
+                      setRetentionConsent(event.target.checked)
+                    }
+                  />
+                  I reviewed the maximum cost and understand that the provider
+                  has its own data-retention terms. This app cannot promise
+                  provider-side deletion.
+                </label>
+                <button
+                  className="button primary"
+                  onClick={() => void runRemote()}
+                  disabled={
+                    busy ||
+                    !remoteConsent ||
+                    !retentionConsent ||
+                    !Number.isFinite(maximumUsd) ||
+                    maximumUsd < quote.maximumUsd
+                  }
+                >
+                  Authorize up to US$
+                  {Number.isFinite(maximumUsd)
+                    ? maximumUsd.toFixed(6)
+                    : "—"}{" "}
+                  and run
+                </button>
+              </div>
+            )}
+            {reviewError && (
+              <p className="settings-error" role="alert">
+                {reviewError}
+              </p>
+            )}
+          </section>
+        )}
         <div
           className="agent-conversation"
           role="log"
@@ -203,9 +679,9 @@ export function AgentPanel() {
                 ))}
               </div>
               <p className="agent-footnote">
-                A local command planner powers this assistant. It understands
-                the supported beauty actions below. It does not perform medical
-                diagnosis or claim to be a connected language model.
+                {mode === "local"
+                  ? "A local command planner powers these supported beauty actions. It does not perform medical diagnosis or claim to be a connected language model."
+                  : "Connected reasoning uses only your reviewed text, the tool permissions you approve, and a bounded cost quote. Model guidance is displayed separately from actual action results."}
               </p>
             </div>
           )}
@@ -215,6 +691,30 @@ export function AgentPanel() {
                 {item.role === "user" ? "You" : "True Beauty"}
               </div>
               <div className="agent-message-text">{item.text}</div>
+              {item.result?.mode === "remote" &&
+                item.result.providerGuidance && (
+                  <details className="agent-tool-details">
+                    <summary>
+                      Model guidance · separate from verified actions
+                      <ChevronDown size={14} />
+                    </summary>
+                    <p className="reasoning-model-guidance">
+                      {item.result.providerGuidance}
+                    </p>
+                  </details>
+                )}
+              {item.result?.reasoningUsage && (
+                <p className="reasoning-usage">
+                  {item.result.reasoningUsage.turns} completed model turns ·{" "}
+                  {item.result.reasoningUsage.inputTokens ?? "unreported"} input
+                  / {item.result.reasoningUsage.outputTokens ?? "unreported"}{" "}
+                  output tokens ·{" "}
+                  {item.result.reasoningUsage.reservedMaximumUsd === null
+                    ? "no server reservation confirmed"
+                    : `maximum reservation US$${item.result.reasoningUsage.reservedMaximumUsd.toFixed(6)}`}
+                  . Check your provider for actual billing.
+                </p>
+              )}
               {item.result?.tools.length ? (
                 <details className="agent-tool-details">
                   <summary>
@@ -309,7 +809,16 @@ export function AgentPanel() {
           ))}
           {busy && (
             <div className="agent-thinking" role="status">
-              <LoaderCircle className="spin" size={16} /> Applying your request…
+              <LoaderCircle className="spin" size={16} />{" "}
+              {progress || "Applying your request…"}
+              {remoteRunning && (
+                <button
+                  className="reasoning-stop"
+                  onClick={() => remoteAbort.current?.abort()}
+                >
+                  <Square size={13} /> Stop
+                </button>
+              )}
             </div>
           )}
           <div ref={endRef} />

@@ -208,6 +208,8 @@ export class VisionWorkerClient {
       landmarks: [],
       hairMask: null,
       hands: [],
+      bodyMask: null,
+      pose: null,
     };
   }
 }

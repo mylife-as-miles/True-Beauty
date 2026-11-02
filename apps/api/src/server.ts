@@ -8,13 +8,24 @@ import {
   SkinTaskRequest,
   imageBytes,
 } from "./contracts";
-import { PerfectCorpProvider, pricingHash } from "./provider";
+import {
+  PerfectCorpProvider,
+  pricingHash,
+  skinProviderFailure,
+  type SkinProviderFailure,
+} from "./provider";
 import { FileBudgetLedger, type BudgetLedger } from "./budget";
 import {
   parseProviderSkinResult,
   type SkinAnalysisResult,
 } from "../../../packages/skin-engine/src/provider";
 import type { z } from "zod";
+import {
+  registerGenerationRoutes,
+  type GenerationRouteOptions,
+} from "./generation";
+import { registerReasoningRoutes, type ReasoningOptions } from "./reasoning";
+import { registerMerchantRoutes, type MerchantRouteOptions } from "./merchant";
 type Plan = z.infer<typeof ApprovedPlan>;
 interface Provider {
   pricing(): Promise<unknown[]>;
@@ -33,6 +44,9 @@ interface ApiOptions {
   ledger?: BudgetLedger;
   allowedOrigins?: string[];
   now?: () => number;
+  generation?: Partial<Omit<GenerationRouteOptions, "getSessionId">>;
+  reasoning?: Partial<Omit<ReasoningOptions, "sessionId">>;
+  merchant?: MerchantRouteOptions;
 }
 interface Session {
   csrf: string;
@@ -51,6 +65,7 @@ interface Task {
   status: "creating" | "running" | "success" | "error";
   result?: SkinAnalysisResult;
   error?: string;
+  providerFailure?: SkinProviderFailure;
   expires: number;
   nextPoll: number;
   polling?: Promise<void>;
@@ -173,12 +188,10 @@ export function createApi(options: ApiOptions = {}) {
       reply.code(413).send({ error: "The image request is too large." });
       return;
     }
-    reply
-      .code(500)
-      .send({
-        error:
-          "The service could not complete this request. No analysis result was created.",
-      });
+    reply.code(500).send({
+      error:
+        "The service could not complete this request. No analysis result was created.",
+    });
   });
   app.get("/api/health", async () => ({
     ok: true,
@@ -196,14 +209,14 @@ export function createApi(options: ApiOptions = {}) {
       allowedActions: plan?.actions ?? [],
       liveVerified: false,
     },
-    hairGeneration: { configured: false },
-    fashionGeneration: { configured: false },
-    languageModel: { configured: false },
+    hairGeneration: generationRoutes.capabilities().features.hair,
+    fashionGeneration: generationRoutes.capabilities().features.clothing,
+    languageModel: reasoningRoutes.capabilities(),
     retention: {
       localServer:
         "Image bytes are held only during upload, then released. Task results expire after 15 minutes.",
       provider:
-        "Perfect Corp documents task results retained for 24 hours; its own terms govern processing.",
+        "Perfect Corp publishes media/file retention of up to 30 days. Some task documentation still says 24 hours; assume the longer period.",
     },
   }));
   app.get("/api/session", async (req, reply) => {
@@ -426,8 +439,8 @@ export function createApi(options: ApiOptions = {}) {
                 task.status = "success";
               } else if (response.task_status === "error") {
                 task.status = "error";
-                task.error =
-                  "The provider could not analyse this image. Try a clear front-facing photo in even light.";
+                task.providerFailure = skinProviderFailure(response);
+                task.error = `${task.providerFailure.summary} ${task.providerFailure.recovery}`;
               }
             } catch {
               task.error =
@@ -443,6 +456,7 @@ export function createApi(options: ApiOptions = {}) {
         status: task.status,
         result: task.result,
         error: task.error,
+        providerFailure: task.providerFailure,
         pollAfterMs: 10000,
         expiresAt: new Date(task.expires).toISOString(),
       };
@@ -463,6 +477,24 @@ export function createApi(options: ApiOptions = {}) {
       };
     },
   );
+  const currentSession = (request: import("fastify").FastifyRequest) => {
+    const id = sessionId(request.headers.cookie),
+      value = id ? sessions.get(id) : undefined;
+    return id && value && value.expires > now() ? id : undefined;
+  };
+  const generationRoutes = registerGenerationRoutes(app, {
+    getSessionId: currentSession,
+    ledger,
+    dailyCredits,
+    now,
+    ...options.generation,
+  });
+  const reasoningRoutes = registerReasoningRoutes(app, {
+    sessionId: currentSession,
+    now,
+    ...options.reasoning,
+  });
+  registerMerchantRoutes(app, { now, ...options.merchant });
   return app;
 }
 if (

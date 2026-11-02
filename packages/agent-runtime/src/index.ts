@@ -9,6 +9,7 @@ import {
   type AgentToolRun,
   type BeautyDatabase,
   type JsonValue,
+  type Profile,
 } from "../../local-database/src";
 import {
   rememberPreference,
@@ -19,6 +20,7 @@ import {
 } from "../../beauty-memory/src";
 import {
   createDefaultLook,
+  ACCESSORY_KEYS,
   LOOK_PRESETS,
   normalizeLook,
   type MakeupLook,
@@ -71,7 +73,15 @@ export const TOOL_SCHEMAS = {
   setHairColor: z.object({ color: hex }).strict(),
   previewAccessory: z
     .object({
-      accessory: z.enum(["glasses", "earrings", "necklace"]),
+      accessory: z.enum([
+        "glasses",
+        "earrings",
+        "necklace",
+        "ring",
+        "bracelet",
+        "watch",
+        "hat",
+      ]),
       enabled: z.boolean(),
     })
     .strict(),
@@ -105,6 +115,7 @@ export const TOOL_SCHEMAS = {
     .object({ consent: z.boolean(), costAuthorized: z.boolean() })
     .strict(),
   explainRecommendation: z.object({}).strict(),
+  openRemix: z.object({}).strict(),
 };
 export type ToolName = keyof typeof TOOL_SCHEMAS;
 export interface ToolCall {
@@ -133,7 +144,14 @@ export interface AgentContext {
   saveLook?: (name: string) => void | Promise<void>;
   inspectCurrentLook?: () => MakeupLook | Promise<MakeupLook>;
   products?: AgentProduct[];
-  ownedProducts?: Array<{ productId: string }>;
+  ownedProducts?: Array<{ productId: string; name?: string }>;
+  openRemix?: () => void | Promise<void>;
+  onlyApprovedContext?: boolean;
+  approvedProfile?: Pick<
+    Profile,
+    "skinType" | "budget" | "currency" | "concerns" | "preferences"
+  >;
+  approvedPreferences?: Array<{ key: string; value: JsonValue }>;
   analyzeSkin?: () => Promise<{ summary: string }>;
   analysisAuthorization?: {
     consentId: string;
@@ -182,7 +200,14 @@ export interface AgentResult {
     explanation: string;
   }>;
   episodeId: string;
-  mode: "local";
+  mode: "local" | "remote";
+  providerGuidance?: string;
+  reasoningUsage?: {
+    turns: number;
+    inputTokens: number | null;
+    outputTokens: number | null;
+    reservedMaximumUsd: number | null;
+  };
 }
 export interface LLMProviderAdapter {
   name: string;
@@ -201,6 +226,19 @@ async function currentLook(context: AgentContext) {
       ? await context.inspectCurrentLook()
       : createDefaultLook(),
   );
+}
+async function readAgentProfile(
+  context: AgentContext,
+  database: BeautyDatabase,
+) {
+  return context.onlyApprovedContext
+    ? context.approvedProfile
+    : database.profiles.get(localProfileId);
+}
+function readAgentMemory(context: AgentContext) {
+  return context.onlyApprovedContext
+    ? (context.approvedPreferences ?? []).map((node) => ({ node }))
+    : (context.permittedMemory ?? []);
 }
 async function updateLook(
   context: AgentContext,
@@ -245,6 +283,8 @@ export function planLocalRequest(text: string): ToolCall[] {
   const request = text.trim(),
     lower = request.toLowerCase(),
     tools: ToolCall[] = [];
+  if (/\b(?:open|show|go to)\b.*\b(?:remix|inspiration)\b/.test(lower))
+    return [{ name: "openRemix", args: {} }];
   if (/forget.*(?:last|latest).*skin.*scan/.test(lower))
     return [{ name: "forgetLastSkinScan", args: {} }];
   if (/\b(?:why|explain|evidence)\b/.test(lower))
@@ -345,7 +385,9 @@ export function planLocalRequest(text: string): ToolCall[] {
         },
       });
   }
-  const accessory = lower.match(/\b(glasses|earrings|necklace)\b/)?.[1];
+  const accessory = lower.match(
+    /\b(glasses|earrings|necklace|ring|bracelet|watch|hat)\b/,
+  )?.[1];
   if (accessory)
     tools.push({
       name: "previewAccessory",
@@ -567,7 +609,7 @@ export async function executeTool(
             "Open the Living Mirror to apply this look.",
           );
         const look = structuredClone(preset.look);
-        const finish = context.permittedMemory?.find(
+        const finish = readAgentMemory(context).find(
           (m) =>
             m.node.key.includes("finish") &&
             typeof m.node.value === "string" &&
@@ -623,6 +665,10 @@ export async function executeTool(
         break;
       }
       case "previewAccessory": {
+        if (!ACCESSORY_KEYS.some((key) => key === args.accessory))
+          throw new ToolUnavailableError(
+            "This accessory preview is not implemented by the current renderer.",
+          );
         await updateLook(context, (look) => {
           look.accessories[args.accessory as keyof MakeupLook["accessories"]] =
             args.enabled as boolean;
@@ -647,7 +693,11 @@ export async function executeTool(
         break;
       }
       case "inspectBeautyWardrobe": {
-        const owned = await database.ownedProducts.toArray();
+        const owned =
+          context.ownedProducts ??
+          (context.onlyApprovedContext
+            ? []
+            : await database.ownedProducts.toArray());
         run.summary = owned.length
           ? `Your local wardrobe contains ${owned.length} product${owned.length === 1 ? "" : "s"}: ${owned.map((p) => p.name ?? context.products?.find((v) => v.id === p.productId)?.name ?? p.productId).join(", ")}.`
           : "Your beauty wardrobe is empty. Add products you own from the shop.";
@@ -657,14 +707,19 @@ export async function executeTool(
       case "findProduct": {
         const products =
           context.products ??
-          ((await database.products.toArray()) as AgentProduct[]);
+          (context.onlyApprovedContext
+            ? []
+            : ((await database.products.toArray()) as AgentProduct[]));
         const owned = new Set(
           (
-            context.ownedProducts ?? (await database.ownedProducts.toArray())
+            context.ownedProducts ??
+            (context.onlyApprovedContext
+              ? []
+              : await database.ownedProducts.toArray())
           ).map((p) => p.productId),
         );
-        const profile = await database.profiles.get(localProfileId);
-        const memory = context.permittedMemory ?? [];
+        const profile = await readAgentProfile(context, database);
+        const memory = readAgentMemory(context);
         const ownedPreference = memory.find(
           (m) =>
             /owned.only|only.owned|use.owned/.test(m.node.key) &&
@@ -736,10 +791,17 @@ export async function executeTool(
       case "buildSkincareRoutine": {
         const period = args.period as "AM" | "PM",
           now = Date.now(),
-          profile = await database.profiles.get(localProfileId),
-          owned = await database.ownedProducts.toArray();
+          profile = await readAgentProfile(context, database),
+          owned =
+            context.ownedProducts ??
+            (context.onlyApprovedContext
+              ? []
+              : await database.ownedProducts.toArray());
         let catalog = normalizedCatalog(
-          context.products ?? (await database.products.toArray()),
+          context.products ??
+            (context.onlyApprovedContext
+              ? []
+              : await database.products.toArray()),
         );
         if (context.selectedPlan) {
           const selected = new Set([
@@ -861,6 +923,15 @@ export async function executeTool(
         run.summary = (await context.analyzeSkin()).summary;
         break;
       }
+      case "openRemix":
+        if (!context.openRemix)
+          throw new ToolUnavailableError(
+            "The local inspiration-remix controller is not connected here.",
+          );
+        await context.openRemix();
+        run.summary =
+          "Opened the local inspiration-remix space. No image was uploaded or analysed by this command.";
+        break;
       case "explainRecommendation": {
         const memory = await retrieveMemories("", { limit: 4 }, database);
         run.summary = memory.length

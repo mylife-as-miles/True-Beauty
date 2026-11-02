@@ -1,0 +1,83 @@
+{
+  "libraries": [
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "declaredLicense": "MIT",
+      "notice": "react-LICENSE.txt"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1",
+      "declaredLicense": "MIT",
+      "notice": "react-dom-LICENSE.txt"
+    },
+    {
+      "name": "three",
+      "version": "0.181.2",
+      "declaredLicense": "MIT",
+      "notice": "three-LICENSE.txt"
+    },
+    {
+      "name": "@react-three/fiber",
+      "version": "9.8.2",
+      "declaredLicense": "MIT",
+      "notice": "react-three-fiber-LICENSE.txt"
+    },
+    {
+      "name": "dexie",
+      "version": "4.4.7",
+      "declaredLicense": "Apache-2.0",
+      "notice": "dexie-LICENSE.txt"
+    },
+    {
+      "name": "dexie-react-hooks",
+      "version": "4.4.0",
+      "declaredLicense": "Apache-2.0",
+      "notice": "dexie-react-hooks-LICENSE.txt"
+    },
+    {
+      "name": "zustand",
+      "version": "5.0.16",
+      "declaredLicense": "MIT",
+      "notice": "zustand-LICENSE.txt"
+    },
+    {
+      "name": "zod",
+      "version": "4.6.7",
+      "declaredLicense": "MIT",
+      "notice": "zod-LICENSE.txt"
+    },
+    {
+      "name": "lucide-react",
+      "version": "0.552.0",
+      "declaredLicense": "ISC",
+      "notice": "lucide-react-LICENSE.txt"
+    },
+    {
+      "name": "@mediapipe/tasks-vision",
+      "version": "0.10.35",
+      "declaredLicense": "Apache-2.0",
+      "notice": "Apache-2.0.txt"
+    },
+    {
+      "name": "@techstark/opencv-js",
+      "version": "5.0.0-release.1",
+      "declaredLicense": "Apache-2.0",
+      "notice": "techstark-opencv-js-LICENSE.txt"
+    }
+  ],
+  "sourceNotices": [
+    "OpenMakeupSDK-MIT.txt",
+    "MIROIR-MIT.txt",
+    "Skyn-MIT.txt",
+    "Virtual-Makeup-attribution.md",
+    "OpenCV-Apache-2.0.txt",
+    "MediaPipe-models.md",
+    "Apache-2.0.txt"
+  ],
+  "limitations": [
+    "Virtual Makeup standalone full notice is still absent upstream; preserve available declaration without inventing a notice.",
+    "This inventory does not clear photograph/model releases, provider-output terms or every transitive dependency."
+  ]
+}

@@ -154,6 +154,9 @@ test("self-reported corrections create a real budget routine and journal complet
 test("manual swatches work without inference and remote availability is truthful", async ({
   page,
 }, testInfo) => {
+  // This case exercises an unavailable deployment, independent of an operator's
+  // separately authorized live provider configuration.
+  await page.route('**/api/capabilities', route => route.fulfill({json:{skinAnalysis:{configured:false,paidEnabled:false,pricingPlanConfigured:false,status:'unavailable',allowedActions:[],liveVerified:false}}}));
   await page.goto("/");
   await goSkin(page);
   await page.getByLabel("Correct skin colour").fill("#82543a");

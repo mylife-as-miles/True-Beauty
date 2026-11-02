@@ -14,6 +14,9 @@ import {
   Palette,
   WifiOff,
   UserRound,
+  WandSparkles,
+  TestTubeDiagonal,
+  Fingerprint,
 } from "lucide-react";
 import { db, initializeDatabase } from "../../../packages/local-database/src";
 import { useApp } from "./state/store";
@@ -22,6 +25,10 @@ import { ViewErrorBoundary } from "./components/ErrorBoundary";
 import Studio from "./components/Studio";
 import Discover from "./components/Discover";
 import Journal from "./components/Journal";
+const DigitalTwin = lazy(() => import("./components/DigitalTwin"));
+const LookRemix = lazy(() => import("./components/LookRemix"));
+const RemoteStudio = lazy(() => import("./components/RemoteStudio"));
+const ValidationLab = lazy(() => import("./components/ValidationLab"));
 const SkinLab = lazy(() => import("./components/SkinLab"));
 const DressingRoom = lazy(() => import("./components/DressingRoom"));
 const VisualCanvas = lazy(() => import("./components/VisualCanvas"));
@@ -35,6 +42,12 @@ const PrivacySettings = lazy(() =>
 );
 export default function App() {
   const mirrorFocused = useApp((s) => s.mirrorFocused);
+  const portraitUrl = useApp((s) => s.portraitUrl),
+    portraitVision = useApp((s) => s.portraitVision),
+    currentLook = useApp((s) => s.look),
+    portraitProvenance = useApp((s) => s.portraitProvenance),
+    lighting = useApp((s) => s.lighting),
+    generationFeature = useApp((s) => s.generationFeature);
   const space = useApp((s) => s.space),
     setSpace = useApp((s) => s.setSpace),
     toast = useApp((s) => s.toast),
@@ -133,7 +146,8 @@ export default function App() {
       </header>
       <div className="workspace">
         <aside
-          className={`nav-rail ${menu ? "open" : ""}`}
+          className={`nav-rail extended-rail ${menu ? "open" : ""}`}
+          onClick={() => setMenu(false)}
           aria-label="Beauty spaces"
         >
           <nav aria-label="Beauty spaces">
@@ -158,6 +172,33 @@ export default function App() {
             >
               <Palette size={21} />
               <span>Inspiration canvas</span>
+            </button>
+            <button
+              className={space === "twin" ? "active" : ""}
+              onClick={() => setSpace("twin")}
+              aria-label="Beauty profile"
+              title="Beauty profile"
+            >
+              <Fingerprint size={21} />
+              <span>Beauty profile</span>
+            </button>
+            <button
+              className={space === "remix" ? "active" : ""}
+              onClick={() => setSpace("remix")}
+              aria-label="Look Remix"
+              title="Look Remix"
+            >
+              <WandSparkles size={21} />
+              <span>Look Remix</span>
+            </button>
+            <button
+              className={space === "validation" ? "active" : ""}
+              onClick={() => setSpace("validation")}
+              aria-label="Device & fairness lab"
+              title="Device & fairness lab"
+            >
+              <TestTubeDiagonal size={21} />
+              <span>Device & fairness lab</span>
             </button>
             <button
               className={space === "journal" ? "active" : ""}
@@ -219,6 +260,54 @@ export default function App() {
                 <Journal />
               ) : space === "canvas" ? (
                 <VisualCanvas />
+              ) : space === "remix" ? (
+                <LookRemix
+                  portraitUrl={portraitUrl}
+                  {...(portraitVision?.url === portraitUrl
+                    ? { targetSnapshot: portraitVision.snapshot }
+                    : {})}
+                  onApply={(look) => {
+                    useApp.getState().setLook(look, "Remixed inspiration");
+                    useApp.getState().setFocusLayer("lipstick");
+                  }}
+                  onReturnToMirror={() =>
+                    useApp.getState().setStudioMode("makeup")
+                  }
+                />
+              ) : space === "twin" ? (
+                <DigitalTwin
+                  portraitUrl={portraitUrl}
+                  portraitProvenance={portraitProvenance}
+                  look={currentLook}
+                  lighting={lighting}
+                  onApplyComplete={(saved) =>
+                    useApp.getState().applySavedLook(saved)
+                  }
+                  onOpenMirror={() => useApp.getState().setStudioMode("makeup")}
+                  onOpenOutfit={(id) => {
+                    useApp.getState().setCompleteScene({ activeOutfitId: id });
+                    setWardrobeTab("outfits");
+                    setSpace("wardrobe");
+                  }}
+                />
+              ) : space === "generation" ? (
+                <RemoteStudio
+                  initialFeature={generationFeature}
+                  onClose={() => setSpace("studio")}
+                  onUseResult={(blob, meta) => {
+                    useApp
+                      .getState()
+                      .setGeneratedPortrait(URL.createObjectURL(blob), meta);
+                    useApp.getState().setStudioMode("makeup");
+                    useApp
+                      .getState()
+                      .notify(
+                        `AI-generated ${meta.feature} preview opened. This is a generated image.`,
+                      );
+                  }}
+                />
+              ) : space === "validation" ? (
+                <ValidationLab portraitUrl={portraitUrl} look={currentLook} />
               ) : (
                 <>
                   <div className="wardrobe-tabs filter-tabs">

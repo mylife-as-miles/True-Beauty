@@ -33,6 +33,8 @@ export class FileBudgetLedger implements BudgetLedger {
     if (
       !Number.isFinite(credits) ||
       credits <= 0 ||
+      !Number.isFinite(maximum) ||
+      maximum <= 0 ||
       state.credits + credits > maximum
     )
       throw new Error("The server daily credit ceiling has been reached.");

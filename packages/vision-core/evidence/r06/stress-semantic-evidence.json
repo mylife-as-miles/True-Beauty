@@ -1,0 +1,335 @@
+{
+  "recordedAt": "2026-11-02T13:50:53.535Z",
+  "browser": "154.0.8037.57",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "stress": [
+    {
+      "label": "reference",
+      "source": "synthetic transform of one licensed evaluation portrait",
+      "summary": {
+        "timestamp": 1435.300000000745,
+        "latencyMs": 893.5,
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "idle"
+          },
+          "hands": {
+            "state": "ready"
+          },
+          "body": {
+            "state": "ready"
+          },
+          "pose": {
+            "state": "ready"
+          }
+        },
+        "facePoints": 478,
+        "handCount": 1,
+        "posePoints": 33,
+        "visiblePosePoints": 18,
+        "body": {
+          "width": 171,
+          "height": 256,
+          "pixels": 43776,
+          "classCounts": {
+            "background": 14841,
+            "hair": 3209,
+            "body-skin": 5732,
+            "face-skin": 10098,
+            "clothes": 9896,
+            "other": 0
+          },
+          "meanWinningConfidence": 0.9039930345596778
+        },
+        "scheduler": null,
+        "disclosure": "Technical model availability and prediction confidence only. No medical, identity, fit, depth or fairness conclusion."
+      },
+      "predictionAgreement": {
+        "1": {
+          "available": true,
+          "intersection": 3209,
+          "union": 3209,
+          "iou": 1,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "2": {
+          "available": true,
+          "intersection": 5732,
+          "union": 5732,
+          "iou": 1,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "3": {
+          "available": true,
+          "intersection": 10098,
+          "union": 10098,
+          "iou": 1,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "4": {
+          "available": true,
+          "intersection": 9896,
+          "union": 9896,
+          "iou": 1,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        }
+      }
+    },
+    {
+      "label": "underexposed-simulation",
+      "source": "synthetic transform of one licensed evaluation portrait",
+      "summary": {
+        "timestamp": 2339.800000000745,
+        "latencyMs": 397.19999999925494,
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "idle"
+          },
+          "hands": {
+            "state": "ready"
+          },
+          "body": {
+            "state": "ready"
+          },
+          "pose": {
+            "state": "ready"
+          }
+        },
+        "facePoints": 478,
+        "handCount": 1,
+        "posePoints": 33,
+        "visiblePosePoints": 20,
+        "body": {
+          "width": 171,
+          "height": 256,
+          "pixels": 43776,
+          "classCounts": {
+            "background": 14888,
+            "hair": 3158,
+            "body-skin": 5715,
+            "face-skin": 10147,
+            "clothes": 9868,
+            "other": 0
+          },
+          "meanWinningConfidence": 0.9024985007436576
+        },
+        "scheduler": null,
+        "disclosure": "Technical model availability and prediction confidence only. No medical, identity, fit, depth or fairness conclusion."
+      },
+      "predictionAgreement": {
+        "1": {
+          "available": true,
+          "intersection": 3152,
+          "union": 3215,
+          "iou": 0.9804043545878693,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "2": {
+          "available": true,
+          "intersection": 5692,
+          "union": 5755,
+          "iou": 0.9890529973935708,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "3": {
+          "available": true,
+          "intersection": 10077,
+          "union": 10168,
+          "iou": 0.9910503540519277,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "4": {
+          "available": true,
+          "intersection": 9848,
+          "union": 9916,
+          "iou": 0.9931423961274708,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        }
+      }
+    },
+    {
+      "label": "warm-light-simulation",
+      "source": "synthetic transform of one licensed evaluation portrait",
+      "summary": {
+        "timestamp": 2748.10000000149,
+        "latencyMs": 408.5,
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "idle"
+          },
+          "hands": {
+            "state": "ready"
+          },
+          "body": {
+            "state": "ready"
+          },
+          "pose": {
+            "state": "ready"
+          }
+        },
+        "facePoints": 478,
+        "handCount": 1,
+        "posePoints": 33,
+        "visiblePosePoints": 18,
+        "body": {
+          "width": 171,
+          "height": 256,
+          "pixels": 43776,
+          "classCounts": {
+            "background": 14837,
+            "hair": 3206,
+            "body-skin": 5730,
+            "face-skin": 10108,
+            "clothes": 9895,
+            "other": 0
+          },
+          "meanWinningConfidence": 0.9032246747948719
+        },
+        "scheduler": null,
+        "disclosure": "Technical model availability and prediction confidence only. No medical, identity, fit, depth or fairness conclusion."
+      },
+      "predictionAgreement": {
+        "1": {
+          "available": true,
+          "intersection": 3198,
+          "union": 3217,
+          "iou": 0.9940938762822505,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "2": {
+          "available": true,
+          "intersection": 5709,
+          "union": 5753,
+          "iou": 0.9923518164435946,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "3": {
+          "available": true,
+          "intersection": 10081,
+          "union": 10125,
+          "iou": 0.9956543209876543,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "4": {
+          "available": true,
+          "intersection": 9882,
+          "union": 9909,
+          "iou": 0.997275204359673,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        }
+      }
+    },
+    {
+      "label": "blur-simulation",
+      "source": "synthetic transform of one licensed evaluation portrait",
+      "summary": {
+        "timestamp": 3167.699999999255,
+        "latencyMs": 389.80000000074506,
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "idle"
+          },
+          "hands": {
+            "state": "ready"
+          },
+          "body": {
+            "state": "ready"
+          },
+          "pose": {
+            "state": "ready"
+          }
+        },
+        "facePoints": 478,
+        "handCount": 1,
+        "posePoints": 33,
+        "visiblePosePoints": 18,
+        "body": {
+          "width": 171,
+          "height": 256,
+          "pixels": 43776,
+          "classCounts": {
+            "background": 14859,
+            "hair": 3154,
+            "body-skin": 5677,
+            "face-skin": 10119,
+            "clothes": 9967,
+            "other": 0
+          },
+          "meanWinningConfidence": 0.9015271817327188
+        },
+        "scheduler": null,
+        "disclosure": "Technical model availability and prediction confidence only. No medical, identity, fit, depth or fairness conclusion."
+      },
+      "predictionAgreement": {
+        "1": {
+          "available": true,
+          "intersection": 3141,
+          "union": 3222,
+          "iou": 0.9748603351955307,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "2": {
+          "available": true,
+          "intersection": 5630,
+          "union": 5779,
+          "iou": 0.9742169925592663,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "3": {
+          "available": true,
+          "intersection": 10062,
+          "union": 10155,
+          "iou": 0.9908419497784343,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        },
+        "4": {
+          "available": true,
+          "intersection": 9863,
+          "union": 10000,
+          "iou": 0.9863,
+          "interpretation": "Prediction agreement, not ground-truth segmentation accuracy."
+        }
+      }
+    }
+  ],
+  "occlusion": {
+    "rawPixels": 52204,
+    "maskedPixels": 50056,
+    "semanticChangedPixels": 2913
+  },
+  "coverage": {
+    "eligibleSamples": 1,
+    "excludedWithoutConsent": 0,
+    "groups": {
+      "unlabelled": 1
+    },
+    "devices": {
+      "Linux software Chromium server": 1
+    },
+    "availability": {
+      "face": 1,
+      "pose": 1,
+      "body": 1
+    },
+    "fairnessStatus": "unverified",
+    "limitations": "Small convenience fixtures and availability counts do not establish demographic parity, population accuracy or physical-device performance. Group labels are user/reviewer supplied; none are inferred."
+  },
+  "limitations": [
+    "Lighting and blur are simulated stressors, not new people or complexion cohorts.",
+    "Prediction agreement is relative to another prediction and has no annotated ground truth.",
+    "Viewport emulation is not physical mobile validation.",
+    "Occlusion preserves actual face/hand/pose projections and bypasses only semantic exclusion via test instrumentation in the left panel. No metric depth or fit claim."
+  ]
+}

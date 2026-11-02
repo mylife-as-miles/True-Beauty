@@ -81,3 +81,49 @@ describe("unified shopping bag adapted from MIROIR", () => {
     expect(() => addLine(addLine([], item, { qty: 99 }), item)).toThrow();
   });
 });
+
+describe("currency and source identity", () => {
+  const item: BagItem = {
+    id: "one",
+    name: "One shade",
+    kind: "makeup",
+    price: 10,
+    currency: "USD",
+    variantId: "rose",
+    sample: true,
+  };
+  it("never merges the same shade in two currencies and requires an unambiguous legacy edit", () => {
+    let bag = addLine([], item);
+    bag = addLine(bag, { ...item, currency: "NGN", price: 9500 });
+    expect(bag).toHaveLength(2);
+    expect(bagTotals(bag)).toEqual({ USD: 10, NGN: 9500 });
+    expect(() => setLineQty(bag, "one", 2, undefined, "rose")).toThrow(
+      /currency/,
+    );
+    expect(setLineQty(bag, "one", 2, undefined, "rose", "NGN")[1].qty).toBe(2);
+  });
+});
+it("generic price freshness cannot promote imported, invalid-date or future-dated records", () => {
+  const base = {
+    amount: 100,
+    currency: "NGN" as const,
+    kind: "verified" as const,
+    observedAt: "2026-11-02T12:00:00.000Z",
+    sourceUrl: "https://example.test",
+    merchant: "Fixture",
+  };
+  const now = Date.parse("2026-11-02T12:01:00Z");
+  for (const record of [
+    { ...base, imported: true },
+    { ...base, kind: "imported" as const },
+    { ...base, observedAt: "invalid" },
+    { ...base, observedAt: "2030-01-01T00:00:00.000Z" },
+  ])
+    expect(getPriceState(record, now)).toMatchObject({
+      fresh: false,
+      verified: false,
+    });
+  expect(getPriceState({ ...base, imported: true }, now).label).toMatch(
+    /Imported/,
+  );
+});

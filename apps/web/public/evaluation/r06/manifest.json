@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "recordedAt": "2026-11-02T13:39:01.873Z",
+  "purpose": "Factual non-training local pose/occlusion evaluation only. Not a beauty-product demonstration or marketing endorsement.",
+  "fixtures": [
+    {
+      "id": "iss040e006091",
+      "path": "/evaluation/r06/iss040e006091.jpg",
+      "sha256": "28fe479b52352a23f1b06bc285aef30693929b413c855538178f5b26bc672166",
+      "sourceImageUrl": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~medium.jpg",
+      "sourceRecord": "https://images-api.nasa.gov/search?nasa_id=iss040e006091",
+      "credit": "NASA/JSC; photographer Reid Wiseman",
+      "role": "application-level evaluation holdout",
+      "rightsBasis": "NASA official factual educational/informational-use policy; generally not subject to UScopyright, subject to stated third-party and likeness/employee/noendorsement restrictions. This is not a CC0 assertion.",
+      "restrictions": [
+        "No NASA endorsement or implied product association.",
+        "No subject demographic group is inferred or annotated.",
+        "Not a representative fairness cohort.",
+        "Application-level holdout only; no claim that upstream model never trained on these public images.",
+        "No model training or optimization on these fixtures.",
+        "Do not reuse for commercial beauty marketing without a separate rights review."
+      ],
+      "cohort": "unlabelled; do not infer demographic groups",
+      "trainingUse": false
+    },
+    {
+      "id": "iss018e030096",
+      "path": "/evaluation/r06/iss018e030096.jpg",
+      "sha256": "df21b873d7bc9021502ff5ea08b8937f77769c18aecb5739c2329b052ead0eb0",
+      "sourceImageUrl": "https://images-assets.nasa.gov/image/iss018e030096/iss018e030096~medium.jpg",
+      "sourceRecord": "https://images-api.nasa.gov/search?nasa_id=iss018e030096",
+      "credit": "NASA/JSC",
+      "role": "application-level evaluation holdout",
+      "rightsBasis": "NASA official factual educational/informational-use policy; generally not subject to UScopyright, subject to stated third-party and likeness/employee/noendorsement restrictions. This is not a CC0 assertion.",
+      "restrictions": [
+        "No NASA endorsement or implied product association.",
+        "No subject demographic group is inferred or annotated.",
+        "Not a representative fairness cohort.",
+        "Application-level holdout only; no claim that upstream model never trained on these public images.",
+        "No model training or optimization on these fixtures.",
+        "Do not reuse for commercial beauty marketing without a separate rights review."
+      ],
+      "cohort": "unlabelled; do not infer demographic groups",
+      "trainingUse": false
+    }
+  ]
+}

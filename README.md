@@ -2,7 +2,9 @@
 
 An original, local-first beauty studio with a Living Mirror, editable makeup/hair previews, Skin Lab colour exploration, products and routines, wardrobe, inspiration canvas, and a tool-using beauty companion with editable BeautyGraph memory.
 
-This repository is an active engineering build. **The complete product acceptance gate is not met.** Implemented local workflows are real; live YouCam skin analysis, generative clothing/hairstyles, broad device/fairness validation and remaining scope are tracked explicitly. See [feature status](docs/FEATURE_MATRIX.md), [quality evidence](docs/QUALITY_REPORT.md), and [remaining work](docs/REMAINING_WORK.md).
+This repository is an active engineering build. **The complete product acceptance gate is not met.** Implemented local workflows are real. Genuine synthetic-fixture YouCam skin/hair/clothing and native Claude tool execution are now recorded; public paid-backend hosting, broad device/fairness validation and remaining scope are tracked explicitly. See [feature status](docs/FEATURE_MATRIX.md), [quality evidence](docs/QUALITY_REPORT.md), and [remaining work](docs/REMAINING_WORK.md).
+
+Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Its public static deployment is separate from the locally verified provider API; see [DEPLOYMENT](docs/DEPLOYMENT.md).
 
 ## Run locally
 
@@ -20,7 +22,7 @@ Open http://localhost:5173. No account, API key or camera permission is needed f
 npm run dev:api
 ```
 
-API defaults to http://127.0.0.1:3001. Missing provider configuration is an explicit unavailable state. Do not put any credential in a `VITE_*` variable. [API contracts and configuration](docs/API_CONTRACTS.md) document exact server-only controls. Paid calls are disabled by default and were not executed during verification.
+API defaults to http://127.0.0.1:3001. Missing provider configuration is an explicit unavailable state. Do not put any credential in a `VITE_*` variable. [API contracts and configuration](docs/API_CONTRACTS.md) document exact server-only controls. Paid calls remain disabled by default. Genuine manually authorized verification is documented separately in [LIVE_PROVIDER_VERIFICATION_R06](docs/LIVE_PROVIDER_VERIFICATION_R06.md); automatic tests never require paid credentials.
 
 Production/offline:
 
@@ -51,13 +53,13 @@ node packages/vision-core/scripts/verify-lifecycle.mjs http://127.0.0.1:5173
 GRAPHICS_TEST_ORIGIN=http://127.0.0.1:5173 node packages/ar-renderer/scripts/smoke.mjs
 ```
 
-Checkpoint verification:97unit/integration tests pass. A complete Chromium/mobile snapshot passed46cases with2production-onlyskips; the actual built-product/offline suite passed8/8. WebKit's final complete run passed24cases with1production-onlyskip. Firefox's earlier complete run passed20cases with1skip, followed by all4current keyboard regressions. Exact command boundaries, fixtures and limits are in QUALITY_REPORT; these are not one synthetic aggregate.
+Latest integrated R06 unit snapshot:245tests/38files, before final framing/mobile additions. Whole-browser, production/offline and cross-browser evidence is reconciled in QUALITY_REPORT rather than inferred from a build. Earlier R05 cross-browser results remain historical; they do not certify new R06 model features.
 
 Use a separate test output directory if running independent Playwright processes. Browser recordings/screenshots and independent review findings live in `cook/`. Device/clinical/model accuracy is not established by these synthetic browser tests.
 
 ## Source integration and rights
 
-Actual source-derived algorithms and shaders from OpenMakeupSDK, Virtual Makeup, SKIN_AI/MIROIR and Skyn are identified with pinned commits, destination files, tests and notices in [SOURCE_INTEGRATION_MATRIX](docs/SOURCE_INTEGRATION_MATRIX.md). Code, model weights, datasets, photos and fonts have separate rights considerations. Outstanding commercial redistribution/model-release checks are recorded; no claim of complete clearance is made. Demo photography is credited to Unsplash; self-hosted fonts retain SIL OFL notices. Product prices/ingredient subsets are explicitly sample data with provenance.
+Actual source-derived algorithms and shaders from OpenMakeupSDK, Virtual Makeup, SKIN_AI/MIROIR and Skyn are identified with pinned commits, destination files, tests and notices in [SOURCE_INTEGRATION_MATRIX](docs/SOURCE_INTEGRATION_MATRIX.md). Code, model weights, datasets, photos and fonts have separate rights considerations. Outstanding commercial redistribution/model-release checks are recorded; no claim of complete clearance is made. Demo photography is credited to Unsplash; self-hosted fonts retain SIL OFL notices. Catalogue price/ingredient subsets remain labelled samples. Explicit merchant-source refreshes separately retrieve genuine attributed prices/stock with timestamps; imported observations cannot become fresh verified prices.
 
 ## Continue engineering
 

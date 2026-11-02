@@ -1,0 +1,716 @@
+{
+  "recordedAt": "2026-11-02T13:53:04.182Z",
+  "browser": "154.0.8037.57",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "platform": "linux",
+  "mode": "Real MediaPipe CPU models inside dedicated worker; Canvas2D geometric accessory composite",
+  "sourceHashes": {
+    "packages/ar-renderer/src/accessories.ts": "e978dac22159740d134c907b5ebf40a3b8e5e9c72405f2a2f7e99afb88098f55",
+    "packages/vision-core/src/pipeline.ts": "2ed2ccd27caf42b54963d39486da4e89aecdd2fdd9fe896ebdc2e63a5721d57f",
+    "packages/body-segmentation/src/index.ts": "43efeb24decb1f037e71efcf68597f6907d90eb7a783f1525c1197e22365621f"
+  },
+  "modelRequests": [
+    "/models/face_landmarker.task",
+    "/models/selfie_multiclass_256x256.tflite",
+    "/models/pose_landmarker_lite.task",
+    "/models/hand_landmarker.task"
+  ],
+  "posts": [],
+  "results": [
+    {
+      "fixture": {
+        "id": "portrait-development",
+        "src": "/images/portrait-neutral.jpg",
+        "role": "development",
+        "credit": "Unsplash: photo-1531123897727-8f129e1688ce",
+        "rights": "See ASSET_PROVENANCE.md; evaluation only, publicity-rights audit not a marketing clearance."
+      },
+      "sourceSize": [
+        600,
+        900
+      ],
+      "latencyMs": 1028.300000000745,
+      "roundtripMs": 2333.400000002235,
+      "facePoints": 478,
+      "hands": 1,
+      "posePoints": 33,
+      "poseVisiblePoints": 18,
+      "body": {
+        "width": 171,
+        "height": 256,
+        "pixelCounts": [
+          14834,
+          3211,
+          5728,
+          10102,
+          9901,
+          0
+        ],
+        "meanWinningConfidence": 0.9040101699344542
+      },
+      "anchors": {
+        "rings": [
+          {
+            "x": 351.1778962612152,
+            "y": 693.6289259791374,
+            "width": 20.99496353127932,
+            "height": 7.873111324229744,
+            "rotation": -1.575077075436904,
+            "source": "hand",
+            "support": 0.996330976486206
+          }
+        ],
+        "wrists": [
+          {
+            "x": 214.4179817764226,
+            "y": 824.497724964845,
+            "width": 67.18388330009383,
+            "height": 19.945215354715355,
+            "rotation": 0.4624750717555868,
+            "source": "hand",
+            "support": 0.996330976486206
+          }
+        ],
+        "hat": {
+          "x": 303.3576625794695,
+          "y": 166.01201010815478,
+          "width": 450.52631578947364,
+          "height": 141.50659894086613,
+          "rotation": 0.012481903574628191,
+          "source": "face"
+        },
+        "necklace": {
+          "x": 316.519895195961,
+          "y": 686.5344643592834,
+          "width": 380.60506135925397,
+          "height": 163.1164548682517,
+          "rotation": -0.011713712111932593,
+          "source": "pose",
+          "support": 0.9996622800827026
+        }
+      },
+      "status": [
+        {
+          "key": "necklace",
+          "available": true,
+          "source": "pose",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "ring",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "bracelet",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "watch",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "hat",
+          "available": true,
+          "source": "face",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        }
+      ],
+      "pixels": [
+        {
+          "key": "ring",
+          "changedPixels": 200,
+          "bounds": {
+            "minX": 342,
+            "minY": 681,
+            "maxX": 356,
+            "maxY": 705
+          }
+        },
+        {
+          "key": "bracelet",
+          "changedPixels": 910,
+          "bounds": {
+            "minX": 174,
+            "minY": 818,
+            "maxX": 240,
+            "maxY": 858
+          }
+        },
+        {
+          "key": "watch",
+          "changedPixels": 2435,
+          "bounds": {
+            "minX": 189,
+            "minY": 787,
+            "maxX": 239,
+            "maxY": 861
+          }
+        },
+        {
+          "key": "hat",
+          "changedPixels": 47015,
+          "bounds": {
+            "minX": 77,
+            "minY": 39,
+            "maxX": 529,
+            "maxY": 197
+          }
+        },
+        {
+          "key": "necklace",
+          "changedPixels": 6556,
+          "bounds": {
+            "minX": 120,
+            "minY": 734,
+            "maxX": 514,
+            "maxY": 899
+          }
+        }
+      ],
+      "modelStatus": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "ready"
+        },
+        "pose": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "portrait-context",
+        "src": "/images/portrait-2.jpg",
+        "role": "existing regression",
+        "credit": "Unsplash: photo-1524504388940-b1c1722653e1",
+        "rights": "See ASSET_PROVENANCE.md; evaluation only."
+      },
+      "sourceSize": [
+        600,
+        900
+      ],
+      "latencyMs": 563.3000000007451,
+      "roundtripMs": 572.5999999977648,
+      "facePoints": 478,
+      "hands": 1,
+      "posePoints": 33,
+      "poseVisiblePoints": 21,
+      "body": {
+        "width": 171,
+        "height": 256,
+        "pixelCounts": [
+          25149,
+          5360,
+          1993,
+          1815,
+          9459,
+          0
+        ],
+        "meanWinningConfidence": 0.8974276888579108
+      },
+      "anchors": {
+        "rings": [
+          {
+            "x": 444.80162143707275,
+            "y": 352.98197597265244,
+            "width": 8.837824986790949,
+            "height": 3.314184370046606,
+            "rotation": -2.929863148267591,
+            "source": "hand",
+            "support": 0.8412853479385376
+          }
+        ],
+        "wrists": [
+          {
+            "x": 424.92725254505814,
+            "y": 452.2047261045627,
+            "width": 28.281039957731036,
+            "height": 8.3959337374514,
+            "rotation": 0.04106276066517145,
+            "source": "hand",
+            "support": 0.8412853479385376
+          }
+        ],
+        "hat": {
+          "x": 259.21690490162166,
+          "y": 207.4253663125927,
+          "width": 244.21052631578948,
+          "height": 67.20027781390411,
+          "rotation": -0.02843551303943312,
+          "source": "face"
+        },
+        "necklace": {
+          "x": 292.816025018692,
+          "y": 464.2049252986908,
+          "width": 151.30098045384605,
+          "height": 64.8432773373626,
+          "rotation": -0.04422892068079402,
+          "source": "pose",
+          "support": 0.9971175193786621
+        }
+      },
+      "status": [
+        {
+          "key": "necklace",
+          "available": true,
+          "source": "pose",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "ring",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "bracelet",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "watch",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "hat",
+          "available": true,
+          "source": "face",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        }
+      ],
+      "pixels": [
+        {
+          "key": "ring",
+          "changedPixels": 50,
+          "bounds": {
+            "minX": 439,
+            "minY": 350,
+            "maxX": 449,
+            "maxY": 356
+          }
+        },
+        {
+          "key": "bracelet",
+          "changedPixels": 92,
+          "bounds": {
+            "minX": 422,
+            "minY": 453,
+            "maxX": 439,
+            "maxY": 463
+          }
+        },
+        {
+          "key": "watch",
+          "changedPixels": 233,
+          "bounds": {
+            "minX": 420,
+            "minY": 437,
+            "maxX": 433,
+            "maxY": 466
+          }
+        },
+        {
+          "key": "hat",
+          "changedPixels": 12299,
+          "bounds": {
+            "minX": 136,
+            "minY": 146,
+            "maxX": 381,
+            "maxY": 222
+          }
+        },
+        {
+          "key": "necklace",
+          "changedPixels": 1007,
+          "bounds": {
+            "minX": 216,
+            "minY": 480,
+            "maxX": 371,
+            "maxY": 566
+          }
+        }
+      ],
+      "modelStatus": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "ready"
+        },
+        "pose": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "iss040e006091",
+        "src": "/evaluation/r06/iss040e006091.jpg",
+        "role": "application holdout",
+        "credit": "NASA/JSC; photographer credited in official record: Reid Wiseman",
+        "rights": "Factual nontraining evaluation only. No NASA endorsement. See evaluation/r06/rights.json."
+      },
+      "sourceSize": [
+        850,
+        1280
+      ],
+      "latencyMs": 499.29999999701977,
+      "roundtripMs": 509.1000000014901,
+      "facePoints": 0,
+      "hands": 1,
+      "posePoints": 33,
+      "poseVisiblePoints": 28,
+      "body": {
+        "width": 170,
+        "height": 256,
+        "pixelCounts": [
+          40284,
+          307,
+          1212,
+          188,
+          1321,
+          208
+        ],
+        "meanWinningConfidence": 0.8981353055124226
+      },
+      "anchors": {
+        "rings": [
+          {
+            "x": 283.6504968315363,
+            "y": 452.2763686180115,
+            "width": 3.5420749030556724,
+            "height": 1.328278088645877,
+            "rotation": -1.6749949313650414,
+            "source": "hand",
+            "support": 0.6888974905014038
+          }
+        ],
+        "wrists": [
+          {
+            "x": 300.66948040522766,
+            "y": 433.5015102366943,
+            "width": 11.33463968977815,
+            "height": 3.3649711579028887,
+            "rotation": -2.128051010943061,
+            "source": "hand",
+            "support": 0.6888974905014038
+          }
+        ],
+        "hat": null,
+        "necklace": {
+          "x": 317.3722976446152,
+          "y": 298.7949800491333,
+          "width": 9.341831797885371,
+          "height": 4.00364219909373,
+          "rotation": -0.5321254081863169,
+          "source": "pose",
+          "support": 0.99951171875
+        }
+      },
+      "status": [
+        {
+          "key": "necklace",
+          "available": true,
+          "source": "pose",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "ring",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "bracelet",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "watch",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "hat",
+          "available": false,
+          "source": null,
+          "reason": "A visible tracked face is needed."
+        }
+      ],
+      "pixels": [
+        {
+          "key": "ring",
+          "changedPixels": 16,
+          "bounds": {
+            "minX": 282,
+            "minY": 449,
+            "maxX": 284,
+            "maxY": 454
+          }
+        },
+        {
+          "key": "bracelet",
+          "changedPixels": 72,
+          "bounds": {
+            "minX": 298,
+            "minY": 426,
+            "maxX": 307,
+            "maxY": 437
+          }
+        },
+        {
+          "key": "watch",
+          "changedPixels": 78,
+          "bounds": {
+            "minX": 294,
+            "minY": 429,
+            "maxX": 306,
+            "maxY": 437
+          }
+        },
+        {
+          "key": "hat",
+          "changedPixels": 0,
+          "bounds": null
+        },
+        {
+          "key": "necklace",
+          "changedPixels": 27,
+          "bounds": {
+            "minX": 313,
+            "minY": 296,
+            "maxX": 321,
+            "maxY": 302
+          }
+        }
+      ],
+      "modelStatus": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "ready"
+        },
+        "pose": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": "iss018e030096",
+        "src": "/evaluation/r06/iss018e030096.jpg",
+        "role": "application holdout",
+        "credit": "NASA/JSC; Sandra Magnus exercise record",
+        "rights": "Factual nontraining evaluation only. No NASA endorsement. See evaluation/r06/rights.json."
+      },
+      "sourceSize": [
+        850,
+        1280
+      ],
+      "latencyMs": 505,
+      "roundtripMs": 512.5,
+      "facePoints": 0,
+      "hands": 1,
+      "posePoints": 33,
+      "poseVisiblePoints": 29,
+      "body": {
+        "width": 170,
+        "height": 256,
+        "pixelCounts": [
+          39885,
+          248,
+          967,
+          351,
+          1689,
+          380
+        ],
+        "meanWinningConfidence": 0.8899184796835898
+      },
+      "anchors": {
+        "rings": [
+          {
+            "x": 170.70032760202884,
+            "y": 365.99463415145874,
+            "width": 4.843866533472177,
+            "height": 1.8164499500520663,
+            "rotation": -1.4549957145434238,
+            "source": "hand",
+            "support": 0.9766894578933716
+          }
+        ],
+        "wrists": [
+          {
+            "x": 165.78551583641368,
+            "y": 397.90831488683966,
+            "width": 15.500372907110966,
+            "height": 4.601673206798568,
+            "rotation": 0.1301847010328998,
+            "source": "hand",
+            "support": 0.9766894578933716
+          },
+          {
+            "x": 409.947673074007,
+            "y": 353.38743410110476,
+            "width": 15.066148482705323,
+            "height": 4.912874505229996,
+            "rotation": 1.1367596834416558,
+            "source": "pose",
+            "support": 0.8528069853782654,
+            "side": "left"
+          }
+        ],
+        "hat": null,
+        "necklace": {
+          "x": 266.9739602506161,
+          "y": 301.55765533447266,
+          "width": 92.59716161453244,
+          "height": 39.68449783479962,
+          "rotation": -0.06592051062961583,
+          "source": "pose",
+          "support": 0.999038577079773
+        }
+      },
+      "status": [
+        {
+          "key": "necklace",
+          "available": true,
+          "source": "pose",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "ring",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "bracelet",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "watch",
+          "available": true,
+          "source": "hand",
+          "reason": "Geometric landmark projection; size and depth are not measured."
+        },
+        {
+          "key": "hat",
+          "available": false,
+          "source": null,
+          "reason": "A visible tracked face is needed."
+        }
+      ],
+      "pixels": [
+        {
+          "key": "ring",
+          "changedPixels": 26,
+          "bounds": {
+            "minX": 168,
+            "minY": 362,
+            "maxX": 172,
+            "maxY": 369
+          }
+        },
+        {
+          "key": "bracelet",
+          "changedPixels": 99,
+          "bounds": {
+            "minX": 156,
+            "minY": 398,
+            "maxX": 173,
+            "maxY": 404
+          }
+        },
+        {
+          "key": "watch",
+          "changedPixels": 144,
+          "bounds": {
+            "minX": 161,
+            "minY": 389,
+            "maxX": 170,
+            "maxY": 406
+          }
+        },
+        {
+          "key": "hat",
+          "changedPixels": 0,
+          "bounds": null
+        },
+        {
+          "key": "necklace",
+          "changedPixels": 292,
+          "bounds": {
+            "minX": 220,
+            "minY": 298,
+            "maxX": 313,
+            "maxY": 340
+          }
+        }
+      ],
+      "modelStatus": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        },
+        "body": {
+          "state": "ready"
+        },
+        "pose": {
+          "state": "ready"
+        }
+      }
+    }
+  ],
+  "negative": {
+    "facePoints": 0,
+    "hands": 0,
+    "posePoints": 0,
+    "personMean": 0.08791930093320843
+  },
+  "limitations": [
+    "Application holdouts are not known holdouts from upstream pretraining.",
+    "NASA policy basis is factual evaluation only, not beauty marketing or endorsement.",
+    "No demographic cohorts are inferred or validated.",
+    "Class agreement/pixel changes are integration checks, not ground-truth IoU or fit accuracy.",
+    "No physical device, moving-body robustness or metric depth claim."
+  ]
+}

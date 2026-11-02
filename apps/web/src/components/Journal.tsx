@@ -6,6 +6,10 @@ import { normalizeLook } from "../../../../packages/makeup-engine/src";
 import { useApp } from "../state/store";
 import { Empty, Modal, SectionTitle, IconButton } from "./ui";
 import LookComparison from "./LookComparison";
+import {
+  readComposition,
+  deleteCompleteLook,
+} from "../../../../packages/digital-twin/src";
 import { SAMPLE_PRODUCTS } from "../../../../packages/commerce-engine/src";
 export default function Journal() {
   const looks =
@@ -100,7 +104,7 @@ export default function Journal() {
                     className="look-swatch-art"
                     style={{ background: look.blush.color + "22" }}
                     onClick={() => {
-                      useApp.getState().setLook(look, l.name);
+                      useApp.getState().applySavedLook(l);
                       useApp.getState().setSpace("studio");
                     }}
                   >
@@ -141,7 +145,15 @@ export default function Journal() {
                     </div>
                     <IconButton
                       label={`Delete ${l.name}`}
-                      onClick={() => void db.savedLooks.delete(l.id)}
+                      onClick={() =>
+                        void (
+                          readComposition(l)
+                            ? deleteCompleteLook(l.id)
+                            : db.savedLooks.delete(l.id)
+                        ).catch(() =>
+                          notify("This look could not be deleted. Try again."),
+                        )
+                      }
                     >
                       <Trash2 size={16} />
                     </IconButton>
@@ -149,7 +161,7 @@ export default function Journal() {
                   <button
                     className="text-action"
                     onClick={() => {
-                      useApp.getState().setLook(look, l.name);
+                      useApp.getState().applySavedLook(l);
                       useApp.getState().setSpace("studio");
                     }}
                   >

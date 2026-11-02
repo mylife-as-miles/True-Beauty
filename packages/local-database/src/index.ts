@@ -1,5 +1,6 @@
 import Dexie, { type Table } from "dexie";
 import { z } from "zod";
+import { bagLineIdentity } from "../../shared-types/src/bag-identity";
 
 export type JsonValue =
   string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };
@@ -40,6 +41,7 @@ export interface SavedLook {
   updatedAt: number;
   thumbnail?: string;
   note?: string;
+  composition?: JsonValue;
 }
 export interface ProductRecord {
   id: string;
@@ -69,6 +71,44 @@ export interface ShoppingBag {
   productId: string;
   quantity: number;
   addedAt: number;
+  lineKey?: string;
+  variantId?: string;
+  variantName?: string;
+  productName?: string;
+  size?: string;
+  currency?: Currency;
+  unitPrice?: number;
+  priceKind?: "sample" | "verified" | "imported";
+  sourceKey?: string;
+  merchantSourceId?: string;
+  sourceUrl?: string;
+  priceObservedAt?: string;
+  imported?: boolean;
+}
+/** Canonicalize legacy and current bag identities; stored prices never imply current availability. */
+export function normalizeShoppingBag(record: ShoppingBag): ShoppingBag & {
+  lineKey: string;
+  variantId: string;
+  currency: Currency;
+  sourceKey: string;
+} {
+  const parsed = shoppingBagRecordSchema.parse(record) as ShoppingBag;
+  const variantId = parsed.variantId ?? "default",
+    currency = parsed.currency ?? "NGN",
+    sourceKey = parsed.sourceKey ?? "sample";
+  return {
+    ...parsed,
+    variantId,
+    currency,
+    sourceKey,
+    lineKey: bagLineIdentity(
+      parsed.productId,
+      parsed.size,
+      variantId,
+      currency,
+      sourceKey,
+    ),
+  };
 }
 export interface Routine {
   id: string;
@@ -319,6 +359,20 @@ export class BeautyDatabase extends Dexie {
             node.retentionPolicy ??= "until-deleted";
             node.evidenceRefs ??= [];
           });
+      });
+    this.version(3)
+      .stores({
+        ...storesV1,
+        memoryRevisions: "id,nodeId,createdAt",
+        memoryNodes: storesV1.memoryNodes + ",validUntil,lastUsedAt",
+        shoppingBags:
+          "id,&lineKey,productId,variantId,currency,sourceKey,addedAt",
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table("shoppingBags")
+          .toCollection()
+          .modify((row) => Object.assign(row, normalizeShoppingBag(row)));
       });
   }
 }
@@ -627,6 +681,35 @@ const memoryNodeSchema = baseRecord.extend({
   revision: z.number().int().positive(),
   supersedes: z.string().optional(),
 });
+const httpsSource = z
+  .string()
+  .max(2048)
+  .refine((value) => {
+    try {
+      const u = new URL(value);
+      return u.protocol === "https:" && !u.username && !u.password;
+    } catch {
+      return false;
+    }
+  }, "Expected a public HTTPS source URL");
+const shoppingBagRecordSchema = baseRecord.extend({
+  productId: z.string().min(1).max(200),
+  quantity: z.number().int().min(1).max(99),
+  addedAt: stamp,
+  lineKey: z.string().max(1600).optional(),
+  variantId: z.string().min(1).max(200).optional(),
+  size: z.string().max(80).optional(),
+  variantName: z.string().max(200).optional(),
+  productName: z.string().max(240).optional(),
+  currency: z.enum(["NGN", "USD", "GBP", "EUR"]).optional(),
+  unitPrice: z.number().nonnegative().max(1e9).finite().optional(),
+  priceKind: z.enum(["sample", "verified", "imported"]).optional(),
+  sourceKey: z.string().min(1).max(200).optional(),
+  merchantSourceId: z.string().max(200).optional(),
+  sourceUrl: httpsSource.optional(),
+  priceObservedAt: z.iso.datetime().optional(),
+  imported: z.boolean().optional(),
+});
 const tableRecordSchemas: Partial<Record<TableName, z.ZodType>> = {
   profiles: baseRecord.extend({
     displayName: z.string().max(80),
@@ -691,11 +774,7 @@ const tableRecordSchemas: Partial<Record<TableName, z.ZodType>> = {
     addedAt: stamp,
     name: z.string().optional(),
   }),
-  shoppingBags: baseRecord.extend({
-    productId: z.string().min(1),
-    quantity: z.number().int().min(1).max(99),
-    addedAt: stamp,
-  }),
+  shoppingBags: shoppingBagRecordSchema,
   wishlists: baseRecord.extend({
     name: z.string(),
     productIds: z.array(z.string()),
@@ -882,7 +961,34 @@ export async function importLocalData(
           return permits.has("analysis.history");
         return true;
       });
-      if (allowed.length) await database.table(name).bulkPut(allowed);
+      const prepared = allowed.map((row) => {
+        if (name === "shoppingBags") {
+          const normalized = normalizeShoppingBag(
+            row as unknown as ShoppingBag,
+          );
+          return {
+            ...normalized,
+            imported: true,
+            ...(normalized.priceKind === "verified"
+              ? { priceKind: "imported" }
+              : {}),
+          };
+        }
+        if (name === "priceSnapshots") return { ...row, imported: true };
+        return row;
+      });
+      if (prepared.length) {
+        if (name === "shoppingBags")
+          for (const row of prepared) {
+            const existing = await database.shoppingBags
+              .where("lineKey")
+              .equals(row.lineKey as string)
+              .first();
+            if (existing && existing.id !== row.id)
+              await database.shoppingBags.delete(existing.id);
+          }
+        await database.table(name).bulkPut(prepared);
+      }
     }
     await database.memoryEdges
       .filter((e) => !nodeIds.has(e.fromId) || !nodeIds.has(e.toId))

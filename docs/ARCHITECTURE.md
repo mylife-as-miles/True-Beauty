@@ -11,6 +11,8 @@ flowchart TD
     Face --> Scene[Ephemeral shared scene]
     Hair --> Scene
     Hands --> Scene
+    Scheduler --> Body[Optional multiclass body mask + pose]
+    Body --> Scene
     Scene --> Renderer[BeautyRenderer: WebGL2 / Canvas2D + optional OpenCV masks]
     Renderer --> Mirror[Living Mirror]
     Agent[Typed local Beauty Agent] --> Scene
@@ -29,9 +31,9 @@ flowchart TD
 - `packages/ar-renderer`, `shader-library`, `makeup-engine`: source-space geometry, effect masks/atlases, source-preserving compositing, material parameters, presets, optional warp, source original/after split. OpenCV is explicitly selected and lazy loaded. Hardware WebGL2 uses shaders; software GPU uses Canvas with explicitly approximate reflective materials, and users can select bounded WebGL detail. No claimed WebGPU implementation.
 - `skin-engine`: sRGB/XYZ/CIELAB and twelve-tone styling heuristics, image suitability checks, actual ROI pixel clustering, dynamic genuine-provider parser. Appearance sampling is not diagnosis, hydration measurement, clinical phototype or a validated classifier.
 - `beauty-intelligence`: known ingredient cosmetic roles/sources, actual feature/cosine matching, unique-product AM/PM routine budgets, owned-first selection and explicit missing data.
-- `hair-engine`, `fashion-engine`: luminance-preserving palette rules, real garment recolouring, ΔE styling ranks, manually placed static-photo composition, outfit/board models. Generative VTO/hairstyle provider contracts exist; successful generation is not claimed.
+- `hair-engine`, `fashion-engine`: luminance-preserving palette rules, real garment recolouring, ΔE styling ranks, manually placed static-photo composition, outfit/board models. Real YouCam hair-transfer and cloth-v4 adapters have genuine synthetic-fixture success receipts. Manual static composition remains explicitly separate.
 - `commerce-engine`: sample catalogue, variant-aware bag utilities, NGN/USD illustrative price snapshots, provenance, search/comparison, no invented stock or checkout.
-- `agent-runtime`: Zod-validated typed actions, deterministic scoped planning, actual scene/database callbacks, attributable results, evidence and combined budget plans. LLM adapter contract exists; no remote LLM is configured.
+- `agent-runtime`: Zod-validated typed actions, deterministic scoped planning, actual scene/database callbacks, attributable results, evidence and combined budget plans. LLM adapter contract exists; native Claude Messages has an actual bounded three-turn/two-action receipt, while the local planner remains the default.
 - `local-database`, `beauty-memory`: versioned schema, transactional consent, deduplication/supersession/retention, attributed graph/history deletion, validated atomic import, encrypted optional backup with user-derived key.
 - `apps/api`: current documented Perfect Corp registration/upload/task/poll, configured capability health, consent/cost controls. Credentials are server environment only, never VITE variables/IndexedDB/browser config.
 
@@ -53,7 +55,7 @@ Inference uses transferred ImageBitmap frames in a dedicated worker when support
 
 ## Provider service limitations
 
-The API is a single-process pilot. Durable conservative spending reservation prevents overspend within that process/restarts, but multi-instance deployment requires a transactional shared budget store. In-memory temporary tasks expire15minutes. Provider-side retention cannot be controlled beyond the documented agreement and is disclosed before upload. No live credentials/pricing authorization are configured. Remote features fail closed, with no synthetic results.
+The API is a single-process pilot. Durable conservative spending reservation prevents overspend within that process/restarts, but multi-instance deployment requires a transactional shared budget store. In-memory temporary tasks expire15minutes. Provider-side retention cannot be controlled beyond the documented agreement and is disclosed before upload. Server-only credentials and exact current plans were authorized for the local operator pilot. Genuine skin/hair/clothing/Claude evidence is retained without keys. Public paid dispatch remains unavailable: current Fastify/find-my-way fails actual workerd runtime code-generation restrictions, and its synchronous file ledger/Map stores are not durable edge services. See EDGE_R06 for the native D1 boundary proof and unfinished adapter migration. Remote requests fail closed without exact per-task consent/cost authorization.
 
 ## Round05 scene/editor contracts
 
@@ -62,3 +64,14 @@ The API is a single-process pilot. Durable conservative spending reservation pre
 Zustand keeps ephemeral portrait URL/shared cloned vision snapshot, view framing/zoom/split/focus and bounded parameter-only undo/redo. Source identity rejects obsolete snapshots. LookGallery consumes that one shared analysis; it does not run six redundant trackers. Lighting and undo are not written as personal images or biometric records. Dexie remains the persistence authority for deliberate saved recipes/boards.
 
 Spatial canvas state has a validated persistent view plus contextual object selection. Palette actions mutate actual makeup tools; product handoffs include a verified catalogue ID and shade. `StudioMode` includes light so agent/region/palette handoffs cannot leave competing local inspector states. Source views and local exports remain image-consent aware.
+
+
+## Round06 connected scene and evidence contracts
+
+VisionSnapshot has optional semantic body masks and 33-point pose output. The coordinated scheduler can share multiclass hair output rather than run two hair models; optional failures do not disable face tracking. Semantic occlusion is explicitly image-plane overlap, not a calibrated body-depth reconstruction. Body inference is opt-in and adaptive because its real CPU fixture was expensive.
+
+Look Remix uses measured source regions and user correction to build a structured look. It never transfers source foundation tone onto the target skin. Digital Twin is an editable self-described cosmetic profile, not a biometric or medical reconstruction. Complete-look composition stores current pigments/hair/accessories, creative light, actual owned product IDs, saved outfit ID and profile revision. Reopen restores those controls atomically; images remain session-only unless independently consented storage is selected.
+
+Dexie version3 canonicalizes bag identity as product/size/variant/currency/source. Portable imports are validated atomically, preserve separate currencies and mark old source quotes imported. Digital Twin exports normalize look payloads, project typed fields and redact binary/Blob references even after adversarial passthrough imports. Read/delete races reject recoverably rather than return an undefined profile.
+
+Provider contracts are in API_CONTRACTS, REMOTE_PROVIDERS_R06 and REASONING_ROUND06. Native Claude uses exact approved text snapshots and actual local tool feedback. Images/history are not implicitly added. The prototype edge paid voucher/D1 mechanism cannot dispatch providers; production durability, owner identity provenance and runtime/storage integration remain required.

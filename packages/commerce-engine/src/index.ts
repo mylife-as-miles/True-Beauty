@@ -38,19 +38,24 @@ export function getPriceState(
   price: PriceSnapshot,
   now = Date.now(),
 ): { label: string; fresh: boolean; verified: boolean; ageDays: number } {
-  const ageDays = Math.max(
-    0,
-    (now - new Date(price.observedAt).getTime()) / 86400000,
-  );
+  const observed = Date.parse(price.observedAt),
+    validDate = Number.isFinite(observed) && observed <= now + 300000;
+  const ageDays = validDate
+    ? Math.max(0, (now - observed) / 86400000)
+    : Infinity;
+  const imported = price.imported === true || price.kind === "imported";
   return {
-    label:
-      price.kind === "sample"
+    label: imported
+      ? "Imported price record · refresh to verify"
+      : price.kind === "sample"
         ? "Sample price · not a merchant quote"
-        : ageDays > 7
-          ? "Merchant quote · needs refresh"
-          : "Merchant quote",
-    fresh: price.kind === "verified" && ageDays <= 7,
-    verified: price.kind === "verified",
+        : !validDate
+          ? "Source date unavailable · refresh to verify"
+          : ageDays > 7
+            ? "Merchant quote · needs refresh"
+            : "Merchant quote",
+    fresh: !imported && validDate && price.kind === "verified" && ageDays <= 7,
+    verified: !imported && validDate && price.kind === "verified",
     ageDays,
   };
 }
@@ -159,3 +164,5 @@ export function productIllustration(
           : '<rect x="73" y="25" width="54" height="38" rx="5" fill="#b7aaa2"/><rect x="49" y="60" width="102" height="150" rx="20"/>';
   return `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240"><g fill="${fill}">${body}</g><path d="M75 128H125M86 139H114" stroke="#fff" stroke-opacity=".65" stroke-width="3"/></svg>`)}`;
 }
+
+export * from "./merchant";

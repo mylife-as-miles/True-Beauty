@@ -1,0 +1,490 @@
+.remote-studio {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 5px 8px 40px;
+}
+.remote-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+.remote-heading h1 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  margin: 8px 0 13px;
+}
+.remote-heading p {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 560px;
+}
+.remote-heading > .text-action {
+  white-space: nowrap;
+  margin-top: 26px;
+}
+.remote-feature-switch {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+.remote-feature-switch button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 0 17px;
+  font-size: 13px;
+  color: var(--muted);
+  position: relative;
+}
+.remote-feature-switch button[aria-pressed="true"] {
+  color: var(--accent);
+}
+.remote-feature-switch button[aria-pressed="true"]:after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  background: var(--accent);
+}
+.remote-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(330px, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.remote-step-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.remote-step-heading h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.remote-step-heading > span {
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.remote-guidance {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 14px 0 22px;
+}
+.remote-image-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.remote-image-choice > button {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border: 1px dashed #d9c5c1;
+  border-radius: 7px;
+  background: #f4eeea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--accent);
+  padding: 12px;
+}
+.remote-image-choice > button:has(img) {
+  padding: 0;
+  border-style: solid;
+}
+.remote-image-choice img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.remote-image-choice > button span {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 22px;
+}
+.remote-image-choice small {
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+}
+.remote-image-choice > span {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.remote-reuse {
+  margin: 11px 0 8px;
+  font-size: 11px;
+}
+.remote-composer .field-label {
+  margin-top: 21px;
+  font-size: 12px;
+}
+.remote-composer .field-label > select,
+.remote-composer .field-label > input {
+  min-height: 43px;
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  border-radius: 3px;
+  width: 100%;
+  background: var(--ground);
+  font: inherit;
+  margin-top: 8px;
+}
+.remote-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 15px 0;
+}
+.remote-checkbox input {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: var(--accent);
+}
+.remote-checkbox a {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.remote-connection {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 20px 0;
+  margin: 24px 0 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.remote-connection > svg {
+  color: var(--accent);
+  margin-top: 3px;
+}
+.remote-connection strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.remote-connection p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 5px 0 10px;
+}
+.remote-connection .text-action {
+  font-size: 11px;
+}
+.remote-quote-button {
+  width: 100%;
+  margin-bottom: 11px;
+}
+.remote-credit-review {
+  padding: 22px;
+  background: #f5ece9;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+.remote-credit-review > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.remote-credit-review strong {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 27px;
+  font-weight: 400;
+}
+.remote-credit-review > p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 10px 0 20px;
+}
+.remote-credit-review .button {
+  width: 100%;
+  margin-top: 12px;
+}
+.remote-error {
+  padding: 13px 15px;
+  border: 1px solid #dfb6b1;
+  background: #fff5f1;
+  color: #8a392e;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 19px 0;
+}
+.remote-inline-note {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0;
+  color: var(--accent);
+}
+.remote-clear {
+  font-size: 11px;
+  margin: 22px 0;
+}
+.remote-result-pane {
+  position: sticky;
+  top: 24px;
+}
+.remote-result {
+  min-height: 500px;
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+  background: #f0e9e3;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.remote-result.has-result {
+  background: #292123;
+}
+.remote-result > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  inset: 0;
+}
+.remote-empty-result {
+  text-align: center;
+  padding: 45px 35px;
+  color: #9d747b;
+  max-width: 410px;
+}
+.remote-empty-result > svg {
+  margin-bottom: 24px;
+}
+.remote-empty-result h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 36px;
+  line-height: 1.13;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 17px;
+}
+.remote-empty-result p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.remote-empty-result > span {
+  display: block;
+  font-size: 10px;
+  margin-top: 32px;
+}
+.remote-generated-label {
+  position: absolute;
+  left: 18px;
+  bottom: 17px;
+  background: #fffaf0e6;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 11px;
+  padding: 8px 11px;
+  border-radius: 20px;
+  color: var(--accent);
+}
+.remote-task-details {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.remote-task-details > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+}
+.remote-task-details time {
+  font-size: 10px;
+  color: var(--muted);
+}
+.remote-task-details > p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0;
+  color: var(--muted);
+}
+.remote-result-actions {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 17px 0;
+}
+.remote-result-actions .text-action {
+  font-size: 11px;
+}
+.remote-result-actions .button {
+  font-size: 11px;
+}
+.remote-recent {
+  padding-top: 24px;
+}
+.remote-recent h3 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.remote-recent > p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 7px 0 14px;
+}
+.remote-recent > button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  text-align: left;
+}
+.remote-recent small {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 10px;
+}
+.remote-templates .text-action {
+  font-size: 11px;
+  margin: 9px 0;
+}
+.remote-studio .spin {
+  animation: spin 1s linear infinite;
+}
+@media (max-width: 1050px) {
+  .remote-layout {
+    gap: 28px;
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  }
+  .remote-heading h1 {
+    font-size: 38px;
+  }
+  .remote-step-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .remote-result {
+    min-height: 440px;
+  }
+  .remote-image-choice > button span {
+    font-size: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .remote-studio {
+    padding: 0 0 24px;
+  }
+  .remote-heading {
+    display: block;
+  }
+  .remote-heading h1 {
+    font-size: 37px;
+    max-width: 280px;
+  }
+  .remote-heading p {
+    font-size: 12px;
+  }
+  .remote-heading > .text-action {
+    margin-top: 17px;
+    font-size: 11px;
+  }
+  .remote-feature-switch {
+    gap: 26px;
+    margin: 23px 0 26px;
+  }
+  .remote-feature-switch button {
+    font-size: 12px;
+  }
+  .remote-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .remote-composer,
+  .remote-result-pane {
+    width: 100%;
+  }
+  .remote-result-pane {
+    position: static;
+  }
+  .remote-step-heading {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .remote-step-heading h2 {
+    font-size: 25px;
+  }
+  .remote-step-heading > span {
+    font-size: 9px;
+  }
+  .remote-image-pair {
+    gap: 12px;
+  }
+  .remote-image-choice > button {
+    aspect-ratio: 4/5;
+    gap: 8px;
+  }
+  .remote-image-choice > button span {
+    font-size: 19px;
+  }
+  .remote-image-choice small {
+    font-size: 9px;
+  }
+  .remote-result {
+    min-height: 370px;
+    aspect-ratio: 4/5;
+  }
+  .remote-empty-result {
+    padding: 35px 25px;
+  }
+  .remote-empty-result h2 {
+    font-size: 33px;
+  }
+  .remote-credit-review {
+    padding: 18px;
+  }
+  .remote-checkbox {
+    font-size: 11px;
+  }
+  .remote-checkbox a {
+    white-space: normal;
+  }
+  .remote-result-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .remote-task-details > div:first-child {
+    gap: 12px;
+  }
+  .remote-task-details time {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .remote-studio .spin {
+    animation: none;
+  }
+}

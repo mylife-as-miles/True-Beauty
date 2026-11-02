@@ -1,0 +1,67 @@
+{
+  "sourceUrl": "https://images-api.nasa.gov/search?nasa_id=iss040e006091",
+  "status": 200,
+  "retrievedAt": "2026-11-02T13:23:14.900441+00:00",
+  "record": {
+    "href": "https://images-assets.nasa.gov/image/iss040e006091/collection.json",
+    "data": [
+      {
+        "center": "JSC",
+        "date_created": "2014-05-31T00:00:00Z",
+        "description": "ISS040-E-006091 (31 May 2014) --- NASA astronaut Reid Wiseman, Expedition 40 flight engineer, equipped with a bungee harness, exercises on the Combined Operational Load Bearing External Resistance Treadmill (COLBERT) in the Tranquility node of the International Space Station.",
+        "keywords": [
+          "ASTRONAUTS",
+          "ONBOARD ACTIVITIES",
+          "PHYSICAL EXERCISE",
+          "TREADMILLS",
+          "EXPEDITION 40",
+          "TWEETED PHOTO",
+          "SOCIAL MEDIA"
+        ],
+        "media_type": "image",
+        "nasa_id": "iss040e006091",
+        "photographer": "Reid Wiseman",
+        "title": "Wiseman on COLBERT in Node 3"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~medium.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 850,
+        "size": 179000,
+        "height": 1280
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~small.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 425,
+        "size": 58000,
+        "height": 640
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~thumb.jpg",
+        "rel": "preview",
+        "render": "image",
+        "width": 425,
+        "size": 58000,
+        "height": 640
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~large.jpg",
+        "rel": "alternate",
+        "render": "image",
+        "width": 1275,
+        "size": 342000,
+        "height": 1920
+      },
+      {
+        "href": "https://images-assets.nasa.gov/image/iss040e006091/iss040e006091~orig.jpg",
+        "rel": "canonical",
+        "render": "image"
+      }
+    ]
+  }
+}

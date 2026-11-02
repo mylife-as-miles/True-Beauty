@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-11-02T14:10:38.254Z",
+  "prototypeOnly": true,
+  "paidProviderCalls": 0,
+  "privateImagesStored": 0,
+  "tools": {
+    "wrangler": "4.156.1",
+    "miniflare": "5.20261101.0-beta"
+  },
+  "runtime": "actual workerd with two independent Worker services sharing one D1 database",
+  "schemaApplied": true,
+  "assertionsPassed": 21,
+  "assertions": [
+    "Anonymous same-origin session cannot issue spending vouchers",
+    "Claimed owner header fails closed without explicit trusted-dispatch configuration",
+    "Actual boundary rejects a different loopback Origin, after Miniflare transport",
+    "Actual boundary rejects a noncanonical HTTPS URL alias",
+    "Owner mutation without valid CSRF is denied",
+    "Tampered signed session cookie is denied",
+    "Public visitor with a valid anonymous CSRF session cannot spend without a valid voucher",
+    "Voucher is bound to the exact ephemeral session across isolates",
+    "Voucher amount cannot be discounted or substituted by a caller",
+    "Voucher is bound to the exact reviewed quote hash",
+    "Twelve cross-isolate duplicate reservations spend once and return one stable receipt",
+    "A consumed voucher cannot authorize a second reservation identifier",
+    "Reservation receipts are owned by the bound session",
+    "A valid session and receipt remain usable on another Worker isolate",
+    "Expired vouchers cannot spend",
+    "Concurrent independent vouchers cannot exceed the shared US$5 total ceiling",
+    "Image-provider reservation requires explicit per-request upload consent",
+    "A valid consented credit voucher can reserve without calling a provider",
+    "Concurrent credit reservations cannot exceed the shared 100-credit total ceiling",
+    "Durable ledger records exactly US$5 and 100 credits after both race suites",
+    "Failed or duplicate transactions leave no extra reservation artifacts"
+  ],
+  "durableLedger": {
+    "budget_id": "r06-total-test",
+    "usd_micro_used": 5000000,
+    "credits_used": 100
+  },
+  "reservations": 7,
+  "elapsedMs": 1533.3251500000001
+}

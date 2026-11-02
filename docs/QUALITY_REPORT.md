@@ -1,8 +1,22 @@
 # Quality report — active engineering checkpoint
 
-The requested complete product acceptance is **not met**. A running local application and substantial source-adapted functionality exist. This report distinguishes tested behavior from unavailable providers, unvalidated accuracy and planned scope. The provisional weighted score is6.65/10, a prioritization judgment documented in cook/SCORECARD.md, not measured accuracy.
+The requested complete product acceptance is **not met**. A running local application and substantial source-adapted functionality exist. This report distinguishes tested behavior from unavailable providers, unvalidated accuracy and planned scope. The latest independent weighted prioritization judgment is7.09/10, a prioritization judgment documented in cook/SCORECARD.md, not measured accuracy.
 
-## Current round05 — immersive UX, materials and contextual exploration
+## Active round06 — genuine providers and complete local workflows
+
+Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Native access service confirms **public**, revision2. The published release currently contains R05 static functionality; the R06 engineering checkout is being verified before update. Publication does not imply a hosted API.
+
+R06 adds actual local inspiration analysis/correction, editable self-described Beauty Digital Twin, linked complete-look/outfit/product recipes, variant/currency/source-aware persistent bags, manual INCI inventory, genuine merchant observations, body/pose/accessory inference and semantic overlap masks, and native Claude reasoning. Provider execution now has genuine receipts: hair and upper-body clothing generation, four dynamically parsed skin concerns after explicit local framing, and three Claude turns executing two actual mirror tools. See LIVE_PROVIDER_VERIFICATION_R06. Synthetic fixtures establish execution only; no accuracy/clinical/fairness claim follows.
+
+Independent adversarial review reproduced image fields leaking through profile exports, imported/future prices being described as fresh, and a concurrent-delete profile read returning undefined. All twenty resulting independent boundary tests pass after typed image-free projections, conservative imported-price state and the recoverable missing-profile guard. Three new scene/Blob lifecycle tests and seven-accessory agent control tests pass. The source-frozen integrated run passed267tests/40files, TypeScript, ESLint and the production build.
+
+Actual critical review found mobile previews disappearing during correction, stale scroll on outfit handoff, active-route navigation remaining open, missing generated provenance in secondary spaces, toast overlap and undersized bag controls. The phone preview/handoff/drawer/provenance/receipt defects were fixed and independently rechecked. Remaining findings include wider-screen Remix context, small Dressing controls and missing target hair-mask preparation in a fresh Remix session. One whole-browser run was intentionally interrupted because concurrent source edits invalidated its UI state; it is not counted as passing. The repaired active-route drawer regression passes2/2.
+
+The current Fastify router fails actual workerd runtime code-generation restrictions. A native Fetch/D1 paid-boundary prototype passes21 assertions across two Worker services, including atomic shared US$5/100-credit reservations and ownership probes, but intentionally cannot call providers. Public paid dispatch remains unavailable until workflows, task/session state, runtime bindings and owner authorization are actually migrated and verified. No key is sent to browser code.
+
+Latest independent product score7.09 (local usefulness8.5), expanded visual review8.2 after independent recheck. These are bounded critic judgments, not completion percentages. Full≥9 acceptance remains unmet. Physical-device performance, representative consenting-person evaluation, full occasion planning, broader model/asset/source distribution rights and advanced scope remain open.
+
+## Historical round05 — immersive UX, materials and contextual exploration
 
 The renewed request for immersive UI/UX and Proofline/Common Table inspiration is implemented as original interactions: real six-look portrait previews sharing one tracking result, bounded editor layouts, focus/undo/redo, full-portrait/fill framing, facial-region lenses, creative light controls, actual enhanced WebGL materials, Skin Lab region exploration and a spatial canvas with real palette/product handoffs. Source/reference boundaries are in DESIGN_RESEARCH, SOURCE_INTEGRATION_MATRIX and CANVAS_UX_ROUND05.
 

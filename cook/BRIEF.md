@@ -1,6 +1,6 @@
 # True Beauty autonomous build brief
 
-Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run, not a video export. Status: resumable engineering checkpoint, not shipped; full acceptance not met.
+Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run, not a video export. Status: public static Site plus active round06 engineering; full acceptance not met.
 
 ## Target and authority
 
@@ -45,3 +45,10 @@ The user requested continued UI/UX/shader improvements and explicitly reinforced
 Current executed round05: strictTS/lint/buildpass;116unit/integration tests in20files; complete Chromium/mobile snapshot70pass/2production-onlyskips; built product/immersive18/18 plus finalfocus4/4; Firefox11/11 and WebKit11/11 newjourneys; independent18axe scans0violations and24functional/privacychecks pass. Four independent reviews retained. Backend hue divergence, iris/viewport alignment, mobile overlap, stale inspectors and keyboard focus defects were fixed and independently rechecked. Final Taste0FAIL/5WARN with only the explicit functional pigment-control icon allowance; primary warnings remain visible. Production captures reviewed at1440/1366/768/390.
 
 Independent visual/local-usefulness8.4, interaction8.0; weighted full-product6.65. No9/10/full-product acceptance claim. Current next UX task: mobilecanvasoverview/tablet44targets, then cosmetic edge/material realism; queued variant-aware commerce remains preserved. External credentials/spend, licensed generation, rights and physical representative/device evaluation remain unavailable. No remote publication, paid call or private upload. Exact command/evidence and local commit reconciliation is in the latest ROUNDS/QUALITY_REPORT/REMAINING_WORK. This is a saved checkpoint, not an unattended coding service.
+
+
+## Active steering — round06 provider completion and publication
+
+The user authorized provider testing and public Sites publication. Server-only YouCam and Claude credentials are available in ephemeral runtime/native secret settings; never write their values to this repository. Initial operator limits are100YouCam credit reservations/US$5Claude reservations. Actual synthetic-fixture skin/hair/clothing and Claude tool execution succeeded; see LIVE_PROVIDER_VERIFICATION_R06. Public Site identity/access is persisted in .openai/hosting.json and DEPLOYMENT.md. Reuse it and preserve public audience.
+
+Current independent weighted product judgment7.09, expanded visual8.2/local usefulness8.5. R06 source integration, actual evidence, local graph/complete-look commerce, body/pose, evaluation and rights reports are retained. Current mobile/provenance/framing fixes are in progress; full source-frozen tests/build/review precede an update. Actual workerd Fastify incompatibility blocks public paid dispatch; the D1 boundary proof is not a full API. Do not reintroduce earlier stale 'no credentials/no authorization/no provider successes' blockers. Do not imply physical/fairness or9/10 acceptance.

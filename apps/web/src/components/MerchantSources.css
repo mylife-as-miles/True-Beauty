@@ -1,0 +1,504 @@
+.merchant-sources {
+  color: var(--ink);
+  padding: 4px 0;
+}
+/* Keep the global quote receipt below, rather than across, notebook actions. */
+.modal-backdrop:has(.merchant-sources),
+.modal-backdrop:has([aria-label="Your beauty bag."]) {
+  padding-bottom: 128px;
+}
+.modal:has(.merchant-sources),
+.modal[aria-label="Your beauty bag."] {
+  max-height: calc(100dvh - 160px);
+  scroll-padding-bottom: 24px;
+}
+.merchant-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+.merchant-intro > svg {
+  color: var(--accent);
+  flex: none;
+  margin-top: 6px;
+}
+.merchant-intro h3 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 29px;
+  font-weight: 400;
+  margin: 0 0 7px;
+}
+.merchant-intro p,
+.merchant-source-note {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+.merchant-source-label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.merchant-source-label select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 12px;
+  margin-top: 8px;
+  background: var(--ground);
+  color: var(--ink);
+  font-size: 12px;
+  min-height: 44px;
+}
+.merchant-source-note {
+  font-size: 11px;
+}
+.merchant-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 22px 0 12px;
+}
+.merchant-actions > a,
+.merchant-card-actions > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  text-decoration: none;
+  min-height: 35px;
+}
+.merchant-privacy,
+.merchant-disclosure {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.merchant-error,
+.merchant-message,
+.merchant-warning {
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 12px 14px;
+  background: var(--surface);
+  margin: 15px 0;
+}
+.merchant-error {
+  color: #8d3545;
+}
+.merchant-message {
+  color: #365a48;
+}
+.merchant-warning {
+  color: #725224;
+  padding: 9px 0;
+  background: none;
+  font-size: 11px;
+}
+.merchant-observations {
+  margin-top: 24px;
+}
+.merchant-observation {
+  padding: 21px 0;
+  border-top: 1px solid var(--line);
+}
+.merchant-observation-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+  color: var(--muted);
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.merchant-stock.in-stock {
+  color: #3d614b;
+}
+.merchant-stock.out-of-stock {
+  color: #8e4851;
+}
+.merchant-observation h4 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 5px;
+}
+.merchant-variant {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0 0 13px;
+}
+.merchant-quote {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+.merchant-quote strong {
+  font-size: 23px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+.merchant-quote > span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.merchant-fetched {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 12px 0;
+}
+.merchant-observation-note {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+.merchant-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.merchant-card-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--accent);
+  font-size: 11px;
+  padding: 9px 12px;
+  min-height: 40px;
+  cursor: pointer;
+}
+.merchant-card-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.merchant-empty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 10px;
+  margin: 20px 0;
+  background: var(--surface);
+  color: var(--muted);
+}
+.merchant-empty > svg {
+  flex: none;
+}
+.merchant-empty > p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+}
+.merchant-disclosure {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 24px;
+}
+.merchant-sources :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .modal[aria-label="Your beauty bag."] .modal-header .icon-button,
+  .bag-item > .icon-button {
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    flex: none;
+  }
+  .bag-item input {
+    min-width: 54px;
+    min-height: 44px;
+    font-size: 16px;
+    padding: 8px;
+  }
+  .merchant-actions {
+    gap: 10px;
+  }
+  .merchant-actions > .button {
+    width: 100%;
+  }
+  .merchant-observation-top {
+    gap: 7px;
+  }
+  .merchant-card-actions {
+    align-items: flex-start;
+  }
+  .merchant-card-actions button {
+    min-height: 44px;
+  }
+  .merchant-source-label select {
+    font-size: 11px;
+  }
+  .merchant-quote {
+    gap: 7px;
+  }
+  .merchant-fetched {
+    font-size: 10px;
+  }
+}
+.commerce-heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.bag-item .bag-variant-label {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+.bag-item small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.bag-planning-totals h3 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 22px 0 10px;
+}
+.bag-planning-totals .bag-total {
+  padding: 12px 0;
+  margin: 0;
+}
+.bag-planning-totals .bag-total > span {
+  font-size: 11px;
+}
+.bag-planning-totals > p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+@media (max-width: 600px) {
+  .commerce-heading-actions {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .commerce-heading-actions .button {
+    padding: 10px;
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .bag-item > div {
+    min-width: 0;
+  }
+  .bag-item > div > strong,
+  .bag-variant-label {
+    overflow-wrap: anywhere;
+  }
+}
+.merchant-url-intake {
+  margin: 14px 0 20px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.merchant-url-intake summary {
+  cursor: pointer;
+  color: var(--accent);
+  padding: 8px 0;
+}
+.merchant-url-intake label {
+  display: block;
+  margin: 8px 0;
+}
+.merchant-url-intake input {
+  display: block;
+  min-height: 42px;
+  width: 100%;
+  padding: 10px;
+  background: var(--ground);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  margin-top: 7px;
+}
+.merchant-url-intake p {
+  font-size: 10px;
+  line-height: 1.7;
+}
+.merchant-url-intake .button {
+  font-size: 11px;
+}
+.user-products {
+  margin: 25px 0 35px;
+  border-top: 1px solid var(--line);
+  padding-top: 23px;
+}
+.user-products-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 19px;
+}
+.user-products-heading h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+.user-products-heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+.user-product-list article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.user-product-list article > div:first-child {
+  min-width: 0;
+}
+.user-product-list h3 {
+  font-size: 18px;
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  margin: 7px 0;
+  overflow-wrap: anywhere;
+}
+.user-product-list p,
+.user-product-list small,
+.user-product-list article > div > span {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.user-product-list article > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.user-product-list button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  padding: 8px 0;
+  background: none;
+  color: var(--accent);
+  font-size: 11px;
+  cursor: pointer;
+  min-height: 35px;
+}
+.user-product-form > p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.user-product-form .field-label {
+  margin-top: 17px;
+}
+.user-product-form input,
+.user-product-form select,
+.user-product-form textarea {
+  width: 100%;
+  min-height: 42px;
+  font-size: 12px;
+  background: var(--ground);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 10px;
+  margin-top: 7px;
+}
+.user-product-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.user-product-form .button {
+  margin-top: 24px;
+}
+.user-ingredient-note {
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+}
+.user-ingredient-note > strong {
+  font-size: 13px;
+}
+.user-ingredient-note > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.user-ingredient-note > a {
+  font-size: 11px;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width: 600px) {
+  .user-products-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .user-product-list article {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .user-product-list button {
+    min-height: 44px;
+  }
+  .user-product-fields {
+    grid-template-columns: 1fr;
+  }
+  .user-product-form input,
+  .user-product-form select,
+  .user-product-form textarea {
+    min-height: 44px;
+  }
+}
+.user-inci-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+.user-inci-list > span {
+  display: inline-block;
+  padding: 7px 10px;
+  background: var(--surface);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .section-title:has(.commerce-heading-actions) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .commerce-heading-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .commerce-heading-actions .button {
+    flex: 1;
+  }
+}

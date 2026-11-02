@@ -4,23 +4,44 @@
     "url": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
     "bytes": 3758596,
     "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
-    "retrievedAt": "2026-11-02T08:58:25.064Z",
-    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+    "retrievedAt": "2026-11-02T13:57:12.149Z",
+    "license": "Apache-2.0",
+    "licenseAudit": "Explicit official model-card licence reviewed 2026-11-02; docs/RIGHTS_AUDIT_R06.md and cook/evidence/rights-r06/public-source-evidence.json map bundle constituents and limitations"
   },
   {
     "name": "hair_segmenter.tflite",
     "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/hair_segmenter/float32/1/hair_segmenter.tflite",
     "bytes": 781618,
     "sha256": "2628cf3ce5f695f604cbea2841e00befcaa3624bf80caf3664bef2656d59bf84",
-    "retrievedAt": "2026-11-02T08:58:25.530Z",
-    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+    "retrievedAt": "2026-11-02T13:57:12.497Z",
+    "license": "Apache-2.0",
+    "licenseAudit": "Explicit official model-card licence reviewed 2026-11-02; docs/RIGHTS_AUDIT_R06.md and cook/evidence/rights-r06/public-source-evidence.json map bundle constituents and limitations"
+  },
+  {
+    "name": "selfie_multiclass_256x256.tflite",
+    "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/1/selfie_multiclass_256x256.tflite",
+    "bytes": 16371837,
+    "sha256": "c6748b1253a99067ef71f7e26ca71096cd449baefa8f101900ea23016507e0e0",
+    "retrievedAt": "2026-11-02T13:57:13.627Z",
+    "license": "Apache-2.0",
+    "licenseAudit": "Explicit official model-card licence reviewed 2026-11-02; docs/RIGHTS_AUDIT_R06.md and cook/evidence/rights-r06/public-source-evidence.json map bundle constituents and limitations"
+  },
+  {
+    "name": "pose_landmarker_lite.task",
+    "url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+    "bytes": 5777746,
+    "sha256": "59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a",
+    "retrievedAt": "2026-11-02T13:57:14.336Z",
+    "license": "Apache-2.0",
+    "licenseAudit": "Explicit official model-card licence reviewed 2026-11-02; docs/RIGHTS_AUDIT_R06.md and cook/evidence/rights-r06/public-source-evidence.json map bundle constituents and limitations"
   },
   {
     "name": "hand_landmarker.task",
     "url": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
     "bytes": 7819105,
     "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
-    "retrievedAt": "2026-11-02T08:58:26.240Z",
-    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+    "retrievedAt": "2026-11-02T13:57:14.850Z",
+    "license": "Apache-2.0",
+    "licenseAudit": "Explicit official model-card licence reviewed 2026-11-02; docs/RIGHTS_AUDIT_R06.md and cook/evidence/rights-r06/public-source-evidence.json map bundle constituents and limitations"
   }
 ]

@@ -18,6 +18,25 @@ afterEach(async () => {
   await db.delete();
 });
 describe("local beauty agent actual tool execution", () => {
+  it("lets supported accessory requests edit a fresh mirror recipe before their anchors are visible", async () => {
+    let look = createDefaultLook();
+    const context = {
+      database: db,
+      inspectCurrentLook: () => look,
+      applyLook: (next: typeof look) => {
+        look = next;
+      },
+    };
+    for (const accessory of ["ring", "bracelet", "watch", "hat"] as const) {
+      const result = await executeBeautyRequest(`Add a ${accessory}`, context);
+      expect(
+        result.tools.find((t) => t.name === "previewAccessory")?.status,
+      ).toBe("succeeded");
+      expect(look.accessories[accessory]).toBe(true);
+    }
+    await executeBeautyRequest("Remove the hat", context);
+    expect(look.accessories.hat).toBe(false);
+  });
   it("applies a wedding look, builds a routine and selects affordable catalogue options", async () => {
     const applyLook = vi.fn();
     const result = await executeBeautyRequest(

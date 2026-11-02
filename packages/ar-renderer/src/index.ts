@@ -10,9 +10,17 @@ import {
 import { makeFaceSurface, type FaceSurface } from "./surface";
 import { drawCanvasFinish } from "./finishes";
 import { applyPigments } from "./pigment";
+import {
+  ExtendedAccessoryRenderer,
+  projectAccessoryAnchors,
+} from "./accessories";
+import type { BodySegmentation } from "../../body-segmentation/src";
+import type { PoseFrame } from "../../pose-tracking/src";
+export * from "./accessories";
 export * from "./lighting";
 import {
   faceMetrics,
+  REGIONS,
   hexRgb,
   maskBounds,
   validFace,
@@ -35,6 +43,8 @@ export interface RenderFrame {
   beforeAfter?: number | null;
   time?: number;
   lighting?: LightingSettings;
+  bodyMask?: BodySegmentation | null;
+  pose?: PoseFrame | null;
   hands?: ReadonlyArray<{
     landmarks: readonly Landmark[];
     confidence?: number;
@@ -64,6 +74,10 @@ export class BeautyRenderer {
   private hairCanvas: HTMLCanvasElement;
   private hairAlphaCanvas: HTMLCanvasElement;
   private accessoryCanvas: HTMLCanvasElement;
+  private extendedAccessories = new ExtendedAccessoryRenderer();
+  private bodyOcclusionCanvas = document.createElement("canvas");
+  private lastBodyMask: BodySegmentation | null | undefined;
+  private lastOcclusionFace: readonly Landmark[] | undefined;
   private lightingCanvas: HTMLCanvasElement;
   private lastHair: HairMask | null = null;
   private hairBounds: [number, number, number, number] = [0, 0, 1, 1];
@@ -412,9 +426,18 @@ export class BeautyRenderer {
     hands: RenderFrame["hands"],
     width: number,
     height: number,
+    bodyMask?: BodySegmentation | null,
+    points?: readonly Landmark[],
   ) {
-    if (hands === this.lastHands) return;
+    if (
+      hands === this.lastHands &&
+      bodyMask === this.lastBodyMask &&
+      (!bodyMask || points === this.lastOcclusionFace)
+    )
+      return;
     this.lastHands = hands;
+    this.lastBodyMask = bodyMask;
+    this.lastOcclusionFace = points;
     const c = this.occlusionCanvas;
     const scale = Math.min(1, 640 / Math.max(width, height));
     c.width = Math.round(width * scale);
@@ -422,13 +445,13 @@ export class BeautyRenderer {
     const ctx = c.getContext("2d")!;
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, c.width, c.height);
-    if (!hands?.length) return;
+    if (!hands?.length && !bodyMask) return;
     ctx.fillStyle = "white";
     ctx.strokeStyle = "white";
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.filter = "blur(2px)";
-    for (const hand of hands) {
+    for (const hand of hands ?? []) {
       if (
         (hand.confidence !== undefined && hand.confidence < 0.5) ||
         hand.landmarks.length < 21
@@ -461,6 +484,39 @@ export class BeautyRenderer {
         });
         ctx.stroke();
       }
+    }
+    if (bodyMask && points && validFace(points)) {
+      const bodyCanvas = this.bodyOcclusionCanvas;
+      bodyCanvas.width = bodyMask.width;
+      bodyCanvas.height = bodyMask.height;
+      const bc = bodyCanvas.getContext("2d")!,
+        image = bc.createImageData(bodyMask.width, bodyMask.height);
+      for (let i = 0; i < bodyMask.labels.length; i++) {
+        const label = bodyMask.labels[i],
+          confidence = bodyMask.confidence[i];
+        const value =
+          [2, 4, 5].includes(label) && confidence > 0.65
+            ? Math.min(1, (confidence - 0.65) / 0.25) * 255
+            : 0;
+        image.data[i * 4] =
+          image.data[i * 4 + 1] =
+          image.data[i * 4 + 2] =
+            value;
+        image.data[i * 4 + 3] = 255;
+      }
+      bc.putImageData(image, 0, 0);
+      ctx.save();
+      ctx.beginPath();
+      REGIONS.face.forEach((index, i) => {
+        const p = points[index];
+        if (i === 0) ctx.moveTo(p.x * c.width, p.y * c.height);
+        else ctx.lineTo(p.x * c.width, p.y * c.height);
+      });
+      ctx.closePath();
+      ctx.clip();
+      ctx.globalCompositeOperation = "lighter";
+      ctx.drawImage(bodyCanvas, 0, 0, c.width, c.height);
+      ctx.restore();
     }
     const a = this.occlusionAlphaCanvas;
     a.width = c.width;
@@ -556,7 +612,13 @@ export class BeautyRenderer {
     );
     if (masksChanged) this.maskRevision++;
     this.updateHair(frame.hairMask);
-    this.updateOcclusion(frame.hands, sourceWidth, sourceHeight);
+    this.updateOcclusion(
+      frame.hands,
+      sourceWidth,
+      sourceHeight,
+      frame.bodyMask,
+      points,
+    );
     const compare = frame.compare ?? frame.beforeAfter ?? -1;
     if (this.gl && !this.contextLost && this.program) {
       try {
@@ -622,8 +684,24 @@ export class BeautyRenderer {
       }
     } else this.drawFallback(frame, look, hasFace, compare, surface, lighting);
     if (hasFace)
-      this.drawAccessories(points, look, width, height, compare, frame.source);
-    if (frame.hands?.length) {
+      this.drawAccessories(
+        points,
+        look,
+        width,
+        height,
+        compare,
+        frame.source,
+        frame.pose,
+      );
+    const accessoryFrame = { ...frame, look, compare };
+    this.extendedAccessories.drawHat(this.ctx, accessoryFrame, width, height);
+    this.extendedAccessories.drawPoseNecklace(
+      this.ctx,
+      accessoryFrame,
+      width,
+      height,
+    );
+    if (frame.hands?.length || frame.bodyMask) {
       const c = this.fallbackCanvas,
         mask = this.occlusionAlphaCanvas;
       c.width = mask.width;
@@ -651,6 +729,9 @@ export class BeautyRenderer {
       d.drawImage(mask, 0, 0);
       this.ctx.drawImage(c, 0, 0, width, height);
     }
+    // Tracked hand jewellery is painted after restoring the hand itself; otherwise
+    // the existing hand-occlusion pass would erase a correctly anchored ring/watch.
+    this.extendedAccessories.drawBody(this.ctx, accessoryFrame, width, height);
   }
   private getPigmentSource(
     frame: RenderFrame,
@@ -856,6 +937,7 @@ export class BeautyRenderer {
     h: number,
     compare: number,
     source: CanvasImageSource,
+    pose?: PoseFrame | null,
   ) {
     if (
       !look.accessories.glasses &&
@@ -1119,51 +1201,67 @@ export class BeautyRenderer {
       }
     }
     if (look.accessories.necklace) {
+      const poseAnchor = projectAccessoryAnchors(
+        { landmarks: points, pose },
+        w,
+        h,
+      ).necklace;
       const chin = points[152],
-        x = chin.x * w,
-        y = chin.y * h;
+        x = poseAnchor?.x ?? chin.x * w,
+        y = poseAnchor?.y ?? chin.y * h;
+      const necklaceUnit = poseAnchor ? poseAnchor.width / 0.86 : unit;
       ctx.save();
       ctx.translate(x, y);
-      ctx.rotate(rotation * 0.25);
+      ctx.rotate(poseAnchor?.rotation ?? rotation * 0.25);
       const path = () => {
         ctx.beginPath();
-        ctx.moveTo(-unit * 0.43, unit * 0.12);
-        ctx.quadraticCurveTo(0, unit * 0.85, unit * 0.43, unit * 0.12);
+        ctx.moveTo(-necklaceUnit * 0.43, necklaceUnit * 0.12);
+        ctx.quadraticCurveTo(
+          0,
+          necklaceUnit * 0.85,
+          necklaceUnit * 0.43,
+          necklaceUnit * 0.12,
+        );
       };
       path();
       ctx.shadowColor = "rgba(30,19,12,.25)";
-      ctx.shadowBlur = unit * 0.018;
-      ctx.shadowOffsetY = unit * 0.012;
+      ctx.shadowBlur = necklaceUnit * 0.018;
+      ctx.shadowOffsetY = necklaceUnit * 0.012;
       ctx.strokeStyle = "#6f4b2d";
-      ctx.lineWidth = Math.max(1.3, unit * 0.015);
+      ctx.lineWidth = Math.max(1.3, necklaceUnit * 0.015);
       ctx.stroke();
       ctx.shadowBlur = 0;
       ctx.shadowOffsetY = 0;
       ctx.strokeStyle = gold(
-        -unit * 0.43,
-        unit * 0.15,
-        unit * 0.43,
-        unit * 0.65,
+        -necklaceUnit * 0.43,
+        necklaceUnit * 0.15,
+        necklaceUnit * 0.43,
+        necklaceUnit * 0.65,
       );
-      ctx.lineWidth = Math.max(0.8, unit * 0.009);
+      ctx.lineWidth = Math.max(0.8, necklaceUnit * 0.009);
       ctx.stroke();
-      const py = unit * 0.485;
-      ctx.fillStyle = gold(-unit * 0.025, py, unit * 0.025, py + unit * 0.09);
+      const py = necklaceUnit * 0.485;
+      ctx.fillStyle = gold(
+        -necklaceUnit * 0.025,
+        py,
+        necklaceUnit * 0.025,
+        py + necklaceUnit * 0.09,
+      );
       ctx.beginPath();
       ctx.moveTo(0, py);
       ctx.bezierCurveTo(
-        -unit * 0.055,
-        py + unit * 0.045,
-        -unit * 0.035,
-        py + unit * 0.085,
+        -necklaceUnit * 0.055,
+        py + necklaceUnit * 0.045,
+        -necklaceUnit * 0.035,
+        py + necklaceUnit * 0.085,
         0,
-        py + unit * 0.095,
+        py + necklaceUnit * 0.095,
       );
       ctx.bezierCurveTo(
-        unit * 0.035,
-        py + unit * 0.085,
-        unit * 0.055,
-        py + unit * 0.045,
+        necklaceUnit * 0.035,
+        py + necklaceUnit * 0.085,
+        necklaceUnit * 0.055,
+        py + necklaceUnit * 0.045,
         0,
         py,
       );
@@ -1171,10 +1269,10 @@ export class BeautyRenderer {
       ctx.fillStyle = "rgba(255,247,214,.76)";
       ctx.beginPath();
       ctx.ellipse(
-        -unit * 0.011,
-        py + unit * 0.054,
-        unit * 0.007,
-        unit * 0.016,
+        -necklaceUnit * 0.011,
+        py + necklaceUnit * 0.054,
+        necklaceUnit * 0.007,
+        necklaceUnit * 0.016,
         -0.4,
         0,
         Math.PI * 2,
@@ -1228,6 +1326,7 @@ export class BeautyRenderer {
   dispose() {
     if (this.disposed) return;
     this.disposed = true;
+    this.extendedAccessories.dispose();
     this.releaseGraphics();
     this.finishCache.clear();
     this.gradedCanvas.width = 1;
@@ -1242,6 +1341,7 @@ export class BeautyRenderer {
       this.hairAlphaCanvas,
       this.occlusionCanvas,
       this.occlusionAlphaCanvas,
+      this.bodyOcclusionCanvas,
     ]) {
       c.width = 1;
       c.height = 1;

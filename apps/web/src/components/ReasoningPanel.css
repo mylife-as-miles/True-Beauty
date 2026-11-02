@@ -1,0 +1,215 @@
+.reasoning-mode-label select {
+  font: inherit;
+  font-size: 11px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 5px 7px;
+  max-width: 210px;
+}
+.reasoning-status {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 13px 0;
+  line-height: 1.6;
+}
+.reasoning-status > svg {
+  flex: none;
+  margin-top: 2px;
+}
+.reasoning-review {
+  overflow: auto;
+  max-height: 58dvh;
+  padding: 10px 3px 20px 0;
+  overscroll-behavior: contain;
+  border-bottom: 1px solid var(--line);
+}
+.reasoning-review-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.reasoning-review-heading h3 {
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: 25px;
+}
+.reasoning-review-heading button,
+.reasoning-scope-note button {
+  font-size: 11px;
+  text-decoration: underline;
+  color: var(--accent);
+}
+.reasoning-review > p {
+  font-size: 12px;
+  margin: 13px 0;
+  color: var(--muted);
+}
+.reasoning-review .field-label {
+  display: grid;
+  gap: 7px;
+  font-size: 12px;
+}
+.reasoning-review textarea,
+.reasoning-review input[type="number"] {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 10px 12px;
+  border-radius: 3px;
+  font: inherit;
+  width: 100%;
+  font-size: 14px;
+}
+.reasoning-scopes {
+  display: grid;
+  gap: 9px;
+  margin: 15px 0 20px;
+}
+.reasoning-scopes label,
+.reasoning-permission {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.reasoning-scopes input,
+.reasoning-permission input {
+  flex: none;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+.reasoning-permission {
+  margin: 16px 0;
+}
+.reasoning-payload {
+  margin: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.reasoning-payload summary {
+  font-size: 12px;
+  cursor: pointer;
+}
+.reasoning-payload pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  line-height: 1.6;
+  max-height: 220px;
+  overflow: auto;
+  padding: 14px;
+  background: var(--surface);
+  margin: 12px 0 0;
+}
+.reasoning-quote {
+  margin: 20px 0 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.reasoning-quote h4 {
+  font-size: 22px;
+  font-weight: 400;
+}
+.reasoning-quote p {
+  font-size: 12px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+.reasoning-quote > .field-label {
+  margin: 15px 0;
+}
+.reasoning-stop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 12px;
+}
+.reasoning-model-guidance {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.reasoning-usage {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 14px !important;
+}
+.reasoning-limits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.reasoning-limits label {
+  display: grid;
+  gap: 6px;
+  font-size: 11px;
+}
+.reasoning-limits select {
+  font: inherit;
+  font-size: 13px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 9px 10px;
+  border-radius: 3px;
+  min-height: 40px;
+}
+.reasoning-review + .agent-conversation {
+  display: none;
+}
+.reasoning-review ~ .agent-composer {
+  display: none;
+}
+.reasoning-review ~ .agent-bottom-note,
+.reasoning-review ~ .agent-footnote {
+  display: none;
+}
+@media (max-width: 600px) {
+  .reasoning-mode-label select {
+    font-size: 12px;
+    max-width: 240px;
+    min-height: 38px;
+  }
+  .reasoning-status {
+    font-size: 11px;
+  }
+  .reasoning-review {
+    max-height: 60dvh;
+  }
+  .reasoning-review-heading h3 {
+    font-size: 23px;
+  }
+  .reasoning-scopes label,
+  .reasoning-permission {
+    font-size: 12px;
+  }
+  .reasoning-payload pre {
+    font-size: 11px;
+  }
+  .reasoning-review .button {
+    min-height: 44px;
+  }
+  .reasoning-quote > .button {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    max-width: 100%;
+  }
+  .reasoning-scopes label {
+    min-height: 33px;
+  }
+}

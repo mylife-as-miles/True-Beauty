@@ -28,9 +28,41 @@ export interface HairLook {
   opacity: number;
   mode: "solid" | "ombre" | "highlights" | "balayage";
 }
+export const ACCESSORY_KEYS = [
+  "glasses",
+  "earrings",
+  "necklace",
+  "ring",
+  "bracelet",
+  "watch",
+  "hat",
+] as const;
+export type AccessoryKey = (typeof ACCESSORY_KEYS)[number];
+export type AccessorySelection = {
+  glasses: boolean;
+  earrings: boolean;
+  necklace: boolean;
+} & Partial<Record<"ring" | "bracelet" | "watch" | "hat", boolean>>;
+/** Shared feature requirements keep UI, agent and renderer requests consistent. */
+export function accessoryVisionRequirements(
+  accessories: Partial<AccessorySelection>,
+) {
+  const any = ACCESSORY_KEYS.some((key) => accessories[key] === true);
+  return {
+    body: any,
+    pose: !!(accessories.necklace || accessories.watch || accessories.bracelet),
+    hands: any,
+    face: !!(
+      accessories.glasses ||
+      accessories.earrings ||
+      accessories.necklace ||
+      accessories.hat
+    ),
+  };
+}
 export type MakeupLook = Record<MakeupLayerName, MakeupLayer> & {
   hair: HairLook;
-  accessories: { glasses: boolean; earrings: boolean; necklace: boolean };
+  accessories: AccessorySelection;
   reshape: number;
 };
 const layer = (
@@ -193,6 +225,11 @@ export function normalizeLook(input: unknown): MakeupLook {
       glasses: a.glasses === true,
       earrings: a.earrings === true,
       necklace: a.necklace === true,
+      ...Object.fromEntries(
+        (["ring", "bracelet", "watch", "hat"] as const)
+          .filter((key) => Object.prototype.hasOwnProperty.call(a, key))
+          .map((key) => [key, a[key] === true]),
+      ),
     };
   if (typeof value.reshape === "number" && Number.isFinite(value.reshape))
     result.reshape = Math.min(1, Math.max(-1, value.reshape));

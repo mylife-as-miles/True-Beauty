@@ -19,12 +19,29 @@ import {
   findAlternatives,
   compareProducts,
   nearestShade,
+  allowedReferenceUrl,
+  bagTotals,
   type Product,
   type Currency,
   type ProductCategory,
 } from "../../../../packages/commerce-engine/src";
 import { inspectIngredients } from "../../../../packages/beauty-intelligence/src";
-import { db } from "../../../../packages/local-database/src";
+import {
+  db,
+  normalizeShoppingBag,
+} from "../../../../packages/local-database/src";
+import {
+  addBagSelection,
+  setBagQuantity,
+  removeBagSelection,
+  addObservedQuote,
+} from "../../../../packages/commerce-engine/src/persistent-bag";
+import MerchantSources from "./MerchantSources";
+import UserProducts from "./UserProductForm";
+import {
+  asUserProductRecord,
+  type UserProductRecord,
+} from "../../../../packages/commerce-engine/src/user-products";
 import { useApp } from "../state/store";
 import { Modal, IconButton, SectionTitle, Empty } from "./ui";
 const ProductViewer = lazy(() => import("./ProductViewer"));
@@ -46,6 +63,7 @@ export default function Discover({
     [comparison, setComparison] = useState(false),
     [ingredient, setIngredient] = useState(""),
     [bagOpen, setBagOpen] = useState(false),
+    [merchantOpen, setMerchantOpen] = useState(false),
     [variant, setVariant] = useState(() => {
       const p = context?.productId
         ? SAMPLE_PRODUCTS.find((p) => p.id === context.productId)
@@ -62,6 +80,53 @@ export default function Discover({
   const owned = useLiveQuery(() => db.ownedProducts.toArray(), []) ?? [],
     bag = useLiveQuery(() => db.shoppingBags.toArray(), []) ?? [],
     wishlist = useLiveQuery(() => db.wishlists.get("favourites"), []);
+  const savedProducts = useLiveQuery(() => db.products.toArray(), []) ?? [];
+  const bagDetails = bag.map((raw) => {
+    const line = normalizeShoppingBag(raw),
+      product = SAMPLE_PRODUCTS.find((p) => p.id === line.productId),
+      saved = savedProducts.find((p) => p.id === line.productId);
+    const itemVariant = product?.variants.find((v) => v.id === line.variantId);
+    const amount =
+      line.unitPrice ??
+      (line.priceKind !== "verified"
+        ? product && priceFor(product, line.currency ?? "NGN")?.amount
+        : undefined);
+    return {
+      line,
+      product,
+      name:
+        line.productName ??
+        product?.name ??
+        saved?.name ??
+        "Saved product reference",
+      variantName:
+        line.variantName ??
+        itemVariant?.name ??
+        (line.variantId === "default"
+          ? "Shade or size not recorded"
+          : (line.variantId ?? "Unspecified variant")),
+      amount,
+      currency: line.currency ?? "NGN",
+    };
+  });
+  const planningTotals = bagTotals(
+    bagDetails
+      .filter((d) => d.amount !== undefined)
+      .map((d) => ({
+        item: {
+          id: d.line.productId,
+          name: d.name,
+          kind: "makeup" as const,
+          price: d.amount!,
+          currency: d.currency,
+          variantId: d.line.variantId,
+          sourceKey: d.line.sourceKey,
+          sample: d.line.priceKind !== "verified",
+        },
+        size: d.line.size,
+        qty: d.line.quantity,
+      })),
+  );
   const products = useMemo(
     () =>
       searchProducts(query, {
@@ -106,19 +171,32 @@ export default function Discover({
     });
   };
   const addBag = async (p: Product) => {
-    const existing = bag.find((b) => b.productId === p.id);
-    if (existing)
-      await db.shoppingBags.update(existing.id, {
-        quantity: Math.min(99, existing.quantity + 1),
-      });
-    else
-      await db.shoppingBags.add({
-        id: crypto.randomUUID(),
+    const selectedVariant = p.variants[variant] ?? p.variants[0],
+      price = priceFor(p, currency);
+    if (!selectedVariant || !price) {
+      notify("No price is available for this variant and currency.");
+      return;
+    }
+    try {
+      await addBagSelection({
         productId: p.id,
-        quantity: 1,
-        addedAt: Date.now(),
+        productName: p.name,
+        variantId: selectedVariant.id,
+        variantName: selectedVariant.name,
+        size: selectedVariant.size,
+        currency,
+        unitPrice: price.amount,
+        priceKind: "sample",
+        sourceKey: "sample",
+        sourceUrl: p.merchantUrl,
+        priceObservedAt: price.observedAt,
       });
-    notify("Added to your local shopping bag. No order has been placed.");
+      notify(
+        "Variant added to your local planning bag. No order has been placed.",
+      );
+    } catch (e) {
+      notify(e instanceof Error ? e.message : "Unable to update the bag.");
+    }
   };
   const tryProduct = (p: Product) => {
     const v = p.variants[variant] ?? p.variants[0];
@@ -132,7 +210,8 @@ export default function Discover({
             ? "blush"
             : "lipstick";
     useApp.getState().patchLayer(key, { color: v.hex, enabled: true });
-    useApp.getState().setSpace("studio");
+    useApp.getState().setFocusLayer(key);
+    useApp.getState().setStudioMode("makeup");
     setSelected(null);
     notify(
       "Illustrative product shade applied. Actual colour and wear will vary.",
@@ -157,12 +236,20 @@ export default function Discover({
             : "Find your next favourite."
         }
       >
-        <button className="button secondary" onClick={() => setBagOpen(true)}>
-          <ShoppingBag size={17} /> Your bag{" "}
-          {bag.length > 0 && (
-            <span>({bag.reduce((n, b) => n + b.quantity, 0)})</span>
-          )}
-        </button>
+        <div className="commerce-heading-actions">
+          <button
+            className="button secondary"
+            onClick={() => setMerchantOpen(true)}
+          >
+            Source checks <ArrowUpRight size={15} />
+          </button>
+          <button className="button secondary" onClick={() => setBagOpen(true)}>
+            <ShoppingBag size={17} /> Your bag{" "}
+            {bag.length > 0 && (
+              <span>({bag.reduce((n, b) => n + b.quantity, 0)})</span>
+            )}
+          </button>
+        </div>
       </SectionTitle>
       <div className="discovery-intro">
         <p>
@@ -174,6 +261,16 @@ export default function Discover({
           Sample catalogue · illustrative prices & ingredient subsets
         </span>
       </div>
+      {ownedOnly && (
+        <UserProducts
+          products={savedProducts
+            .map(asUserProductRecord)
+            .filter(
+              (p): p is UserProductRecord =>
+                !!p && owned.some((o) => o.productId === p.id),
+            )}
+        />
+      )}
       {context && !ownedOnly && (
         <div className="shade-context">
           <i style={{ background: context.color }} />
@@ -344,7 +441,9 @@ export default function Discover({
       ) : (
         <Empty
           title={
-            ownedOnly ? "A wardrobe waiting for you." : "Nothing here just yet."
+            ownedOnly
+              ? "Explore sample references, too."
+              : "Nothing here just yet."
           }
           action={
             <button
@@ -523,6 +622,12 @@ export default function Discover({
               >
                 Visit official brand website <ArrowUpRight size={16} />
               </a>
+              <button
+                className="text-action"
+                onClick={() => setMerchantOpen(true)}
+              >
+                Check reviewed merchant sources <ArrowUpRight size={14} />
+              </button>
               <p className="fine-print">
                 {selected.provenance.note} Reference date:{" "}
                 {new Date(selected.provenance.checkedAt).toLocaleDateString()}.
@@ -593,96 +698,164 @@ export default function Discover({
           <div className="info-note">{pairs.note}</div>
         </Modal>
       )}
+      {merchantOpen && (
+        <Modal
+          title="Merchant source notebook."
+          wide
+          onClose={() => setMerchantOpen(false)}
+        >
+          <MerchantSources
+            productId={selected?.id}
+            onAddQuote={addObservedQuote}
+          />
+        </Modal>
+      )}
       {bagOpen && (
         <Modal title="Your beauty bag." onClose={() => setBagOpen(false)}>
-          {bag.length ? (
+          {bagDetails.length ? (
             <>
               <div className="bag-items">
-                {bag.map((b) => {
-                  const p = SAMPLE_PRODUCTS.find((p) => p.id === b.productId);
-                  return p ? (
-                    <div className="bag-item" key={b.id}>
-                      <img src={productIllustration(p)} alt="" />
-                      <div>
-                        <strong>{p.name}</strong>
-                        <span>
-                          {formatPrice(
-                            (priceFor(p, currency)?.amount ?? 0) * b.quantity,
-                            currency,
-                          )}{" "}
-                          · sample
-                        </span>
-                        <label>
-                          Quantity{" "}
-                          <input
-                            aria-label={`${p.name} quantity`}
-                            type="number"
-                            min="1"
-                            max="99"
-                            value={b.quantity}
-                            onChange={(e) =>
-                              void db.shoppingBags.update(b.id, {
-                                quantity: Math.max(
-                                  1,
-                                  Math.min(99, Number(e.target.value) || 1),
+                {bagDetails.map((d) => (
+                  <div className="bag-item" key={d.line.id}>
+                    <img
+                      src={productIllustration(
+                        d.product ?? { accent: "#b8a18f", form: "bottle" },
+                      )}
+                      alt="Original generic packaging illustration"
+                    />
+                    <div>
+                      <strong>{d.name}</strong>
+                      <span className="bag-variant-label">
+                        {d.variantName}
+                        {d.line.size ? ` · ${d.line.size}` : ""} · {d.currency}
+                      </span>
+                      <span>
+                        {d.amount === undefined
+                          ? "Price not recorded"
+                          : formatPrice(
+                              d.amount * d.line.quantity,
+                              d.currency,
+                            )}{" "}
+                        ·{" "}
+                        {d.line.imported || d.line.priceKind === "imported"
+                          ? "imported, refresh source"
+                          : d.line.priceKind === "verified"
+                            ? "observed source quote"
+                            : "sample budget estimate"}
+                      </span>
+                      {d.line.priceObservedAt && (
+                        <small>
+                          Price date:{" "}
+                          {new Date(d.line.priceObservedAt).toLocaleString()}
+                        </small>
+                      )}
+                      <label>
+                        Quantity{" "}
+                        <input
+                          aria-label={`${d.name} ${d.variantName} ${d.currency} quantity`}
+                          type="number"
+                          min="1"
+                          max="99"
+                          step="1"
+                          value={d.line.quantity}
+                          onChange={(e) => {
+                            const value = Number(e.target.value);
+                            if (
+                              !Number.isInteger(value) ||
+                              value < 1 ||
+                              value > 99
+                            )
+                              return;
+                            void setBagQuantity(d.line.id, value).catch(
+                              (error) =>
+                                notify(
+                                  error instanceof Error
+                                    ? error.message
+                                    : "Unable to update quantity.",
                                 ),
-                              })
-                            }
-                          />
-                        </label>
-                      </div>
-                      <IconButton
-                        label={`Remove ${p.name} from bag`}
-                        onClick={() => void db.shoppingBags.delete(b.id)}
-                      >
-                        <X size={17} />
-                      </IconButton>
+                            );
+                          }}
+                        />
+                      </label>
                     </div>
-                  ) : null;
-                })}
+                    <IconButton
+                      label={`Remove ${d.name} ${d.variantName} ${d.currency} from bag`}
+                      onClick={() =>
+                        void removeBagSelection(d.line.id).catch((error) =>
+                          notify(
+                            error instanceof Error
+                              ? error.message
+                              : "Unable to remove this line.",
+                          ),
+                        )
+                      }
+                    >
+                      <X size={17} />
+                    </IconButton>
+                  </div>
+                ))}
               </div>
-              <div className="bag-total">
-                <span>Illustrative total</span>
-                <strong>
-                  {formatPrice(
-                    bag.reduce(
-                      (n, b) =>
-                        n +
-                        (priceFor(
-                          SAMPLE_PRODUCTS.find((p) => p.id === b.productId)!,
-                          currency,
-                        )?.amount ?? 0) *
-                          b.quantity,
-                      0,
-                    ),
-                    currency,
-                  )}
-                </strong>
+              <div className="bag-planning-totals">
+                <h3>Planning totals by currency</h3>
+                {Object.entries(planningTotals).map(([unit, amount]) => (
+                  <div className="bag-total" key={unit}>
+                    <span>
+                      {unit} ·{" "}
+                      {bagDetails.some(
+                        (d) =>
+                          d.currency === unit &&
+                          d.line.priceKind !== "verified",
+                      )
+                        ? "includes sample estimates"
+                        : "observed quotes"}
+                    </span>
+                    <strong>{formatPrice(amount!, unit as Currency)}</strong>
+                  </div>
+                ))}
+                {bagDetails.some((d) => d.amount === undefined) && (
+                  <p>
+                    Some lines have no recorded price and are excluded from
+                    these totals.
+                  </p>
+                )}
               </div>
               <p>
-                Your bag is a local planning collection. Purchase directly from
-                each brand; current prices and shipping are confirmed there.
+                Your bag is a local planning collection. Currencies are kept
+                separate; no exchange conversion, stock reservation or order has
+                occurred. Sample amounts are estimates. Current prices, taxes
+                and shipping are confirmed by the merchant.
               </p>
-              {bag.map((b) => {
-                const p = SAMPLE_PRODUCTS.find((p) => p.id === b.productId);
-                return (
-                  p && (
-                    <a
-                      className="button secondary full-width"
-                      key={p.id}
-                      href={p.merchantUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Shop {p.brand} <ArrowUpRight size={16} />
-                    </a>
-                  )
-                );
+              {bagDetails.map((d) => {
+                const link = d.line.sourceUrl ?? d.product?.merchantUrl;
+                return link &&
+                  (allowedReferenceUrl(link) ||
+                    SAMPLE_PRODUCTS.some((p) => p.merchantUrl === link)) ? (
+                  <a
+                    className="text-action merchant-link"
+                    key={d.line.id}
+                    href={link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Verify {d.name} with its source <ArrowUpRight size={14} />
+                  </a>
+                ) : null;
               })}
+              <button
+                className="button secondary full-width"
+                onClick={() => {
+                  setBagOpen(false);
+                  setMerchantOpen(true);
+                }}
+              >
+                Check reviewed merchant sources
+                <ArrowUpRight size={14} />
+              </button>
             </>
           ) : (
-            <Empty title="Something good will find its way here.">
-              Explore the edit and add products to plan your next purchase.
+            <Empty title="A little space for discovery.">
+              Explore a shade or a product and add the exact variant to your
+              planning bag.
             </Empty>
           )}
         </Modal>
