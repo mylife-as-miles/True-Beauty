@@ -1,0 +1,23 @@
+{
+  "format": "true-beauty-live-skin-ui-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T16:47:27.329Z",
+  "fixture": "Original synthetic portrait, explicit local framing, genuine provider, no private photograph.",
+  "authorizationCredits": 9,
+  "paidTaskRequests": 0,
+  "observations": [],
+  "pageErrors": [],
+  "billingVerified": false,
+  "preparedSha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e",
+  "before": {
+    "skinScans": 0,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 0,
+    "savedImageReferences": false
+  },
+  "quote": {},
+  "error": "expect(locator).toBeVisible() failed\n\nLocator: locator('.skin-quote')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" locator('.skin-quote') with timeout 5000ms\n  - waiting for locator('.skin-quote')\n",
+  "finishedAt": "2026-11-02T16:47:44.094Z"
+}

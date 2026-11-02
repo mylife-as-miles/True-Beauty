@@ -1,0 +1,18 @@
+[
+  {
+    "name": "desktop",
+    "posts": [],
+    "errors": [],
+    "status": "failed",
+    "failure": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Read my colours', exact: true })\u001b[22m\n",
+    "text": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nYour beauty companion\n\nA closer look, with care\n\nSkin, understood.\nBack to your mirror\nStudio portrait · Unretouched image\nShow regions\n100%\nReset view\nLook closer\nSkin\nHair\nEyes\nCamera\nUpload portrait\n\nYour image is processed locally unless you explicitly choose provider analysis.\n\nPortrait checks\nReady for local exploration\nYour colours\nSkin & care\nYour history\nPersonal colour studio\nA palette that feels\nlike you.\n\nYour skin, hair and eyes tell a colour story. Read your portrait, explore each detail, then take a shade into your mirror.\n\nRead my colours locally\n\nPortrait ready. Read your colours locally or choose your own swatches.\n\nSkin\n#bc9279\nHair\n#342721\nEyes\n#604435\n\nSwatches are starting examples until you read your portrait or choose your own.\n\nTRUE BEAUTY\n\nMade for self-expression. Kept personal.\n\nYour data, your choice"
+  },
+  {
+    "name": "mobile",
+    "posts": [],
+    "errors": [],
+    "status": "failed",
+    "failure": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Read my colours', exact: true })\u001b[22m\n",
+    "text": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\n\nA closer look, with care\n\nSkin, understood.\nBack to your mirror\nStudio portrait · Unretouched image\nShow regions\n100%\nReset view\nLook closer\nSkin\nHair\nEyes\nCamera\nUpload portrait\n\nYour image is processed locally unless you explicitly choose provider analysis.\n\nYour colours\nSkin & care\nYour history\nPersonal colour studio\nA palette that feels\nlike you.\n\nYour skin, hair and eyes tell a colour story. Read your portrait, explore each detail, then take a shade into your mirror.\n\nRead my colours locally\n\nPortrait ready. Read your colours locally or choose your own swatches.\n\nSkin\n#bc9279\nHair\n#342721\nEyes\n#604435\n\nSwatches are starting examples until you read your portrait or choose your own.\n\nTRUE BEAUTY\nYour data, your choice"
+  }
+]

@@ -363,6 +363,23 @@ try {
   for (const op of operations) {
     active = op;
     stage = op.feature + "-prepare";
+    const prepareSelect = async (name, value) => {
+      stage = op.feature + "-select-" + name.toLowerCase().replaceAll(" ", "-");
+      receipt.checkpoint = {
+        stage,
+        action: "select and verify value",
+        role: "combobox",
+        accessibleNamePrefix: name,
+        expectedValue: value,
+      };
+      persist();
+      const select = page.getByRole("combobox", {
+        name: new RegExp("^" + name),
+      });
+      await expect(select).toHaveCount(1);
+      await select.selectOption(value);
+      await expect(select).toHaveValue(value);
+    };
     console.log(op.feature + ": preparing original synthetic fixture");
     await page
       .getByRole("button", {
@@ -374,28 +391,28 @@ try {
       .getByLabel("Upload generation portrait", { exact: true })
       .setInputFiles(fixtures[op.source].path);
     if (op.feature === "hair") {
-      await page
-        .getByLabel("Hairstyle source", { exact: true })
-        .selectOption("template");
+      await prepareSelect("Hairstyle source", "template");
+      stage = "hair-load-provider-styles";
+      receipt.checkpoint = {
+        stage,
+        action: "load current provider styles",
+        role: "button",
+        accessibleName: "Load provider styles",
+      };
+      persist();
       await page
         .getByRole("button", { name: "Load provider styles", exact: true })
         .click();
       await expect(
-        page.getByLabel("Provider hairstyle", { exact: true }),
+        page.getByRole("combobox", { name: /^Provider hairstyle/ }),
       ).toBeEnabled();
-      await page
-        .getByLabel("Provider hairstyle", { exact: true })
-        .selectOption("female_s_wave_brunette");
-      await page
-        .getByLabel("Hair colour source", { exact: true })
-        .selectOption("src");
+      await prepareSelect("Provider hairstyle", "female_s_wave_brunette");
+      await prepareSelect("Hair colour source", "src");
     } else {
       await page
         .getByLabel("Upload generation reference", { exact: true })
         .setInputFiles(fixtures.garment.path);
-      await page
-        .getByLabel("Garment area", { exact: true })
-        .selectOption("upper_body");
+      await prepareSelect("Garment area", "upper_body");
     }
     if (
       receipt.paidTaskRequests !==
@@ -569,10 +586,31 @@ try {
       };
     });
     op.image = await imageResponse;
+    // CDP may omit an already-consumed fetch body. Check the displayed Blob
+    // locally; this makes no HTTP or provider request.
+    op.displayedImage = await image.evaluate(async (img) => {
+      if (!img.src.startsWith("blob:"))
+        throw new Error("Expected local result Blob.");
+      const response = await fetch(img.src);
+      const bytes = await response.arrayBuffer();
+      const digest = new Uint8Array(
+        await crypto.subtle.digest("SHA-256", bytes),
+      );
+      return {
+        bytes: bytes.byteLength,
+        sha256: [...digest]
+          .map((v) => v.toString(16).padStart(2, "0"))
+          .join(""),
+        contentType: response.headers.get("content-type"),
+      };
+    });
+    op.httpBodyCaptured = !!op.image && op.image.bytes > 100;
     await Promise.all(responseReads);
     if (
       op.status !== "success" ||
       !op.image ||
+      op.displayedImage.bytes <= 100 ||
+      op.displayedImage.sha256 === fixtures[op.source].sha256 ||
       op.pixels.uniqueColours < 32 ||
       op.pixels.lumaVariance < 10 ||
       op.paidTaskRequests !== 1 ||
@@ -610,9 +648,17 @@ try {
     receipt.pageErrorCount === 0 &&
     receipt.protocolReadFailures === 0;
   if (!receipt.verified) throw new Error("Final verification gate failed.");
-} catch {
+} catch (error) {
   receipt.error = {
     stage,
+    kind: error?.name === "TimeoutError" ? "timeout" : "assertion-or-runtime",
+    // Static authored selector metadata only. Never serialize arbitrary exception
+    // text, HTTP bodies, credentials, image data or signed request URLs.
+    checkpoint:
+      receipt.checkpoint?.stage === stage ? receipt.checkpoint : { stage },
+    detail: JSON.stringify(
+      receipt.checkpoint?.stage === stage ? receipt.checkpoint : { stage },
+    ).slice(0, 1000),
     message:
       "Verification stopped. Review this receipt, existing hosted tasks and screenshots before any separately authorized paid attempt.",
   };

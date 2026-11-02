@@ -1,0 +1,179 @@
+{
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "checkedAt": "2026-11-02T17:15:35.836Z",
+  "states": [
+    {
+      "name": "desktop-enhanced-glitter",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": "webgl2"
+    },
+    {
+      "name": "desktop-enhanced-gloss",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": "webgl2"
+    },
+    {
+      "name": "tablet-studio",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": "webgl2"
+    },
+    {
+      "name": "mobile-studio",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": "webgl2"
+    },
+    {
+      "name": "mobile-focus",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": "webgl2"
+    },
+    {
+      "name": "desktop-remix-edit",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 1010,
+      "overflow": 0,
+      "renderer": null,
+      "preview": {
+        "x": 188.734375,
+        "y": 136.96875,
+        "width": 1128.53125,
+        "height": 194
+      },
+      "main": {
+        "hairReady": "true",
+        "faceSource": "shared",
+        "localInferences": "1",
+        "faceInferences": "0",
+        "hairInferences": "1"
+      }
+    },
+    {
+      "name": "tablet-remix-edit",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollY": 772,
+      "overflow": 0,
+      "renderer": null,
+      "preview": {
+        "x": 61.078125,
+        "y": 68.03125,
+        "width": 645.84375,
+        "height": 194
+      },
+      "main": {
+        "hairReady": "true",
+        "faceSource": "shared",
+        "localInferences": "1",
+        "faceInferences": "0",
+        "hairInferences": "1"
+      }
+    },
+    {
+      "name": "mobile-remix-edit",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollY": 1112,
+      "overflow": 0,
+      "renderer": null,
+      "preview": {
+        "x": 45,
+        "y": 12,
+        "width": 300,
+        "height": 189.1875
+      },
+      "main": {
+        "hairReady": "true",
+        "faceSource": "shared",
+        "localInferences": "1",
+        "faceInferences": "0",
+        "hairInferences": "1"
+      }
+    },
+    {
+      "name": "mobile-dressing-top",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": null
+    },
+    {
+      "name": "mobile-dressing-edit",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollY": 1479,
+      "overflow": 0,
+      "renderer": null
+    },
+    {
+      "name": "desktop-dressing",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": null
+    },
+    {
+      "name": "desktop-skin-top",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": null
+    },
+    {
+      "name": "desktop-skin-care",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "scrollY": 0,
+      "overflow": 0,
+      "renderer": null
+    }
+  ],
+  "errors": [],
+  "posts": [],
+  "noProviderPostsAllowed": true,
+  "browser": "156.0.8078.4"
+}

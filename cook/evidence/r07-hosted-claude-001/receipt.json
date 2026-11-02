@@ -1,0 +1,68 @@
+{
+  "format": "true-beauty-live-reasoning-receipt",
+  "version": 2,
+  "mode": "genuine-public-hosted",
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "startedAt": "2026-11-02T16:49:55.204Z",
+  "fixture": "Nonpersonal explicit colour request; no images or personal context.",
+  "authorizeUsd": 0.2,
+  "paidStarts": 1,
+  "steps": [
+    {
+      "httpStatus": 502,
+      "error": "The provider returned an invalid or unapproved tool plan. No unvalidated action was executed.",
+      "kind": "invalid-output"
+    }
+  ],
+  "feedback": [
+    {
+      "stepId": "dae4873c-e5c5-4dca-8e4f-533f361e78d4",
+      "feedback": []
+    }
+  ],
+  "billingVerified": false,
+  "capabilities": {
+    "ready": true,
+    "provider": "Anthropic Claude",
+    "model": "claude-haiku-4-5-20251001"
+  },
+  "contextCategories": [],
+  "goal": "Set the lipstick color to #B35B6B and the hair color to #A35C36. Use one tool for each change and report the actual results.",
+  "quote": {
+    "quoteId": "02072cff-e1d0-4716-8e1d-24a035471ca9",
+    "maximumUsd": 0.111,
+    "currency": "USD",
+    "maxSteps": 3,
+    "maxOutputTokens": 1000,
+    "inputTokenCeiling": 32000,
+    "expiresAt": "2026-11-02T16:55:28.982Z",
+    "model": "claude-haiku-4-5-20251001",
+    "pricingProvenance": {
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "reviewedAt": "2026-11-02T14:10:13.071Z",
+      "kind": "operator-reviewed-upper-bound"
+    },
+    "note": "Conservative maximum for all authorized turns. Rates are operator-reviewed, not a live provider-price lookup. The full ceiling is reserved once against the shared operator budget and not refunded automatically, including uncertain failures/cancellation."
+  },
+  "operatorApproval": {
+    "quoteId": "02072cff-e1d0-4716-8e1d-24a035471ca9",
+    "operation": "reasoning",
+    "maximumAuthorizedMicroUsd": 200000,
+    "quoteMicroUsd": 111000,
+    "approvedAt": "2026-11-02T16:50:32.775Z"
+  },
+  "sessionHttpStatus": 200,
+  "usage": "0 completed model turns · 0 input / 0 output tokens · maximum reservation US$0.111000. Check your provider for actual billing.",
+  "actions": [
+    "No model result or local action was completed.\n\nThe provider returned an invalid or unapproved tool plan. No unvalidated action was executed."
+  ],
+  "actualLipColor": "#a45356",
+  "hairRecipe": "Hair\nOriginal colour",
+  "hairEvidence": "Mounted Digital Twin current mirror recipe",
+  "actualToolResults": [],
+  "completed": false,
+  "verified": false,
+  "error": "Live tool feedback and mounted controls did not verify both requested colours.",
+  "pageErrors": [],
+  "finishedAt": "2026-11-02T16:50:42.396Z"
+}

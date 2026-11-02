@@ -1,0 +1,240 @@
+{
+  "kind": "genuine-public-browser-to-native-worker-to-official-merchant",
+  "startedAt": "2026-11-02T16:50:33.648Z",
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "scope": "Merchant lookup and local planning only. No interception/mocks, provider/paid actions, personal images, secrets, checkout, orders or merchant partnership. Source snapshots describe their recorded fetch, not lasting stock or final checkout prices.",
+  "browser": "156.0.8078.4",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "requests": [
+    {
+      "at": "2026-11-02T16:50:35.233Z",
+      "method": "POST",
+      "path": "/api/merchants/refresh",
+      "body": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-fixing-spray"
+      }
+    },
+    {
+      "at": "2026-11-02T16:50:36.952Z",
+      "method": "POST",
+      "path": "/api/merchants/refresh",
+      "body": {
+        "sourceId": "boj",
+        "referenceId": "boj-glow-serum"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "referenceId": "nuban-fixing-spray",
+      "attempt": 1,
+      "receivedAt": "2026-11-02T16:50:36.211Z",
+      "status": 200,
+      "result": {
+        "sourceId": "nuban",
+        "referenceId": "nuban-fixing-spray",
+        "fetchedAt": "2026-11-02T16:48:24.223Z",
+        "observations": [
+          {
+            "id": "1601824b-f8cd-49af-a87c-0f68806a7d0c",
+            "sourceId": "nuban",
+            "referenceId": "nuban-fixing-spray",
+            "merchant": "Nuban Beauty",
+            "title": "SEAL IT! MAKEUP FIXING SPRAY (105ml)",
+            "variantId": "SI-MFS",
+            "variantName": "SKU SI-MFS",
+            "amount": 11950,
+            "currency": "NGN",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T16:48:24.223Z",
+            "sourceUrl": "https://nubanbeauty.com/products/seal-it-makeup-fixing-spray",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-12-02"
+          }
+        ],
+        "cached": true,
+        "nextRefreshAt": "2026-11-02T17:03:21.698Z"
+      }
+    },
+    {
+      "referenceId": "boj-glow-serum",
+      "attempt": 1,
+      "receivedAt": "2026-11-02T16:50:37.870Z",
+      "status": 200,
+      "result": {
+        "sourceId": "boj",
+        "referenceId": "boj-glow-serum",
+        "fetchedAt": "2026-11-02T16:48:29.751Z",
+        "observations": [
+          {
+            "id": "cd735768-9689-4f33-90f6-83a975f864ff",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS006",
+            "variantName": "SKU 82BS006",
+            "amount": 15.3,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T16:48:29.751Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          },
+          {
+            "id": "39304a8e-87a9-47ce-942b-407e0371a88b",
+            "sourceId": "boj",
+            "referenceId": "boj-glow-serum",
+            "merchant": "Beauty of Joseon",
+            "title": "Glow Serum : Propolis + Niacinamide",
+            "variantId": "82BS030",
+            "variantName": "SKU 82BS030",
+            "amount": 27.2,
+            "currency": "USD",
+            "availability": "in-stock",
+            "fetchedAt": "2026-11-02T16:48:29.751Z",
+            "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+            "evidenceType": "json-ld",
+            "status": "observed",
+            "note": "Public product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.",
+            "validUntil": "2026-11-03"
+          }
+        ],
+        "cached": true,
+        "nextRefreshAt": "2026-11-02T17:03:26.870Z"
+      }
+    }
+  ],
+  "added": [
+    {
+      "referenceId": "nuban-fixing-spray",
+      "variantId": "SI-MFS",
+      "variantName": "SKU SI-MFS",
+      "amount": 11950,
+      "currency": "NGN",
+      "sourceUrl": "https://nubanbeauty.com/products/seal-it-makeup-fixing-spray",
+      "fetchedAt": "2026-11-02T16:48:24.223Z",
+      "availability": "in-stock"
+    },
+    {
+      "referenceId": "boj-glow-serum",
+      "variantId": "82BS006",
+      "variantName": "SKU 82BS006",
+      "amount": 15.3,
+      "currency": "USD",
+      "sourceUrl": "https://beautyofjoseon.com/products/glow-serum-propolis-niacinamide",
+      "fetchedAt": "2026-11-02T16:48:29.751Z",
+      "availability": "in-stock"
+    }
+  ],
+  "apiPaths": [
+    {
+      "method": "GET",
+      "path": "/api/session"
+    },
+    {
+      "method": "POST",
+      "path": "/api/merchants/refresh"
+    },
+    {
+      "method": "GET",
+      "path": "/api/session"
+    },
+    {
+      "method": "POST",
+      "path": "/api/merchants/refresh"
+    }
+  ],
+  "browserErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "checks": [
+    {
+      "name": "public first visit without login",
+      "pass": true
+    },
+    {
+      "name": "nuban-fixing-spray: visible genuine observations",
+      "pass": true,
+      "observedPriceCount": 1,
+      "addButtonCount": 1,
+      "text": "From the source.\n\nA small, reviewed set of official product pages. Check a price, inspect its date, then confirm with the merchant.\n\nOfficial product page\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\nPRO GLOSS MINI LIPSTICKS [Singles]\nGlow Serum : Propolis + Niacinamide\nNatural Moisturizing Factors + HA\nUse a supported official product link\n\nOfficial Nigerian brand storefront. Prices are shown in naira only when the merchant explicitly publishes them.\n\nCheck current source\nOpen official page\n\nThis requests public product facts through our service. It sends no photo, profile, budget or beauty history. No order is placed. Successful checks are cached for 15 minutes.\n\nSaved source observation reused from the service cache. Its original fetch time is shown.\n\nRecent merchant observation\nMerchant reported in stock\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\n\nSKU SI-MFS\n\n₦11,950\nNGN · no currency conversion\n\nFetched 11/2/2026, 4:48:24 PM UTC · source price-valid-until 2026-12-02\n\nPublic product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.\n\nVerify with Nuban Beauty\nAdd planning quote\n\nSource observations are separate from the sample catalogue. Structured data can lag behind a merchant’s checkout, and taxes, delivery, region restrictions and final prices may differ. We have no merchant partnership and do not reserve stock or complete purchases."
+    },
+    {
+      "name": "boj-glow-serum: visible genuine observations",
+      "pass": true,
+      "observedPriceCount": 2,
+      "addButtonCount": 2,
+      "text": "From the source.\n\nA small, reviewed set of official product pages. Check a price, inspect its date, then confirm with the merchant.\n\nOfficial product page\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\nPRO GLOSS MINI LIPSTICKS [Singles]\nGlow Serum : Propolis + Niacinamide\nNatural Moisturizing Factors + HA\nUse a supported official product link\n\nOfficial brand storefront. Price and stock are source observations, not shipping-to-Nigeria availability.\n\nCheck current source\nOpen official page\n\nThis requests public product facts through our service. It sends no photo, profile, budget or beauty history. No order is placed. Successful checks are cached for 15 minutes.\n\nSaved source observation reused from the service cache. Its original fetch time is shown.\n\nRecent merchant observation\nMerchant reported in stock\nGlow Serum : Propolis + Niacinamide\n\nSKU 82BS030\n\nUS$27.20\nUSD · no currency conversion\n\nFetched 11/2/2026, 4:48:29 PM UTC · source price-valid-until 2026-11-03\n\nPublic product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.\n\nVerify with Beauty of Joseon\nAdd planning quote\nRecent merchant observation\nMerchant reported in stock\nGlow Serum : Propolis + Niacinamide\n\nSKU 82BS006\n\nUS$15.30\nUSD · no currency conversion\n\nFetched 11/2/2026, 4:48:29 PM UTC · source price-valid-until 2026-11-03\n\nPublic product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.\n\nVerify with Beauty of Joseon\nAdd planning quote\n\nSource observations are separate from the sample catalogue. Structured data can lag behind a merchant’s checkout, and taxes, delivery, region restrictions and final prices may differ. We have no merchant partnership and do not reserve stock or complete purchases."
+    },
+    {
+      "name": "each clicked SKU, currency and amount matches the actual bag line",
+      "pass": true
+    },
+    {
+      "name": "both genuine NGN and USD planning quotes available",
+      "pass": true,
+      "note": "Unavailable source currencies are not replaced by sample amounts."
+    },
+    {
+      "name": "exact added source lines and separate currencies survive reload",
+      "pass": true,
+      "lineCount": 2
+    },
+    {
+      "name": "mobile bag controls meet 44px",
+      "pass": true
+    },
+    {
+      "name": "source observation history is recalled locally without a new refresh",
+      "pass": true
+    },
+    {
+      "name": "no paid/provider or unrelated mutation request",
+      "pass": true,
+      "unexpected": []
+    }
+  ],
+  "fatal": null,
+  "documentStatus": 200,
+  "bagBeforeReload": "Your beauty bag.\nGlow Serum : Propolis + Niacinamide\nSKU 82BS006 · USD\nUS$15.30 · observed source quote\nPrice date: 11/2/2026, 4:48:29 PM\nQuantity\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\nSKU SI-MFS · NGN\n₦11,950 · observed source quote\nPrice date: 11/2/2026, 4:48:24 PM\nQuantity\nPlanning totals by currency\nUSD · observed quotes\nUS$15.30\nNGN · observed quotes\n₦11,950\n\nYour bag is a local planning collection. Currencies are kept separate; no exchange conversion, stock reservation or order has occurred. Sample amounts are estimates. Current prices, taxes and shipping are confirmed by the merchant.\n\nVerify Glow Serum : Propolis + Niacinamide with its source\nVerify SEAL IT! MAKEUP FIXING SPRAY (105ml) with its source\nCheck reviewed merchant sources",
+  "bagAfterReload": "Your beauty bag.\nGlow Serum : Propolis + Niacinamide\nSKU 82BS006 · USD\nUS$15.30 · observed source quote\nPrice date: 11/2/2026, 4:48:29 PM\nQuantity\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\nSKU SI-MFS · NGN\n₦11,950 · observed source quote\nPrice date: 11/2/2026, 4:48:24 PM\nQuantity\nPlanning totals by currency\nUSD · observed quotes\nUS$15.30\nNGN · observed quotes\n₦11,950\n\nYour bag is a local planning collection. Currencies are kept separate; no exchange conversion, stock reservation or order has occurred. Sample amounts are estimates. Current prices, taxes and shipping are confirmed by the merchant.\n\nVerify Glow Serum : Propolis + Niacinamide with its source\nVerify SEAL IT! MAKEUP FIXING SPRAY (105ml) with its source\nCheck reviewed merchant sources",
+  "mobileTargets": [
+    {
+      "label": "Close dialog",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "label": "Glow Serum : Propolis + Niacinamide SKU 82BS006 USD quantity",
+      "width": 54,
+      "height": 44
+    },
+    {
+      "label": "Remove Glow Serum : Propolis + Niacinamide SKU 82BS006 USD from bag",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "label": "SEAL IT! MAKEUP FIXING SPRAY (105ml) SKU SI-MFS NGN quantity",
+      "width": 54,
+      "height": 44
+    },
+    {
+      "label": "Remove SEAL IT! MAKEUP FIXING SPRAY (105ml) SKU SI-MFS NGN from bag",
+      "width": 44,
+      "height": 44
+    }
+  ],
+  "reloadedSourceText": "From the source.\n\nA small, reviewed set of official product pages. Check a price, inspect its date, then confirm with the merchant.\n\nOfficial product page\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\nPRO GLOSS MINI LIPSTICKS [Singles]\nGlow Serum : Propolis + Niacinamide\nNatural Moisturizing Factors + HA\nUse a supported official product link\n\nOfficial Nigerian brand storefront. Prices are shown in naira only when the merchant explicitly publishes them.\n\nCheck current source\nOpen official page\n\nThis requests public product facts through our service. It sends no photo, profile, budget or beauty history. No order is placed. Successful checks are cached for 15 minutes.\n\nRecent merchant observation\nMerchant reported in stock\nSEAL IT! MAKEUP FIXING SPRAY (105ml)\n\nSKU SI-MFS\n\n₦11,950\nNGN · no currency conversion\n\nFetched 11/2/2026, 4:48:24 PM UTC · source price-valid-until 2026-12-02\n\nPublic product-page structured data observed at this time. Recheck at merchant before purchase; shipping and taxes may differ.\n\nVerify with Nuban Beauty\nAdd planning quote\n\nSource observations are separate from the sample catalogue. Structured data can lag behind a merchant’s checkout, and taxes, delivery, region restrictions and final prices may differ. We have no merchant partnership and do not reserve stock or complete purchases.",
+  "finishedAt": "2026-11-02T16:50:40.217Z"
+}

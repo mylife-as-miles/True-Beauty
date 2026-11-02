@@ -2,9 +2,9 @@
 
 An original, local-first beauty studio with a Living Mirror, editable makeup/hair previews, Skin Lab colour exploration, products and routines, wardrobe, inspiration canvas, and a tool-using beauty companion with editable BeautyGraph memory.
 
-This repository is an active engineering build. **The complete product acceptance gate is not met.** Implemented local workflows are real. Genuine synthetic-fixture YouCam skin/hair/clothing and native Claude tool execution are now recorded; public paid-backend hosting, broad device/fairness validation and remaining scope are tracked explicitly. See [feature status](docs/FEATURE_MATRIX.md), [quality evidence](docs/QUALITY_REPORT.md), and [remaining work](docs/REMAINING_WORK.md).
+This repository is an active engineering build. **The complete product acceptance gate is not met.** The public native backend genuinely executes YouCam skin/hair/clothing and Claude mirror tools with server-only credentials, exact sponsored-credit approval and separate consent. Independent product judgment is7.24/10; visual editing8.3. Broad device/fairness validation, complete occasion planning and remaining scope are tracked explicitly. See [feature status](docs/FEATURE_MATRIX.md), [quality evidence](docs/QUALITY_REPORT.md), and [remaining work](docs/REMAINING_WORK.md).
 
-Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Its public static deployment is separate from the locally verified provider API; see [DEPLOYMENT](docs/DEPLOYMENT.md).
+Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Native version5 is public; see [deployment provenance](docs/DEPLOYMENT.md) and [genuine hosted verification](docs/LIVE_PROVIDER_VERIFICATION_R07.md). Core local features need no account. Remote requests need a reviewed quote, owner sponsorship and explicit transmission/spending consent.
 
 ## Run locally
 

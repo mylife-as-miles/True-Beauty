@@ -1,0 +1,74 @@
+{
+  "format": "true-beauty-live-skin-ui-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T17:03:46.807Z",
+  "fixture": "Original synthetic portrait, explicit local framing, genuine provider, no private photograph.",
+  "authorizationCredits": 9,
+  "paidTaskRequests": 1,
+  "observations": [
+    {
+      "concern": "pore",
+      "label": "Pore appearance",
+      "uiScore": 69,
+      "rawScore": 52.702648758888245,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "texture",
+      "label": "Texture appearance",
+      "uiScore": 77,
+      "rawScore": 72.23509550094604,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "redness",
+      "label": "Redness appearance",
+      "uiScore": 99,
+      "rawScore": 100,
+      "confidence": null,
+      "kind": "provider-prediction"
+    },
+    {
+      "concern": "moisture",
+      "label": "Apparent hydration",
+      "uiScore": 69,
+      "rawScore": 46.294522285461426,
+      "confidence": null,
+      "kind": "provider-prediction"
+    }
+  ],
+  "pageErrors": [],
+  "billingVerified": false,
+  "preparedSha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e",
+  "before": {
+    "skinScans": 0,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 0,
+    "savedImageReferences": false
+  },
+  "quote": {
+    "quoteId": "d8996d16-61e5-4bef-888f-336c5c298fe6",
+    "credits": 9,
+    "actions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ],
+    "expiresAt": "2026-11-02T17:09:01.246Z"
+  },
+  "submissionHttpStatus": 202,
+  "taskId": "d8996d16-61e5-4bef-888f-336c5c298fe6",
+  "submissionStatus": "running",
+  "limitations": [
+    "Cosmetic predictions from a photograph are not a medical diagnosis or direct measurements of hydration, sebum or skin physiology.",
+    "Provider UI scores are adjusted display scores; raw model scores are kept separate. Neither field is a probability or confidence estimate.",
+    "Lighting, complexion, camera processing, makeup and pose can affect the result. You can correct your profile."
+  ],
+  "error": "locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Check existing task status', exact: true })\u001b[22m\n",
+  "finishedAt": "2026-11-02T17:04:53.106Z"
+}

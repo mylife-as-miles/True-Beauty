@@ -162,7 +162,7 @@ try {
   await page
     .getByRole("button", { name: "Get a credit quote", exact: true })
     .click();
-  await expect(page.locator(".skin-quote")).toBeVisible();
+  await expect(page.locator(".skin-quote")).toBeVisible({ timeout: 30000 });
   if (receipt.quote?.credits !== ceiling)
     throw new Error(
       "Quote differs from explicit maximum; no upload authorized",
@@ -189,15 +189,32 @@ try {
   await page
     .getByLabel("Maximum credits I authorize", { exact: true })
     .fill(String(ceiling));
-  await page
-    .getByRole("button", { name: "Authorize and send portrait", exact: true })
-    .click();
+  const [created] = await Promise.all([
+    page.waitForResponse(
+      (response) =>
+        new URL(response.url()).pathname === "/api/skin/tasks" &&
+        response.request().method() === "POST",
+      { timeout: 60000 },
+    ),
+    page
+      .getByRole("button", { name: "Authorize and send portrait", exact: true })
+      .click(),
+  ]);
+  receipt.submissionHttpStatus = created.status();
+  if (!created.ok())
+    throw new Error(
+      "The single task submission was rejected. No automatic paid retry.",
+    );
+  const submitted = await created.json();
+  receipt.taskId = submitted.taskId;
+  receipt.submissionStatus = submitted.status;
+  persist();
   await expect(
     page.getByRole("button", {
       name: "Check existing task status",
       exact: true,
     }),
-  ).toBeVisible();
+  ).toBeVisible({ timeout: 30000 });
   const deadline = Date.now() + 90000;
   while (
     !(await page
@@ -209,9 +226,23 @@ try {
     Date.now() < deadline
   ) {
     await page.waitForTimeout(10000);
-    await page
-      .getByRole("button", { name: "Check existing task status", exact: true })
-      .click();
+    // The application polls automatically too. Do not click a removed manual
+    // control after an actual result arrived during this wait.
+    if (
+      await page
+        .getByRole("heading", {
+          name: "Genuine provider observations",
+          exact: true,
+        })
+        .isVisible()
+    )
+      break;
+    const check = page.getByRole("button", {
+      name: "Check existing task status",
+      exact: true,
+    });
+    if ((await check.isVisible()) && (await check.isEnabled()))
+      await check.click();
     await page.waitForTimeout(300);
   }
   await expect(

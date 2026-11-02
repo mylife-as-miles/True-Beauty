@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-11-02T16:47:23.779Z",
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "health": {
+    "ok": true,
+    "service": "true-beauty-cloud",
+    "version": "r07",
+    "durable": true
+  },
+  "anonymous": {
+    "hosted": true,
+    "operator": false,
+    "trustedIdentity": true,
+    "dispatchIdentityPresent": false,
+    "dispatchEmailPresent": false
+  },
+  "spoofed": {
+    "hosted": true,
+    "operator": false,
+    "trustedIdentity": true,
+    "dispatchIdentityPresent": false,
+    "dispatchEmailPresent": false
+  },
+  "strippingVerified": true,
+  "discoveryStatus": 200,
+  "firstVisitCookie": true,
+  "configuredProviders": {
+    "skin": true,
+    "hair": true,
+    "clothing": true,
+    "reasoning": "Anthropic Claude"
+  },
+  "anonymousSession": {
+    "hosted": true,
+    "operator": false
+  },
+  "anonymousBudgetStatus": 403,
+  "unknownApiStatus": 404,
+  "noPaidCalls": true,
+  "noImagesOrPersonalHistoryTransmitted": true
+}

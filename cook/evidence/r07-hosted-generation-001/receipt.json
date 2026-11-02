@@ -1,0 +1,71 @@
+{
+  "format": "true-beauty-genuine-hosted-generation-ui",
+  "version": 1,
+  "site": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "startedAt": "2026-11-02T17:02:29.622Z",
+  "syntheticFixtures": {
+    "portrait": {
+      "sha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9"
+    },
+    "person": {
+      "sha256": "a64ba3ea11481a5d53690d8c4c71bb1ac4aa1e459bbd0a64cd36012b152bce34"
+    },
+    "garment": {
+      "sha256": "3b21837f76602871511582ef2d8bfbfbc9d36003d3815bb1dce73a70b756e555"
+    }
+  },
+  "authorizedCredits": 4,
+  "operations": [
+    {
+      "feature": "hair",
+      "spec": {
+        "feature": "hair",
+        "hairColor": "src",
+        "templateId": "female_s_wave_brunette"
+      },
+      "source": "portrait",
+      "submissionAttempted": false,
+      "paidTaskRequests": 0,
+      "statuses": []
+    },
+    {
+      "feature": "clothing",
+      "spec": {
+        "feature": "clothing",
+        "garmentCategory": "upper_body",
+        "changeShoes": false,
+        "filterMultiPerson": "strict"
+      },
+      "source": "person",
+      "reference": "garment",
+      "submissionAttempted": false,
+      "paidTaskRequests": 0,
+      "statuses": []
+    }
+  ],
+  "paidTaskRequests": 0,
+  "pageErrorCount": 0,
+  "protocolReadFailures": 0,
+  "billingVerified": false,
+  "semanticStylingVerified": false,
+  "visualReviewRequired": true,
+  "verified": false,
+  "budgetBefore": {
+    "creditsUsed": 60,
+    "creditsLimit": 100,
+    "usdMicroUsed": 333000
+  },
+  "storageBefore": {
+    "counts": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "outfits": 0
+    },
+    "photoPayloads": false
+  },
+  "error": {
+    "stage": "hair-prepare",
+    "message": "Verification stopped. Review this receipt, existing hosted tasks and screenshots before any separately authorized paid attempt."
+  },
+  "finishedAt": "2026-11-02T17:03:04.976Z"
+}

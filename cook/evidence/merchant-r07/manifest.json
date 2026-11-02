@@ -1,0 +1,100 @@
+{
+  "kind": "public-merchant-evidence-integrity",
+  "files": [
+    {
+      "path": "SUMMARY.md",
+      "bytes": 4695,
+      "sha256": "3ef8e2742d608bac97b4e6a66866b57a03fbb0457f57b7ec891b5838425bb535"
+    },
+    {
+      "path": "desktop-bag-reloaded.png",
+      "bytes": 282803,
+      "sha256": "da3f9b2ded50acef01ed80e49d80df40bc318b0f93571251a0b40ef4991f685a"
+    },
+    {
+      "path": "desktop-bag.png",
+      "bytes": 288299,
+      "sha256": "0d31cbaadd07df8221384bf5ea4b0b6bab101045a3a4d05bb39adb0a0f96f124"
+    },
+    {
+      "path": "desktop-boj-usd.png",
+      "bytes": 249613,
+      "sha256": "473db583ae46c6c55e463ee397fbce6e67d7ce6da2c414b927d8a49b43eaa620"
+    },
+    {
+      "path": "desktop-nuban-ngn.png",
+      "bytes": 248393,
+      "sha256": "d000f13abcc23dd1c5786fab794152a6cdf2c719db6dd8d875677d835231712f"
+    },
+    {
+      "path": "live-browser.json",
+      "bytes": 13455,
+      "sha256": "183d0155dfebd0bf310c6c9d41f34a67e61abb8fae2f4a341dea084fcff59e5b"
+    },
+    {
+      "path": "live-browser.mjs",
+      "bytes": 9544,
+      "sha256": "2df2e1e5883c0001997f165ed46639fe1a8f33cad1d1318dda6783b64faa0efc"
+    },
+    {
+      "path": "mobile-bag.png",
+      "bytes": 167533,
+      "sha256": "190e4a460f442fe718dbc92b0dde3cc998cad88ae43080fec941313d6c3a9c0c"
+    },
+    {
+      "path": "mobile-source-recalled.png",
+      "bytes": 166364,
+      "sha256": "8abd5d38cbf92b9fa623e6d70c74b6781247f98a65625a039d8efb072fb958da"
+    },
+    {
+      "path": "verified-replay/desktop-bag-reloaded.png",
+      "bytes": 207247,
+      "sha256": "dc805444ef336e8cff2e4f75c7667d1df0ccf416d66cc433b6c5e9056bc2b2f2"
+    },
+    {
+      "path": "verified-replay/desktop-bag.png",
+      "bytes": 213378,
+      "sha256": "422378875b50663bab5fd1644ffd232e8b3f5b5b87a675657006743cba4ddd35"
+    },
+    {
+      "path": "verified-replay/desktop-boj-usd.png",
+      "bytes": 180446,
+      "sha256": "4387c744f7945fe6357fc12bb26a9fc48076332eebed7a1582c4871b12d6b15b"
+    },
+    {
+      "path": "verified-replay/desktop-nuban-ngn.png",
+      "bytes": 173894,
+      "sha256": "6b9beeca048aa8739b111af55c2e6c79c666ddbd16e2fb5844cc75f9e5d3d5aa"
+    },
+    {
+      "path": "verified-replay/live-browser.json",
+      "bytes": 13628,
+      "sha256": "cd52efafd0c5fc6d765c3e347e1502c171b1f49499e4d34d8ff3fcb3d5037dfd"
+    },
+    {
+      "path": "verified-replay/mobile-bag.png",
+      "bytes": 66712,
+      "sha256": "2a40cf719bb88c25d2b1efb86ce929e4b0d147ca4cf2f87c4e47987d0ded4812"
+    },
+    {
+      "path": "verified-replay/mobile-source-recalled.png",
+      "bytes": 68675,
+      "sha256": "60a52e1b2b2adc8700952c708418fdcea891e100ebd88d0bde6959743a2fa8b1"
+    },
+    {
+      "path": "verified-replay/video/page@66e336c7a8d41429ce75d9d7e66b9c74.webm",
+      "bytes": 2023407,
+      "sha256": "338c7292f065695b67426489708815bbce5fa7c16f1cbf9a4c460c8bd775a908"
+    },
+    {
+      "path": "verified-replay.mjs",
+      "bytes": 10478,
+      "sha256": "c1df1bf6dad137ced2258cad45bdb49ebcacf32a096ca513ec32945d626557cc"
+    },
+    {
+      "path": "video/page@dda7dd5ded7c2efe6d5d90766a6feb9d.webm",
+      "bytes": 3173761,
+      "sha256": "432923b5bf923941cfe75f2448e7c4c83345a892b6db7959dd9937a6f969269c"
+    }
+  ]
+}

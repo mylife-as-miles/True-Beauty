@@ -1,0 +1,237 @@
+{
+  "format": "true-beauty-genuine-hosted-generation-ui",
+  "version": 1,
+  "site": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "startedAt": "2026-11-02T17:06:51.699Z",
+  "syntheticFixtures": {
+    "portrait": {
+      "sha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9"
+    },
+    "person": {
+      "sha256": "a64ba3ea11481a5d53690d8c4c71bb1ac4aa1e459bbd0a64cd36012b152bce34"
+    },
+    "garment": {
+      "sha256": "3b21837f76602871511582ef2d8bfbfbc9d36003d3815bb1dce73a70b756e555"
+    }
+  },
+  "authorizedCredits": 4,
+  "operations": [
+    {
+      "feature": "hair",
+      "spec": {
+        "feature": "hair",
+        "hairColor": "src",
+        "templateId": "female_s_wave_brunette"
+      },
+      "source": "portrait",
+      "submissionAttempted": true,
+      "paidTaskRequests": 1,
+      "statuses": [
+        {
+          "at": "2026-11-02T17:07:22.185Z",
+          "status": "running",
+          "httpStatus": 202,
+          "resultKind": null,
+          "errorPresent": false,
+          "uncertain": false
+        },
+        {
+          "at": "2026-11-02T17:07:36.357Z",
+          "status": "success",
+          "httpStatus": 200,
+          "resultKind": "ai-generated-image",
+          "errorPresent": false,
+          "uncertain": false
+        }
+      ],
+      "quote": {
+        "quoteId": "cd62cd3c-5580-4627-99f1-61c55854900c",
+        "credits": 2,
+        "spec": {
+          "feature": "hair",
+          "hairColor": "src",
+          "templateId": "female_s_wave_brunette"
+        },
+        "expiresAt": "2026-11-02T17:12:09.283Z",
+        "httpStatus": 200
+      },
+      "cloudApprovalChecked": true,
+      "uploadConsent": true,
+      "retentionConsent": true,
+      "submitted": {
+        "quoteMatched": true,
+        "specMatched": true,
+        "maxCredits": 2,
+        "consent": {
+          "uploadImages": true,
+          "rightsConfirmed": true,
+          "externalProcessing": true,
+          "providerRetentionAcknowledged": true
+        },
+        "sourceSha256": "e4200551c1cf8a2339484be572c6f9525fe375b95a60a0b4fd5a0ad42ccf93f9"
+      },
+      "taskId": "cd62cd3c-5580-4627-99f1-61c55854900c",
+      "status": "success",
+      "result": {
+        "kind": "ai-generated-image",
+        "provider": "perfect-corp",
+        "feature": "hair"
+      },
+      "pixels": {
+        "width": 1312,
+        "height": 1199,
+        "uniqueColours": 1960,
+        "meanLuma": 103.76554361979188,
+        "lumaVariance": 4760.871815145294,
+        "opaqueFraction": 1
+      },
+      "image": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "contentType": "image/jpeg",
+        "httpStatus": 200
+      },
+      "storage": {
+        "counts": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "outfits": 0
+        },
+        "photoPayloads": false
+      },
+      "verified": true
+    },
+    {
+      "feature": "clothing",
+      "spec": {
+        "feature": "clothing",
+        "garmentCategory": "upper_body",
+        "changeShoes": false,
+        "filterMultiPerson": "strict"
+      },
+      "source": "person",
+      "reference": "garment",
+      "submissionAttempted": true,
+      "paidTaskRequests": 1,
+      "statuses": [
+        {
+          "at": "2026-11-02T17:07:58.344Z",
+          "status": "running",
+          "httpStatus": 202,
+          "resultKind": null,
+          "errorPresent": false,
+          "uncertain": false
+        },
+        {
+          "at": "2026-11-02T17:08:12.711Z",
+          "status": "success",
+          "httpStatus": 200,
+          "resultKind": "ai-generated-image",
+          "errorPresent": false,
+          "uncertain": false
+        }
+      ],
+      "quote": {
+        "quoteId": "2fe14d14-96c4-4474-b2d1-dc3a7264614b",
+        "credits": 2,
+        "spec": {
+          "feature": "clothing",
+          "garmentCategory": "upper_body",
+          "changeShoes": false,
+          "filterMultiPerson": "strict"
+        },
+        "expiresAt": "2026-11-02T17:12:42.168Z",
+        "httpStatus": 200
+      },
+      "cloudApprovalChecked": true,
+      "uploadConsent": true,
+      "retentionConsent": true,
+      "submitted": {
+        "quoteMatched": true,
+        "specMatched": true,
+        "maxCredits": 2,
+        "consent": {
+          "uploadImages": true,
+          "rightsConfirmed": true,
+          "externalProcessing": true,
+          "providerRetentionAcknowledged": true
+        },
+        "sourceSha256": "a64ba3ea11481a5d53690d8c4c71bb1ac4aa1e459bbd0a64cd36012b152bce34",
+        "referenceSha256": "3b21837f76602871511582ef2d8bfbfbc9d36003d3815bb1dce73a70b756e555"
+      },
+      "taskId": "2fe14d14-96c4-4474-b2d1-dc3a7264614b",
+      "status": "success",
+      "result": {
+        "kind": "ai-generated-image",
+        "provider": "perfect-corp",
+        "feature": "clothing"
+      },
+      "pixels": {
+        "width": 1024,
+        "height": 1536,
+        "uniqueColours": 1059,
+        "meanLuma": 159.7093098958365,
+        "lumaVariance": 4130.749158116138,
+        "opaqueFraction": 1
+      },
+      "image": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "contentType": "image/jpeg",
+        "httpStatus": 200
+      },
+      "storage": {
+        "counts": {
+          "mediaAssets": 0,
+          "savedLooks": 0,
+          "outfits": 0
+        },
+        "photoPayloads": false
+      },
+      "verified": true
+    }
+  ],
+  "paidTaskRequests": 2,
+  "pageErrorCount": 0,
+  "protocolReadFailures": 0,
+  "billingVerified": false,
+  "semanticStylingVerified": false,
+  "visualReviewRequired": true,
+  "verified": true,
+  "budgetBefore": {
+    "creditsUsed": 69,
+    "creditsLimit": 100,
+    "usdMicroUsed": 333000
+  },
+  "storageBefore": {
+    "counts": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "outfits": 0
+    },
+    "photoPayloads": false
+  },
+  "checkpoint": {
+    "stage": "clothing-select-garment-area",
+    "action": "select and verify value",
+    "role": "combobox",
+    "accessibleNamePrefix": "Garment area",
+    "expectedValue": "upper_body"
+  },
+  "budgetAfter": {
+    "creditsUsed": 73,
+    "creditsLimit": 100,
+    "usdMicroUsed": 333000
+  },
+  "observedReservationDelta": 4,
+  "concurrentAccountUseNotExcluded": true,
+  "storageAfter": {
+    "counts": {
+      "mediaAssets": 0,
+      "savedLooks": 0,
+      "outfits": 0
+    },
+    "photoPayloads": false
+  },
+  "finishedAt": "2026-11-02T17:08:17.506Z"
+}

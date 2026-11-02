@@ -1,0 +1,150 @@
+{
+  "format": "true-beauty-live-reasoning-receipt",
+  "version": 2,
+  "mode": "genuine-public-hosted",
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "startedAt": "2026-11-02T17:00:11.535Z",
+  "fixture": "Nonpersonal explicit colour request; no images or personal context.",
+  "authorizeUsd": 0.2,
+  "paidStarts": 1,
+  "steps": [
+    {
+      "httpStatus": 200,
+      "status": "needs-tools",
+      "calls": [
+        {
+          "id": "toolu_01BeRvNowrv9TaKjL2Kz2ovy",
+          "name": "setLipColor",
+          "args": {
+            "color": "#B35B6B"
+          }
+        }
+      ],
+      "guidance": "I'll help you set the lipstick and hair colors. Let me start with the lipstick color.",
+      "stepsUsed": 1,
+      "stepsRemaining": 2,
+      "usage": {
+        "inputTokens": 1268,
+        "outputTokens": 74
+      }
+    },
+    {
+      "httpStatus": 200,
+      "status": "needs-tools",
+      "calls": [
+        {
+          "id": "toolu_019xvLziumfrSsBuGA1BSafD",
+          "name": "setHairColor",
+          "args": {
+            "color": "#A35C36"
+          }
+        }
+      ],
+      "guidance": "Great! The lipstick color has been successfully set to #B35B6B. Now let me set the hair color.",
+      "stepsUsed": 2,
+      "stepsRemaining": 1,
+      "usage": {
+        "inputTokens": 1417,
+        "outputTokens": 77
+      }
+    },
+    {
+      "httpStatus": 200,
+      "status": "done",
+      "calls": [],
+      "guidance": "Perfect! Both colors have been successfully applied:\n\n**Actual Results:**\n- ✓ **Lipstick color**: Set to #B35B6B (a warm mauve-rose tone)\n- ✓ **Hair color**: Set to #A35C36 (a warm caramel-brown tone)\n\nThe hair tint will display once a hair segmentation mask is available in your preview. Your lip color is now active in the mirror. This warm color palette creates a cohesive, earthy-toned look!",
+      "stepsUsed": 3,
+      "stepsRemaining": 0,
+      "usage": {
+        "inputTokens": 1574,
+        "outputTokens": 122
+      }
+    }
+  ],
+  "feedback": [
+    {
+      "stepId": "5d62aee4-81ca-412a-91cc-ecfa8884d922",
+      "feedback": []
+    },
+    {
+      "stepId": "5e08a060-bc37-4e7e-953b-d2e7dd0f0379",
+      "feedback": [
+        {
+          "callId": "toolu_01BeRvNowrv9TaKjL2Kz2ovy",
+          "name": "setLipColor",
+          "status": "succeeded",
+          "summary": "Changed your lip preview to #B35B6B."
+        }
+      ]
+    },
+    {
+      "stepId": "ad5be484-3819-4732-8631-8df173b13a37",
+      "feedback": [
+        {
+          "callId": "toolu_019xvLziumfrSsBuGA1BSafD",
+          "name": "setHairColor",
+          "status": "succeeded",
+          "summary": "Set the hair tint control to #A35C36. It appears only when a hair mask is available."
+        }
+      ]
+    }
+  ],
+  "billingVerified": false,
+  "capabilities": {
+    "ready": true,
+    "provider": "Anthropic Claude",
+    "model": "claude-haiku-4-5-20251001"
+  },
+  "contextCategories": [],
+  "goal": "Set the lipstick color to #B35B6B and the hair color to #A35C36. Use one tool for each change and report the actual results.",
+  "quote": {
+    "quoteId": "35d40617-0cbd-473d-b8bc-584841fbb621",
+    "maximumUsd": 0.111,
+    "currency": "USD",
+    "maxSteps": 3,
+    "maxOutputTokens": 1000,
+    "inputTokenCeiling": 32000,
+    "expiresAt": "2026-11-02T17:05:21.365Z",
+    "model": "claude-haiku-4-5-20251001",
+    "pricingProvenance": {
+      "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "reviewedAt": "2026-11-02T14:10:13.071Z",
+      "kind": "operator-reviewed-upper-bound"
+    },
+    "note": "Conservative maximum for all authorized turns. Rates are operator-reviewed, not a live provider-price lookup. The full ceiling is reserved once against the shared operator budget and not refunded automatically, including uncertain failures/cancellation."
+  },
+  "operatorApproval": {
+    "quoteId": "35d40617-0cbd-473d-b8bc-584841fbb621",
+    "operation": "reasoning",
+    "maximumAuthorizedMicroUsd": 200000,
+    "quoteMicroUsd": 111000,
+    "approvedAt": "2026-11-02T17:00:26.110Z"
+  },
+  "sessionHttpStatus": 200,
+  "usage": "3 completed model turns · 4259 input / 273 output tokens · maximum reservation US$0.111000. Check your provider for actual billing.",
+  "actions": [
+    "Changed your lip preview to #B35B6B.\n\nSet the hair tint control to #A35C36. It appears only when a hair mask is available."
+  ],
+  "actualLipColor": "#b35b6b",
+  "hairRecipe": "Hair\n#A35C36 · solid",
+  "actualHairColor": "#A35C36",
+  "hairEvidence": "Mounted Digital Twin current mirror recipe",
+  "actualToolResults": [
+    {
+      "callId": "toolu_01BeRvNowrv9TaKjL2Kz2ovy",
+      "name": "setLipColor",
+      "status": "succeeded",
+      "summary": "Changed your lip preview to #B35B6B."
+    },
+    {
+      "callId": "toolu_019xvLziumfrSsBuGA1BSafD",
+      "name": "setHairColor",
+      "status": "succeeded",
+      "summary": "Set the hair tint control to #A35C36. It appears only when a hair mask is available."
+    }
+  ],
+  "completed": true,
+  "verified": true,
+  "pageErrors": [],
+  "finishedAt": "2026-11-02T17:00:44.997Z"
+}

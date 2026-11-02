@@ -1,5 +1,8 @@
 # Native hosted YouCam boundary — Round07
 
+Current deployment reconciliation: native public version5 and scoped genuine hosted verification are recorded in DEPLOYMENT.md and LIVE_PROVIDER_VERIFICATION_R07.md. Local fixture proofs below remain separate from those public results; earlier implementation-checkpoint limits are historical.
+
+
 `apps/edge/src/routes/youcam.ts` implements native Fetch routes using the actual shared YouCam provider adapters. It does not depend on Fastify, filesystem state, process-local job maps or a synchronous ledger. Root Worker authentication/CSRF/operator verification and encrypted durable `HostedStore` are separate dependencies. This file alone does not assert a public deployment or live hosted task success.
 
 ## Shared implementation and client compatibility

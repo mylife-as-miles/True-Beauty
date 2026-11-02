@@ -1,0 +1,91 @@
+{
+  "shared": {
+    "face": 478,
+    "hair": false
+  },
+  "before": 261312905,
+  "after": 771994396,
+  "reports": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "preview": {
+        "x": 188.734375,
+        "y": 108.96875,
+        "width": 1128.53125,
+        "height": 222.1875
+      },
+      "detail": {
+        "x": 200.734375,
+        "y": 120.96875,
+        "width": 144,
+        "height": 170
+      },
+      "presence": {
+        "x": 1176.265625,
+        "y": 628.390625,
+        "width": 80,
+        "height": 4
+      },
+      "violations": 0
+    },
+    {
+      "label": "tablet",
+      "width": 768,
+      "height": 1024,
+      "preview": {
+        "x": 61.078125,
+        "y": 67.90625,
+        "width": 645.84375,
+        "height": 222.1875
+      },
+      "detail": {
+        "x": 73.078125,
+        "y": 79.90625,
+        "width": 144,
+        "height": 170
+      },
+      "presence": {
+        "x": 345.078125,
+        "y": 668.171875,
+        "width": 80,
+        "height": 4
+      },
+      "violations": 0
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844,
+      "preview": {
+        "x": 45,
+        "y": 12,
+        "width": 300,
+        "height": 222.1875
+      },
+      "detail": {
+        "x": 57,
+        "y": 24,
+        "width": 108,
+        "height": 180
+      },
+      "presence": {
+        "x": 115,
+        "y": 549.5,
+        "width": 179,
+        "height": 4
+      },
+      "violations": 0
+    }
+  ],
+  "garmentPreview": {
+    "x": 25,
+    "y": 11,
+    "width": 100,
+    "height": 148
+  },
+  "dressingViolations": 0,
+  "posts": [],
+  "errors": []
+}

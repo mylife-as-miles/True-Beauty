@@ -1,5 +1,8 @@
 # Round 07 — native Worker merchant routes
 
+Current deployment reconciliation: native public version5 and scoped genuine hosted verification are recorded in DEPLOYMENT.md and LIVE_PROVIDER_VERIFICATION_R07.md. Local fixture proofs below remain separate from those public results; earlier implementation-checkpoint limits are historical.
+
+
 2026-11-02. This completes a native route implementation and bounded local runtime verification. It does not by itself establish public deployment, a current live merchant quote, merchant partnership, shipping availability or checkout.
 
 ## Mounted contract

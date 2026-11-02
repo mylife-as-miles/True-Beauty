@@ -1,5 +1,8 @@
 # BeautyGraph: personal beauty memory
 
+Current deployment reconciliation: native public version5 and scoped genuine hosted verification are recorded in DEPLOYMENT.md and LIVE_PROVIDER_VERIFICATION_R07.md. Local fixture proofs below remain separate from those public results; earlier implementation-checkpoint limits are historical.
+
+
 ## Implemented local architecture
 
 `packages/local-database` owns a Dexie database named `true-beauty`. The profile identifier is local to this origin; it is not an account, biometric identity, or synchronization identifier. There is no login. Version 2 adds attributed memory revisions and temporal indexes. Version 3 adds unique product/size/variant/currency/source bag identities and a real historical-v2 upgrade test, preserving profiles and consent records.

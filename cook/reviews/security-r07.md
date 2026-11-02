@@ -31,3 +31,29 @@ Keep `SITES_IDENTITY_TRUSTED` false until the platform's stripping/replacement o
 Node SQLite proves the executed SQL transaction/trigger behavior here. It is not a substitute for the integrating engineer's actual workerd/D1 or hosted multi-isolate proof. Genuine provider billing, live-output safety, provider retention/deletion enforcement and deployment secret handling were not evaluated with these scripted responses. Source images remain request memory in the reviewed routes; encrypted temporary task text/results have a 15-minute access lifetime and pruning on later activity. Scheduled physical cleanup remains unverified and must not be claimed as an exact deletion SLA.
 
 **Verdict: all 22 boundary cases pass after the final source review; no reproduced high/critical source defect. Hosted platform identity/binding/build verification and separately authorized genuine provider checks remain necessary before a production security claim.**
+
+## Public verification addendum — 2026-11-02, 17:08–17:11 UTC
+
+The public origin `https://true-beauty-miles.myles4miles.chatgpt.site` now serves the native R07 backend. This supersedes the earlier public-boundary-pending assessment for the specific observations below. I independently made anonymous metadata GET requests, with redirects disabled and session/CSRF values retained only in script memory. I made no quote, provider, paid, image or private-history request and used no operator credential.
+
+| Public observation | Independently observed result |
+| --- | --- |
+| `/api/health` | 200; `true-beauty-cloud`, `r07`, `durable:true` |
+| `/api/operator/status` | 200; `trustedIdentity:true`, `operator:false`; no dispatch ID/email present |
+| Same status request with supplied fake `oai-authenticated-user-id` and `oai-authenticated-user-email` | Both presence flags remain false; `operator:false` |
+| `/api/session` | 200; anonymous, hosted; cookie has Secure, HttpOnly, SameSite=Strict and Path=/ |
+| `/api/capabilities` with that anonymous session | 200; `requiresExactQuoteApproval:true`; configured reasoning reports ready; text reasoning does not accept images |
+| `/api/operator/budget` with that session | 403; no private budget values returned |
+| An unknown `/api/…` route | 404 JSON; does not fall back to the application shell |
+
+Retained `cook/evidence/r07-hosted/boundary-env3.json` documents the same caller-header stripping while the trust flag was false; `boundary.json` documents it after enabling trust. My new public probe independently confirms the latter behavior for both supplied headers at this origin. These observations support the exercised anonymous boundary. They do not prove every alternate hostname/transport, the configured allowlist's correctness, or successful recognition of the real signed-in owner's pairwise ID/email. I did not inspect the actual allowlist, native secrets, runtime secret values or deployment logs. The local exact-ID/email tests remain the evidence for allowlist matching logic; real owner identity mapping is not independently verified here.
+
+The source implements a cumulative ledger that requires explicit prior-spend reconciliation and enforces at least 51 credits / 111000 micro-USD already used within total 100-credit / 5000000-micro-USD ceilings. The retained deployment evidence records that initialization, and current public readiness is consistent with an initialized D1-backed configuration. Anonymous metadata does not reveal the actual current counters, so this review does not independently attest their post-verification values or billing. The integrating engineer must preserve the ledger across releases; the local trigger/race evidence above does not authorize resetting it.
+
+I inspected `apps/edge/evidence/reasoning-default-fetch-workerd.json` and `youcam-default-fetch-workerd.json`: **13 and 17 passing assertions**, respectively, in actual local workerd with scripted outbound services, not genuine providers. Their negative controls reproduce the old native-fetch receiver failure before outbound dispatch. Current source uses receiver-safe fetch wrappers, `redirect:"manual"`, and non-OK response rejection. The workerd artifacts show that scripted 3xx responses are rejected without following their Location targets; YouCam's artifact source hashes match the current transport/skin/generation files. These artifacts were reviewed, not rerun by this critic, and are not a public provider-redirect test.
+
+At review time `deployment.json` still described v3/environment4. The integrating engineer reports successful native v4/environment5 at Site source `b4ebc97d7ea5dbc8a6480abd750898b227a05af0` and is updating that artifact. Public health identifies R07 but does not expose a build hash; these metadata requests cannot independently bind the live Worker bytes to that reported source SHA. The earlier artifact must not be cited as v4 proof without its update.
+
+The integrating engineer separately reports a genuine hosted Claude002 workflow with three turns/two actual tools, and Skin003 with four real predictions delivered to the UI. This critic neither repeated those paid workflows nor inspected private provider payloads. The reported manual polling race prevented the skin result's history persistence, so the complete persisted skin workflow remains unverified. Those reports do not establish broad reasoning quality, clinical accuracy, billing correctness or provider-side deletion.
+
+**Bounded production verdict:** no reproduced high/critical defect in the reviewed source and exercised anonymous public metadata boundary. Caller-supplied ID/email stripping is now directly observed at the public origin with trust enabled. Exact deployed-source reconciliation, actual owner recognition, secret operations, genuine provider workflow completeness and scheduled physical cleanup retain the limits stated above. No full-product acceptance or ≥9 security score is claimed.

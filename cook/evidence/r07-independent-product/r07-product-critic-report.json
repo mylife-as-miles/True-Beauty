@@ -1,0 +1,400 @@
+{
+  "date": "2026-11-02T17:12:41.353Z",
+  "origin": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "browser": "156.0.8078.4",
+  "mode": "real public UI; disposable local data; no response interception",
+  "results": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "checks": [
+        "No-login labelled demo reaches real Face mesh connected",
+        "Actual custom mirror colour explicitly saved",
+        "UI-created attributed inventory and no-photo static outfit saved",
+        "Profile/owned product/outfit recipe exported, reloaded, exact pigment and outfit restored",
+        "Dry self-report routine built, two periods saved, actual completion recorded",
+        "Local agent inspects actual inventory and returns labelled sample-budget wedding plan",
+        "Consented graph preference corrected to revision2, revisited after reload and deleted"
+      ],
+      "posts": [],
+      "errors": [],
+      "requestsFailed": [],
+      "source": "/images/portrait-neutral.jpg",
+      "staticLabel": true,
+      "archive": "R07 audit occasion\n\nWedding study from actual owned record\n\nNov 2, 2026 · 1 owned-product reference · Original light\nReopen in mirror\nOpen outfit",
+      "exportKeys": [
+        "format",
+        "version",
+        "exportedAt",
+        "profile",
+        "preferences",
+        "ownedProducts",
+        "outfits",
+        "looks",
+        "notice"
+      ],
+      "export": {
+        "format": "true-beauty-cosmetic-profile",
+        "version": 1,
+        "exportedAt": "2026-11-02T17:12:47.262Z",
+        "profile": {
+          "id": "local-profile",
+          "displayName": "Beauty explorer",
+          "skinType": "Not specified",
+          "budget": 20000,
+          "currency": "NGN",
+          "concerns": [],
+          "preferences": [],
+          "createdAt": 1793639561999,
+          "updatedAt": 1793639566960
+        },
+        "preferences": {
+          "hairTexture": "Coily",
+          "hairLength": "Not specified",
+          "hairGoals": [],
+          "styleGoals": [],
+          "favoriteColors": [],
+          "avoidIngredients": [],
+          "preferredFinish": "unspecified",
+          "version": 1,
+          "revision": 1,
+          "updatedAt": 1793639566960,
+          "source": "user-provided"
+        },
+        "ownedProducts": [
+          {
+            "id": "5b6e194c-6fd7-4057-a715-9afdb017f14e",
+            "productId": "owned:f0f98b3a-8396-4d98-8725-d0f49bce733b",
+            "name": "R07 audit cream",
+            "addedAt": 1793639564956,
+            "note": ""
+          }
+        ],
+        "outfits": [
+          {
+            "id": "e9a36504-166f-4f37-98d4-9105491ee610",
+            "name": "R07 audit outfit",
+            "color": "#24395b",
+            "technology": "static-photo-compositing"
+          }
+        ],
+        "looks": [
+          {
+            "id": "d0dd816e-38bf-4ab6-9771-9a002c063d25",
+            "name": "R07 audit occasion",
+            "look": {
+              "lipstick": {
+                "enabled": true,
+                "color": "#943356",
+                "opacity": 0.55,
+                "finish": "gloss"
+              },
+              "blush": {
+                "enabled": true,
+                "color": "#C47670",
+                "opacity": 0.32,
+                "finish": "matte"
+              },
+              "eyeshadow": {
+                "enabled": true,
+                "color": "#967564",
+                "opacity": 0.24,
+                "finish": "shimmer"
+              },
+              "foundation": {
+                "enabled": false,
+                "color": "#C99B7A",
+                "opacity": 0.14,
+                "finish": "matte"
+              },
+              "eyeliner": {
+                "enabled": false,
+                "color": "#2B2020",
+                "opacity": 0.5,
+                "finish": "matte"
+              },
+              "mascara": {
+                "enabled": false,
+                "color": "#211C1C",
+                "opacity": 0.45,
+                "finish": "matte"
+              },
+              "brows": {
+                "enabled": false,
+                "color": "#45312C",
+                "opacity": 0.25,
+                "finish": "matte"
+              },
+              "contour": {
+                "enabled": false,
+                "color": "#815C4C",
+                "opacity": 0.22,
+                "finish": "matte"
+              },
+              "bronzer": {
+                "enabled": false,
+                "color": "#B27C51",
+                "opacity": 0.2,
+                "finish": "matte"
+              },
+              "highlighter": {
+                "enabled": false,
+                "color": "#F6DBBD",
+                "opacity": 0.2,
+                "finish": "shimmer"
+              },
+              "lipliner": {
+                "enabled": false,
+                "color": "#834449",
+                "opacity": 0.4,
+                "finish": "matte"
+              },
+              "lipgloss": {
+                "enabled": false,
+                "color": "#F5D0CB",
+                "opacity": 0.25,
+                "finish": "gloss"
+              },
+              "hair": {
+                "enabled": false,
+                "color": "#783D31",
+                "secondaryColor": "#C99C70",
+                "opacity": 0.5,
+                "mode": "solid"
+              },
+              "accessories": {
+                "glasses": false,
+                "earrings": false,
+                "necklace": false
+              },
+              "reshape": 0
+            },
+            "composition": {
+              "version": 1,
+              "source": "digital-twin",
+              "occasion": "Wedding study from actual owned record",
+              "productIds": [
+                "owned:f0f98b3a-8396-4d98-8725-d0f49bce733b"
+              ],
+              "outfitId": "e9a36504-166f-4f37-98d4-9105491ee610",
+              "profileRevision": 1,
+              "lighting": {
+                "preset": "neutral",
+                "intensity": 0.65,
+                "direction": {
+                  "x": -0.35,
+                  "y": -0.45
+                }
+              }
+            }
+          }
+        ],
+        "notice": "User-provided cosmetic preferences and styling choices. No photograph, face geometry, clinical profile, chat history or identity reconstruction is included."
+      },
+      "routine": "Your daily ritual\n₦11,500\nsample total · no exchange conversion\nMorning\n01\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nUse a gentle cleanser; avoid scrubbing irritated skin.\n02\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nApply as directed; adjust the amount for comfort.\n03\nProtect\n\nNo suitable protect selected within your inventory and budget.\n\nUse broad-spectrum SPF 30 or higher as directed; reapply according to the label.\nEvening\n01\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nUse a gentle cleanser; avoid scrubbing irritated skin.\n02\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nApply as directed; adjust the amount for comfort.\n\nSample catalogue and prices. These are cosmetic suggestions based on your self-reported preferences, not diagnosis or proof of efficacy. Verify current product labels.\n\nSave both routines",
+      "agent": "You\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: R07 audit cream.\n1 of 1 actions completed\nYou\nSoft glam for a wedding, dry skin, ₦20,000\nTrue Beauty\nApplied Soft glow to the mirror.\n\nBuilt a NGN 19,300 combined product plan from your NGN 20,000 budget; NGN 700 remains. Owned products are prioritized at zero new cost. Not funded: lipstick, eyeshadow. Use an already-owned option or adjust the plan. Prices are sample catalogue estimates, not current merchant quotes. No purchase was made.\n\nCreated an editable AM routine locally: Cleanse → Natural Moisturizing Factors + HA → Protect. General cosmetic guidance, based on your description; no scan or diagnosis was performed.\n3 of 3 actions completed\nCombined plan\nNGN 19,300\nRemaining\nNGN 700\nOf NGN 20,000 total · sample catalogue prices\n\nStill to cover: lipstick, eyeshadow. Use owned options or adjust your budget.\n\nSelected products · verify sample data\n\nNatural Moisturizing Factors + HA\n\nCatalogue tags overlap your stated interests: moisture. The catalogue lists this for dry skin or all skin types. Allocated NGN 11,500 from the combined budget. Sample catalogue price, not a verified merchant quote.\n\nCamo Liquid Blush\n\nCatalogue tags overlap your stated interests: colour. The catalogue lists this for dry skin or all skin types. Allocated NGN 7,800 from the combined budget. Sample catalogue price, not a verified merchant quote.",
+      "memory": "lip finish\nCurrent · revision 2\n\nmatte\n\nuser correction · 11/2/2026 · 100% confidence · until deleted\nRevision history\nCorrect\nForget",
+      "status": "failed",
+      "failure": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  locator('.routine-card')\nExpected: 2\nReceived: 3\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveCount\" locator('.routine-card') with timeout 5000ms\n  - waiting for locator('.routine-card')\n    14 × locator resolved to 3 elements\n       - unexpected value \"3\"\n",
+      "failureText": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nYour beauty companion\nYou’re offline. Your saved looks, wardrobe and rituals are still here.\n\nYour beauty journal\n\nA story that’s only yours.\nNew entry\n\nThe looks you loved. The rituals you kept. A little space to notice what changes.\n\nSaved looks\nMy notes\nDaily rituals\nBeauty experiments\nMorning light\nMy morning ritual\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nProtect\n\nNo suitable protect selected within your inventory and budget.\n\nCompleted today\nEdit routine\nRemove routine\nEvening unwind\nMy evening ritual\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nMark today complete\nEdit routine\nRemove routine\nMorning light\nAM comfort\nCleanse\n\nNo suitable cleanse selected within your inventory and budget. Use a gentle cleanser; avoid scrubbing irritated skin.\n\nNatural Moisturizing Factors + HA\n\nCatalogue tags overlap your stated interests: moisture. The catalogue lists this for dry skin or all skin types. Apply as directed; adjust the amount for comfort.\n\nProtect\n\nNo suitable protect selected within your inventory and budget. Use broad-spectrum SPF 30 or higher as directed; reapply according to the label.\n\nMark today complete\nEdit routine\nRemove routine\nTRUE BEAUTY\n\nMade for self-expression. Kept personal.\n\nYour data, your choice"
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": [
+        "No-login labelled demo reaches real Face mesh connected",
+        "Actual custom mirror colour explicitly saved",
+        "UI-created attributed inventory and no-photo static outfit saved",
+        "Profile/owned product/outfit recipe exported, reloaded, exact pigment and outfit restored",
+        "Dry self-report routine built, two periods saved, actual completion recorded",
+        "Local agent inspects actual inventory and returns labelled sample-budget wedding plan"
+      ],
+      "posts": [],
+      "errors": [],
+      "requestsFailed": [],
+      "source": "/images/portrait-neutral.jpg",
+      "staticLabel": true,
+      "archive": "R07 audit occasion\n\nWedding study from actual owned record\n\nNov 2, 2026 · 1 owned-product reference · Original light\nReopen in mirror\nOpen outfit",
+      "exportKeys": [
+        "format",
+        "version",
+        "exportedAt",
+        "profile",
+        "preferences",
+        "ownedProducts",
+        "outfits",
+        "looks",
+        "notice"
+      ],
+      "export": {
+        "format": "true-beauty-cosmetic-profile",
+        "version": 1,
+        "exportedAt": "2026-11-02T17:13:12.691Z",
+        "profile": {
+          "id": "local-profile",
+          "displayName": "Beauty explorer",
+          "skinType": "Not specified",
+          "budget": 20000,
+          "currency": "NGN",
+          "concerns": [],
+          "preferences": [],
+          "createdAt": 1793639581978,
+          "updatedAt": 1793639592461
+        },
+        "preferences": {
+          "hairTexture": "Coily",
+          "hairLength": "Not specified",
+          "hairGoals": [],
+          "styleGoals": [],
+          "favoriteColors": [],
+          "avoidIngredients": [],
+          "preferredFinish": "unspecified",
+          "version": 1,
+          "revision": 1,
+          "updatedAt": 1793639592461,
+          "source": "user-provided"
+        },
+        "ownedProducts": [
+          {
+            "id": "2ad0d3c0-0e8f-4e52-a69b-bd66dbf79105",
+            "productId": "owned:cf96350a-dec0-43f4-9458-98d771faba79",
+            "name": "R07 audit cream",
+            "addedAt": 1793639590418,
+            "note": ""
+          }
+        ],
+        "outfits": [
+          {
+            "id": "848d49ff-8703-4a0f-9e65-d1b00aca4082",
+            "name": "R07 audit outfit",
+            "color": "#24395b",
+            "technology": "static-photo-compositing"
+          }
+        ],
+        "looks": [
+          {
+            "id": "7f8da5de-d725-4d23-a44a-6d38e486ae61",
+            "name": "R07 audit occasion",
+            "look": {
+              "lipstick": {
+                "enabled": true,
+                "color": "#943356",
+                "opacity": 0.55,
+                "finish": "gloss"
+              },
+              "blush": {
+                "enabled": true,
+                "color": "#C47670",
+                "opacity": 0.32,
+                "finish": "matte"
+              },
+              "eyeshadow": {
+                "enabled": true,
+                "color": "#967564",
+                "opacity": 0.24,
+                "finish": "shimmer"
+              },
+              "foundation": {
+                "enabled": false,
+                "color": "#C99B7A",
+                "opacity": 0.14,
+                "finish": "matte"
+              },
+              "eyeliner": {
+                "enabled": false,
+                "color": "#2B2020",
+                "opacity": 0.5,
+                "finish": "matte"
+              },
+              "mascara": {
+                "enabled": false,
+                "color": "#211C1C",
+                "opacity": 0.45,
+                "finish": "matte"
+              },
+              "brows": {
+                "enabled": false,
+                "color": "#45312C",
+                "opacity": 0.25,
+                "finish": "matte"
+              },
+              "contour": {
+                "enabled": false,
+                "color": "#815C4C",
+                "opacity": 0.22,
+                "finish": "matte"
+              },
+              "bronzer": {
+                "enabled": false,
+                "color": "#B27C51",
+                "opacity": 0.2,
+                "finish": "matte"
+              },
+              "highlighter": {
+                "enabled": false,
+                "color": "#F6DBBD",
+                "opacity": 0.2,
+                "finish": "shimmer"
+              },
+              "lipliner": {
+                "enabled": false,
+                "color": "#834449",
+                "opacity": 0.4,
+                "finish": "matte"
+              },
+              "lipgloss": {
+                "enabled": false,
+                "color": "#F5D0CB",
+                "opacity": 0.25,
+                "finish": "gloss"
+              },
+              "hair": {
+                "enabled": false,
+                "color": "#783D31",
+                "secondaryColor": "#C99C70",
+                "opacity": 0.5,
+                "mode": "solid"
+              },
+              "accessories": {
+                "glasses": false,
+                "earrings": false,
+                "necklace": false
+              },
+              "reshape": 0
+            },
+            "composition": {
+              "version": 1,
+              "source": "digital-twin",
+              "occasion": "Wedding study from actual owned record",
+              "productIds": [
+                "owned:cf96350a-dec0-43f4-9458-98d771faba79"
+              ],
+              "outfitId": "848d49ff-8703-4a0f-9e65-d1b00aca4082",
+              "profileRevision": 1,
+              "lighting": {
+                "preset": "neutral",
+                "intensity": 0.65,
+                "direction": {
+                  "x": -0.35,
+                  "y": -0.45
+                }
+              }
+            }
+          }
+        ],
+        "notice": "User-provided cosmetic preferences and styling choices. No photograph, face geometry, clinical profile, chat history or identity reconstruction is included."
+      },
+      "routine": "Your daily ritual\n₦11,500\nsample total · no exchange conversion\nMorning\n01\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nUse a gentle cleanser; avoid scrubbing irritated skin.\n02\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nApply as directed; adjust the amount for comfort.\n03\nProtect\n\nNo suitable protect selected within your inventory and budget.\n\nUse broad-spectrum SPF 30 or higher as directed; reapply according to the label.\nEvening\n01\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nUse a gentle cleanser; avoid scrubbing irritated skin.\n02\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nApply as directed; adjust the amount for comfort.\n\nSample catalogue and prices. These are cosmetic suggestions based on your self-reported preferences, not diagnosis or proof of efficacy. Verify current product labels.\n\nSave both routines",
+      "agent": "You\nInspect my wardrobe\nTrue Beauty\nYour local wardrobe contains 1 product: R07 audit cream.\n1 of 1 actions completed\nYou\nSoft glam for a wedding, dry skin, ₦20,000\nTrue Beauty\nApplied Soft glow to the mirror.\n\nBuilt a NGN 19,300 combined product plan from your NGN 20,000 budget; NGN 700 remains. Owned products are prioritized at zero new cost. Not funded: lipstick, eyeshadow. Use an already-owned option or adjust the plan. Prices are sample catalogue estimates, not current merchant quotes. No purchase was made.\n\nCreated an editable AM routine locally: Cleanse → Natural Moisturizing Factors + HA → Protect. General cosmetic guidance, based on your description; no scan or diagnosis was performed.\n3 of 3 actions completed\nCombined plan\nNGN 19,300\nRemaining\nNGN 700\nOf NGN 20,000 total · sample catalogue prices\n\nStill to cover: lipstick, eyeshadow. Use owned options or adjust your budget.\n\nSelected products · verify sample data\n\nNatural Moisturizing Factors + HA\n\nCatalogue tags overlap your stated interests: moisture. The catalogue lists this for dry skin or all skin types. Allocated NGN 11,500 from the combined budget. Sample catalogue price, not a verified merchant quote.\n\nCamo Liquid Blush\n\nCatalogue tags overlap your stated interests: colour. The catalogue lists this for dry skin or all skin types. Allocated NGN 7,800 from the combined budget. Sample catalogue price, not a verified merchant quote.",
+      "status": "failed",
+      "failure": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Your profile and privacy', exact: true })\u001b[22m\n",
+      "failureText": "Skip to your beauty space\nTRUE BEAUTY\nA little more you.\nThe studio\nSkin & rituals\nMy wardrobe\nThe beauty edit\nInspiration canvas\nBeauty profile\nLook Remix\nDevice & fairness lab\nBeauty journal\nPrivacy & settings\n\nYour beauty journal\n\nA story that’s only yours.\nNew entry\n\nThe looks you loved. The rituals you kept. A little space to notice what changes.\n\nSaved looks\nMy notes\nDaily rituals\nBeauty experiments\nMorning light\nAM comfort\nCleanse\n\nNo suitable cleanse selected within your inventory and budget. Use a gentle cleanser; avoid scrubbing irritated skin.\n\nNatural Moisturizing Factors + HA\n\nCatalogue tags overlap your stated interests: moisture. The catalogue lists this for dry skin or all skin types. Apply as directed; adjust the amount for comfort.\n\nProtect\n\nNo suitable protect selected within your inventory and budget. Use broad-spectrum SPF 30 or higher as directed; reapply according to the label.\n\nMark today complete\nEdit routine\nRemove routine\nEvening unwind\nMy evening ritual\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nCompleted today\nEdit routine\nRemove routine\nMorning light\nMy morning ritual\nCleanse\n\nNo suitable cleanse selected within your inventory and budget.\n\nNatural Moisturizing Factors + HA\n\nThe catalogue lists this for dry skin or all skin types.\n\nProtect\n\nNo suitable protect selected within your inventory and budget.\n\nMark today complete\nEdit routine\nRemove routine\nTRUE BEAUTY\nYour data, your choice"
+    }
+  ]
+}

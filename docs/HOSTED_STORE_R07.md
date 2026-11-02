@@ -1,5 +1,8 @@
 # R07 durable encrypted hosted state
 
+Current deployment reconciliation: native public version5 and scoped genuine hosted verification are recorded in DEPLOYMENT.md and LIVE_PROVIDER_VERIFICATION_R07.md. Local fixture proofs below remain separate from those public results; earlier implementation-checkpoint limits are historical.
+
+
 `apps/edge/src/runtime/store.ts` implements the shared `HostedStore` contract for the native Worker backend. This replaces neither browser Dexie nor the local beauty profile: only explicitly authorized provider workflow state belongs here. No provider credential, real user record, paid request or Sites deployment was used in this module's verification.
 
 ## Factory and integration

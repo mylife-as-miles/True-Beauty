@@ -1,5 +1,28 @@
 # True Beauty quality scorecard
 
+## Active round07 independent review
+
+Latest weighted judgment **7.24/10**, local usefulness8.5; independent visual/editing judgment8.3. Acceptance remains unmet. The product critic inspected all219capabilities and actual public desktop/mobile restoration, local agent, memory and offline flows. See reviews/product-r07.md, visual-r07.md and technical-r07.md for exact limits. Scores are prioritization judgments, not measured accuracy or completion percentages.
+
+| Category | Original weight | R07 /10 | Evidence and practical limit |
+|---|---:|---:|---|
+| Product functionality/coverage | 15% | 5.6 | Public custom inventory → outfit → profile → saved recipe → exact restoration works; hosted four-family execution now exists. Broad advanced tools, skin maps/concerns, garments, accessories and coordinated occasion planning remain incomplete. A grouped row is not completed by one constituent. |
+| AR realism/shaders/compositing | 12% | 6.7 | Actual public cosmetics render and current scene reaches the static garment canvas. The illustrative blouse remains visibly flat/manual; generated images are plausible stills, not calibrated cosmetic materials, depth, drape or live AR. |
+| Face/hair/hand tracking | 11% | 6.4 | Real public demo reaches face-mesh-connected state. Reviewed shared-pipeline/body/pose evidence is meaningful; this critic did not independently measure hairline, occlusion, gestures or moving-person registration. No physical camera/cohort proof. |
+| UX/design/immersion | 10% | 8.5 | Coherent portrait-first editorial surface and actual desktop/mobile state restoration. Long mobile profile/composer and separated routine/occasion/bag artifacts still interrupt a complete task. Screenshot beauty does not establish full UX completion. |
+| Agent intelligence/tool execution | 10% | 7.8 | Public local request inspects an actual custom record and executes three wedding actions. Hosted Claude receipt proves three turns/two mounted tools. These narrow actions do not establish advanced tool breadth, sophisticated occasion reasoning, prompt-injection robustness or a saved coordinated plan. |
+| BeautyGraph | 9% | 8.1 | Independently saved, corrected to revision 2, reloaded, revisited and forgot a consented preference at both widths. Attribution/history are visible. Broad temporal queries, all memory categories and long-term outcomes remain incompletely demonstrated. |
+| Scientific accuracy/transparency | 7% | 7.9 | Public local history explicitly says photo swatches/no skin-health scores; routine data is labelled sample and self-reported. Hosted skin distinguishes predictions/raw/display/null confidence and limitations. No calibrated cosmetic accuracy, concern maps, representative fairness or longitudinal validation follows. |
+| Runtime performance | 8% | 6.0 | Models execute and the public local tasks work in this Chromium environment. No new suitable-desktop 60FPS, physical midrange-mobile 30FPS, sustained thermals, long-running allocation or camera-resource measurement was performed. Short software-server samples cannot supply those gates. |
+| Reliability/test coverage | 7% | 8.5 | Independent public UI restoration, consented memory lifecycle and offline checks pass within the boundaries below. Native default-fetch/store proofs and integrated suite reports strengthen the implementation. This critic did not rerun the entire suite, all browsers, hosted restarts or broad failures. |
+| Accessibility/responsiveness | 4% | 7.9 | Actual 390×844 forms/navigation/restore/offline paths are usable; corrected rechecks have no document overflow. Named controls and alternate privacy access work. No physical touch, screen-reader user test or complete target/focus/contrast audit by this critic. |
+| Privacy/security | 5% | 8.4 | Local probes emitted zero POSTs; explicit local consent and image-free recipe export observed. Reviewed encrypted durable storage, exact-quote limits and independent source/public security evidence materially improve the boundary. Owner browser mapping, exhaustive deployment security and provider retention/deletion remain unverified. |
+| Source integration/provenance | 2% | 8.3 | Four real adapted-source contributions and pinned destinations/notices are documented; current native extraction retains them. Virtual Makeup standalone notice, portrait releases and broader distribution/provider-output rights remain unresolved. No blanket clearance. |
+| **Weighted total** | **100%** | **7.24** | **No ≥9 acceptance pass; no critical category reaches 9.** |
+
+## Historical round06 scorecard
+
+
 Target: weighted overall >=9.0/10, no critical category below9, all mandatory engines operational, no known unresolved critical/high defects, real browser and privacy evidence. **Acceptance is not met.** Ratings below are conservative provisional engineering judgments for prioritization, not measured accuracy percentages or a claim of independent certification. Independent critiques and actual measurements remain separate.
 
 | Category | Weight | R06 /10 | Evidence and practical limit |

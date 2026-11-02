@@ -1,5 +1,8 @@
 # Sites Worker build and asset proof — round07
 
+Current deployment reconciliation: native public version5 and scoped genuine hosted verification are recorded in DEPLOYMENT.md and LIVE_PROVIDER_VERIFICATION_R07.md. Local fixture proofs below remain separate from those public results; earlier implementation-checkpoint limits are historical.
+
+
 The existing Vite SPA can share a supported Cloudflare Worker artifact with the native API. A real local Wrangler/workerd fixture passed ten checks using the generated deployment configuration without rewriting it. This is build/runtime evidence; this document does not claim a production deployment or successful provider request.
 
 ## Verified integration

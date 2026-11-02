@@ -1,0 +1,45 @@
+{
+  "version": 5,
+  "projectId": "appgprj_6ae88d68c5bc81918175edf22df8b3b5",
+  "siteVersionId": "appgprj_6ae88d68c5bc81918175edf22df8b3b5~appgver_f3279ec20800819184629a1b894df159",
+  "deploymentId": "appgdep_6ae8c6797ad08191bc5dabc28168ff77",
+  "status": "succeeded",
+  "url": "https://true-beauty-miles.myles4miles.chatgpt.site",
+  "environmentRevision": 5,
+  "updatedAt": "2026-11-02T17:21:25.646014+00:00",
+  "engineeringSource": "c178f5d",
+  "siteSource": "ff492aab5d7448b23a32d0016bb2e4e4644b1584",
+  "archiveSha256": "772a47dd995a641b442125c30dd2f3536499fa0beb151ef3b67f64fcd0ed42c0",
+  "savedArchive": {
+    "archive_format": "tar",
+    "sediment_file_id": "file_000000000b308211ae2f4909ed281a7d",
+    "content_hash": "sha256:c3669f471829881fc3f9657d3df3f2b60b40d7d34c2569905950b8ea595065fd",
+    "size_bytes": 87848960,
+    "file_count": 108
+  },
+  "workerSha256": "cdae019ca3a5ffe5178ba0dee3257dedd15b81acfaaae2157833dbc2aae94bfe",
+  "publicAudiencePreserved": true,
+  "budget": {
+    "creditsUsed": 73,
+    "creditsLimit": 100,
+    "usdMicroUsed": 333000,
+    "usdMicroLimit": 5000000,
+    "source": "cook/evidence/r07-hosted-generation-002/receipt.json"
+  },
+  "genuineHostedProviders": {
+    "skin": "four predictions visibly received; full history harness incomplete",
+    "hair": "success with decoded image",
+    "clothing": "success with decoded image",
+    "claude": "three completed turns and two successful mounted tools"
+  },
+  "limits": [
+    "Aggregate reservations are not invoices.",
+    "Generated-image HTTP body capture returned zero bytes; no valid output byte hash claim.",
+    "Owner browser identity mapping remains unverified."
+  ],
+  "imageValidation": {
+    "nearLimitPngTests": 10,
+    "sourceFixVerified": true,
+    "publicInclusion": "saved source and native succeeded deployment; no additional paid task repeated"
+  }
+}

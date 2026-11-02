@@ -1,0 +1,33 @@
+{
+  "format": "true-beauty-live-skin-ui-receipt",
+  "version": 1,
+  "startedAt": "2026-11-02T17:00:11.547Z",
+  "fixture": "Original synthetic portrait, explicit local framing, genuine provider, no private photograph.",
+  "authorizationCredits": 9,
+  "paidTaskRequests": 1,
+  "observations": [],
+  "pageErrors": [],
+  "billingVerified": false,
+  "preparedSha256": "94d761e905088d4eac7a93de22e972657a37186db44775fa6c769c75cb6d5d6e",
+  "before": {
+    "skinScans": 0,
+    "skinObservations": 0,
+    "mediaAssets": 0,
+    "memoryNodes": 0,
+    "scanObservationCount": 0,
+    "savedImageReferences": false
+  },
+  "quote": {
+    "quoteId": "9a5040ef-4c35-415c-8788-59502f238045",
+    "credits": 9,
+    "actions": [
+      "texture",
+      "pore",
+      "redness",
+      "moisture"
+    ],
+    "expiresAt": "2026-11-02T17:05:25.706Z"
+  },
+  "error": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('button', { name: 'Check existing task status', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('button', { name: 'Check existing task status', exact: true }) with timeout 5000ms\n  - waiting for getByRole('button', { name: 'Check existing task status', exact: true })\n",
+  "finishedAt": "2026-11-02T17:00:33.900Z"
+}

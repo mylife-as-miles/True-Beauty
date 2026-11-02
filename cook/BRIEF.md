@@ -1,6 +1,6 @@
 # True Beauty autonomous build brief
 
-Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run, not a video export. Status: public static Site plus active round06 engineering; full acceptance not met.
+Started: 2026-11-02 approximately 08:54 UTC. This is an engineering/application Cook run. Current checkpoint: public native version5, genuine hosted providers and active full-product backlog; full acceptance not met.
 
 ## Target and authority
 
@@ -52,3 +52,8 @@ Independent visual/local-usefulness8.4, interaction8.0; weighted full-product6.6
 The user authorized provider testing and public Sites publication. Server-only YouCam and Claude credentials are available in ephemeral runtime/native secret settings; never write their values to this repository. Initial operator limits are100YouCam credit reservations/US$5Claude reservations. Actual synthetic-fixture skin/hair/clothing and Claude tool execution succeeded; see LIVE_PROVIDER_VERIFICATION_R06. Public Site identity/access is persisted in .openai/hosting.json and DEPLOYMENT.md. Reuse it and preserve public audience.
 
 Current independent weighted product judgment7.09, expanded visual8.2/local usefulness8.5. R06 source integration, actual evidence, local graph/complete-look commerce, body/pose, evaluation and rights reports are retained. Current mobile/provenance/framing fixes are in progress; full source-frozen tests/build/review precede an update. Actual workerd Fastify incompatibility blocks public paid dispatch; the D1 boundary proof is not a full API. Do not reintroduce earlier stale 'no credentials/no authorization/no provider successes' blockers. Do not imply physical/fairness or9/10 acceptance.
+
+
+## Active steering — round07 closure
+
+Native public version5 now uses server-only YouCam/Claude secrets, encrypted D1 temporary tasks and durable exact-quote spending. Genuine hosted Claude tools, skin predictions, generated hair/clothing and merchant refreshes have bounded receipts. Full348unit/48files,148desktop/mobile+2production-onlyskips,8production/offlinepass. Latest independent product7.24/visual8.3; no9gate. Read R07_STATE, LIVE_PROVIDER_VERIFICATION_R07 and updated REMAINING_WORK; next unblocked feature is one occasion artifact linking routine/exact products/budget/evidence. Preserve all219capabilities and physical/cohort/rights gates. No additional paid scan for a screenshot/hash/history replay; budgets retain73credits/US$0.333 reservations under100/US$5.

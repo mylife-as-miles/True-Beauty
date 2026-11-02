@@ -1,0 +1,26 @@
+[
+  {
+    "target": {
+      "x": 406,
+      "y": -317.46875,
+      "width": 300.921875,
+      "height": 320,
+      "top": -317.46875,
+      "right": 706.921875,
+      "bottom": 2.53125,
+      "left": 406
+    },
+    "detailDisplay": "none",
+    "detailText": "Your expressionHair in focusOriginal hair · mask unavailableFull preview  Before & after",
+    "inspector": {
+      "x": 61.078125,
+      "y": 406.109375,
+      "width": 645.84375,
+      "height": 230.375,
+      "top": 406.109375,
+      "right": 706.921875,
+      "bottom": 636.484375,
+      "left": 61.078125
+    }
+  }
+]

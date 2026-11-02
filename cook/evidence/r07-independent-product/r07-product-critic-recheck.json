@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-02T17:13:57.740Z",
+  "kind": "corrected public UI recheck; no external mutation/provider actions",
+  "results": [
+    {
+      "name": "desktop",
+      "checks": [
+        "Exact UI preference save/correct/reload/revisit/forget passes",
+        "Actual public offline reload preserves saved look, inventory and two routines/completion"
+      ],
+      "posts": [],
+      "errors": [],
+      "overflow": false,
+      "status": "passed"
+    },
+    {
+      "name": "mobile",
+      "checks": [
+        "Exact UI preference save/correct/reload/revisit/forget passes",
+        "Actual public offline reload preserves saved look, inventory and two routines/completion"
+      ],
+      "posts": [],
+      "errors": [],
+      "overflow": false,
+      "status": "passed"
+    }
+  ]
+}
