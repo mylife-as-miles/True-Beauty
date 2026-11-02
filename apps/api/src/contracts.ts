@@ -59,30 +59,4 @@ export const SkinTaskRequest = z
     maxCredits: z.number().positive().max(10000),
   })
   .strict();
-export function imageBytes(
-  base64: string,
-  mime: "image/png" | "image/jpeg",
-): Uint8Array {
-  if (
-    !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(
-      base64,
-    )
-  )
-    throw new Error("Malformed image encoding.");
-  const bytes = Buffer.from(base64, "base64");
-  if (bytes.byteLength < 100 || bytes.byteLength > 4 * 1024 * 1024)
-    throw new Error("Images must be between 100 bytes and 4 MB.");
-  const png =
-    bytes[0] === 0x89 &&
-    bytes[1] === 0x50 &&
-    bytes[2] === 0x4e &&
-    bytes[3] === 0x47 &&
-    bytes[4] === 0x0d &&
-    bytes[5] === 0x0a &&
-    bytes[6] === 0x1a &&
-    bytes[7] === 0x0a;
-  const jpeg = bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
-  if ((mime === "image/png" && !png) || (mime === "image/jpeg" && !jpeg))
-    throw new Error("Image file signature does not match its declared type.");
-  return bytes;
-}
+export { imageBytes } from "./youcamImage";

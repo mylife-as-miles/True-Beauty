@@ -16,7 +16,11 @@ export interface GenerationInput {
 }
 export interface GenerationProvider {
   pricing(feature: GenerationFeature, signal?: AbortSignal): Promise<unknown[]>;
-  create(input: GenerationInput, signal?: AbortSignal): Promise<string>;
+  create(
+    input: GenerationInput,
+    signal?: AbortSignal,
+    beforeCreate?: () => Promise<void>,
+  ): Promise<string>;
   status(
     feature: GenerationFeature,
     id: string,
@@ -49,7 +53,11 @@ export class YouCamGenerationProvider implements GenerationProvider {
   pricing(feature: GenerationFeature, signal?: AbortSignal) {
     return this.transport.pricing(GENERATION_TASK_PATHS[feature], signal);
   }
-  async create(input: GenerationInput, signal?: AbortSignal) {
+  async create(
+    input: GenerationInput,
+    signal?: AbortSignal,
+    beforeCreate?: () => Promise<void>,
+  ) {
     const sourceId = await this.transport.upload(
       input.source.bytes,
       input.source.contentType,
@@ -89,6 +97,7 @@ export class YouCamGenerationProvider implements GenerationProvider {
         filter_multi_person: spec.filterMultiPerson,
       };
     }
+    await beforeCreate?.();
     const response = await this.transport.json(
       GENERATION_TASK_PATHS[spec.feature],
       { method: "POST", body: JSON.stringify(body) },

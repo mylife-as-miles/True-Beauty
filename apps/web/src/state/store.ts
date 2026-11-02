@@ -219,11 +219,26 @@ export const useApp = create<State>((set, get) => ({
       };
     }),
   setPortraitVision: (url, snapshot) =>
-    set((state) =>
-      state.portraitUrl === url
-        ? { portraitVision: { url, snapshot: structuredClone(snapshot) } }
-        : {},
-    ),
+    set((state) => {
+      if (state.portraitUrl !== url) return {};
+      const next = structuredClone(snapshot),
+        previous =
+          state.portraitVision?.url === url
+            ? state.portraitVision.snapshot
+            : null;
+      // A source-matching partial analysis must not erase a feature that was
+      // deliberately prepared in another space. Explicit errors/empty results
+      // still replace old data; only an unrequested (idle) feature is retained.
+      if (
+        previous &&
+        next.status?.hair?.state === "idle" &&
+        previous.hairMask
+      ) {
+        next.hairMask = structuredClone(previous.hairMask);
+        next.status.hair = structuredClone(previous.status.hair);
+      }
+      return { portraitVision: { url, snapshot: next } };
+    }),
   generationFeature: "hair",
   setGenerationFeature: (generationFeature) => set({ generationFeature }),
   activeOutfitId: null,

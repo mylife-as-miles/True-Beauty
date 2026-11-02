@@ -1,8 +1,8 @@
 # API and provider contracts
 
-Local browser functions work without the API. Start optional server with `npm run dev:api` (default `127.0.0.1:3001`); Vite should proxy `/api` to it. There is no user account or authentication registration. The ephemeral API session below is a browser CSRF/task-ownership capability, not a remote identity.
+Local browser functions work without the API or an account. `npm run dev:api` starts the optional Fastify pilot (default `127.0.0.1:3001`); Vite proxies `/api` to it. R07 also provides native Fetch Worker equivalents under the same browser paths, with encrypted D1 temporary state and durable accounting. Anonymous API sessions establish CSRF/task ownership, without creating remote beauty profiles. The tables/configuration below first describe the compatible Node pilot; the final R07 section identifies native differences. The full Worker/SPA build passes locally; deployment and hosted verification are pending at this checkpoint.
 
-## Browser/server routes
+## Node pilot browser/server routes
 
 | Route                        | Result / requirement                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,7 +54,7 @@ Verified by fetching official docs on 2026-11-02. Base: `https://yce-api-01.make
 4. `GET /s2s/v2.1/task/skin-analysis/{task_id}`, bearer auth. `data.task_status`: running, success or error. `data.results.output` contains actual variable concern items/regions. Raw and adjusted UI score fields are separate. Unknown typed numeric concerns are retained; absent scores are absent. No local skin age or type is fabricated.
 5. Pricing: `GET /s2s/v2.0/credit/feature-cost?page_size=20[&starting_token=...]`. Official skills describe `result.skus[]`, `next_token` and each SKU's `run_task_url`, `amount`, `unit`, `proc_unit`, description. Exact current response must be reviewed before a pricing plan can enable paid execution.
 
-The dedicated current retention page documents uploaded/generated media and file/task IDs retained for **30 days**, with download URLs valid for **2 hours**. Older task text says 24 hours; True Beauty discloses the more conservative 30-day value and links the dedicated source. Its 15-minute RAM expiry does not override vendor retention. Provider-side deletion/cancellation is not implemented or claimed. Authenticated balance and pricing HTTP 200 were genuinely verified in Round06; genuine hair/template and cloth-v4 image-task success is recorded in `cook/evidence/r06-live-001/receipt.json`; skin ended in a terminal error with no result. Clothing full_body output changed more than the intended blouse, so corrected upper_body styling needs separate live verification. See [Round06 provider evidence](REMOTE_PROVIDERS_R06.md).
+The dedicated current retention page documents uploaded/generated media and file/task IDs retained for **30 days**, with download URLs valid for **2 hours**. Older task text says 24 hours; True Beauty discloses the more conservative 30-day value and links the dedicated source. Neither the Node pilot's 15-minute RAM expiry nor the native Worker's 15-minute task access limit overrides vendor retention. Provider-side deletion/cancellation is not implemented or claimed. Authenticated balance and pricing HTTP 200 were genuinely verified in Round06; genuine hair/template and cloth-v4 image-task success is recorded in `cook/evidence/r06-live-001/receipt.json`; the initial skin task failed and initial full_body blouse output changed too much. Subsequent isolated framed-skin and upper_body runs succeeded; actual skin history save/reload/delete also passed. Complete real evidence is in LIVE_PROVIDER_VERIFICATION_R06.md. See [Round06 provider evidence](REMOTE_PROVIDERS_R06.md).
 
 References:
 
@@ -71,7 +71,7 @@ References:
 
 ## Verification status
 
-The focused backend/CLI suite passes **34/34**: 6 existing API, 11 generation, 11 sanitized skin-error and 6 receipt-runner tests. Browser generation passes 8/8 desktop/mobile, with six explicitly labelled contract fixtures and two actual App local-preparation journeys; the corrected upper_body default additionally passes 2/2 targeted browser cases. Automated upstream tests are loopback fixtures and do not establish service completion or billing. Separate genuine first-batch receipts record successful hair and clothing outputs, a skin error, and no automatic retry. Actual billing and skin success remain unverified.
+The focused backend/CLI suite passes **34/34**: 6 existing API, 11 generation, 11 sanitized skin-error and 6 receipt-runner tests. Browser generation passes 8/8 desktop/mobile, with six explicitly labelled contract fixtures and two actual App local-preparation journeys; the corrected upper_body default additionally passes 2/2 targeted browser cases. Automated upstream tests are loopback fixtures and do not establish service completion or billing. Separate genuine first-batch receipts record successful hair and clothing outputs, a skin error, and no automatic retry. Subsequent framed skin and corrected upper_body execution succeeded, including actual skin browser save/reload/delete; see LIVE_PROVIDER_VERIFICATION_R06.md. Per-task billing and scientific validity remain unverified.
 
 ## Round06 generation contracts
 
@@ -121,3 +121,53 @@ A reference is required unless selecting a hairstyle template; template plus ref
 Current official terminal errors use `data.error` (engine code) plus untrusted `data.error_message`. Only exact documented allowlisted codes survive through `skinProviderFailure.ts`; free-form provider text is discarded. `GET /api/skin/tasks/:id` may return `providerFailure:{code,known,summary,recovery,nextStep,automaticRetry:false}` alongside its safe display `error`. An unknown code becomes a static `unrecognized_provider_error`; no image defect or skin conclusion is inferred. Client code must never automatically resubmit a failed paid task.
 
 The keyless receipt CLI supports `--skin-only` and `--clothing-only`, rejects unrelated input options, and saves a distinct receipt without repeating other successful engines. Clothing defaults to `upper_body`; `--garment-category` is validated against the exact current enum. Commands, first genuine batch semantics and status limitations are in [REMOTE_PROVIDERS_R06.md](REMOTE_PROVIDERS_R06.md).
+
+## Native hosted continuation (Round07)
+
+The Node pilot above remains compatible. Native Fetch equivalents in `apps/edge/src/routes/youcam.ts` share the actual provider adapters, use encrypted durable HostedStore/CAS tasks and asynchronous atomic credits, require operator or exact-quote approval, and persist upstream task IDs for another isolate to resume. They never persist source images/base64 in D1/R2. See [EDGE_YOUCAM_R07.md](EDGE_YOUCAM_R07.md) for complete state transitions, native fixture evidence and current deployment limits. Root Worker owns same-origin/CSRF/operator verification; a route-unit context does not establish that boundary by itself.
+
+### Runtime, ownership and configuration
+
+`apps/edge/src/worker.ts` is the native application entry. It serves the built SPA through `ASSETS` and composes native YouCam, reasoning and merchant handlers for `/api/*`; it does not register Fastify in workerd. Pure `youcamSkinProvider.ts`, `youcamImage.ts`, `generationProvider.ts`, `youcamTransport.ts`, `reasoningProvider.ts` and `merchantProvider.ts` retain actual shared implementations. Node compatibility exports remain available.
+
+The Worker uses the exact configured HTTPS `SITE_ORIGIN`. `GET /api/session` returns `{csrfToken,expiresAt,hosted:true,operator}` and a signed `__Host-tb_cloud` cookie with Secure, HttpOnly, SameSite=Strict and one-hour expiry. First-visit read-only capability/source discovery may establish this anonymous cookie too. All mutations require its valid owner capability, exact Origin and matching `X-CSRF-Token`. Cookie renewal changes temporary ownership; it is not cross-device identity or a way to recover another session's tasks. Independent IP/session rate limits apply.
+
+Native runtime configuration uses `DB`, `EDGE_SESSION_SECRET` and a separate `EDGE_DATA_SECRET`, supplied through server-only secret bindings; `SITE_ORIGIN` and a stable `EDGE_BUDGET_ID` identify the deployment boundary. Provider credentials, reviewed YouCam plans and reasoning model/rate ceilings remain server-side. `EDGE_OPERATOR_TOKEN` is a server tooling credential; platform operator identity is accepted only with an explicitly trusted dispatch identity and configured operator ID. No request JSON field, ordinary anonymous cookie, model output or browser-visible key grants operator status. Configuration revision 3 has platform identity trust disabled; the principal confirms server-only configuration and the local build, without recording secret values here. Public-origin trust and task journeys still require executed hosted verification.
+
+### Hosted access and sponsored cost routes
+
+| Route | Native requirement / result |
+| --- | --- |
+| `GET /api/health` | Native service health/version only; no provider success assertion |
+| `GET /api/operator/status` | Current hosted operator/trusted-dispatch status; no secret or user record |
+| `GET /api/access/quotes/:id` | Same-owner exact quote authorization state; no paid call |
+| `POST /api/access/requests/:id` | Same-owner active quote check/request state; does not approve spending or send a provider request |
+| `GET /api/operator/approvals` | Verified operator only; bounded pending ID/operation/cost/expiry summaries, without decrypting another user's prompt or image |
+| `POST /api/operator/approvals/:id/approve` or `/revoke` | Verified operator plus same-origin/CSRF; changes only the exact quote/task authorization |
+| `GET` / `POST /api/operator/budget` | Verified operator only; reads or performs one-time cumulative reconciliation, never resets/decreases an existing budget |
+
+Anonymous users may request bounded quote metadata, but dispatch additionally requires explicit upload/text/retention/cost consent and current operator or exact-quote approval. Paid task/session creation atomically consumes that quote, creates the encrypted record and reserves both credit and integer micro-USD units. A database trigger rechecks owner, terms, approval/revocation and remaining shared budget in the same transaction. Conservative reservations remain after uncertain failures or deletion; no automatic refund is claimed.
+
+Migrations contain no spending seed. Operator reconciliation must carry at least the existing conservative 51-credit and 111000-microUSD reservations within the 100-credit/US$5 global ceilings. These amounts are prior authorized reservations, not verified invoices. There is no automatic daily rollover, zero reset or budget restoration by deleting task content/restarting a Worker. Stable database/budget identity must survive deployment. See [HOSTED_STORE_R07.md](HOSTED_STORE_R07.md).
+
+### Native task and reasoning behavior
+
+Skin/generation paths and strict body shapes above are preserved. Native task ID equals quote ID. CAS admits one dispatch winner, persists the actual upstream task ID and lets another isolate resume polling after the short quote expires within the original task lifetime. Replayed creation recovers that task/reservation. Ambiguous dispatch is labelled `uncertain` and never automatically resubmitted. Cancellation/deletion blocks later local delivery and unstarted paid submission; it cannot cancel an already submitted provider job or delete the provider copy. `GET /api/skin/tasks/:id/masks/:observation/:mask` is an owner-checked bounded media proxy; raw signed upstream URLs are not returned.
+
+| Reasoning route | Contract |
+| --- | --- |
+| `GET /api/reasoning/capabilities` | Configured adapter/model, bounded readiness and retention; no inference |
+| `POST /api/reasoning/quotes` | Exact approved text/context hash, selected tools/scopes, persistence choice and step/token ceilings; no prompt sent to a model |
+| `POST /api/reasoning/sessions` | Exact quoted payload, explicit transmission/retention/USD consent and quote approval; one atomic reservation/encrypted session |
+| `POST /api/reasoning/sessions/:id/step` | Same-owner approved continuation; stable step ID and actual tool feedback, validated tool schemas and bounded steps; CAS prevents concurrent model dispatch |
+| `DELETE /api/reasoning/sessions/:id` | Removes this API's temporary conversation state; provider billing/retention and accounting receipts remain separate |
+
+Reasoning accepts no images. The browser reviews the exact selected context; local memory is not implicitly synchronized. Full transcript content is cleared on completion/cancellation, while bounded encrypted step responses remain accessible until cancellation or the original 15-minute access expiry for retry safety. A failed/uncertain tool or provider call cannot become a fabricated completed action. Store access expires on time; physical pruning occurs on later activity, not a guaranteed wall-clock erasure job. Native image bodies stay request-local; D1 stores metadata/results/approved text, never image/base64 bytes or API secrets. Platform backup and external provider retention terms remain separate.
+
+### Native public merchant routes
+
+`GET /api/merchants/sources`, `POST /api/merchants/refresh` (`{sourceId,referenceId}`) and `POST /api/merchants/resolve` (`{url}`) preserve existing IDs and browser contracts. Resolve validates the exact fixed official URL without fetching it. Free refreshes require same-origin session/CSRF and their own 12-action/session/minute limit, with no paid/operator grant. Robots-first GETs, redirect/MIME/stream limits and explicit JSON-LD currency/SKU/stock provenance are shared with the Node adapter. The shared encrypted public cache lasts up to 15 minutes, failures one minute; cross-isolate lease contention returns 409 with `Retry-After: 3`. These are factual observations or unavailable states, never orders, merchant partnerships or checkout promises. See [MERCHANT_R07.md](MERCHANT_R07.md).
+
+### R07 verification boundary
+
+Native local evidence includes 18 actual two-isolate workerd/D1 store assertions, 10 actual workerd/D1/internal-scripted-merchant assertions, six actual workerd scripted reasoning-protocol assertions, native YouCam loopback/real-SQLite tests and the principal's successful full Worker/SPA build. These probes use no new paid provider calls or personal images. The R06 genuine provider/merchant receipts remain historical local-path evidence. Deployment, full public-origin session/operator security, fresh genuine hosted sources/provider tasks, actual billing and comprehensive security validation remain unverified at this checkpoint.

@@ -1,3 +1,4 @@
+import { CloudApproval, useCloudApproval } from "./CloudApproval";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import {
@@ -176,6 +177,7 @@ export default function SkinLab() {
     [uploadBytes, setUploadBytes] = useState<UploadPayload | null>(null),
     [saveConsent, setSaveConsent] = useState(false),
     [comparison, setComparison] = useState<string[]>([]);
+  const cloudApproval = useCloudApproval(quote?.quoteId);
   const imageRef = useRef<HTMLImageElement | null>(null),
     canvasRef = useRef<HTMLCanvasElement>(null),
     portraitFrameRef = useRef<HTMLDivElement>(null),
@@ -857,7 +859,8 @@ export default function SkinLab() {
       quote.sourceEpoch !== sourceEpochRef.current ||
       !remoteConsent ||
       !retentionConsent ||
-      Number(authorizedCredits) < quote.credits
+      Number(authorizedCredits) < quote.credits ||
+      !cloudApproval.approved
     )
       return;
     const epoch = sourceEpochRef.current,
@@ -1681,6 +1684,7 @@ export default function SkinLab() {
                     </button>
                     {quote && (
                       <div className="skin-quote">
+                        <CloudApproval access={cloudApproval} />
                         <p>
                           Quote:{" "}
                           <strong>{quote.credits} provider credits</strong>.
@@ -1731,7 +1735,8 @@ export default function SkinLab() {
                             quote.imageRevision !== uploadRevisionRef.current ||
                             !remoteConsent ||
                             !retentionConsent ||
-                            Number(authorizedCredits) < quote.credits
+                            Number(authorizedCredits) < quote.credits ||
+                            !cloudApproval.approved
                           }
                           onClick={() => void submitRemote()}
                         >

@@ -1,6 +1,7 @@
 import { beforeEach, describe, it, expect, vi } from "vitest";
 import { useApp, DEFAULT_LIGHTING } from "../apps/web/src/state/store";
 import { createDefaultLook } from "../packages/makeup-engine/src";
+import type { VisionSnapshot } from "../packages/vision-core/src";
 beforeEach(() => {
   useApp.setState({
     look: createDefaultLook(),
@@ -18,23 +19,61 @@ beforeEach(() => {
   });
 });
 describe("editable mirror continuity", () => {
+  it("retains prepared hair across a same-source face-only refresh, but clears explicit errors and rejects stale sources", () => {
+    const snapshot: VisionSnapshot = {
+      landmarks: [{ x: 0.4, y: 0.5, z: 0 }],
+      blendshapes: {},
+      transform: null,
+      hairMask: {
+        width: 1,
+        height: 1,
+        confidence: new Float32Array([0.8]),
+        data: new Float32Array([0.8]),
+        timestamp: 1,
+      },
+      hands: [],
+      timestamp: 1,
+      latencyMs: 1,
+      inferenceCount: 1,
+      status: {
+        face: { state: "ready" },
+        hair: { state: "ready" },
+        hands: { state: "idle" },
+      },
+    };
+    const source = useApp.getState().portraitUrl;
+    useApp.getState().setPortraitVision(source, snapshot);
+    const partial = structuredClone(snapshot);
+    partial.hairMask = null;
+    partial.status.hair = { state: "idle" };
+    partial.landmarks[0].x = 0.6;
+    useApp.getState().setPortraitVision(source, partial);
+    expect(useApp.getState().portraitVision?.snapshot.landmarks[0].x).toBe(0.6);
+    expect(
+      useApp.getState().portraitVision?.snapshot.hairMask?.confidence[0],
+    ).toBeCloseTo(0.8);
+    partial.status.hair = { state: "error", error: "Fixture unavailable" };
+    useApp.getState().setPortraitVision(source, partial);
+    expect(useApp.getState().portraitVision?.snapshot.hairMask).toBeNull();
+    useApp.getState().setPortraitUrl("/images/other.jpg");
+    useApp.getState().setPortraitVision(source, snapshot);
+    expect(useApp.getState().portraitVision).toBeNull();
+  });
   it("does not associate an unrelated portrait as the original of a restored generated outfit", () => {
     const revoke = vi
       .spyOn(URL, "revokeObjectURL")
       .mockImplementation(() => {});
     useApp.getState().setPortraitUrl("blob:unrelated");
-    useApp
-      .getState()
-      .setGeneratedPortrait(
-        "blob:restored",
-        {
-          kind: "ai-generated",
-          provider: "perfect-corp",
-          feature: "clothing",
-          createdAt: "2026-11-02T00:00:00.000Z",
-        },
-        { restored: true },
-      );
+    useApp.getState().setGeneratedPortrait(
+      "blob:restored",
+      {
+        kind: "ai-generated",
+        provider: "perfect-corp",
+        feature: "clothing",
+        createdAt: "2026-11-02T00:00:00.000Z",
+      },
+      { restored: true },
+    );
     expect(useApp.getState().originalPortraitUrl).toBeNull();
     expect(revoke).toHaveBeenCalledWith("blob:unrelated");
     useApp.getState().restoreOriginalPortrait();

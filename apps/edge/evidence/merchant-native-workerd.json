@@ -1,0 +1,28 @@
+{
+  "executedAt": "2026-11-02T16:20:21.816Z",
+  "runtime": "actual local workerd via Miniflare, two route isolates plus internal scripted document worker and local D1",
+  "scope": "Native route/D1/transport compatibility with explicit SCRIPTED FIXTURE data; not live merchant HTTP or public hosting verification, not full bootstrap auth/session-registration verification",
+  "externalMerchantRequests": 0,
+  "paidRequests": 0,
+  "personalImages": 0,
+  "passingAssertions": 10,
+  "assertions": [
+    "CSRF denial reaches zero scripted merchant subrequests",
+    "Native route rejects arbitrary/metadata-service URLs before subrequests",
+    "Rejected requests do not reach the fixture source service",
+    "Actual native Request/Response parses scripted Offer facts without a browser/Node transport",
+    "A second actual workerd isolate reads the same encrypted local D1 cache without re-fetching",
+    "Exactly one robots GET then one reviewed product GET across both isolates",
+    "Actual D1 CAS lets only one isolate dispatch a simultaneous new-reference lookup",
+    "Actual local D1 stores bounded encrypted records and hashed public owner, not clear fixture offers",
+    "Expired public cache is replaced and factual fetch provenance advances only on the next explicit action",
+    "All merchant documents came from the internal scripted service; zero external/paid requests or personal images"
+  ],
+  "scriptedDocumentRequests": 5,
+  "bundleBytes": 807310,
+  "dependencyGraph": {
+    "nodeTransport": false,
+    "dexie": false,
+    "inputs": 102
+  }
+}

@@ -1,3 +1,4 @@
+import CloudAccessPanel from "./CloudApproval";
 import { createDefaultLook } from "../../../../packages/makeup-engine/src";
 import {
   useCallback,
@@ -74,7 +75,7 @@ const permissionLabels: Record<
   "remote.history": {
     title: "External reasoning context",
     description:
-      "Allow a future configured assistant to use selected history after a separate review. No provider is currently connected.",
+      "Allow selected context to be sent only after a separate review. Image uploads and spending need their own consent.",
   },
 };
 
@@ -451,6 +452,7 @@ export function PrivacySettings() {
                   </label>
                 ))}
               </div>
+              <CloudAccessPanel />
               <p className="settings-note">
                 Browser storage is origin-scoped, not inherently encrypted.
                 Clearing browser data removes this profile. There is no
@@ -720,12 +722,10 @@ export function PrivacySettings() {
                                 createDefaultLook(),
                                 "Your signature look",
                               );
-                            useApp
-                              .getState()
-                              .setCompleteScene({
-                                activeOutfitId: null,
-                                activeProductIds: [],
-                              });
+                            useApp.getState().setCompleteScene({
+                              activeOutfitId: null,
+                              activeProductIds: [],
+                            });
                             useApp.getState().clearEditHistory();
                             useApp.getState().setMirrorView({
                               mirrorFocused: false,

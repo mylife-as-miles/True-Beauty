@@ -10,6 +10,7 @@
     "dev": "vite --host 0.0.0.0",
     "dev:api": "tsx watch apps/api/src/index.ts",
     "build": "tsc --noEmit && node scripts/build-notices.mjs && vite build && node scripts/build-offline.mjs",
+    "build:hosted": "node scripts/build-hosted.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
@@ -28,6 +29,7 @@
     "@techstark/opencv-js": "^5.0.0-release.1",
     "dexie": "^4.2.1",
     "dexie-react-hooks": "^4.2.0",
+    "drizzle-orm": "0.45.2",
     "fastify": "^5.6.2",
     "lucide-react": "^0.552.0",
     "react": "^19.2.0",
@@ -38,6 +40,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@cloudflare/vite-plugin": "1.37.1",
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.56.1",
     "@tailwindcss/vite": "^4.1.17",
@@ -46,6 +49,7 @@
     "@types/react-dom": "^19.2.2",
     "@types/three": "^0.181.0",
     "@vitejs/plugin-react": "^5.1.0",
+    "drizzle-kit": "0.31.10",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "fake-indexeddb": "^6.2.4",
@@ -56,6 +60,7 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
     "vite": "^7.2.0",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "wrangler": "4.92.0"
   }
 }

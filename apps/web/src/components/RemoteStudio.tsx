@@ -1,3 +1,4 @@
+import { CloudApproval, useCloudApproval } from "./CloudApproval";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowLeft,
@@ -137,6 +138,7 @@ export default function RemoteStudio({
     [error, setError] = useState(""),
     [checking, setChecking] = useState(false),
     [retryImage, setRetryImage] = useState(0);
+  const cloudApproval = useCloudApproval(quote?.quoteId);
   const sourceInput = useRef<HTMLInputElement>(null),
     referenceInput = useRef<HTMLInputElement>(null),
     mounted = useRef(true),
@@ -293,7 +295,8 @@ export default function RemoteStudio({
       !uploadConsent ||
       !retentionConsent ||
       (needsReference && !reference) ||
-      Number(maxCredits) < quote.credits
+      Number(maxCredits) < quote.credits ||
+      !cloudApproval.approved
     )
       return;
     const selectedSource = source.file,
@@ -794,6 +797,7 @@ export default function RemoteStudio({
           </p>
           {quote && (
             <div className="remote-credit-review">
+              <CloudApproval access={cloudApproval} />
               <div>
                 <span>One generated preview</span>
                 <strong>{quote.credits} credits</strong>
@@ -849,7 +853,8 @@ export default function RemoteStudio({
                   !retentionConsent ||
                   !maxCredits ||
                   !Number.isFinite(Number(maxCredits)) ||
-                  Number(maxCredits) < quote.credits
+                  Number(maxCredits) < quote.credits ||
+                  !cloudApproval.approved
                 }
               >
                 {busy === "start" ? (

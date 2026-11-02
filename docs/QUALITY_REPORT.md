@@ -2,7 +2,15 @@
 
 The requested complete product acceptance is **not met**. A running local application and substantial source-adapted functionality exist. This report distinguishes tested behavior from unavailable providers, unvalidated accuracy and planned scope. The latest independent weighted prioritization judgment is7.09/10, a prioritization judgment documented in cook/SCORECARD.md, not measured accuracy.
 
-## Active round06 — genuine providers and complete local workflows
+## Active round07 — native hosting integration
+
+The native Worker/SPA production build now passes with actual YouCam/Claude/merchant routes and migrated encrypted D1 task state. Server-only provider/security/configuration secrets are configured in the existing Site. Hosted publication, dispatch identity provenance and genuine hosted paid execution are still pending at this source checkpoint; static version2 remains the last live version. See cook/R07_STATE.md and the subsequent deployment receipts before reporting production availability.
+
+Real shared-workerd/D1 assertions: store18, merchant10, reasoning6, hosting fixture10. Independent Worker security tests and sponsored-credit browser gates cover anonymous denial, ownership, exact-quote approval, conservative replay/cancellation and consent. These scripted upstream tests are not live provider proof. Actual Remix18 desktop/tablet/mobile tests and eight axe scans pass after target hair hydration, persistent wider-screen context and Dressing Room touch/contrast repairs. The complete regression run is active and its result must be recorded separately.
+
+The latest independent full-product rating remains7.09; R07 is not independently rescored. Physical devices, representative-person accuracy/fairness, full advanced planning/rendering scope and unresolved distribution-rights validation remain open. Historical R06 statements below describe that earlier deployment and must not be read as current R07 implementation status.
+
+## Round06 — genuine providers and complete local workflows
 
 Public Site: https://true-beauty-miles.myles4miles.chatgpt.site . Native access service confirms **public**, revision2. Published version2 now contains the verified R06 static/local workflows; native deployment succeeded. Publication does not imply a hosted API.
 

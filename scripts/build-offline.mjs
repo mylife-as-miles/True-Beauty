@@ -2,6 +2,7 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
 const paths = [];
+const outputDirectory = process.argv[2] ?? "dist";
 async function walk(dir, rel = "") {
   for (const item of await readdir(dir, { withFileTypes: true })) {
     const name = rel + "/" + item.name;
@@ -15,7 +16,7 @@ async function walk(dir, rel = "") {
       paths.push(name);
   }
 }
-await walk("dist");
+await walk(outputDirectory);
 paths.push("/");
 const version = createHash("sha256")
   .update(paths.sort().join("\n"))
@@ -31,9 +32,9 @@ worker = worker
     /const PRECACHE\s*=\s*\[[\s\S]*?\];/,
     `const PRECACHE=${JSON.stringify(paths)};`,
   );
-await writeFile("dist/sw.js", worker);
+await writeFile(join(outputDirectory, "sw.js"), worker);
 await writeFile(
-  "dist/offline-manifest.json",
+  join(outputDirectory, "offline-manifest.json"),
   JSON.stringify(
     {
       version,

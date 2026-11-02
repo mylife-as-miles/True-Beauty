@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-11-02T16:20:07.402Z",
+  "runtime": "actual workerd; two independent Worker services, one production D1 schema",
+  "assertionsPassed": 18,
+  "checks": [
+    "A fresh hosted database has no automatic spending seed",
+    "Explicit reconciliation carries prior51credits and111000microUSD",
+    "The prior-spend baseline cannot be reset to zero",
+    "Actual D1 stores ciphertext and owner hashes, not original value/identity",
+    "Another Worker isolate can authenticate and decrypt the same owned record",
+    "An unrelated owner cannot read the encrypted record",
+    "Cross-isolate compare-and-swap has exactly one winner",
+    "A deleted/expired key cannot be overwritten by an old lease (monotonic CAS epoch)",
+    "Anonymous exact-quote owner cannot dispatch before operator approval",
+    "Sixteen concurrent starts consume one quote and create exactly one encrypted task",
+    "Duplicate quote starts reserve provider credits exactly once",
+    "Independent cross-isolate spending races respect the remaining shared credit ceiling",
+    "Independent cross-isolate reasoning races respect the remaining shared USD ceiling",
+    "A reserved task continues after original quote expiry without a second budget reservation",
+    "Revocation blocks continuation even for a current operator",
+    "Shared D1 rate-limit counters are atomic across isolates",
+    "Cleanup physically removes expired record/quote ciphertext",
+    "Cleanup and isolate reconstruction never reset conservative budget reservations"
+  ],
+  "budget": {
+    "creditsUsed": 85,
+    "creditsLimit": 100,
+    "usdMicroUsed": 3111000,
+    "usdMicroLimit": 5000000
+  },
+  "providerCalls": 0,
+  "realUserData": false,
+  "tools": {
+    "wrangler": "4.156.1",
+    "miniflare": "5.20261101.0-beta"
+  }
+}

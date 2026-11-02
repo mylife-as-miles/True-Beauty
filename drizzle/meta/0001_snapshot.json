@@ -1,0 +1,554 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "0872050e-a94b-4e8b-802a-32b8957d0bc6",
+  "prevId": "1806ddb2-637a-4f1d-8f73-5c10877de466",
+  "tables": {
+    "tb_hosted_budgets": {
+      "name": "tb_hosted_budgets",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "credits_used": {
+          "name": "credits_used",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "credits_limit": {
+          "name": "credits_limit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "usd_micro_used": {
+          "name": "usd_micro_used",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "usd_micro_limit": {
+          "name": "usd_micro_limit",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "initialized_at": {
+          "name": "initialized_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "initialized_by_hash": {
+          "name": "initialized_by_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_budget_credit_bounds": {
+          "name": "hosted_budget_credit_bounds",
+          "value": "\"tb_hosted_budgets\".\"credits_used\" >= 51 AND \"tb_hosted_budgets\".\"credits_used\" <= \"tb_hosted_budgets\".\"credits_limit\" AND \"tb_hosted_budgets\".\"credits_limit\" <= 100"
+        },
+        "hosted_budget_usd_bounds": {
+          "name": "hosted_budget_usd_bounds",
+          "value": "\"tb_hosted_budgets\".\"usd_micro_used\" >= 111000 AND \"tb_hosted_budgets\".\"usd_micro_used\" <= \"tb_hosted_budgets\".\"usd_micro_limit\" AND \"tb_hosted_budgets\".\"usd_micro_limit\" <= 5000000"
+        }
+      }
+    },
+    "tb_hosted_epochs": {
+      "name": "tb_hosted_epochs",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_epoch_safe_integer": {
+          "name": "hosted_epoch_safe_integer",
+          "value": "\"tb_hosted_epochs\".\"id\" > 0 AND \"tb_hosted_epochs\".\"id\" <= 9007199254740991"
+        }
+      }
+    },
+    "tb_hosted_quotes": {
+      "name": "tb_hosted_quotes",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "owner_hash": {
+          "name": "owner_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "operation": {
+          "name": "operation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "terms_hash": {
+          "name": "terms_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "credits": {
+          "name": "credits",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "usd_micro": {
+          "name": "usd_micro",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "iv": {
+          "name": "iv",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ciphertext": {
+          "name": "ciphertext",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "consumed_by": {
+          "name": "consumed_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "record_namespace": {
+          "name": "record_namespace",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "continuation_expires_at": {
+          "name": "continuation_expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "approved_at": {
+          "name": "approved_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "approved_by_hash": {
+          "name": "approved_by_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "approval_expires_at": {
+          "name": "approval_expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "revoked_at": {
+          "name": "revoked_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "revoked_by_hash": {
+          "name": "revoked_by_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "hosted_quotes_owner": {
+          "name": "hosted_quotes_owner",
+          "columns": [
+            "owner_hash",
+            "expires_at"
+          ],
+          "isUnique": false
+        },
+        "hosted_quotes_pending": {
+          "name": "hosted_quotes_pending",
+          "columns": [
+            "consumed_by",
+            "expires_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_quote_units": {
+          "name": "hosted_quote_units",
+          "value": "\"tb_hosted_quotes\".\"credits\" >= 0 AND \"tb_hosted_quotes\".\"credits\" <= 100 AND \"tb_hosted_quotes\".\"usd_micro\" >= 0 AND \"tb_hosted_quotes\".\"usd_micro\" <= 5000000"
+        },
+        "hosted_quote_operation": {
+          "name": "hosted_quote_operation",
+          "value": "\"tb_hosted_quotes\".\"operation\" IN ('skin','hair','clothing','reasoning')"
+        },
+        "hosted_quote_retention": {
+          "name": "hosted_quote_retention",
+          "value": "\"tb_hosted_quotes\".\"expires_at\" <= \"tb_hosted_quotes\".\"created_at\" + 900000 AND \"tb_hosted_quotes\".\"expires_at\" > \"tb_hosted_quotes\".\"created_at\""
+        }
+      }
+    },
+    "tb_hosted_rate_limits": {
+      "name": "tb_hosted_rate_limits",
+      "columns": {
+        "key_hash": {
+          "name": "key_hash",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "window_start": {
+          "name": "window_start",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "hosted_rate_expiry": {
+          "name": "hosted_rate_expiry",
+          "columns": [
+            "expires_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_rate_count": {
+          "name": "hosted_rate_count",
+          "value": "\"tb_hosted_rate_limits\".\"count\" > 0"
+        }
+      }
+    },
+    "tb_hosted_records": {
+      "name": "tb_hosted_records",
+      "columns": {
+        "namespace": {
+          "name": "namespace",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "owner_hash": {
+          "name": "owner_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "revision": {
+          "name": "revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "iv": {
+          "name": "iv",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ciphertext": {
+          "name": "ciphertext",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "hosted_records_owner": {
+          "name": "hosted_records_owner",
+          "columns": [
+            "namespace",
+            "owner_hash",
+            "expires_at"
+          ],
+          "isUnique": false
+        },
+        "hosted_records_expiry": {
+          "name": "hosted_records_expiry",
+          "columns": [
+            "expires_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "tb_hosted_records_namespace_id_pk": {
+          "columns": [
+            "namespace",
+            "id"
+          ],
+          "name": "tb_hosted_records_namespace_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_record_revision": {
+          "name": "hosted_record_revision",
+          "value": "\"tb_hosted_records\".\"revision\" > 0"
+        },
+        "hosted_record_retention": {
+          "name": "hosted_record_retention",
+          "value": "\"tb_hosted_records\".\"expires_at\" <= \"tb_hosted_records\".\"created_at\" + 900000 AND \"tb_hosted_records\".\"expires_at\" > \"tb_hosted_records\".\"created_at\""
+        }
+      }
+    },
+    "tb_hosted_reservations": {
+      "name": "tb_hosted_reservations",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quote_id": {
+          "name": "quote_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "owner_hash": {
+          "name": "owner_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "budget_id": {
+          "name": "budget_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "operation": {
+          "name": "operation",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "terms_hash": {
+          "name": "terms_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "credits": {
+          "name": "credits",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "usd_micro": {
+          "name": "usd_micro",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "record_namespace": {
+          "name": "record_namespace",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "record_id": {
+          "name": "record_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "record_expires_at": {
+          "name": "record_expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "operator_authorized": {
+          "name": "operator_authorized",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "hosted_reservation_quote_once": {
+          "name": "hosted_reservation_quote_once",
+          "columns": [
+            "quote_id"
+          ],
+          "isUnique": true
+        },
+        "hosted_reservation_owner": {
+          "name": "hosted_reservation_owner",
+          "columns": [
+            "owner_hash",
+            "record_expires_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "hosted_reservation_operator": {
+          "name": "hosted_reservation_operator",
+          "value": "\"tb_hosted_reservations\".\"operator_authorized\" IN (0,1)"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

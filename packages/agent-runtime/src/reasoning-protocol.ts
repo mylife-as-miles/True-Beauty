@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { MAKEUP_LAYERS } from "../../makeup-engine/src";
-import { TOOL_SCHEMAS, type ToolName } from "./index";
+import { TOOL_SCHEMAS, type ToolName } from "./tool-schemas";
 
 const safeText = (maximum: number) =>
   z

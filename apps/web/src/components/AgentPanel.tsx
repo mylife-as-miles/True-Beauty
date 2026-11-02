@@ -1,3 +1,4 @@
+import { CloudApproval, useCloudApproval } from "./CloudApproval";
 import {
   useCallback,
   useEffect,
@@ -89,6 +90,7 @@ export function AgentPanel() {
     [reviewError, setReviewError] = useState(""),
     [progress, setProgress] = useState(""),
     [remoteRunning, setRemoteRunning] = useState(false);
+  const cloudApproval = useCloudApproval(quote?.quoteId);
   const mayShareContext = useLiveQuery(
     () => hasConsent("remote.history"),
     [],
@@ -281,7 +283,14 @@ export function AgentPanel() {
     }
   }
   async function runRemote() {
-    if (!preview || !quote || !remoteConsent || !retentionConsent || busy)
+    if (
+      !preview ||
+      !quote ||
+      !cloudApproval.approved ||
+      !remoteConsent ||
+      !retentionConsent ||
+      busy
+    )
       return;
     const controller = new AbortController();
     remoteAbort.current = controller;
@@ -564,6 +573,7 @@ export function AgentPanel() {
             )}
             {quote && (
               <div className="reasoning-quote">
+                <CloudApproval access={cloudApproval} />
                 <h4>Up to US${quote.maximumUsd.toFixed(6)}</h4>
                 <p>
                   {quote.maxSteps} model turns maximum · {quote.maxOutputTokens}{" "}
@@ -629,7 +639,8 @@ export function AgentPanel() {
                     !remoteConsent ||
                     !retentionConsent ||
                     !Number.isFinite(maximumUsd) ||
-                    maximumUsd < quote.maximumUsd
+                    maximumUsd < quote.maximumUsd ||
+                    !cloudApproval.approved
                   }
                 >
                   Authorize up to US$

@@ -38,6 +38,21 @@ export interface LookRemixProps {
   onApply: (look: MakeupLook) => void;
   onReturnToMirror: () => void;
   onResult?: (result: RemixResult) => void;
+  /** Publishes caller-owned geometry only for the still-current target source. */
+  onTargetSnapshot?: (url: string, snapshot: VisionSnapshot) => void;
+}
+interface TargetPreparation {
+  url: string;
+  image: HTMLImageElement;
+  cancelled: boolean;
+  pending: boolean;
+  completed: boolean;
+  engine?: VisionEngine;
+  geometry?: VisionSnapshot;
+  faceSource: "shared" | "local" | "none";
+  localInferences: number;
+  faceInferences: number;
+  hairInferences: number;
 }
 const REGIONS: RemixRegion[] = [
   "lipstick",
@@ -86,6 +101,7 @@ export default function LookRemix({
   onApply,
   onReturnToMirror,
   onResult,
+  onTargetSnapshot,
 }: LookRemixProps) {
   const titleId = useId(),
     uploadId = useId(),
@@ -96,14 +112,20 @@ export default function LookRemix({
     targetCanvas = useRef<HTMLCanvasElement>(null),
     targetStage = useRef<HTMLDivElement>(null),
     detailCanvas = useRef<HTMLCanvasElement>(null),
-    detailPanel = useRef<HTMLDivElement>(null);
+    detailPanel = useRef<HTMLDivElement>(null),
+    targetPreparation = useRef<TargetPreparation | null>(null);
   const [sourceUrl, setSourceUrl] = useState(DEMOS[0].url),
     [sourceName, setSourceName] = useState(DEMOS[0].name),
     [isUpload, setIsUpload] = useState(false),
     [sourceImage, setSourceImage] = useState<HTMLImageElement | null>(null),
-    [targetImage, setTargetImage] = useState<HTMLImageElement | null>(null),
+    [target, setTarget] = useState<{
+      url: string;
+      image: HTMLImageElement;
+    } | null>(null),
     [targetGeometry, setTargetGeometry] = useState<VisionSnapshot | null>(null),
-    [targetNotice, setTargetNotice] = useState("Preparing your portrait…");
+    [targetNotice, setTargetNotice] = useState("Preparing your portrait…"),
+    [preparingHair, setPreparingHair] = useState(false);
+  const targetImage = target?.url === portraitUrl ? target.image : null;
   const [result, setResult] = useState<RemixResult | null>(null),
     [selected, setSelected] = useState<RemixRegion>("lipstick"),
     [phase, setPhase] = useState<"idle" | "analyzing" | "ready" | "error">(
@@ -116,6 +138,8 @@ export default function LookRemix({
     [detailPinned, setDetailPinned] = useState(false);
   const resultCallback = useRef(onResult);
   resultCallback.current = onResult;
+  const targetCallback = useRef(onTargetSnapshot);
+  targetCallback.current = onTargetSnapshot;
   const chooseFile = (file: File) => {
     if (!/^image\/(jpeg|png|webp|avif)$/i.test(file.type)) {
       setError("Choose a JPEG, PNG, WebP or AVIF photograph.");
@@ -147,9 +171,14 @@ export default function LookRemix({
     }
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setDetailPinned(entry.boundingClientRect.bottom <= 12);
+        setDetailPinned(
+          entry.boundingClientRect.top < 12 && entry.intersectionRatio < 0.8,
+        );
       },
-      { rootMargin: "-12px 0px 0px 0px", threshold: 0 },
+      {
+        rootMargin: "-12px 0px 0px 0px",
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
+      },
     );
     observer.observe(stage);
     return () => observer.disconnect();
@@ -184,12 +213,12 @@ export default function LookRemix({
   }, [sourceUrl]);
   useEffect(() => {
     let alive = true;
-    setTargetImage(null);
+    setTarget(null);
     setTargetGeometry(null);
     setTargetNotice("Preparing your portrait…");
     loadImage(portraitUrl)
       .then((image) => {
-        if (alive) setTargetImage(image);
+        if (alive) setTarget({ url: portraitUrl, image });
       })
       .catch(() => {
         if (alive)
@@ -203,43 +232,108 @@ export default function LookRemix({
   }, [portraitUrl]);
   useEffect(() => {
     if (!targetImage) return;
-    let alive = true;
-    let engine: VisionEngine | undefined;
+    const preparation: TargetPreparation = {
+      url: portraitUrl,
+      image: targetImage,
+      cancelled: false,
+      pending: false,
+      completed: false,
+      faceSource: "none",
+      localInferences: 0,
+      faceInferences: 0,
+      hairInferences: 0,
+    };
+    targetPreparation.current = preparation;
     setTargetGeometry(null);
+    setPreparingHair(false);
     setTargetNotice("Preparing aligned preview…");
-    if (targetSnapshot === null) return;
+    return () => {
+      preparation.cancelled = true;
+      preparation.engine?.dispose();
+      if (targetPreparation.current === preparation)
+        targetPreparation.current = null;
+    };
+  }, [targetImage, portraitUrl]);
+  useEffect(() => {
+    const preparation = targetPreparation.current;
+    if (!targetImage || !preparation || preparation.image !== targetImage)
+      return;
+    const show = (geometry: VisionSnapshot) => {
+      setTargetGeometry(geometry);
+      setTargetNotice(
+        geometry.landmarks.length
+          ? "Aligned cosmetic interpretation · original skin texture"
+          : "Original portrait shown. A clear face is needed for aligned makeup.",
+      );
+    };
+    if (targetSnapshot) {
+      // A later shared face update must not erase locally prepared target hair.
+      const prepared = preparation.geometry;
+      preparation.geometry =
+        prepared?.hairMask &&
+        !targetSnapshot.hairMask &&
+        targetSnapshot.status.hair.state === "idle"
+          ? {
+              ...targetSnapshot,
+              hairMask: prepared.hairMask,
+              status: { ...targetSnapshot.status, hair: prepared.status.hair },
+            }
+          : targetSnapshot;
+      preparation.faceSource = "shared";
+      show(preparation.geometry);
+    }
+    if (targetSnapshot === null || preparation.pending || preparation.completed)
+      return;
+    if (preparation.geometry?.hairMask) {
+      preparation.completed = true;
+      return;
+    }
+    const needsFace = preparation.geometry === undefined;
+    preparation.pending = true;
+    setPreparingHair(true);
     const prepare = async () => {
       try {
-        let geometry = targetSnapshot;
-        if (geometry === undefined) {
-          engine = createVision({ inferenceMaxSide: 640, hairMaxSide: 256 });
-          geometry = await engine.analyzeImage(targetImage, {
-            face: true,
-            hair: true,
-            hands: true,
-          });
-        }
-        if (!alive) return;
-        setTargetGeometry(geometry);
-        setTargetNotice(
-          geometry.landmarks.length
-            ? "Aligned cosmetic interpretation · original skin texture"
-            : "Original portrait shown. A clear face is needed for aligned makeup.",
-        );
+        preparation.engine = createVision({
+          inferenceMaxSide: 640,
+          hairMaxSide: 256,
+        });
+        const inferred = await preparation.engine.analyzeImage(targetImage, {
+          face: needsFace,
+          hair: true,
+          hands: needsFace,
+          body: false,
+          pose: false,
+        });
+        if (preparation.cancelled) return;
+        preparation.localInferences++;
+        preparation.hairInferences++;
+        if (needsFace) preparation.faceInferences++;
+        const shared = preparation.geometry;
+        const geometry = shared
+          ? {
+              ...shared,
+              hairMask: inferred.hairMask,
+              status: { ...shared.status, hair: inferred.status.hair },
+            }
+          : inferred;
+        preparation.geometry = geometry;
+        if (!shared) preparation.faceSource = "local";
+        show(geometry);
+        targetCallback.current?.(preparation.url, geometry);
       } catch {
-        if (alive)
+        if (!preparation.cancelled && !preparation.geometry)
           setTargetNotice(
             "Original portrait shown. Local face tracking is unavailable.",
           );
       } finally {
-        engine?.dispose();
+        preparation.completed = true;
+        preparation.pending = false;
+        preparation.engine?.dispose();
+        preparation.engine = undefined;
+        if (!preparation.cancelled) setPreparingHair(false);
       }
     };
     void prepare();
-    return () => {
-      alive = false;
-      engine?.dispose();
-    };
   }, [targetImage, targetSnapshot]);
   useEffect(() => {
     const canvas = targetCanvas.current;
@@ -263,6 +357,14 @@ export default function LookRemix({
         ? "aligned"
         : "original";
       canvas.dataset.sourceUrl = portraitUrl;
+      const preparation = targetPreparation.current;
+      canvas.dataset.faceSource = preparation?.faceSource ?? "none";
+      canvas.dataset.localInferences = String(
+        preparation?.localInferences ?? 0,
+      );
+      canvas.dataset.faceInferences = String(preparation?.faceInferences ?? 0);
+      canvas.dataset.hairInferences = String(preparation?.hairInferences ?? 0);
+      canvas.dataset.hairReady = String(Boolean(targetGeometry?.hairMask));
       const detail = detailCanvas.current;
       if (detail) {
         // Copy the actual composed output. The small view never starts a renderer or model.
@@ -654,11 +756,7 @@ export default function LookRemix({
         <div
           className="remix-interpretation"
           onFocusCapture={(event) => {
-            if (
-              !detailPinned ||
-              !matchMedia("(max-width: 760px)").matches ||
-              detailPanel.current?.contains(event.target)
-            )
+            if (!detailPinned || detailPanel.current?.contains(event.target))
               return;
             const panel = detailPanel.current?.getBoundingClientRect(),
               focused = event.target.getBoundingClientRect();
@@ -686,7 +784,9 @@ export default function LookRemix({
               <strong>{sample?.label ?? "Colour"} in focus</strong>
               <small>
                 {selected === "hair" && !targetGeometry?.hairMask
-                  ? "Original hair · mask unavailable"
+                  ? preparingHair
+                    ? "Preparing local hair preview…"
+                    : "Original hair · mask unavailable"
                   : targetGeometry?.landmarks.length
                     ? "Aligned colour preview"
                     : "Original portrait · no face tracking"}
@@ -883,6 +983,13 @@ export default function LookRemix({
                 <p className="remix-inspector-note">
                   A colour reference for interpreting contrast. Your complexion
                   is preserved; this swatch does not become foundation.
+                </p>
+              )}
+              {selected === "hair" && !targetGeometry?.hairMask && (
+                <p className="remix-inspector-note" role="status">
+                  {preparingHair
+                    ? "Preparing the hair mask on your portrait, on this device. Your corrections will appear when it is ready."
+                    : "Hair preview is unavailable on this portrait. Your colour settings remain editable; the original hair is shown."}
                 </p>
               )}
               {sample.warnings.length > 0 && (

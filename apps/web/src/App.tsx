@@ -266,6 +266,9 @@ export default function App() {
                   {...(portraitVision?.url === portraitUrl
                     ? { targetSnapshot: portraitVision.snapshot }
                     : {})}
+                  onTargetSnapshot={(url, snapshot) =>
+                    useApp.getState().setPortraitVision(url, snapshot)
+                  }
                   onApply={(look) => {
                     useApp.getState().setLook(look, "Remixed inspiration");
                     useApp.getState().setFocusLayer("lipstick");

@@ -93,17 +93,17 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  min-width: 34px;
-  min-height: 34px;
+  min-width: 44px;
+  min-height: 44px;
 }
 .dressing-stage-foot > span {
   font-size: 11px;
-  color: #6f655d;
+  color: #655a52;
 }
 .dressing-limit {
   font-size: 11px;
   line-height: 1.65;
-  color: #71665e;
+  color: #655a52;
   margin: 6px 2px;
 }
 .dressing-controls {
@@ -161,22 +161,24 @@
   justify-content: space-between;
 }
 .dressing-colour-heading input {
-  width: 25px;
-  height: 25px;
+  width: 44px;
+  height: 44px;
   border: 0;
   background: none;
-  padding: 0;
+  padding: 8px;
   cursor: pointer;
 }
 .dressing-swatches {
   display: flex;
+  flex-wrap: wrap;
   gap: 11px;
   margin: 14px 0 22px;
 }
 .dressing-swatches button {
-  width: 30px;
-  height: 30px;
-  border: 3px solid var(--ground, #f7f3ed);
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 9px solid var(--ground, #f7f3ed);
   border-radius: 50%;
   outline: 1px solid transparent;
   cursor: pointer;
@@ -446,7 +448,7 @@
   text-align: left;
   font-size: 12px;
   padding: 0;
-  min-height: 24px;
+  min-height: 44px;
   font-weight: 500;
   overflow-wrap: anywhere;
 }

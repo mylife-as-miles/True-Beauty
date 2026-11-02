@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-11-02T15:57:43.587Z",
+  "runtime": "Wrangler local actual workerd",
+  "paidProviderCalls": 0,
+  "tools": {
+    "vite": "7.3.7",
+    "cloudflareVitePlugin": "1.37.1",
+    "wrangler": "4.92.0",
+    "drizzleKit": "0.31.10"
+  },
+  "assertionsPassed": 10,
+  "assertions": [
+    "Generated ASSETS binding",
+    "Generated ../client assets directory",
+    "Generated DB binding",
+    "Schema journal and snapshot copied by sites()",
+    "Schema migration executed through Wrangler local D1",
+    "Worker API reads migrated D1",
+    "Representative SVG served by assets",
+    "SPA deep link returns index",
+    "Unknown API returns 404",
+    "Unknown API remains JSON"
+  ],
+  "artifact": {
+    "workerEntry": "dist/server/index.js",
+    "workerConfig": "dist/server/wrangler.json",
+    "assets": "dist/client",
+    "hosting": "dist/.openai/hosting.json",
+    "migrations": "dist/.openai/drizzle",
+    "assetsConfig": {
+      "binding": "ASSETS",
+      "not_found_handling": "single-page-application",
+      "run_worker_first": ["/api/*"],
+      "directory": "../client"
+    },
+    "d1": [
+      {
+        "binding": "DB",
+        "database_name": "fixture",
+        "database_id": "00000000-0000-4000-8000-000000000000"
+      }
+    ]
+  },
+  "schemaJournal": {
+    "version": "7",
+    "dialect": "sqlite",
+    "entries": [
+      {
+        "idx": 0,
+        "version": "6",
+        "when": 1793635049246,
+        "tag": "0000_fixed_vin_gonzales",
+        "breakpoints": true
+      }
+    ]
+  },
+  "representativeAssetSHA256": "37937fb6a77fabb60da63f5546100b88b046f579c38f6b50ad07958dc749844c"
+}

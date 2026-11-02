@@ -1,0 +1,49 @@
+.cloud-approval {
+  border: 1px solid var(--line, #d9cfca);
+  padding: 16px;
+  margin: 16px 0;
+  background: #f7f1eb;
+  color: #493e42;
+  font-size: 13px;
+  line-height: 1.6;
+  border-radius: 8px;
+}
+.cloud-approval p {
+  margin: 7px 0;
+}
+.cloud-approval-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cloud-approval button,
+.cloud-access-panel button {
+  min-height: 44px;
+}
+.cloud-access-panel {
+  padding: 20px 0;
+  border-top: 1px solid var(--line, #d9cfca);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.cloud-access-panel h3 {
+  font-size: 22px;
+}
+.cloud-access-panel ul {
+  list-style: none;
+  padding: 0;
+}
+.cloud-access-panel li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line, #d9cfca);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cloud-access-panel code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}

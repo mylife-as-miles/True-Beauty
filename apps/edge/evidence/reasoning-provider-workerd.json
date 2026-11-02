@@ -1,0 +1,17 @@
+{
+  "executedAt": "2026-11-02T16:01:03.944Z",
+  "runtime": "actual local workerd via Miniflare",
+  "scope": "pure provider protocol runtime compatibility; local scripted fixture, not D1/durable-workflow/hosted/live-provider verification",
+  "externalProviderCalls": 0,
+  "personalImages": 0,
+  "assertions": [
+    "native Messages tool-use is parsed in actual workerd",
+    "the actual shared tool schema converts to native input_schema in workerd",
+    "one fixture dispatch and zero external provider requests",
+    "actual native tool-result ID and failed callback survive serialization",
+    "failed feedback returns bounded fixture guidance without invented action success",
+    "compatible feedback retains tool-call ID and disables storage/parallel calls"
+  ],
+  "passingAssertions": 6,
+  "bundleBytes": 780706
+}
