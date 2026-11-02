@@ -1,0 +1,33 @@
+{
+  "executedAt": "2026-11-02T16:56:36.627Z",
+  "runtime": "actual local workerd via Miniflare",
+  "scope": "default native global-fetch binding regression for both actual reasoning provider classes; outboundService scripts HTTP responses locally; no injected fetchImpl and no external traffic",
+  "externalProviderCalls": 0,
+  "personalImages": 0,
+  "realCredentialsUsed": false,
+  "defaultFetchInjected": false,
+  "defaultEndpointsOverridden": false,
+  "priorBindingNegativeControl": {
+    "expectedIllegalInvocationFailures": 2,
+    "outboundRequests": 0,
+    "repositorySourceMutated": false
+  },
+  "localScriptedHttpRequests": 6,
+  "assertions": [
+    "Anthropic prior property-bound native fetch reproduces actual workerd Illegal invocation",
+    "compatible prior property-bound native fetch reproduces actual workerd Illegal invocation",
+    "prior-binding control fails before any outbound HTTP dispatch",
+    "actual Anthropic provider default global fetch reaches scripted HTTP and parses tool_use in workerd",
+    "default native endpoint and actual authentication/version headers reach the local outbound HTTP service",
+    "native default-fetch HTTP payload preserves model/token/tool schema and single-tool policy",
+    "native default-fetch continuation preserves actual tool_result ID and callback failure",
+    "actual compatible provider default global fetch reaches scripted HTTP and parses tool_calls in workerd",
+    "compatible default endpoint/authentication and bounded nonstored single-tool payload reach local HTTP",
+    "compatible default-fetch continuation preserves actual tool-call ID",
+    "four completions produce exactly four local HTTP requests with no automatic retries",
+    "Anthropic default native fetch rejects a scripted HTTP redirect without following it",
+    "compatible default native fetch rejects a scripted HTTP redirect without following it"
+  ],
+  "passingAssertions": 13,
+  "bundleBytes": 780698
+}

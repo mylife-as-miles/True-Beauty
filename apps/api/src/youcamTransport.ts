@@ -88,7 +88,7 @@ export class YouCamTransport {
         Authorization: `Bearer ${this.key}`,
       },
       signal: signalFor(signal, 20000),
-      redirect: "error",
+      redirect: "manual",
     });
     if (!response.ok) {
       await response.body?.cancel();
@@ -149,7 +149,7 @@ export class YouCamTransport {
       headers,
       body: new Blob([bytes as BlobPart], { type: mime }),
       signal: signalFor(signal, 30000),
-      redirect: "error",
+      redirect: "manual",
     });
     if (!response.ok) {
       await response.body?.cancel();
@@ -199,7 +199,7 @@ export class YouCamTransport {
   }> {
     const response = await this.request(safeYouCamMediaUrl(url), {
       signal: signalFor(signal, 30000),
-      redirect: "error",
+      redirect: "manual",
     });
     if (!response.ok) {
       await response.body?.cancel();

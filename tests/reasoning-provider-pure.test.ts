@@ -122,7 +122,7 @@ describe("runtime-independent reasoning provider contracts", () => {
       parallel_tool_calls: false,
       max_completion_tokens: 256,
     });
-    expect(requests[0].redirect).toBe("error");
+    expect(requests[0].redirect).toBe("manual");
     expect(result.calls).toEqual([]);
   });
 

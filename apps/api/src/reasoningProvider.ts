@@ -194,7 +194,7 @@ export class AnthropicMessagesProvider implements ReasoningProvider {
     );
     const response = await this.fetchImpl(this.endpoint, {
       method: "POST",
-      redirect: "error",
+      redirect: "manual",
       signal: input.signal,
       headers: {
         "content-type": "application/json",
@@ -289,7 +289,7 @@ export class OpenAICompatibleReasoningProvider implements ReasoningProvider {
   async complete(input: Parameters<ReasoningProvider["complete"]>[0]) {
     const response = await this.fetchImpl(this.endpoint, {
       method: "POST",
-      redirect: "error",
+      redirect: "manual",
       signal: input.signal,
       headers: {
         "content-type": "application/json",

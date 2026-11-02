@@ -93,7 +93,7 @@ function fixture() {
     async (input: RequestInfo | URL, init: RequestInit = {}) => {
       const url = new URL(String(input));
       calls.push({ url: url.href, method: init.method ?? "GET" });
-      expect(init.redirect).toBe("error");
+      expect(init.redirect).toBe("manual");
       if (url.href === "https://api.anthropic.com/v1/messages")
         return reasoningResponse();
       if (url.origin === "https://yce-api-01.makeupar.com") {

@@ -1,0 +1,37 @@
+{
+  "executedAt": "2026-11-02T16:56:35.492Z",
+  "runtime": "actual local workerd via Miniflare 5.20261101.0-beta",
+  "scope": "production DEFAULT-fetch runtime regression, local outboundService scripted fixtures only; not live provider or hosted deployment proof",
+  "externalNetworkRequests": 0,
+  "realProviderCalls": 0,
+  "paidCredits": 0,
+  "personalImages": 0,
+  "injectedProviderFetch": false,
+  "scriptedTaskPostRequests": 3,
+  "outboundFixtureRequests": 23,
+  "sourceHashes": {
+    "apps/api/src/youcamTransport.ts": "ade01e6c42bf5b9ea20085d8b5b562beb9c979ce0a4b1bf382becb73ffabefd6",
+    "apps/api/src/youcamSkinProvider.ts": "c38c37be4798abac6b45fcaf47f6335556bd911d74b58c922dbd8a8665d8d446",
+    "apps/api/src/generationProvider.ts": "574f9f812199ea5ae2072125fb2f3e12649f285d93ff2dfc2e655d1458f1ff45"
+  },
+  "assertionsPassed": 17,
+  "assertions": [
+    "actual workerd reproduces old unbound-class-fetch Illegal invocation",
+    "the receiver negative control fails before any outbound request",
+    "production manual redirect mode rejects3xx in actual workerd",
+    "rejected redirect makes no request to its Location target",
+    "production constructors use default global fetch without an injected fetcher",
+    "default transport reads current pricing schema in workerd",
+    "default transport registers and PUTs source bytes in workerd",
+    "default transport reads task status in workerd",
+    "default transport safely downloads bounded output bytes",
+    "actual PerfectCorpProvider default fetch completes registration/upload/task/status fixture",
+    "actual hairstyle adapter default fetch completes task/status/image fixture",
+    "actual cloth-v4 adapter default fetch completes two uploads/task/status fixture",
+    "exactly three scripted task POSTs and zero real provider calls",
+    "skin creation retains the real documented action body",
+    "hairstyle creation retains the actual template body",
+    "clothing creation retains the upper_body category",
+    "bearer never reaches upload or image hosts"
+  ]
+}

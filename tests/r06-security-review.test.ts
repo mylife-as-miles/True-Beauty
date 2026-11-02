@@ -697,7 +697,7 @@ describe("R06 independent security review — scripted fixtures, no live provide
     );
     await transport.image(outputUrl);
     expect(calls).toHaveLength(1);
-    expect(calls[0].init.redirect).toBe("error");
+    expect(calls[0].init.redirect).toBe("manual");
     expect(calls[0].init.headers).toBeUndefined();
     await expect(
       transport.json("https://attacker.example/s2s/private"),
@@ -745,7 +745,7 @@ describe("R06 independent security review — scripted fixtures, no live provide
       apiKey: key,
       model: "fixture-model",
       fetchImpl: async (_url, init) => {
-        expect(init?.redirect).toBe("error");
+        expect(init?.redirect).toBe("manual");
         return Response.json({
           stop_reason: "end_turn",
           content: [{ type: "text", text: key }],
