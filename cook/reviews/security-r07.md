@@ -6,7 +6,7 @@ Reviewed 2026-11-02 against the new native Worker entry, operator/session authen
 
 New suite: `tests/worker-boundary-r07.test.ts`. All requests enter the actual `handleHostedRequest()` function. `tests/helpers/edge-d1.ts` executes the real root SQL migrations, reservation trigger and transactional batches through Node's SQLite engine. Provider fetches are globally intercepted with explicitly scripted responses and fake credential strings. Unexpected fetch destinations throw inside the fixture; no external request is performed.
 
-`npx vitest run tests/worker-boundary-r07.test.ts`: **22/22 passed**, final recorded run 1.99s after reviewing the final discovery and owner-email changes. The suite includes 21 independently authored cases and one root-supplied first-visit discovery regression, inspected during this follow-up. Scoped ESLint passed after Prettier formatting. `npm run typecheck` passed on the integrated checkout before this follow-up; root also reports full lint/typecheck passing on the final source. These counts do not include the earlier Fastify review or the implementation agents' other fixture tests.
+`npx vitest run tests/worker-boundary-r07.test.ts`: **22/22 passed** after reviewing the final discovery and owner-email changes. The suite includes 21 independently authored cases and one root-supplied first-visit discovery regression, inspected during this follow-up. Scoped ESLint passed after Prettier formatting. `npm run typecheck` passed again after the follow-up test edits; root also reports full lint/typecheck passing on the final source. These counts do not include the earlier Fastify review or the implementation agents' other fixture tests.
 
 The suite demonstrates:
 

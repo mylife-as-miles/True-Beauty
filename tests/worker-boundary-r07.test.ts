@@ -334,6 +334,7 @@ describe("R07 independent native Worker security boundary — real SQLite, scrip
         operator: false,
         trustedIdentity: false,
         dispatchIdentityPresent: true,
+        dispatchEmailPresent: true,
       });
       const denied = await f.request("/api/operator/budget", {
         session: owner,
