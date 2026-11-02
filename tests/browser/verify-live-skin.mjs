@@ -3,10 +3,12 @@ import { chromium, expect } from "@playwright/test";
 import { mkdirSync, existsSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
+import { openHostedOperator } from "./hosted-operator.mjs";
 const tokens = process.argv.slice(2);
 if (!tokens.includes("--synthetic"))
   throw new Error("Explicit synthetic fixture authorization required.");
 const read = (key) => tokens[tokens.indexOf(key) + 1];
+const site = tokens.includes("--site") ? read("--site") : null;
 const ceiling = Number(read("--authorize-credits"));
 if (!tokens.includes("--authorize-credits") || ceiling !== 9)
   throw new Error("Explicit nine-credit maximum required.");
@@ -33,6 +35,7 @@ const receipt = {
 const persist = () =>
   writeFileSync(output + "/receipt.json", JSON.stringify(receipt, null, 2));
 persist();
+const operator = site ? await openHostedOperator(site) : null;
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({
   viewport: { width: 1440, height: 1000 },
@@ -55,6 +58,7 @@ page.on("response", async (response) => {
     if (path === "/api/skin/quotes") {
       const body = await response.json();
       receipt.quote = {
+        quoteId: body.quoteId,
         credits: body.credits,
         actions: body.actions,
         expiresAt: body.expiresAt,
@@ -130,7 +134,7 @@ async function storageCounts() {
   );
 }
 try {
-  await page.goto("http://127.0.0.1:5173");
+  await page.goto(site ?? "http://127.0.0.1:5173");
   await page
     .getByRole("button", { name: "Skin & rituals", exact: true })
     .first()
@@ -163,6 +167,19 @@ try {
     throw new Error(
       "Quote differs from explicit maximum; no upload authorized",
     );
+  if (operator) {
+    await operator.approve(receipt.quote.quoteId, {
+      operation: "skin",
+      credits: ceiling,
+      usdMicro: 0,
+    });
+    await page
+      .getByRole("button", { name: "Check approval", exact: true })
+      .click();
+    await expect(
+      page.getByText("Cloud credits approved", { exact: true }),
+    ).toBeVisible();
+  }
   await page
     .getByRole("checkbox", { name: /I consent to sending this portrait/ })
     .check();

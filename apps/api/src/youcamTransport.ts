@@ -68,7 +68,9 @@ const signalFor = (signal: AbortSignal | undefined, ms: number) =>
 export class YouCamTransport {
   constructor(
     private readonly key: string,
-    private readonly request: YouCamFetch = fetch,
+    // Workerd's native fetch rejects a class instance as its receiver. Keep the
+    // global invocation inside a closure; injected transports remain unchanged.
+    private readonly request: YouCamFetch = (input, init) => fetch(input, init),
   ) {}
   async json(
     path: string,

@@ -159,7 +159,7 @@ export class AnthropicMessagesProvider implements ReasoningProvider {
       options.endpoint ?? "https://api.anthropic.com/v1/messages",
       options.allowLocalHttpForTests,
     );
-    this.fetchImpl = options.fetchImpl ?? fetch;
+    this.fetchImpl = options.fetchImpl ?? ((input, init) => fetch(input, init));
   }
   async complete(input: Parameters<ReasoningProvider["complete"]>[0]) {
     const messages = input.messages.map((message) =>
@@ -284,7 +284,7 @@ export class OpenAICompatibleReasoningProvider implements ReasoningProvider {
       options.endpoint ?? "https://api.openai.com/v1/chat/completions",
       options.allowLocalHttpForTests,
     );
-    this.fetchImpl = options.fetchImpl ?? fetch;
+    this.fetchImpl = options.fetchImpl ?? ((input, init) => fetch(input, init));
   }
   async complete(input: Parameters<ReasoningProvider["complete"]>[0]) {
     const response = await this.fetchImpl(this.endpoint, {
