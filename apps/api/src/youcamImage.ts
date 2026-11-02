@@ -3,13 +3,22 @@ export function imageBytes(
   base64: string,
   mime: "image/png" | "image/jpeg",
 ): Uint8Array {
+  const paddingAt = base64.indexOf("=");
+  const contentEnd = paddingAt === -1 ? base64.length : paddingAt;
+  const padding = base64.length - contentEnd;
   if (
     base64.length > 5_600_000 ||
-    !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(
-      base64,
-    )
+    base64.length % 4 !== 0 ||
+    padding > 2 ||
+    (padding > 0 && !base64.endsWith("=".repeat(padding))) ||
+    /[^A-Za-z0-9+/]/.test(base64.slice(0, contentEnd))
   )
     throw new Error("Malformed image encoding.");
+  // Repeated regex capture groups overflow on legitimate near-4MiB uploads.
+  // Flat character validation above is linear; reject size before allocation.
+  const decodedLength = (base64.length / 4) * 3 - padding;
+  if (decodedLength < 100 || decodedLength > 4 * 1024 * 1024)
+    throw new Error("Images must be between 100 bytes and 4 MB.");
   const decoded = atob(base64);
   if (decoded.length < 100 || decoded.length > 4 * 1024 * 1024)
     throw new Error("Images must be between 100 bytes and 4 MB.");
