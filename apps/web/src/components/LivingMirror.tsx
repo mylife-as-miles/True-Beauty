@@ -1,0 +1,813 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  Camera,
+  ImagePlus,
+  Expand,
+  Minus,
+  Plus,
+  RotateCcw,
+  Columns2,
+  Hand,
+  Download,
+  VideoOff,
+  SwitchCamera,
+  ScanFace,
+} from "lucide-react";
+import {
+  createVision,
+  useCamera,
+  type VisionEngine,
+  type VisionSnapshot,
+} from "../../../../packages/vision-core/src";
+import {
+  LOOK_PRESETS,
+  cloneLook,
+} from "../../../../packages/makeup-engine/src";
+import { BeautyRenderer } from "../../../../packages/ar-renderer/src";
+import { useApp } from "../state/store";
+import { IconButton } from "./ui";
+const emptySnapshot = (): VisionSnapshot => ({
+  landmarks: [],
+  blendshapes: {},
+  transform: null,
+  hairMask: null,
+  hands: [],
+  timestamp: 0,
+  latencyMs: 0,
+  inferenceCount: 0,
+  status: {
+    face: { state: "idle" },
+    hair: { state: "idle" },
+    hands: { state: "idle" },
+  },
+});
+export interface MirrorProps {
+  onSnapshot?: (canvas: HTMLCanvasElement, vision: VisionSnapshot) => void;
+}
+export default function LivingMirror({ onSnapshot }: MirrorProps) {
+  const {
+    stream: cameraStream,
+    error: cameraError,
+    isOpening: cameraOpening,
+    open: openCamera,
+    close: closeCamera,
+  } = useCamera();
+  const sourceUrl = useApp((s) => s.portraitUrl),
+    setSourceUrl = useApp((s) => s.setPortraitUrl);
+  const maskBackend = useApp((s) => s.maskBackend);
+  const look = useApp((s) => s.look),
+    studioMode = useApp((s) => s.studioMode),
+    notify = useApp((s) => s.notify);
+  const mirrorElement = useRef<HTMLDivElement>(null),
+    canvasRef = useRef<HTMLCanvasElement>(null),
+    videoRef = useRef<HTMLVideoElement>(null),
+    imageRef = useRef<HTMLImageElement | null>(null),
+    pipelineRef = useRef<VisionEngine | null>(null),
+    rendererRef = useRef<BeautyRenderer | null>(null),
+    streamRef = useRef<MediaStream | null>(null),
+    fileRef = useRef<HTMLInputElement>(null),
+    frameRef = useRef(0),
+    lookRef = useRef(look),
+    snapshotRef = useRef(emptySnapshot());
+  const [mode, setMode] = useState<"demo" | "camera" | "upload">(
+      sourceUrl.startsWith("blob:") ? "upload" : "demo",
+    ),
+    [status, setStatus] = useState("Preparing your mirror…"),
+    [tracked, setTracked] = useState(false),
+    [compare, setCompare] = useState(false),
+    [split, setSplit] = useState(0.5),
+    [zoom, setZoom] = useState(1),
+    [gestures, setGestures] = useState(false),
+    [latency, setLatency] = useState(0),
+    [error, setError] = useState(""),
+    [loading, setLoading] = useState(true),
+    [retry, setRetry] = useState(0),
+    [modelsOpen, setModelsOpen] = useState(false),
+    [facing, setFacing] = useState<"user" | "environment">("user");
+  const sourceEpoch = useRef(0),
+    zoomRef = useRef(1),
+    compareRef = useRef(false),
+    splitRef = useRef(0.5),
+    gesturesRef = useRef(false);
+  const lastGesture = useRef(0);
+  const lastStatus = useRef(0);
+  useEffect(() => {
+    lookRef.current = look;
+  }, [look]);
+  useEffect(() => {
+    zoomRef.current = zoom;
+    lookRef.current = { ...lookRef.current };
+  }, [zoom]);
+  useEffect(() => {
+    compareRef.current = compare;
+    splitRef.current = split;
+    gesturesRef.current = gestures;
+  }, [compare, split, gestures]);
+  const stopCamera = useCallback(() => {
+    closeCamera();
+    streamRef.current = null;
+    if (videoRef.current) videoRef.current.srcObject = null;
+  }, [closeCamera]);
+  useEffect(() => {
+    if (cameraStream) {
+      streamRef.current = cameraStream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = cameraStream;
+        void videoRef.current
+          .play()
+          .catch(() =>
+            setError("Camera playback could not start. Try opening it again."),
+          );
+      }
+      setMode("camera");
+      setStatus("Finding your face…");
+    }
+  }, [cameraStream]);
+  useEffect(() => {
+    if (cameraError) {
+      setError(cameraError);
+      setMode("demo");
+      setLoading(false);
+      setRetry((v) => v + 1);
+    }
+  }, [cameraError]);
+  useEffect(() => {
+    if (cameraOpening) setLoading(true);
+    else if (cameraStream) setLoading(false);
+  }, [cameraOpening, cameraStream]);
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const renderer = new BeautyRenderer(canvas);
+    rendererRef.current = renderer;
+    useApp.getState().setRenderer(renderer.activeMode, renderer.fallbackReason);
+    const pipeline = createVision();
+    pipelineRef.current = pipeline;
+    let alive = true;
+    let running = false;
+    let lastSource: unknown = null;
+    let lastLook: unknown = null;
+    let lastLandmarks: unknown = null;
+    let lastHair: unknown = null;
+    let lastCompare = false;
+    let lastSplit = 0;
+    let lastVideoTime = -1;
+    const draw = async (time: number) => {
+      if (!alive) return;
+      const source =
+        streamRef.current && (videoRef.current?.readyState ?? 0) >= 2
+          ? videoRef.current
+          : imageRef.current;
+      if (source) {
+        if (streamRef.current && !running) {
+          running = true;
+          const epoch = sourceEpoch.current;
+          pipeline
+            .analyzeVideo(videoRef.current!, time, {
+              face: true,
+              hair: lookRef.current.hair.enabled,
+              hands:
+                gesturesRef.current ||
+                Object.values(lookRef.current.accessories).some(Boolean),
+            })
+            .then((snapshot) => {
+              if (!alive || epoch !== sourceEpoch.current || !streamRef.current)
+                return;
+              snapshotRef.current = snapshot;
+              if (time - lastStatus.current > 600) {
+                setTracked(snapshot.landmarks.length > 0);
+                setLatency(snapshot.latencyMs);
+                setStatus(
+                  snapshot.landmarks.length
+                    ? "Face mesh connected"
+                    : "Position your face in the mirror",
+                );
+                lastStatus.current = time;
+              }
+              const gesture = snapshot.hands[0]?.gesture;
+              if (
+                gesturesRef.current &&
+                gesture?.active &&
+                time - lastGesture.current > 1400
+              ) {
+                const name = gesture.name;
+                if (name === "pinch") {
+                  setCompare((v) => !v);
+                  lastGesture.current = time;
+                } else if (name === "swipe-left" || name === "swipe-right") {
+                  const current = LOOK_PRESETS.findIndex(
+                    (p) =>
+                      JSON.stringify(p.look) ===
+                      JSON.stringify(lookRef.current),
+                  );
+                  const next =
+                    LOOK_PRESETS[
+                      (Math.max(0, current) +
+                        (name === "swipe-left" ? 1 : LOOK_PRESETS.length - 1)) %
+                        LOOK_PRESETS.length
+                    ];
+                  useApp.getState().setLook(cloneLook(next.look), next.name);
+                  lastGesture.current = time;
+                } else if (name === "open-palm") {
+                  useApp
+                    .getState()
+                    .setStudioMode(
+                      useApp.getState().studioMode === "hair"
+                        ? "makeup"
+                        : "hair",
+                    );
+                  lastGesture.current = time;
+                }
+              }
+            })
+            .catch((e) => {
+              setError(e.message);
+            })
+            .finally(() => {
+              running = false;
+            });
+        }
+        const changed =
+          source !== lastSource ||
+          lookRef.current !== lastLook ||
+          snapshotRef.current.landmarks !== lastLandmarks ||
+          snapshotRef.current.hairMask !== lastHair ||
+          compareRef.current !== lastCompare ||
+          splitRef.current !== lastSplit ||
+          (source instanceof HTMLVideoElement &&
+            source.currentTime !== lastVideoTime);
+        if (changed)
+          try {
+            renderer.render({
+              source: source as HTMLImageElement | HTMLVideoElement,
+              landmarks: snapshotRef.current.landmarks,
+              look: lookRef.current,
+              hairMask: snapshotRef.current.hairMask ?? undefined,
+              hands: snapshotRef.current.hands,
+              beforeAfter: compareRef.current
+                ? 0.5 +
+                  ((splitRef.current - 0.5) *
+                    (mirrorElement.current?.clientWidth ?? 1)) /
+                    (Math.max(
+                      (mirrorElement.current?.clientWidth ?? 1) / canvas.width,
+                      (mirrorElement.current?.clientHeight ?? 1) /
+                        canvas.height,
+                    ) *
+                      canvas.width *
+                      zoomRef.current)
+                : undefined,
+              time,
+            });
+            lastSource = source;
+            lastLook = lookRef.current;
+            lastLandmarks = snapshotRef.current.landmarks;
+            lastHair = snapshotRef.current.hairMask;
+            lastCompare = compareRef.current;
+            lastSplit = splitRef.current;
+            lastVideoTime =
+              source instanceof HTMLVideoElement ? source.currentTime : -1;
+            onSnapshot?.(canvas, snapshotRef.current);
+          } catch (e) {
+            setError(e instanceof Error ? e.message : "Rendering failed");
+          }
+      }
+      frameRef.current = requestAnimationFrame(draw);
+    };
+    frameRef.current = requestAnimationFrame(draw);
+    return () => {
+      alive = false;
+      sourceEpoch.current++;
+      cancelAnimationFrame(frameRef.current);
+      stopCamera();
+      pipeline.dispose();
+      renderer.dispose();
+      rendererRef.current = null;
+      pipelineRef.current = null;
+    };
+  }, [stopCamera, onSnapshot]);
+  useEffect(() => {
+    let active = true;
+    const epoch = ++sourceEpoch.current;
+    snapshotRef.current = emptySnapshot();
+    imageRef.current = null;
+    setTracked(false);
+    setLoading(true);
+    setStatus("Opening your portrait…");
+    const img = new Image();
+    img.onload = async () => {
+      if (!active) return;
+      imageRef.current = img;
+      setLoading(true);
+      setStatus("Mapping facial contours…");
+      try {
+        const snapshot = await pipelineRef.current?.analyzeImage(img, {
+          face: true,
+          hair: lookRef.current.hair.enabled,
+          hands:
+            gesturesRef.current ||
+            Object.values(lookRef.current.accessories).some(Boolean),
+        });
+        if (active && epoch === sourceEpoch.current && snapshot) {
+          snapshotRef.current = snapshot;
+          setTracked(snapshot.landmarks.length > 0);
+          setLatency(snapshot.latencyMs);
+          setStatus(
+            snapshot.landmarks.length
+              ? "Face mesh connected"
+              : "No face found. Try a clear, front-facing portrait.",
+          );
+        }
+      } catch {
+        if (active && epoch === sourceEpoch.current) {
+          setError(
+            "Tracking could not load. You can retry or use another photo.",
+          );
+          setStatus("Portrait loaded · tracking unavailable");
+        }
+      } finally {
+        if (active && epoch === sourceEpoch.current) setLoading(false);
+      }
+    };
+    img.onerror = () => {
+      if (!active) return;
+      setError(
+        "This portrait could not be opened. Please choose another image.",
+      );
+      setLoading(false);
+    };
+    img.src = sourceUrl;
+    return () => {
+      active = false;
+    };
+  }, [sourceUrl, retry]);
+  useEffect(() => {
+    if (
+      !look.hair.enabled &&
+      !gestures &&
+      !Object.values(look.accessories).some(Boolean)
+    )
+      return;
+    const pipeline = pipelineRef.current;
+    if (!pipeline) return;
+    let active = true;
+    const epoch = sourceEpoch.current;
+    const sourceImage = imageRef.current;
+    setStatus(
+      "Preparing " + (gestures ? "hand tracking" : "hair segmentation") + "…",
+    );
+    pipeline
+      .load({
+        hair: look.hair.enabled,
+        hands: gestures || Object.values(look.accessories).some(Boolean),
+      })
+      .then(async () => {
+        if (!active) return;
+        if (mode !== "camera" && imageRef.current) {
+          const snap = await pipeline.analyzeImage(imageRef.current, {
+            face: true,
+            hair: look.hair.enabled,
+            hands: gestures || Object.values(look.accessories).some(Boolean),
+          });
+          if (
+            active &&
+            epoch === sourceEpoch.current &&
+            imageRef.current === sourceImage
+          )
+            snapshotRef.current = snap;
+        }
+        if (
+          active &&
+          epoch === sourceEpoch.current &&
+          imageRef.current === sourceImage
+        )
+          setStatus(
+            snapshotRef.current.landmarks.length
+              ? "Face mesh connected"
+              : "No face found. Try a clear portrait.",
+          );
+      })
+      .catch((e) => {
+        if (active) setError(e.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, [
+    look.hair.enabled,
+    gestures,
+    mode,
+    sourceUrl,
+    look.accessories.glasses,
+    look.accessories.earrings,
+    look.accessories.necklace,
+  ]);
+  useEffect(() => {
+    const pause = () => {
+      if (document.hidden && streamRef.current) {
+        stopCamera();
+        setMode("demo");
+        setStatus("Camera paused while away. Open it again to resume.");
+        setRetry((v) => v + 1);
+      }
+    };
+    document.addEventListener("visibilitychange", pause);
+    return () => document.removeEventListener("visibilitychange", pause);
+  }, [stopCamera]);
+  const startCamera = async (nextFacing = facing) => {
+    const epoch = ++sourceEpoch.current;
+    snapshotRef.current = emptySnapshot();
+    setError("");
+    setLoading(true);
+    setMode("camera");
+    try {
+      await pipelineRef.current?.load({
+        face: true,
+        hair: lookRef.current.hair.enabled,
+        hands: gestures || Object.values(look.accessories).some(Boolean),
+      });
+      if (epoch !== sourceEpoch.current) return;
+      await openCamera(nextFacing);
+    } catch (e) {
+      stopCamera();
+      setError(e instanceof Error ? e.message : "Camera unavailable");
+      setMode("demo");
+    } finally {
+      setLoading(false);
+    }
+  };
+  const upload = (file?: File) => {
+    if (!file) return;
+    if (
+      !["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
+      file.size > 15 * 1024 * 1024
+    ) {
+      notify("Choose a JPG, PNG or WebP image under 15 MB.");
+      return;
+    }
+    sourceEpoch.current++;
+    setError("");
+    stopCamera();
+    setMode("upload");
+    snapshotRef.current = emptySnapshot();
+    setSourceUrl(URL.createObjectURL(file));
+  };
+  useEffect(() => {
+    let active = true;
+    const renderer = rendererRef.current;
+    if (!renderer) return;
+    void renderer
+      .setMaskBackend(maskBackend)
+      .then(() => {
+        if (active) {
+          lookRef.current = { ...lookRef.current };
+          if (maskBackend === "opencv")
+            notify(
+              "Precision edges are ready. All processing stays on this device.",
+            );
+        }
+      })
+      .catch(() => {
+        if (active) {
+          useApp.getState().setMaskBackend("canvas");
+          notify(
+            "Precision edges could not load. Standard blending is still available.",
+          );
+        }
+      });
+    return () => {
+      active = false;
+    };
+  }, [maskBackend, notify]);
+  useEffect(() => {
+    const element = mirrorElement.current;
+    if (!element) return;
+    const observer = new ResizeObserver(() => {
+      lookRef.current = { ...lookRef.current };
+    });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  const download = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const link = document.createElement("a");
+    link.download = "true-beauty-look.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+    notify(
+      "Your preview was downloaded. It has not been stored in your beauty history.",
+    );
+  };
+  return (
+    <div className="mirror-column">
+      <div
+        ref={mirrorElement}
+        className="mirror-frame"
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={(e) => {
+          e.preventDefault();
+          const color = e.dataTransfer.getData("application/true-beauty-color");
+          if (color) {
+            useApp.getState().patchLayer("lipstick", { color, enabled: true });
+            notify("Shade applied to your mirror.");
+          } else upload(e.dataTransfer.files[0]);
+        }}
+      >
+        <div className="mirror-media" style={{ transform: `scale(${zoom})` }}>
+          <canvas
+            onClick={(e) => {
+              const canvas = e.currentTarget;
+              const rect = canvas.getBoundingClientRect();
+              const scale = Math.max(
+                  rect.width / canvas.width,
+                  rect.height / canvas.height,
+                ),
+                w = canvas.width * scale,
+                h = canvas.height * scale;
+              const u = (e.clientX - rect.left - (rect.width - w) * 0.5) / w,
+                v = (e.clientY - rect.top - (rect.height - h) * 0.42) / h;
+              const points = snapshotRef.current.landmarks;
+              if (!points.length) return;
+              const regions: [string, number][] = [
+                ["lipstick", 13],
+                ["eyeshadow", 159],
+                ["eyeshadow", 386],
+                ["blush", 50],
+                ["blush", 280],
+                ["foundation", 10],
+              ];
+              const closest = regions
+                .map(([layer, id]) => ({
+                  layer,
+                  d: Math.hypot(points[id].x - u, points[id].y - v),
+                }))
+                .sort((a, b) => a.d - b.d)[0];
+              if (closest.d < 0.17) {
+                useApp.getState().setFocusLayer(closest.layer);
+                useApp.getState().setStudioMode("makeup");
+                notify(
+                  "Editing " +
+                    closest.layer +
+                    ". Use the tools to change this region.",
+                );
+              }
+            }}
+            ref={canvasRef}
+            width={960}
+            height={1200}
+            aria-label="Living Mirror preview with your selected cosmetic effects"
+          />
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted
+            className="vision-video"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="mirror-top">
+          <button
+            aria-label="Choose a demo portrait"
+            onClick={() => setModelsOpen((v) => !v)}
+            className="mirror-label"
+          >
+            <span className={tracked ? "live-dot" : "loading-dot"} />
+            {mode === "camera"
+              ? "Live mirror"
+              : mode === "upload"
+                ? "Your photo"
+                : "Studio portrait"}
+            {loading ? " · preparing" : ""}
+          </button>
+          <IconButton label="Download preview" onClick={download}>
+            <Download size={17} />
+          </IconButton>
+        </div>
+        {modelsOpen && (
+          <div
+            className="demo-chooser"
+            role="group"
+            aria-label="Demo portraits"
+          >
+            {[
+              ["/images/portrait-neutral.jpg", "Warm portrait"],
+              ["/images/portrait-2.jpg", "Soft portrait"],
+              ["/images/portrait.jpg", "Editorial light"],
+            ].map(([url, label]) => (
+              <button
+                key={url}
+                aria-label={label}
+                onClick={() => {
+                  sourceEpoch.current++;
+                  setError("");
+                  snapshotRef.current = emptySnapshot();
+                  stopCamera();
+                  setMode("demo");
+                  setSourceUrl(url);
+                  setRetry((v) => v + 1);
+                  setModelsOpen(false);
+                }}
+              >
+                <img src={url} alt="" />
+                <span>{label}</span>
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="mirror-side">
+          <IconButton
+            label="Zoom in"
+            onClick={() => setZoom((v) => Math.min(2, v + 0.15))}
+          >
+            <Plus size={17} />
+          </IconButton>
+          <span>{Math.round(zoom * 100)}%</span>
+          <IconButton
+            label="Zoom out"
+            onClick={() => setZoom((v) => Math.max(1, v - 0.15))}
+          >
+            <Minus size={17} />
+          </IconButton>
+          <IconButton label="Reset view" onClick={() => setZoom(1)}>
+            <Expand size={17} />
+          </IconButton>
+        </div>
+        {compare && (
+          <>
+            <div
+              className="compare-divider"
+              style={{ left: `${split * 100}%` }}
+            >
+              <span>
+                <Columns2 size={16} />
+              </span>
+            </div>
+            <input
+              className="compare-range"
+              aria-label="Before and after split"
+              type="range"
+              min="0"
+              max="100"
+              value={split * 100}
+              onChange={(e) => setSplit(Number(e.target.value) / 100)}
+            />
+            <span className="compare-before">Before</span>
+            <span className="compare-after">After</span>
+          </>
+        )}
+        <div className="mirror-bottom">
+          <div className="mirror-state">
+            <ScanFace size={15} />
+            <span>{status}</span>
+          </div>
+          <div className="mirror-tools">
+            <IconButton
+              label={
+                compare ? "Hide before and after" : "Compare before and after"
+              }
+              className={compare ? "active" : ""}
+              onClick={() => setCompare((v) => !v)}
+            >
+              <Columns2 size={18} />
+            </IconButton>
+            <IconButton
+              label={
+                gestures ? "Disable hand gestures" : "Enable hand gestures"
+              }
+              className={gestures ? "active" : ""}
+              onClick={() => {
+                setGestures((v) => !v);
+                notify(
+                  "Hand gestures control previews only. Pinch compares, swipe changes looks, and an open palm switches hair tools. Every action has a button alternative.",
+                );
+              }}
+            >
+              <Hand size={18} />
+            </IconButton>
+            <IconButton
+              label="Reset makeup"
+              onClick={() => {
+                import("../../../../packages/makeup-engine/src").then((m) =>
+                  useApp
+                    .getState()
+                    .setLook(m.createDefaultLook(), "Your signature look"),
+                );
+              }}
+            >
+              <RotateCcw size={17} />
+            </IconButton>
+          </div>
+        </div>
+      </div>
+      <div className="source-bar">
+        <button
+          className={mode === "demo" ? "selected" : ""}
+          onClick={() => {
+            sourceEpoch.current++;
+            stopCamera();
+            setMode("demo");
+            setSourceUrl("/images/portrait-neutral.jpg");
+            setRetry((v) => v + 1);
+          }}
+        >
+          <ScanFace size={16} />
+          Demo portrait
+        </button>
+        <button
+          className={mode === "camera" ? "selected" : ""}
+          onClick={() =>
+            mode === "camera"
+              ? (sourceEpoch.current++,
+                stopCamera(),
+                setMode("demo"),
+                setRetry((v) => v + 1))
+              : void startCamera()
+          }
+        >
+          {mode === "camera" ? <VideoOff size={16} /> : <Camera size={16} />}{" "}
+          {mode === "camera" ? "Stop camera" : "Open camera"}
+        </button>
+        <button onClick={() => fileRef.current?.click()}>
+          <ImagePlus size={16} />
+          Upload photo
+        </button>
+        {mode === "camera" && (
+          <IconButton
+            label="Switch camera"
+            onClick={() => {
+              const next = facing === "user" ? "environment" : "user";
+              setFacing(next);
+              void startCamera(next);
+            }}
+          >
+            <SwitchCamera size={16} />
+          </IconButton>
+        )}
+        <input
+          ref={fileRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+          onChange={(e) => upload(e.target.files?.[0])}
+        />
+      </div>
+      {error && (
+        <p role="alert" className="inline-error">
+          {error}{" "}
+          <button
+            onClick={() => {
+              setError("");
+              setRetry((v) => v + 1);
+            }}
+          >
+            Retry tracking
+          </button>
+        </p>
+      )}
+      <div className="mirror-footnote">
+        <span>
+          <span className="privacy-dot" />
+          Processed on your device. Always your reflection.
+        </span>
+        <span title="Last model inference latency">
+          {latency > 0 ? `${latency.toFixed(0)} ms` : "Local vision"}
+        </span>
+      </div>
+      {gestures && (
+        <div className="gesture-note">
+          <span>
+            Experimental gestures · pinch to compare, swipe for a look, open
+            palm for tools.
+          </span>
+          <button
+            onClick={() => {
+              const hand = snapshotRef.current.hands[0];
+              if (!hand) {
+                notify(
+                  "Show a hand with your thumb and index finger pinched, then calibrate.",
+                );
+                return;
+              }
+              const p = hand.landmarks;
+              const ratio =
+                Math.hypot(p[4].x - p[8].x, p[4].y - p[8].y) /
+                Math.max(0.01, Math.hypot(p[0].x - p[9].x, p[0].y - p[9].y));
+              void pipelineRef.current?.calibratePinch(ratio * 1.3);
+              notify(
+                "Pinch threshold adjusted from your current hand pose. Gesture reliability varies; use buttons whenever needed.",
+              );
+            }}
+          >
+            Calibrate pinch
+          </button>
+        </div>
+      )}
+      {studioMode === "hair" && look.hair.enabled && (
+        <p className="fine-print">
+          Hair recolouring uses a confidence mask. Hairstyle generation needs a
+          connected provider.
+        </p>
+      )}
+    </div>
+  );
+}

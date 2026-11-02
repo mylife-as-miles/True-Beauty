@@ -1,0 +1,120 @@
+{
+  "recordedAt": "2026-11-02T09:57:15.102Z",
+  "browser": "27.2",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "platform": "linux",
+  "mode": "WebKit WPE headless, Mesa llvmpipe software graphics; unprivileged local library wrapper",
+  "capabilities": {
+    "webgl": true,
+    "webgl2": true,
+    "offscreenWebgl2": true,
+    "worker": true
+  },
+  "results": [
+    {
+      "name": "portrait-neutral.jpg",
+      "points": 478,
+      "blendshapes": 52,
+      "transform": 16,
+      "hair": [
+        171,
+        256
+      ],
+      "hands": 1,
+      "latencyMs": 449,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "name": "portrait-3.jpg",
+      "points": 478,
+      "blendshapes": 52,
+      "transform": 16,
+      "hair": [
+        171,
+        256
+      ],
+      "hands": 1,
+      "latencyMs": 188,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        }
+      }
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+  "canvasCaptureStream": "function",
+  "provisionedPackages": [
+    {
+      "url": "https://deb.debian.org/debian/pool/main/g/gtk4/libgtk-4-1_4.18.6+ds-2_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libgtk-4-1_4.18.6+ds-2_amd64.deb",
+      "sha256": "51ab1114a57702e703cce745c24caf5bd31ec1d2a900c72fd15fe47c6c030e68",
+      "bytes": 3166640
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/g/graphene/libgraphene-1.0-0_1.10.8-5_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libgraphene-1.0-0_1.10.8-5_amd64.deb",
+      "sha256": "ddcf98f17f6c0a7c76974d7238be1468e59c186034c1b806638d32d9f446ea6e",
+      "bytes": 42352
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/h/harfbuzz/libharfbuzz-icu0_10.2.0-1+deb13u1_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libharfbuzz-icu0_10.2.0-1+deb13u1_amd64.deb",
+      "sha256": "0b45d951629e98673c0da73b2bcd0886a467d833bb3b7499892a168f247165d2",
+      "bytes": 15452
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/libm/libmanette/libmanette-0.2-0_0.2.12-1_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libmanette-0.2-0_0.2.12-1_amd64.deb",
+      "sha256": "98841a467692c46fd1870275113235691ebbfe71a3524f6b2a0fa7e9c33c6e56",
+      "bytes": 43752
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/h/hyphen/libhyphen0_2.8.8-7+b2_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libhyphen0_2.8.8-7+b2_amd64.deb",
+      "sha256": "fa9dca7b8cf1381fd52800c44a385c5725a78a88bd705f7c39b1046a5293435e",
+      "bytes": 30664
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/libg/libglvnd/libgles2_1.7.0-1+b2_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libgles2_1.7.0-1+b2_amd64.deb",
+      "sha256": "e12c18aa77939d122ee1dea520ba0440b97dc19200b7396e03dff03a3ece74c1",
+      "bytes": 17256
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/c/cairo/libcairo-script-interpreter2_1.18.4-1+b1_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libcairo-script-interpreter2_1.18.4-1+b1_amd64.deb",
+      "sha256": "52b45eb6e49c53c0a35ef45555a9457b094482eafef27d27cd777b916a2f06de",
+      "bytes": 59256
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/h/hidapi/libhidapi-hidraw0_0.14.0-1+b2_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/libhidapi-hidraw0_0.14.0-1+b2_amd64.deb",
+      "sha256": "89c546cb55be403ce63fe668baff2515979100a30fa07e2b97de186b9c07f01e",
+      "bytes": 12664
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/l/lzo2/liblzo2-2_2.10-3+b1_amd64.deb",
+      "file": "/tmp/true-beauty-browser-libs/debs/liblzo2-2_2.10-3+b1_amd64.deb",
+      "sha256": "f3032201fe2928a87e13f05ce256ff3ac2a7860c7e594dc51ae6d7348a4466ce",
+      "bytes": 55100
+    }
+  ],
+  "limitations": "Playwright WebKit on Linux is not Safari on real macOS/iOS hardware. No mobile/hardware FPS or fairness gate asserted."
+}

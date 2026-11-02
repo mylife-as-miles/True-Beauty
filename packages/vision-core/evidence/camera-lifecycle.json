@@ -1,0 +1,72 @@
+{
+  "recordedAt": "2026-11-02T09:41:27.472Z",
+  "browser": "154.0.8037.57",
+  "checks": [
+    {
+      "name": "camera permission denial recoverable",
+      "passed": true,
+      "details": {
+        "error": "Camera permission was declined. Allow camera access in browser settings, or use a portrait instead."
+      }
+    },
+    {
+      "name": "camera opens only on explicit action",
+      "passed": true,
+      "details": {
+        "facing": "user"
+      }
+    },
+    {
+      "name": "backgrounding stops camera and clears active stream",
+      "passed": true,
+      "details": {
+        "stops": 1
+      }
+    },
+    {
+      "name": "foreground never restarts camera automatically",
+      "passed": true,
+      "details": {
+        "stops": 1
+      }
+    },
+    {
+      "name": "switching stops previous stream",
+      "passed": true,
+      "details": {
+        "stops": 2,
+        "facing": "environment"
+      }
+    },
+    {
+      "name": "closing stops active stream",
+      "passed": true,
+      "details": {
+        "stops": 3
+      }
+    },
+    {
+      "name": "cancelled pending request stops late stream",
+      "passed": true,
+      "details": {
+        "stops": 4
+      }
+    },
+    {
+      "name": "backgrounding invalidates late permission result",
+      "passed": true,
+      "details": {
+        "stops": 5
+      }
+    },
+    {
+      "name": "unmount releases camera",
+      "passed": true,
+      "details": {
+        "stops": 6
+      }
+    }
+  ],
+  "fakeMedia": true,
+  "note": "Real MediaStream via canvas.captureStream; permission result and document visibility are controlled fixtures. No claim of physical camera/device behavior."
+}

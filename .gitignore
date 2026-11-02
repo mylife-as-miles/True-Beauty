@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results*/
+.taste-skill/**/browser-profile/
+*.log
+.DS_Store
+
+
+.runtime/
+
+# Recreate official model/runtime downloads with npm run models.
+apps/web/public/models/*.task
+apps/web/public/models/*.tflite
+apps/web/public/wasm/*.wasm
+apps/web/public/wasm/*.js

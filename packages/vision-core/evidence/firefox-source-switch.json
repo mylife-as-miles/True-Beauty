@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-11-02T09:51:54.715Z",
+  "browser": "157.0",
+  "serviceWorkers": "blocked solely for deterministic interception fixture",
+  "modelRequestHeld": true,
+  "beforeRelease": {
+    "source": "Your photo · preparing",
+    "status": "Mapping facial contours…"
+  },
+  "afterRelease": {
+    "source": "Your photo",
+    "status": "Face mesh connected",
+    "latency": "Processed on your device. Always your reflection.31 ms"
+  }
+}

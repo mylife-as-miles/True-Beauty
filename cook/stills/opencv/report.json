@@ -1,0 +1,30 @@
+{
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.8078.4 Safari/537.36",
+  "landmarks": 478,
+  "backend": "opencv",
+  "loadMs": 1090.5,
+  "coloredMaskPixels": 921,
+  "featherPixels": 695,
+  "mouthCavityAlpha": 0,
+  "outsidePixel": [
+    120,
+    100,
+    80,
+    255
+  ],
+  "insidePixel": [
+    160,
+    70,
+    80,
+    255
+  ],
+  "activeMatrices": 0,
+  "maskCalls": 81,
+  "compositeCalls": 1,
+  "canvasMaskMedianMs": 8,
+  "canvasMaskP95Ms": 9.600000000093132,
+  "openCvMaskMedianMs": 14.899999999906868,
+  "openCvMaskP95Ms": 20,
+  "note": "Real local OpenCV WASM and MediaPipe on static portrait; no network analysis provider. Mask timing includes raster flush at512 longest edge; model inference excluded.",
+  "errors": []
+}

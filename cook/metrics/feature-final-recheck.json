@@ -1,0 +1,9 @@
+{
+  "visibleBeforeReload": true,
+  "mobileRoutineReload": true,
+  "sharedDemo": "/images/portrait-2.jpg",
+  "uploadedSource": "blob:http://127.0.0.1:5173/9481446c-b918-4eb6-b2aa-5fe617c4f0a5",
+  "sharedBlobAvailable": true,
+  "returnedSource": "blob:http://127.0.0.1:5173/9481446c-b918-4eb6-b2aa-5fe617c4f0a5",
+  "portraitContinuity": true
+}

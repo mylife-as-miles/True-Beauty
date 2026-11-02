@@ -1,0 +1,98 @@
+[
+  {
+    "inside": true,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Soft glam for a wedding, dry skin, ₦20,000"
+  },
+  {
+    "inside": true,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Make my lips berry"
+  },
+  {
+    "inside": true,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Build a simple PM routine"
+  },
+  {
+    "inside": true,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Use only my owned makeup products"
+  },
+  {
+    "inside": true,
+    "tag": "TEXTAREA",
+    "label": null,
+    "text": ""
+  },
+  {
+    "inside": true,
+    "tag": "BUTTON",
+    "label": "Dictate a request",
+    "text": ""
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Your data, your choice "
+  },
+  {
+    "inside": false,
+    "tag": "BODY",
+    "label": null,
+    "text": "Skip to your beauty spaceTRUE BEAUTYA little more you.The studioSkin & ritualsMy wardrobeT"
+  },
+  {
+    "inside": false,
+    "tag": "A",
+    "label": null,
+    "text": "Skip to your beauty space"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": "True Beauty home",
+    "text": "TRUE BEAUTYA little more you."
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "The studio"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "Skin & rituals"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "My wardrobe"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": null,
+    "text": "The beauty edit"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": "Your beauty companion",
+    "text": "Your beauty companion"
+  },
+  {
+    "inside": false,
+    "tag": "BUTTON",
+    "label": "Your profile and privacy",
+    "text": "you"
+  }
+]

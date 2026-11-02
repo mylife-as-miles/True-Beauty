@@ -1,0 +1,45 @@
+# BeautyGraph: personal beauty memory
+
+## Implemented local architecture
+
+`packages/local-database` owns a Dexie database named `true-beauty`. The profile identifier is local to this origin; it is not an account, biometric identity, or synchronization identifier. There is no login. Version 2 adds attributed memory revisions and temporal indexes to the version 1 schema. A test creates a genuine version 1 IndexedDB database and upgrades it.
+
+The versioned schema includes all planned domain tables: profiles, consents, skinScans, skinObservations, savedLooks, makeupPresets, hairPresets, outfits, products, productVariants, ownedProducts, wishlists, shoppingBags, routines, routineEvents, journalEntries, goals, beautyExperiments, userFeedback, memoryNodes, memoryEdges, memoryRevisions, agentEpisodes, agentMessages, agentToolRuns, recommendations, priceSnapshots, mediaAssets, and settings. A schema table does not by itself establish the corresponding product workflow as complete.
+
+Memory is a graph of typed nodes and directed relationships, never a transcript summary pretending to be structured memory. Nodes carry subject, semantic key, JSON value, creation/update/use timestamps, source attribution, confidence, evidence IDs, consent category, retention policy, temporal validity, revision number and optional predecessor. Supported node types cover profiles, observations, preferences, products, ingredients, looks, outfits, routines, experiments, outcomes, feedback, goals, agent episodes, evidence, and consent.
+
+Implemented relationships include `SUPERSEDED_BY` on contradictory preference updates. The database supports the other relationship names, but automatic extraction of every requested relationship is planned. Revisions preserve user corrections with their original attribution. Duplicate values under the same subject/type/key update usage rather than create duplicate nodes. Contradictions preserve an inactive predecessor and a new active value. Retrieval excludes inactive, expired, low-confidence and unconsented values.
+
+## Consent and retention
+
+All permissions begin disabled. Categories are `memory.preferences`, `memory.history`, `analysis.history`, `media.photos`, `remote.images`, and `remote.history`. Explicit memory storage requires both a user-approved operation and an enabled category. A chat request alone never enables a category. Routine/wardrobe/look records are deliberate local user work; background image capture is never retained.
+
+`setConsent` revokes the category and deletes its memory values and revisions. History revocation removes episodes, messages and tool runs. Photo revocation clears blobs and thumbnails. Analysis revocation removes scans and observations. Individual scan deletion removes the scan, observations, associated saved media and evidence-linked memory. Individual memory deletion removes its supersession chain, revisions, links and dependent recorded agent episodes transactionally.
+
+Permission checks occur **inside the same IndexedDB transaction as protected writes**, including preferences, corrections, photos, scan history, and consultation history. This closes a consent-check/write race independently reproduced by a technical critic. Revocation serializes against in-flight writes, so either the write precedes revocation and is deleted, or it follows revocation and is denied. Newly remembered preferences are attributed to their originating episode; revocation removes the request/reply copies too. Imported prose must reference permitted memory nodes and a valid parent episode; an old backup cannot reintroduce revoked values via attributed messages or tool outputs.
+
+Retention choices are until-deleted, 30 days, 90 days and session. Session memory is not retrieved as durable memory and is removed by explicit expiry cleanup. Timed expiry is enforced at retrieval, with physical cleanup available via `purgeExpiredMemories`. The UI/runtime must invoke cleanup on startup; browser suspension does not support promises about a wall-clock deletion background task.
+
+## Retrieval and actual agent use
+
+Retrieval combines lexical relevance, confidence and temporal decay. It is transparent and local; embeddings are not implemented or claimed. Explanations contain source, date, confidence and evidence identifiers. Active style preferences inform lipstick finishes, product-category ranking, remembered budget and owned-only product constraints. Current explicit request budget overrides remembered budget. The current implementation uses a deterministic bounded local planner and typed Zod-validated tools, with a provider interface for future externally authorized LLM planning.
+
+Tools change real application state through injected mirror callbacks. Missing callbacks produce `unavailable`; thrown callbacks produce `failed`; upload/spending operations produce `consent-required` until explicitly approved. A successful response is emitted only after the operation resolves. Tool execution does not initiate purchases. Local plans can apply presets, change makeup/hair controls, preview supported accessories, persist looks, create routines, log completion, inspect inventory, select catalogue options, manage preferences, explain recommendations, and remove the latest scan.
+
+Product selection now calls the shared MIROIR/Skyn-adapted `matchProducts` and `buildRoutine` algorithms. A combined budget allocator chooses only relevant requested categories, charges each unique unowned product once, prioritizes owned products at zero new cost, excludes unpriced purchases, and returns selected products, total, remaining budget and unfilled slots. It uses a declared category-priority heuristic, not an optimal shopping solver. A dry-skin wedding request with a ₦20,000 sample budget allocates moisturizer ₦11,500 and blush ₦7,800: total ₦19,300, remaining ₦700, with lip and eyeshadow explicitly unfunded. It does not pretend that the whole look has been purchased or that sample prices/stock are live. Routine product references are restricted to products funded by the same plan or already owned.
+
+Agent conversation and tool records persist only if history consent is enabled. Without consent, the current chat may exist in React memory but is not written to IndexedDB by the runtime. The routine builder is general cosmetic guidance from user descriptions; it does not imply a skin scan or clinical diagnosis.
+
+## Portable backups and key management
+
+Export produces a versioned JSON bundle. It excludes photos, image references and look thumbnails by default. Import validates the format, schema version, record identifiers, memory/consent domains and sensitive fields before a single transactional merge. Imports do not grant permissions: existing local permissions gate imported history. Dangling memory edges/revisions are removed after import. API credentials are not a database feature and credential fields are rejected at the backup boundary.
+
+Optional encryption derives a fresh non-extractable AES-256-GCM key from the user passphrase using PBKDF2-SHA256 with 310,000 iterations and a random 128-bit salt. Every backup has a fresh 96-bit GCM IV. No passphrase or derived key is persisted. Authentication detects an incorrect passphrase or changed ciphertext. There is no recovery mechanism if the passphrase is lost. Encryption protects the exported file only. IndexedDB itself remains browser-origin storage and is not claimed to be encrypted at rest.
+
+## Verification and limitations
+
+Vitest tests with fake-indexeddb cover real schema migration, no-login initialization, consent gating/revocation, temporal deduplication and contradictions, corrections, expiry, graph deletion, scan deletion, export/import behavior, encrypted roundtrips and incorrect-key failure, tool validation, actual callback changes, unavailable/error reporting, combined budget/owned constraints and history retention. Independent critic regressions cover memory/photo revocation races and attributed-history backup resurrection. These tests are not proof of physical-device quota behavior or remote AI integration.
+
+`tests/e2e/memory-agent.spec.ts` exercises desktop Chromium and a mobile Chromium viewport: real mirror-control changes, saved look persistence after reload, consented preference storage/correction/actual use/deletion, profile editing and real backup download/clear/import. It also exercises the combined wedding budget with visible source labels. Actual screenshot evidence is recorded under `cook/stills/r01/agent-*` and `beautygraph-*`. See the test execution log for the final passing counts; emulated mobile Chromium is not physical Safari verification.
+
+No remote LLM is configured. No facial embeddings, face recognition, hidden raw-frame persistence, secure cross-device sync, semantic embedding model, automatic outcome causality inference, or clinical diagnosis is implemented. Complete-scope gaps remain in the feature matrix.

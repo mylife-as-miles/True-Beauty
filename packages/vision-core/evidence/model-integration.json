@@ -1,0 +1,98 @@
+{
+  "recordedAt": "2026-11-02T09:00:48.738Z",
+  "browser": "154.0.8037.57",
+  "platform": "linux",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "viewport": {
+    "width": 1500,
+    "height": 1050
+  },
+  "inference": "CPU; headless Chromium; no GPU performance claim",
+  "loadingMs": 658.3999999999069,
+  "results": [
+    {
+      "name": "portrait.jpg",
+      "width": 1200,
+      "height": 1500,
+      "faceLandmarks": 478,
+      "blendshapes": 52,
+      "transform": 16,
+      "hairMask": {
+        "width": 205,
+        "height": 256,
+        "min": 1.6313859418914944e-7,
+        "max": 0.9999971389770508,
+        "mean": 0.045510075747358616
+      },
+      "handCount": 0,
+      "latencyMs": 378.89999999990687,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "name": "portrait-2.jpg",
+      "width": 600,
+      "height": 900,
+      "faceLandmarks": 478,
+      "blendshapes": 52,
+      "transform": 16,
+      "hairMask": {
+        "width": 171,
+        "height": 256,
+        "min": 1.282729016338635e-7,
+        "max": 0.9999879598617554,
+        "mean": 0.19190750776689106
+      },
+      "handCount": 1,
+      "latencyMs": 156.60000000009313,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        }
+      }
+    },
+    {
+      "name": "portrait-3.jpg",
+      "width": 600,
+      "height": 900,
+      "faceLandmarks": 478,
+      "blendshapes": 52,
+      "transform": 16,
+      "hairMask": {
+        "width": 171,
+        "height": 256,
+        "min": 1.1420753925905913e-10,
+        "max": 0.9999996423721313,
+        "mean": 0.07586676701962894
+      },
+      "handCount": 1,
+      "latencyMs": 159.09999999962747,
+      "status": {
+        "face": {
+          "state": "ready"
+        },
+        "hair": {
+          "state": "ready"
+        },
+        "hands": {
+          "state": "ready"
+        }
+      }
+    }
+  ]
+}

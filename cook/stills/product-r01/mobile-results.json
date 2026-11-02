@@ -1,0 +1,44 @@
+[
+  {
+    "space": "studio",
+    "overflow": false,
+    "headings": [
+      "A little more you.",
+      "Your finishing touch.",
+      "Lip colour"
+    ]
+  },
+  {
+    "space": "skin",
+    "overflow": false,
+    "headings": []
+  },
+  {
+    "space": "wardrobe",
+    "overflow": false,
+    "headings": [
+      "Good things, already yours.",
+      "A wardrobe waiting for you."
+    ]
+  },
+  {
+    "space": "discover",
+    "overflow": false,
+    "headings": [
+      "Find your next favourite."
+    ]
+  },
+  {
+    "space": "canvas",
+    "overflow": false,
+    "headings": []
+  },
+  {
+    "space": "journal",
+    "overflow": false,
+    "headings": [
+      "A story that’s only yours.",
+      "Your next favourite look is waiting."
+    ]
+  }
+]

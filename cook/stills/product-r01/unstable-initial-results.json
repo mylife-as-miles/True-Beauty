@@ -1,0 +1,56 @@
+{
+  "results": [
+    {
+      "name": "mirror makeup / finish / comparison",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Apply Lip colour shade 5', exact: true })\u001b[22m\n\u001b[2m    2 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    4 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"\" title=\"#843b4b\" draggable=\"true\" aria-label=\"Apply Lip colour shade 5\"></button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "hair and style controls",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: 'Hair', exact: true })\u001b[22m\n\u001b[2m    7 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "save / reload / reopen look",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Save this look', exact: true })\u001b[22m\n\u001b[2m    4 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    2 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    3 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n"
+    },
+    {
+      "name": "shop / own / ingredients / bag",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.topnav').getByRole('button', { name: 'The beauty edit', exact: true })\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    5 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "product comparison",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Close dialog', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"icon-button \" title=\"Close dialog\" aria-label=\"Close dialog\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\u001b[2m    4 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "journal entry and experiments",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Beauty journal', exact: true })\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"\" title=\"Beauty journal\" aria-label=\"Beauty journal\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n"
+    },
+    {
+      "name": "skin local analysis",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.topnav').getByRole('button', { name: 'Skin & rituals', exact: true })\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    4 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    2 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "dressing room",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.topnav').getByRole('button', { name: 'My wardrobe', exact: true })\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for navigation to finish...\u001b[22m\n\u001b[2m    3 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    2 × navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    },
+    {
+      "name": "canvas",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Inspiration canvas', exact: true })\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m      - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n"
+    },
+    {
+      "name": "privacy",
+      "ok": false,
+      "error": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Privacy & settings', exact: true })\u001b[22m\n\u001b[2m    2 × waiting for navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    4 × waiting for \"http://127.0.0.1:5173/\" navigation to finish...\u001b[22m\n\u001b[2m      - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n\u001b[2m    - waiting for navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"http://127.0.0.1:5173/\"\u001b[22m\n"
+    }
+  ],
+  "errors": [],
+  "postRequests": []
+}

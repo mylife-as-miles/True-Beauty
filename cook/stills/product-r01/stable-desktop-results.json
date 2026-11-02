@@ -1,0 +1,76 @@
+{
+  "results": [
+    {
+      "name": "makeup finish before-after",
+      "ok": true,
+      "data": {
+        "split": "35",
+        "status": "Face mesh connected"
+      }
+    },
+    {
+      "name": "hair and accessories",
+      "ok": true,
+      "data": {
+        "glasses": true
+      }
+    },
+    {
+      "name": "save reload reopen",
+      "ok": true,
+      "data": {
+        "activePreset": "Soft glowEveryday, elevated",
+        "mode": "false"
+      }
+    },
+    {
+      "name": "catalog ingredients wardrobe bag",
+      "ok": true,
+      "data": {
+        "name": "Hydrating Facial Cleanser",
+        "total": "Illustrative total₦12,500",
+        "owned": 1
+      }
+    },
+    {
+      "name": "product comparison",
+      "ok": true,
+      "data": {
+        "columns": 2
+      }
+    },
+    {
+      "name": "journal entry experiments",
+      "ok": true,
+      "data": {
+        "entry": true
+      }
+    },
+    {
+      "name": "skin local and care",
+      "ok": false,
+      "error": "locator.click: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: 'Skin & care', exact: true })\u001b[22m\n"
+    },
+    {
+      "name": "dressing room",
+      "ok": true,
+      "data": {
+        "technology": "Static photo composition"
+      }
+    },
+    {
+      "name": "visual canvas",
+      "ok": true,
+      "data": {
+        "objects": 5
+      }
+    },
+    {
+      "name": "privacy",
+      "ok": false,
+      "error": "locator.click: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Privacy & settings', exact: true })\u001b[22m\n"
+    }
+  ],
+  "errors": [],
+  "postRequests": []
+}

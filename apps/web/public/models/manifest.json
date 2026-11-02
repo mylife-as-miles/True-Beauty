@@ -1,0 +1,26 @@
+[
+  {
+    "name": "face_landmarker.task",
+    "url": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+    "bytes": 3758596,
+    "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "retrievedAt": "2026-11-02T08:58:25.064Z",
+    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+  },
+  {
+    "name": "hair_segmenter.tflite",
+    "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/hair_segmenter/float32/1/hair_segmenter.tflite",
+    "bytes": 781618,
+    "sha256": "2628cf3ce5f695f604cbea2841e00befcaa3624bf80caf3664bef2656d59bf84",
+    "retrievedAt": "2026-11-02T08:58:25.530Z",
+    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+  },
+  {
+    "name": "hand_landmarker.task",
+    "url": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
+    "bytes": 7819105,
+    "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+    "retrievedAt": "2026-11-02T08:58:26.240Z",
+    "licenseAudit": "Official Google solution asset; commercial model-card audit pending"
+  }
+]

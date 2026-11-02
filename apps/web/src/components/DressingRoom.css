@@ -1,0 +1,383 @@
+.dressing-room {
+  padding: 36px 0 50px;
+  color: var(--ink, #302b29);
+}
+.dressing-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 24px;
+}
+.dressing-kicker {
+  font-size: 12px;
+  color: var(--muted, #776e67);
+  margin: 0 0 9px;
+}
+.dressing-title h1 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  margin: 0 0 12px;
+  letter-spacing: -0.035em;
+}
+.dressing-title h1 em {
+  font-weight: 400;
+  color: var(--accent, #946d60);
+}
+.dressing-title > div > p:last-child {
+  color: var(--muted, #776e67);
+  font-size: 13px;
+}
+.dressing-mode {
+  font-size: 11px;
+  padding: 9px 13px;
+  border: 1px solid var(--line, #ddd6ce);
+  border-radius: 30px;
+  white-space: nowrap;
+}
+.dressing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 32px;
+  align-items: start;
+}
+.dressing-stage {
+  background: #e9e4df;
+  padding: 14px;
+}
+.dressing-stage canvas {
+  width: 100%;
+  max-height: 750px;
+  object-fit: contain;
+  display: block;
+  background: #d7cfc8;
+}
+.dressing-stage-toolbar,
+.dressing-stage-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 34px;
+}
+.dressing-stage-toolbar > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.dressing-stage button,
+.dressing-saved button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 34px;
+}
+.dressing-stage-foot > span {
+  font-size: 11px;
+  color: #6f655d;
+}
+.dressing-limit {
+  font-size: 11px;
+  line-height: 1.65;
+  color: #71665e;
+  margin: 6px 2px;
+}
+.dressing-controls {
+  padding: 8px 0;
+}
+.dressing-controls h2,
+.dressing-saved h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+.dressing-controls h3 {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+.dressing-upload-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.dressing-upload-row button {
+  border: 1px solid var(--line, #d7cec5);
+  padding: 16px 8px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  cursor: pointer;
+  color: inherit;
+}
+.dressing-upload-row button:hover {
+  background: var(--surface, #eee8e1);
+}
+.dressing-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.dressing-hint {
+  font-size: 11px;
+  color: var(--muted, #776e67);
+  line-height: 1.6;
+  margin: 9px 0 19px;
+}
+.dressing-colour-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dressing-colour-heading input {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+.dressing-swatches {
+  display: flex;
+  gap: 11px;
+  margin: 14px 0 22px;
+}
+.dressing-swatches button {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--ground, #f7f3ed);
+  border-radius: 50%;
+  outline: 1px solid transparent;
+  cursor: pointer;
+}
+.dressing-swatches button[aria-pressed="true"] {
+  outline-color: var(--accent, #92685a);
+}
+.dressing-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.dressing-check input {
+  accent-color: var(--accent, #8e6658);
+}
+.dressing-check > span {
+  color: var(--muted, #776e67);
+  font-size: 11px;
+}
+.dressing-placement-title {
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+}
+.dressing-range {
+  display: block;
+  margin-bottom: 12px;
+}
+.dressing-range > span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  gap: 12px;
+}
+.dressing-range output {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted, #776e67);
+}
+.dressing-range input {
+  width: 100%;
+  height: 3px;
+  accent-color: var(--accent, #9d7565);
+  margin: 12px 0 0;
+}
+.dressing-season {
+  border-top: 1px solid var(--line, #ddd5cd);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.dressing-season > label,
+.dressing-name {
+  font-size: 11px;
+  display: block;
+}
+.dressing-season select,
+.dressing-name input {
+  display: block;
+  width: 100%;
+  padding: 11px 10px;
+  margin: 9px 0;
+  background: var(--ground, #f8f5ef);
+  border: 1px solid var(--line, #ddd5cd);
+  color: inherit;
+  font-size: 12px;
+}
+.dressing-palette-strip {
+  display: flex;
+  height: 23px;
+  margin: 14px 0;
+}
+.dressing-palette-strip span {
+  flex: 1;
+}
+.dressing-season p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted, #776e67);
+}
+.dressing-name {
+  margin-top: 24px;
+}
+.dressing-provider {
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--muted, #776e67);
+  margin-top: 16px;
+}
+.dressing-saved {
+  margin-top: 45px;
+  border-top: 1px solid var(--line, #ddd5cd);
+  padding-top: 26px;
+}
+.dressing-saved > p {
+  font-size: 13px;
+  color: var(--muted, #776e67);
+}
+.dressing-outfit-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 25px;
+}
+.dressing-outfit-list article {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  gap: 15px;
+  border-bottom: 1px solid var(--line, #ddd5cd);
+}
+.dressing-outfit-swatch {
+  width: 38px;
+  height: 46px;
+  flex: none;
+  clip-path: polygon(
+    25% 0,
+    75% 0,
+    100% 25%,
+    85% 40%,
+    75% 32%,
+    78% 100%,
+    22% 100%,
+    25% 32%,
+    15% 40%,
+    0 25%
+  );
+}
+.dressing-outfit-list article > div {
+  flex: 1;
+  min-width: 0;
+}
+.dressing-outfit-list h3 {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  overflow-wrap: anywhere;
+}
+.dressing-outfit-list p {
+  font-size: 11px;
+  color: var(--muted, #776e67);
+  margin: 0;
+}
+.dressing-room :focus-visible {
+  outline: 2px solid var(--accent, #916a5c);
+  outline-offset: 4px;
+}
+@media (max-width: 800px) {
+  .dressing-room {
+    padding-top: 22px;
+  }
+  .dressing-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .dressing-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+  .dressing-controls h2,
+  .dressing-upload-row,
+  .dressing-controls > .dressing-hint,
+  .dressing-colour-heading,
+  .dressing-swatches,
+  .dressing-placement-title,
+  .dressing-season,
+  .dressing-name,
+  .dressing-check,
+  .dressing-controls > .button,
+  .dressing-provider {
+    grid-column: 1/-1;
+  }
+  .dressing-stage canvas {
+    max-height: 600px;
+  }
+  .dressing-title {
+    align-items: flex-start;
+  }
+  .dressing-mode {
+    font-size: 11px;
+    padding: 8px;
+  }
+  .dressing-outfit-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 440px) {
+  .dressing-title {
+    display: block;
+  }
+  .dressing-mode {
+    display: inline-block;
+    margin-top: 8px;
+  }
+  .dressing-title h1 {
+    font-size: 39px;
+  }
+  .dressing-stage {
+    padding: 9px;
+  }
+  .dressing-stage-foot > span {
+    font-size: 11px;
+  }
+  .dressing-layout {
+    gap: 18px;
+  }
+}
+
+.dressing-saved button.dressing-restore {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  padding: 0;
+  min-height: 24px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.dressing-saved button.dressing-restore:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,73 @@
+{
+  "recordedAt": "2026-11-02T09:45:31.163Z",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "platform": "linux",
+  "results": [
+    {
+      "mode": "default headless (no usable GL driver)",
+      "browser": "157.0",
+      "capabilities": {
+        "webgl": false,
+        "webgl2": false,
+        "offscreenWebgl2": false,
+        "worker": false
+      },
+      "result": {
+        "error": "Error: Local face and hair processing needs a usable graphics context in this browser, including when inference uses the CPU. Enable browser graphics acceleration or try a graphics-enabled browser. You can still choose colour swatches manually and use your saved collections."
+      },
+      "fallback": null,
+      "elapsedMs": 0
+    },
+    {
+      "mode": "Xvfb :99 + Mesa llvmpipe, headed software graphics",
+      "browser": "157.0",
+      "capabilities": {
+        "webgl": true,
+        "webgl2": true,
+        "offscreenWebgl2": true,
+        "worker": true
+      },
+      "result": {
+        "points": 478,
+        "blendshapes": 52,
+        "hair": [
+          171,
+          256
+        ],
+        "hands": 1,
+        "latencyMs": 287,
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "ready"
+          },
+          "hands": {
+            "state": "ready"
+          }
+        }
+      },
+      "fallback": {
+        "points": 478,
+        "hair": [
+          171,
+          256
+        ],
+        "status": {
+          "face": {
+            "state": "ready"
+          },
+          "hair": {
+            "state": "ready"
+          },
+          "hands": {
+            "state": "idle"
+          }
+        }
+      },
+      "elapsedMs": 1585
+    }
+  ],
+  "limitations": "Software graphics/Xvfb is a test environment, not measured hardware performance. Default headless Firefox lacks usable GL here. A deliberate worker failure tests real main-thread fallback; its successful model output is not mocked."
+}

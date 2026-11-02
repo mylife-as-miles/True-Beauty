@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-11-02T09:06:43.952Z",
+  "browser": "154.0.8037.57",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "platform": "linux",
+  "photo": {
+    "landmarks": 478,
+    "hairMask": [
+      205,
+      256
+    ],
+    "latencyMs": 383.39999999990687,
+    "mainThreadTimerTicks": 39
+  },
+  "fakeVideo": {
+    "durationMs": 4510.600000000093,
+    "sourceResolution": [
+      480,
+      600
+    ],
+    "cameraStreamFrameRate": 30,
+    "uiRafFrames": 270,
+    "uiRafFPS": 59.85899880281879,
+    "renderIntervalP50Ms": 16.699999999999818,
+    "renderIntervalP95Ms": 16.700000000000728,
+    "inferenceBatchP50Ms": 39.3000000002794,
+    "inferenceBatchP95Ms": 110.39999999990687,
+    "landmarks": 478,
+    "scheduler": {
+      "slowdown": 2.384414451408592,
+      "meanCostMs": {
+        "face": 22.31003172875309,
+        "hair": 60.145947837810766,
+        "hands": 35.55073661486831
+      },
+      "targetHz": {
+        "face": 24,
+        "hair": 8,
+        "hands": 15
+      },
+      "runs": {
+        "face": 28,
+        "hair": 11,
+        "hands": 20
+      }
+    },
+    "error": null,
+    "tracksStopped": true
+  },
+  "limitations": "Canvas-captureStream repeating a static portrait. This checks scheduling, actual video-mode inference and responsiveness, not moving-face stability, real camera/mobile FPS or long-run memory leaks."
+}
